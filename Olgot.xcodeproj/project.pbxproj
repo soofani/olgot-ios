@@ -1,0 +1,305 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FFA4ED93155D12D8008CB4CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED92155D12D8008CB4CA /* UIKit.framework */; };
+		FFA4ED95155D12D8008CB4CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED94155D12D8008CB4CA /* Foundation.framework */; };
+		FFA4ED97155D12D8008CB4CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED96155D12D8008CB4CA /* CoreGraphics.framework */; };
+		FFA4ED9D155D12D8008CB4CA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFA4ED9B155D12D8008CB4CA /* InfoPlist.strings */; };
+		FFA4ED9F155D12D8008CB4CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA4ED9E155D12D8008CB4CA /* main.m */; };
+		FFA4EDA3155D12D8008CB4CA /* olgotAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA4EDA2155D12D8008CB4CA /* olgotAppDelegate.m */; };
+		FFA4EDA6155D12D8008CB4CA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFA4EDA4155D12D8008CB4CA /* MainStoryboard.storyboard */; };
+		FFA4EDA9155D12D8008CB4CA /* olgotFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA4EDA8155D12D8008CB4CA /* olgotFirstViewController.m */; };
+		FFA4EDAB155D12D8008CB4CA /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = FFA4EDAA155D12D8008CB4CA /* first.png */; };
+		FFA4EDAD155D12D8008CB4CA /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFA4EDAC155D12D8008CB4CA /* first@2x.png */; };
+		FFA4EDB0155D12D8008CB4CA /* olgotSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA4EDAF155D12D8008CB4CA /* olgotSecondViewController.m */; };
+		FFA4EDB2155D12D8008CB4CA /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = FFA4EDB1155D12D8008CB4CA /* second.png */; };
+		FFA4EDB4155D12D8008CB4CA /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFA4EDB3155D12D8008CB4CA /* second@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FFA4ED8E155D12D8008CB4CA /* Olgot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Olgot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFA4ED92155D12D8008CB4CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FFA4ED94155D12D8008CB4CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FFA4ED96155D12D8008CB4CA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FFA4ED9A155D12D8008CB4CA /* Olgot-Info.plist */ = {isa = PBXFileReference; path = "Olgot-Info.plist"; sourceTree = "<group>"; };
+		FFA4ED9C155D12D8008CB4CA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FFA4ED9E155D12D8008CB4CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FFA4EDA0155D12D8008CB4CA /* Olgot-Prefix.pch */ = {isa = PBXFileReference; path = "Olgot-Prefix.pch"; sourceTree = "<group>"; };
+		FFA4EDA1155D12D8008CB4CA /* olgotAppDelegate.h */ = {isa = PBXFileReference; path = olgotAppDelegate.h; sourceTree = "<group>"; };
+		FFA4EDA2155D12D8008CB4CA /* olgotAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = olgotAppDelegate.m; sourceTree = "<group>"; };
+		FFA4EDA5155D12D8008CB4CA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		FFA4EDA7155D12D8008CB4CA /* olgotFirstViewController.h */ = {isa = PBXFileReference; path = olgotFirstViewController.h; sourceTree = "<group>"; };
+		FFA4EDA8155D12D8008CB4CA /* olgotFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = olgotFirstViewController.m; sourceTree = "<group>"; };
+		FFA4EDAA155D12D8008CB4CA /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		FFA4EDAC155D12D8008CB4CA /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		FFA4EDAE155D12D8008CB4CA /* olgotSecondViewController.h */ = {isa = PBXFileReference; path = olgotSecondViewController.h; sourceTree = "<group>"; };
+		FFA4EDAF155D12D8008CB4CA /* olgotSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = olgotSecondViewController.m; sourceTree = "<group>"; };
+		FFA4EDB1155D12D8008CB4CA /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		FFA4EDB3155D12D8008CB4CA /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FFA4ED8B155D12D8008CB4CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFA4ED93155D12D8008CB4CA /* UIKit.framework in Frameworks */,
+				FFA4ED95155D12D8008CB4CA /* Foundation.framework in Frameworks */,
+				FFA4ED97155D12D8008CB4CA /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FFA4ED83155D12D8008CB4CA = {
+			isa = PBXGroup;
+			children = (
+				FFA4ED98155D12D8008CB4CA /* Olgot */,
+				FFA4ED91155D12D8008CB4CA /* Frameworks */,
+				FFA4ED8F155D12D8008CB4CA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FFA4ED8F155D12D8008CB4CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFA4ED8E155D12D8008CB4CA /* Olgot.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FFA4ED91155D12D8008CB4CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FFA4ED92155D12D8008CB4CA /* UIKit.framework */,
+				FFA4ED94155D12D8008CB4CA /* Foundation.framework */,
+				FFA4ED96155D12D8008CB4CA /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFA4ED98155D12D8008CB4CA /* Olgot */ = {
+			isa = PBXGroup;
+			children = (
+				FFA4EDA1155D12D8008CB4CA /* olgotAppDelegate.h */,
+				FFA4EDA2155D12D8008CB4CA /* olgotAppDelegate.m */,
+				FFA4EDA4155D12D8008CB4CA /* MainStoryboard.storyboard */,
+				FFA4EDA7155D12D8008CB4CA /* olgotFirstViewController.h */,
+				FFA4EDA8155D12D8008CB4CA /* olgotFirstViewController.m */,
+				FFA4EDAA155D12D8008CB4CA /* first.png */,
+				FFA4EDAC155D12D8008CB4CA /* first@2x.png */,
+				FFA4EDAE155D12D8008CB4CA /* olgotSecondViewController.h */,
+				FFA4EDAF155D12D8008CB4CA /* olgotSecondViewController.m */,
+				FFA4EDB1155D12D8008CB4CA /* second.png */,
+				FFA4EDB3155D12D8008CB4CA /* second@2x.png */,
+				FFA4ED99155D12D8008CB4CA /* Supporting Files */,
+			);
+			path = Olgot;
+			sourceTree = "<group>";
+		};
+		FFA4ED99155D12D8008CB4CA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FFA4ED9A155D12D8008CB4CA /* Olgot-Info.plist */,
+				FFA4ED9B155D12D8008CB4CA /* InfoPlist.strings */,
+				FFA4ED9E155D12D8008CB4CA /* main.m */,
+				FFA4EDA0155D12D8008CB4CA /* Olgot-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FFA4ED8D155D12D8008CB4CA /* Olgot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFA4EDB7155D12D8008CB4CA /* Build configuration list for PBXNativeTarget "Olgot" */;
+			buildPhases = (
+				FFA4ED8A155D12D8008CB4CA /* Sources */,
+				FFA4ED8B155D12D8008CB4CA /* Frameworks */,
+				FFA4ED8C155D12D8008CB4CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Olgot;
+			productName = Olgot;
+			productReference = FFA4ED8E155D12D8008CB4CA /* Olgot.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FFA4ED85155D12D8008CB4CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = olgot;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Not Another Fruit";
+			};
+			buildConfigurationList = FFA4ED88155D12D8008CB4CA /* Build configuration list for PBXProject "Olgot" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FFA4ED83155D12D8008CB4CA;
+			productRefGroup = FFA4ED8F155D12D8008CB4CA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FFA4ED8D155D12D8008CB4CA /* Olgot */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FFA4ED8C155D12D8008CB4CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFA4ED9D155D12D8008CB4CA /* InfoPlist.strings in Resources */,
+				FFA4EDA6155D12D8008CB4CA /* MainStoryboard.storyboard in Resources */,
+				FFA4EDAB155D12D8008CB4CA /* first.png in Resources */,
+				FFA4EDAD155D12D8008CB4CA /* first@2x.png in Resources */,
+				FFA4EDB2155D12D8008CB4CA /* second.png in Resources */,
+				FFA4EDB4155D12D8008CB4CA /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FFA4ED8A155D12D8008CB4CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFA4ED9F155D12D8008CB4CA /* main.m in Sources */,
+				FFA4EDA3155D12D8008CB4CA /* olgotAppDelegate.m in Sources */,
+				FFA4EDA9155D12D8008CB4CA /* olgotFirstViewController.m in Sources */,
+				FFA4EDB0155D12D8008CB4CA /* olgotSecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FFA4ED9B155D12D8008CB4CA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFA4ED9C155D12D8008CB4CA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FFA4EDA4155D12D8008CB4CA /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFA4EDA5155D12D8008CB4CA /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FFA4EDB5155D12D8008CB4CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FFA4EDB6155D12D8008CB4CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FFA4EDB8155D12D8008CB4CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Olgot/Olgot-Prefix.pch";
+				INFOPLIST_FILE = "Olgot/Olgot-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FFA4EDB9155D12D8008CB4CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Olgot/Olgot-Prefix.pch";
+				INFOPLIST_FILE = "Olgot/Olgot-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FFA4ED88155D12D8008CB4CA /* Build configuration list for PBXProject "Olgot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFA4EDB5155D12D8008CB4CA /* Debug */,
+				FFA4EDB6155D12D8008CB4CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFA4EDB7155D12D8008CB4CA /* Build configuration list for PBXNativeTarget "Olgot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFA4EDB8155D12D8008CB4CA /* Debug */,
+				FFA4EDB9155D12D8008CB4CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FFA4ED85155D12D8008CB4CA /* Project object */;
+}
