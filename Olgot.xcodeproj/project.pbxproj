@@ -30,8 +30,70 @@
 		FF10F2C9155D172400F4EC2E /* icon-tab-bar-profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF10F2B9155D172400F4EC2E /* icon-tab-bar-profile@2x.png */; };
 		FF10F2CC155D173800F4EC2E /* logo-140x74.png in Resources */ = {isa = PBXBuildFile; fileRef = FF10F2CA155D173800F4EC2E /* logo-140x74.png */; };
 		FF10F2CD155D173800F4EC2E /* logo-140x74@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF10F2CB155D173800F4EC2E /* logo-140x74@2x.png */; };
-		FF10F2D0155D174300F4EC2E /* btn-share-130x116.png in Resources */ = {isa = PBXBuildFile; fileRef = FF10F2CE155D174300F4EC2E /* btn-share-130x116.png */; };
-		FF10F2D1155D174300F4EC2E /* btn-share-130x116@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF10F2CF155D174300F4EC2E /* btn-share-130x116@2x.png */; };
+		FF10F2D8155D17F300F4EC2E /* bg-tab-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = FF10F2D4155D17F300F4EC2E /* bg-tab-bar.png */; };
+		FF10F2D9155D17F300F4EC2E /* bg-tab-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF10F2D5155D17F300F4EC2E /* bg-tab-bar@2x.png */; };
+		FF10F2FB155D205800F4EC2E /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF10F2F4155D1EB700F4EC2E /* libSSToolkit.a */; };
+		FF10F2FD155D206600F4EC2E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF10F2FC155D206600F4EC2E /* QuartzCore.framework */; };
+		FF10F301155D22FB00F4EC2E /* BoardBigTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF10F300155D22FB00F4EC2E /* BoardBigTile.xib */; };
+		FF10F303155D243E00F4EC2E /* BoardNormalTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF10F302155D243E00F4EC2E /* BoardNormalTile.xib */; };
+		FF10F305155D247C00F4EC2E /* BoardItemTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF10F304155D247C00F4EC2E /* BoardItemTile.xib */; };
+		FF263F0F155D5AC4005285DE /* olgotBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF263F0E155D5AC4005285DE /* olgotBoardViewController.m */; };
+		FF263F12155D5D91005285DE /* btn-share-130x116.png in Resources */ = {isa = PBXBuildFile; fileRef = FF263F10155D5D91005285DE /* btn-share-130x116.png */; };
+		FF263F13155D5D91005285DE /* btn-share-130x116@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF263F11155D5D91005285DE /* btn-share-130x116@2x.png */; };
+		FF26E25A15627EB300BECF4C /* icon-item-action-active.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E24A15627EB300BECF4C /* icon-item-action-active.png */; };
+		FF26E25B15627EB300BECF4C /* icon-item-action-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E24B15627EB300BECF4C /* icon-item-action-active@2x.png */; };
+		FF26E25C15627EB300BECF4C /* icon-item-action-comment-active.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E24C15627EB300BECF4C /* icon-item-action-comment-active.png */; };
+		FF26E25D15627EB300BECF4C /* icon-item-action-comment-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E24D15627EB300BECF4C /* icon-item-action-comment-active@2x.png */; };
+		FF26E25E15627EB300BECF4C /* icon-item-action-comment.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E24E15627EB300BECF4C /* icon-item-action-comment.png */; };
+		FF26E25F15627EB300BECF4C /* icon-item-action-comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E24F15627EB300BECF4C /* icon-item-action-comment@2x.png */; };
+		FF26E26015627EB300BECF4C /* icon-item-action-got-active.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E25015627EB300BECF4C /* icon-item-action-got-active.png */; };
+		FF26E26115627EB300BECF4C /* icon-item-action-got-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E25115627EB300BECF4C /* icon-item-action-got-active@2x.png */; };
+		FF26E26215627EB300BECF4C /* icon-item-action-got.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E25215627EB300BECF4C /* icon-item-action-got.png */; };
+		FF26E26315627EB300BECF4C /* icon-item-action-got@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E25315627EB300BECF4C /* icon-item-action-got@2x.png */; };
+		FF26E26415627EB300BECF4C /* icon-item-action-like-active.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E25415627EB300BECF4C /* icon-item-action-like-active.png */; };
+		FF26E26515627EB300BECF4C /* icon-item-action-like-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E25515627EB300BECF4C /* icon-item-action-like-active@2x.png */; };
+		FF26E26615627EB300BECF4C /* icon-item-action-like.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E25615627EB300BECF4C /* icon-item-action-like.png */; };
+		FF26E26715627EB300BECF4C /* icon-item-action-like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E25715627EB300BECF4C /* icon-item-action-like@2x.png */; };
+		FF26E26815627EB300BECF4C /* icon-item-action-want.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E25815627EB300BECF4C /* icon-item-action-want.png */; };
+		FF26E26915627EB300BECF4C /* icon-item-action-want@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E25915627EB300BECF4C /* icon-item-action-want@2x.png */; };
+		FF26E26C1562807E00BECF4C /* olgotVenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF26E26B1562807E00BECF4C /* olgotVenueViewController.m */; };
+		FF26E26E1562819E00BECF4C /* VenueCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF26E26D1562819E00BECF4C /* VenueCard.xib */; };
+		FF26E2701562857200BECF4C /* VenueItemTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF26E26F1562857200BECF4C /* VenueItemTile.xib */; };
+		FF26E27315628BF300BECF4C /* btn-nav-add-item.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E27115628BF300BECF4C /* btn-nav-add-item.png */; };
+		FF26E27415628BF300BECF4C /* btn-nav-add-item@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E27215628BF300BECF4C /* btn-nav-add-item@2x.png */; };
+		FF26E277156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF26E276156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.m */; };
+		FF26E27D1562A81700BECF4C /* icon-happy-face.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E27B1562A81700BECF4C /* icon-happy-face.png */; };
+		FF26E27E1562A81700BECF4C /* icon-happy-face@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E27C1562A81700BECF4C /* icon-happy-face@2x.png */; };
+		FF26E2811562A84F00BECF4C /* icon-cat-cart.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E27F1562A84F00BECF4C /* icon-cat-cart.png */; };
+		FF26E2821562A84F00BECF4C /* icon-cat-cart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E2801562A84F00BECF4C /* icon-cat-cart@2x.png */; };
+		FF26E2851562A90600BECF4C /* olgotAddItemConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF26E2841562A90600BECF4C /* olgotAddItemConfirmationViewController.m */; };
+		FF26E2881562B62500BECF4C /* btn-nav-board.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E2861562B62500BECF4C /* btn-nav-board.png */; };
+		FF26E2891562B62500BECF4C /* btn-nav-board@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26E2871562B62500BECF4C /* btn-nav-board@2x.png */; };
+		FF27736915625DAB0062EBA9 /* olgotMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF27736815625DAB0062EBA9 /* olgotMapViewController.m */; };
+		FF27736C156260010062EBA9 /* btn-nav-map.png in Resources */ = {isa = PBXBuildFile; fileRef = FF27736A156260010062EBA9 /* btn-nav-map.png */; };
+		FF27736D156260010062EBA9 /* btn-nav-map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF27736B156260010062EBA9 /* btn-nav-map@2x.png */; };
+		FF33102D156502F50083602B /* olgotAddItemDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF33102C156502F50083602B /* olgotAddItemDetailsViewController.m */; };
+		FF621A47155D3D71004D059F /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FF621A45155D3D71004D059F /* bg.png */; };
+		FF621A48155D3D71004D059F /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF621A46155D3D71004D059F /* bg@2x.png */; };
+		FF621A55155D4800004D059F /* LovelyItemTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF621A54155D4800004D059F /* LovelyItemTile.xib */; };
+		FF916C131560FD0B004C6A86 /* raed-nav-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C121560FD0B004C6A86 /* raed-nav-bg.png */; };
+		FF916C1515610D22004C6A86 /* UserProfileHeaderTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF916C1415610D22004C6A86 /* UserProfileHeaderTile.xib */; };
+		FF916C1C1561363F004C6A86 /* olgotItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF916C1B1561363F004C6A86 /* olgotItemViewController.m */; };
+		FF916C2115613E78004C6A86 /* btn-nav-back.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C1F15613E78004C6A86 /* btn-nav-back.png */; };
+		FF916C2215613E78004C6A86 /* btn-nav-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C2015613E78004C6A86 /* btn-nav-back@2x.png */; };
+		FF916C251561419B004C6A86 /* bg-nav-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C231561419B004C6A86 /* bg-nav-bar.png */; };
+		FF916C261561419B004C6A86 /* bg-nav-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C241561419B004C6A86 /* bg-nav-bar@2x.png */; };
+		FF916C331561563D004C6A86 /* SignupStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF916C321561563C004C6A86 /* SignupStoryboard.storyboard */; };
+		FF916C36156157FF004C6A86 /* btn-join-twitter-420x80.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C34156157FF004C6A86 /* btn-join-twitter-420x80.png */; };
+		FF916C37156157FF004C6A86 /* btn-join-twitter-420x80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C35156157FF004C6A86 /* btn-join-twitter-420x80@2x.png */; };
+		FF916C3C15615824004C6A86 /* logo-380x200.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C3815615823004C6A86 /* logo-380x200.png */; };
+		FF916C3D15615824004C6A86 /* logo-380x200@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C3915615823004C6A86 /* logo-380x200@2x.png */; };
+		FF916C3E15615824004C6A86 /* slogan-390x50.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C3A15615824004C6A86 /* slogan-390x50.png */; };
+		FF916C3F15615824004C6A86 /* slogan-390x50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C3B15615824004C6A86 /* slogan-390x50@2x.png */; };
+		FF916C4215616156004C6A86 /* btn-select-username.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C4015616156004C6A86 /* btn-select-username.png */; };
+		FF916C4315616156004C6A86 /* btn-select-username@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C4115616156004C6A86 /* btn-select-username@2x.png */; };
+		FF916C4615616485004C6A86 /* olgotSignupRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF916C4515616485004C6A86 /* olgotSignupRootViewController.m */; };
+		FF916C49156165EE004C6A86 /* olgotChooseUsernameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF916C48156165EE004C6A86 /* olgotChooseUsernameViewController.m */; };
 		FFA4ED93155D12D8008CB4CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED92155D12D8008CB4CA /* UIKit.framework */; };
 		FFA4ED95155D12D8008CB4CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED94155D12D8008CB4CA /* Foundation.framework */; };
 		FFA4ED97155D12D8008CB4CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED96155D12D8008CB4CA /* CoreGraphics.framework */; };
@@ -39,7 +101,40 @@
 		FFA4ED9F155D12D8008CB4CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA4ED9E155D12D8008CB4CA /* main.m */; };
 		FFA4EDA3155D12D8008CB4CA /* olgotAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFA4EDA2155D12D8008CB4CA /* olgotAppDelegate.m */; };
 		FFA4EDA6155D12D8008CB4CA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFA4EDA4155D12D8008CB4CA /* MainStoryboard.storyboard */; };
+		FFDCBDF71562621900FB8009 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDCBDF61562621800FB8009 /* MobileCoreServices.framework */; };
+		FFDCBDF91562622800FB8009 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDCBDF81562622800FB8009 /* MapKit.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF10F2F3155D1EB700F4EC2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF10F2E9155D1EB600F4EC2E /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = SSToolkit;
+		};
+		FF10F2F5155D1EB700F4EC2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF10F2E9155D1EB600F4EC2E /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B239101D1357DC3E00ADE21B;
+			remoteInfo = SSToolkitTests;
+		};
+		FF10F2F7155D1EB700F4EC2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF10F2E9155D1EB600F4EC2E /* SSToolkit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B2C507EA151BA64400E94614;
+			remoteInfo = SSToolkitResources;
+		};
+		FF10F2F9155D204300F4EC2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF10F2E9155D1EB600F4EC2E /* SSToolkit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = SSToolkit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		FF10F298155D167400F4EC2E /* olgotExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotExploreViewController.h; path = ViewControllers/olgotExploreViewController.h; sourceTree = "<group>"; };
@@ -70,8 +165,79 @@
 		FF10F2B9155D172400F4EC2E /* icon-tab-bar-profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tab-bar-profile@2x.png"; sourceTree = "<group>"; };
 		FF10F2CA155D173800F4EC2E /* logo-140x74.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-140x74.png"; sourceTree = "<group>"; };
 		FF10F2CB155D173800F4EC2E /* logo-140x74@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-140x74@2x.png"; sourceTree = "<group>"; };
-		FF10F2CE155D174300F4EC2E /* btn-share-130x116.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-share-130x116.png"; sourceTree = "<group>"; };
-		FF10F2CF155D174300F4EC2E /* btn-share-130x116@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-share-130x116@2x.png"; sourceTree = "<group>"; };
+		FF10F2D4155D17F300F4EC2E /* bg-tab-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-tab-bar.png"; sourceTree = "<group>"; };
+		FF10F2D5155D17F300F4EC2E /* bg-tab-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-tab-bar@2x.png"; sourceTree = "<group>"; };
+		FF10F2E9155D1EB600F4EC2E /* SSToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSToolkit.xcodeproj; path = Vendor/SSToolkit/SSToolkit.xcodeproj; sourceTree = "<group>"; };
+		FF10F2FC155D206600F4EC2E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FF10F300155D22FB00F4EC2E /* BoardBigTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardBigTile.xib; sourceTree = "<group>"; };
+		FF10F302155D243E00F4EC2E /* BoardNormalTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardNormalTile.xib; sourceTree = "<group>"; };
+		FF10F304155D247C00F4EC2E /* BoardItemTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardItemTile.xib; sourceTree = "<group>"; };
+		FF263F0D155D5AC4005285DE /* olgotBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotBoardViewController.h; path = ViewControllers/olgotBoardViewController.h; sourceTree = "<group>"; };
+		FF263F0E155D5AC4005285DE /* olgotBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotBoardViewController.m; path = ViewControllers/olgotBoardViewController.m; sourceTree = "<group>"; };
+		FF263F10155D5D91005285DE /* btn-share-130x116.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-share-130x116.png"; path = "../../../../Dropbox/Olgot - Raed/Bits/2- Explore/btn-share-130x116.png"; sourceTree = "<group>"; };
+		FF263F11155D5D91005285DE /* btn-share-130x116@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-share-130x116@2x.png"; path = "../../../../Dropbox/Olgot - Raed/Bits/2- Explore/btn-share-130x116@2x.png"; sourceTree = "<group>"; };
+		FF26E24A15627EB300BECF4C /* icon-item-action-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-active.png"; sourceTree = "<group>"; };
+		FF26E24B15627EB300BECF4C /* icon-item-action-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-active@2x.png"; sourceTree = "<group>"; };
+		FF26E24C15627EB300BECF4C /* icon-item-action-comment-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-comment-active.png"; sourceTree = "<group>"; };
+		FF26E24D15627EB300BECF4C /* icon-item-action-comment-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-comment-active@2x.png"; sourceTree = "<group>"; };
+		FF26E24E15627EB300BECF4C /* icon-item-action-comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-comment.png"; sourceTree = "<group>"; };
+		FF26E24F15627EB300BECF4C /* icon-item-action-comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-comment@2x.png"; sourceTree = "<group>"; };
+		FF26E25015627EB300BECF4C /* icon-item-action-got-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-got-active.png"; sourceTree = "<group>"; };
+		FF26E25115627EB300BECF4C /* icon-item-action-got-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-got-active@2x.png"; sourceTree = "<group>"; };
+		FF26E25215627EB300BECF4C /* icon-item-action-got.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-got.png"; sourceTree = "<group>"; };
+		FF26E25315627EB300BECF4C /* icon-item-action-got@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-got@2x.png"; sourceTree = "<group>"; };
+		FF26E25415627EB300BECF4C /* icon-item-action-like-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-like-active.png"; sourceTree = "<group>"; };
+		FF26E25515627EB300BECF4C /* icon-item-action-like-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-like-active@2x.png"; sourceTree = "<group>"; };
+		FF26E25615627EB300BECF4C /* icon-item-action-like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-like.png"; sourceTree = "<group>"; };
+		FF26E25715627EB300BECF4C /* icon-item-action-like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-like@2x.png"; sourceTree = "<group>"; };
+		FF26E25815627EB300BECF4C /* icon-item-action-want.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-want.png"; sourceTree = "<group>"; };
+		FF26E25915627EB300BECF4C /* icon-item-action-want@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-want@2x.png"; sourceTree = "<group>"; };
+		FF26E26A1562807E00BECF4C /* olgotVenueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotVenueViewController.h; path = ViewControllers/olgotVenueViewController.h; sourceTree = "<group>"; };
+		FF26E26B1562807E00BECF4C /* olgotVenueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotVenueViewController.m; path = ViewControllers/olgotVenueViewController.m; sourceTree = "<group>"; };
+		FF26E26D1562819E00BECF4C /* VenueCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueCard.xib; sourceTree = "<group>"; };
+		FF26E26F1562857200BECF4C /* VenueItemTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueItemTile.xib; sourceTree = "<group>"; };
+		FF26E27115628BF300BECF4C /* btn-nav-add-item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-nav-add-item.png"; sourceTree = "<group>"; };
+		FF26E27215628BF300BECF4C /* btn-nav-add-item@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-nav-add-item@2x.png"; sourceTree = "<group>"; };
+		FF26E275156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotAddItemNearbyPlacesViewController.h; path = ViewControllers/olgotAddItemNearbyPlacesViewController.h; sourceTree = "<group>"; };
+		FF26E276156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotAddItemNearbyPlacesViewController.m; path = ViewControllers/olgotAddItemNearbyPlacesViewController.m; sourceTree = "<group>"; };
+		FF26E27B1562A81700BECF4C /* icon-happy-face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-happy-face.png"; sourceTree = "<group>"; };
+		FF26E27C1562A81700BECF4C /* icon-happy-face@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-happy-face@2x.png"; sourceTree = "<group>"; };
+		FF26E27F1562A84F00BECF4C /* icon-cat-cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cat-cart.png"; sourceTree = "<group>"; };
+		FF26E2801562A84F00BECF4C /* icon-cat-cart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cat-cart@2x.png"; sourceTree = "<group>"; };
+		FF26E2831562A90500BECF4C /* olgotAddItemConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotAddItemConfirmationViewController.h; path = ViewControllers/olgotAddItemConfirmationViewController.h; sourceTree = "<group>"; };
+		FF26E2841562A90600BECF4C /* olgotAddItemConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotAddItemConfirmationViewController.m; path = ViewControllers/olgotAddItemConfirmationViewController.m; sourceTree = "<group>"; };
+		FF26E2861562B62500BECF4C /* btn-nav-board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-nav-board.png"; sourceTree = "<group>"; };
+		FF26E2871562B62500BECF4C /* btn-nav-board@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-nav-board@2x.png"; sourceTree = "<group>"; };
+		FF27736715625DAB0062EBA9 /* olgotMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotMapViewController.h; path = ViewControllers/olgotMapViewController.h; sourceTree = "<group>"; };
+		FF27736815625DAB0062EBA9 /* olgotMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotMapViewController.m; path = ViewControllers/olgotMapViewController.m; sourceTree = "<group>"; };
+		FF27736A156260010062EBA9 /* btn-nav-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-nav-map.png"; sourceTree = "<group>"; };
+		FF27736B156260010062EBA9 /* btn-nav-map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-nav-map@2x.png"; sourceTree = "<group>"; };
+		FF33102B156502F50083602B /* olgotAddItemDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotAddItemDetailsViewController.h; path = ViewControllers/olgotAddItemDetailsViewController.h; sourceTree = "<group>"; };
+		FF33102C156502F50083602B /* olgotAddItemDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotAddItemDetailsViewController.m; path = ViewControllers/olgotAddItemDetailsViewController.m; sourceTree = "<group>"; };
+		FF621A45155D3D71004D059F /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg.png; path = "../../../../Dropbox/Olgot - Raed/Bits/1- Signup/bg.png"; sourceTree = "<group>"; };
+		FF621A46155D3D71004D059F /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg@2x.png"; path = "../../../../Dropbox/Olgot - Raed/Bits/1- Signup/bg@2x.png"; sourceTree = "<group>"; };
+		FF621A54155D4800004D059F /* LovelyItemTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LovelyItemTile.xib; sourceTree = "<group>"; };
+		FF916C121560FD0B004C6A86 /* raed-nav-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "raed-nav-bg.png"; sourceTree = "<group>"; };
+		FF916C1415610D22004C6A86 /* UserProfileHeaderTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileHeaderTile.xib; sourceTree = "<group>"; };
+		FF916C1A1561363F004C6A86 /* olgotItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotItemViewController.h; path = ViewControllers/olgotItemViewController.h; sourceTree = "<group>"; };
+		FF916C1B1561363F004C6A86 /* olgotItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotItemViewController.m; path = ViewControllers/olgotItemViewController.m; sourceTree = "<group>"; };
+		FF916C1F15613E78004C6A86 /* btn-nav-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-nav-back.png"; sourceTree = "<group>"; };
+		FF916C2015613E78004C6A86 /* btn-nav-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-nav-back@2x.png"; sourceTree = "<group>"; };
+		FF916C231561419B004C6A86 /* bg-nav-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-nav-bar.png"; sourceTree = "<group>"; };
+		FF916C241561419B004C6A86 /* bg-nav-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-nav-bar@2x.png"; sourceTree = "<group>"; };
+		FF916C321561563C004C6A86 /* SignupStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignupStoryboard.storyboard; sourceTree = "<group>"; };
+		FF916C34156157FF004C6A86 /* btn-join-twitter-420x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-join-twitter-420x80.png"; sourceTree = "<group>"; };
+		FF916C35156157FF004C6A86 /* btn-join-twitter-420x80@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-join-twitter-420x80@2x.png"; sourceTree = "<group>"; };
+		FF916C3815615823004C6A86 /* logo-380x200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-380x200.png"; sourceTree = "<group>"; };
+		FF916C3915615823004C6A86 /* logo-380x200@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-380x200@2x.png"; sourceTree = "<group>"; };
+		FF916C3A15615824004C6A86 /* slogan-390x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slogan-390x50.png"; sourceTree = "<group>"; };
+		FF916C3B15615824004C6A86 /* slogan-390x50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slogan-390x50@2x.png"; sourceTree = "<group>"; };
+		FF916C4015616156004C6A86 /* btn-select-username.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-select-username.png"; sourceTree = "<group>"; };
+		FF916C4115616156004C6A86 /* btn-select-username@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-select-username@2x.png"; sourceTree = "<group>"; };
+		FF916C4415616485004C6A86 /* olgotSignupRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotSignupRootViewController.h; path = ViewControllers/olgotSignupRootViewController.h; sourceTree = "<group>"; };
+		FF916C4515616485004C6A86 /* olgotSignupRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotSignupRootViewController.m; path = ViewControllers/olgotSignupRootViewController.m; sourceTree = "<group>"; };
+		FF916C47156165ED004C6A86 /* olgotChooseUsernameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotChooseUsernameViewController.h; path = ViewControllers/olgotChooseUsernameViewController.h; sourceTree = "<group>"; };
+		FF916C48156165EE004C6A86 /* olgotChooseUsernameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotChooseUsernameViewController.m; path = ViewControllers/olgotChooseUsernameViewController.m; sourceTree = "<group>"; };
 		FFA4ED8E155D12D8008CB4CA /* Olgot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Olgot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFA4ED92155D12D8008CB4CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FFA4ED94155D12D8008CB4CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -83,6 +249,8 @@
 		FFA4EDA1155D12D8008CB4CA /* olgotAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = olgotAppDelegate.h; sourceTree = "<group>"; };
 		FFA4EDA2155D12D8008CB4CA /* olgotAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = olgotAppDelegate.m; sourceTree = "<group>"; };
 		FFA4EDA5155D12D8008CB4CA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		FFDCBDF61562621800FB8009 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		FFDCBDF81562622800FB8009 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +258,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFDCBDF91562622800FB8009 /* MapKit.framework in Frameworks */,
+				FFDCBDF71562621900FB8009 /* MobileCoreServices.framework in Frameworks */,
+				FF10F2FD155D206600F4EC2E /* QuartzCore.framework in Frameworks */,
+				FF10F2FB155D205800F4EC2E /* libSSToolkit.a in Frameworks */,
 				FFA4ED93155D12D8008CB4CA /* UIKit.framework in Frameworks */,
 				FFA4ED95155D12D8008CB4CA /* Foundation.framework in Frameworks */,
 				FFA4ED97155D12D8008CB4CA /* CoreGraphics.framework in Frameworks */,
@@ -112,6 +284,24 @@
 				FF10F2A3155D16C000F4EC2E /* olgotProfileViewController.m */,
 				FF10F2A5155D16D400F4EC2E /* olgotMoreViewController.h */,
 				FF10F2A6155D16D400F4EC2E /* olgotMoreViewController.m */,
+				FF263F0D155D5AC4005285DE /* olgotBoardViewController.h */,
+				FF263F0E155D5AC4005285DE /* olgotBoardViewController.m */,
+				FF916C1A1561363F004C6A86 /* olgotItemViewController.h */,
+				FF916C1B1561363F004C6A86 /* olgotItemViewController.m */,
+				FF916C4415616485004C6A86 /* olgotSignupRootViewController.h */,
+				FF916C4515616485004C6A86 /* olgotSignupRootViewController.m */,
+				FF916C47156165ED004C6A86 /* olgotChooseUsernameViewController.h */,
+				FF916C48156165EE004C6A86 /* olgotChooseUsernameViewController.m */,
+				FF27736715625DAB0062EBA9 /* olgotMapViewController.h */,
+				FF27736815625DAB0062EBA9 /* olgotMapViewController.m */,
+				FF26E26A1562807E00BECF4C /* olgotVenueViewController.h */,
+				FF26E26B1562807E00BECF4C /* olgotVenueViewController.m */,
+				FF26E275156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.h */,
+				FF26E276156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.m */,
+				FF33102B156502F50083602B /* olgotAddItemDetailsViewController.h */,
+				FF33102C156502F50083602B /* olgotAddItemDetailsViewController.m */,
+				FF26E2831562A90500BECF4C /* olgotAddItemConfirmationViewController.h */,
+				FF26E2841562A90600BECF4C /* olgotAddItemConfirmationViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -119,6 +309,45 @@
 		FF10F2A9155D16F500F4EC2E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				FF26E2861562B62500BECF4C /* btn-nav-board.png */,
+				FF26E2871562B62500BECF4C /* btn-nav-board@2x.png */,
+				FF26E27F1562A84F00BECF4C /* icon-cat-cart.png */,
+				FF26E2801562A84F00BECF4C /* icon-cat-cart@2x.png */,
+				FF26E27B1562A81700BECF4C /* icon-happy-face.png */,
+				FF26E27C1562A81700BECF4C /* icon-happy-face@2x.png */,
+				FF26E27115628BF300BECF4C /* btn-nav-add-item.png */,
+				FF26E27215628BF300BECF4C /* btn-nav-add-item@2x.png */,
+				FF26E24A15627EB300BECF4C /* icon-item-action-active.png */,
+				FF26E24B15627EB300BECF4C /* icon-item-action-active@2x.png */,
+				FF26E24C15627EB300BECF4C /* icon-item-action-comment-active.png */,
+				FF26E24D15627EB300BECF4C /* icon-item-action-comment-active@2x.png */,
+				FF26E24E15627EB300BECF4C /* icon-item-action-comment.png */,
+				FF26E24F15627EB300BECF4C /* icon-item-action-comment@2x.png */,
+				FF26E25015627EB300BECF4C /* icon-item-action-got-active.png */,
+				FF26E25115627EB300BECF4C /* icon-item-action-got-active@2x.png */,
+				FF26E25215627EB300BECF4C /* icon-item-action-got.png */,
+				FF26E25315627EB300BECF4C /* icon-item-action-got@2x.png */,
+				FF26E25415627EB300BECF4C /* icon-item-action-like-active.png */,
+				FF26E25515627EB300BECF4C /* icon-item-action-like-active@2x.png */,
+				FF26E25615627EB300BECF4C /* icon-item-action-like.png */,
+				FF26E25715627EB300BECF4C /* icon-item-action-like@2x.png */,
+				FF26E25815627EB300BECF4C /* icon-item-action-want.png */,
+				FF26E25915627EB300BECF4C /* icon-item-action-want@2x.png */,
+				FF27736A156260010062EBA9 /* btn-nav-map.png */,
+				FF27736B156260010062EBA9 /* btn-nav-map@2x.png */,
+				FF916C4015616156004C6A86 /* btn-select-username.png */,
+				FF916C4115616156004C6A86 /* btn-select-username@2x.png */,
+				FF916C3815615823004C6A86 /* logo-380x200.png */,
+				FF916C3915615823004C6A86 /* logo-380x200@2x.png */,
+				FF916C3A15615824004C6A86 /* slogan-390x50.png */,
+				FF916C3B15615824004C6A86 /* slogan-390x50@2x.png */,
+				FF916C34156157FF004C6A86 /* btn-join-twitter-420x80.png */,
+				FF916C35156157FF004C6A86 /* btn-join-twitter-420x80@2x.png */,
+				FF916C1F15613E78004C6A86 /* btn-nav-back.png */,
+				FF916C2015613E78004C6A86 /* btn-nav-back@2x.png */,
+				FF916C121560FD0B004C6A86 /* raed-nav-bg.png */,
+				FF621A45155D3D71004D059F /* bg.png */,
+				FF621A46155D3D71004D059F /* bg@2x.png */,
 				FF10F2CA155D173800F4EC2E /* logo-140x74.png */,
 				FF10F2CB155D173800F4EC2E /* logo-140x74@2x.png */,
 				FF10F2AA155D172400F4EC2E /* icon-tab-bar-explore-active.png */,
@@ -137,15 +366,47 @@
 				FF10F2B7155D172400F4EC2E /* icon-tab-bar-profile-active@2x.png */,
 				FF10F2B8155D172400F4EC2E /* icon-tab-bar-profile.png */,
 				FF10F2B9155D172400F4EC2E /* icon-tab-bar-profile@2x.png */,
-				FF10F2CE155D174300F4EC2E /* btn-share-130x116.png */,
-				FF10F2CF155D174300F4EC2E /* btn-share-130x116@2x.png */,
+				FF263F10155D5D91005285DE /* btn-share-130x116.png */,
+				FF263F11155D5D91005285DE /* btn-share-130x116@2x.png */,
+				FF10F2D4155D17F300F4EC2E /* bg-tab-bar.png */,
+				FF10F2D5155D17F300F4EC2E /* bg-tab-bar@2x.png */,
+				FF916C231561419B004C6A86 /* bg-nav-bar.png */,
+				FF916C241561419B004C6A86 /* bg-nav-bar@2x.png */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		FF10F2EA155D1EB600F4EC2E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF10F2F4155D1EB700F4EC2E /* libSSToolkit.a */,
+				FF10F2F6155D1EB700F4EC2E /* SSToolkitTests.app */,
+				FF10F2F8155D1EB700F4EC2E /* SSToolkitResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF10F2FF155D22B200F4EC2E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FF10F300155D22FB00F4EC2E /* BoardBigTile.xib */,
+				FF916C1415610D22004C6A86 /* UserProfileHeaderTile.xib */,
+				FF10F302155D243E00F4EC2E /* BoardNormalTile.xib */,
+				FF10F304155D247C00F4EC2E /* BoardItemTile.xib */,
+				FF621A54155D4800004D059F /* LovelyItemTile.xib */,
+				FF26E26F1562857200BECF4C /* VenueItemTile.xib */,
+				FF26E26D1562819E00BECF4C /* VenueCard.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		FFA4ED83155D12D8008CB4CA = {
 			isa = PBXGroup;
 			children = (
+				FFDCBDF81562622800FB8009 /* MapKit.framework */,
+				FFDCBDF61562621800FB8009 /* MobileCoreServices.framework */,
+				FF10F2FC155D206600F4EC2E /* QuartzCore.framework */,
+				FF10F2E9155D1EB600F4EC2E /* SSToolkit.xcodeproj */,
 				FFA4ED98155D12D8008CB4CA /* Olgot */,
 				FFA4ED91155D12D8008CB4CA /* Frameworks */,
 				FFA4ED8F155D12D8008CB4CA /* Products */,
@@ -173,10 +434,12 @@
 		FFA4ED98155D12D8008CB4CA /* Olgot */ = {
 			isa = PBXGroup;
 			children = (
-				FF10F2A9155D16F500F4EC2E /* Assets */,
 				FFA4EDA1155D12D8008CB4CA /* olgotAppDelegate.h */,
 				FFA4EDA2155D12D8008CB4CA /* olgotAppDelegate.m */,
 				FFA4EDA4155D12D8008CB4CA /* MainStoryboard.storyboard */,
+				FF916C321561563C004C6A86 /* SignupStoryboard.storyboard */,
+				FF10F2FF155D22B200F4EC2E /* Views */,
+				FF10F2A9155D16F500F4EC2E /* Assets */,
 				FF10F2A8155D16DA00F4EC2E /* View Controllers */,
 				FFA4ED99155D12D8008CB4CA /* Supporting Files */,
 			);
@@ -208,6 +471,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FF10F2FA155D204300F4EC2E /* PBXTargetDependency */,
 			);
 			name = Olgot;
 			productName = Olgot;
@@ -234,12 +498,42 @@
 			mainGroup = FFA4ED83155D12D8008CB4CA;
 			productRefGroup = FFA4ED8F155D12D8008CB4CA /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FF10F2EA155D1EB600F4EC2E /* Products */;
+					ProjectRef = FF10F2E9155D1EB600F4EC2E /* SSToolkit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				FFA4ED8D155D12D8008CB4CA /* Olgot */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FF10F2F4155D1EB700F4EC2E /* libSSToolkit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSSToolkit.a;
+			remoteRef = FF10F2F3155D1EB700F4EC2E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FF10F2F6155D1EB700F4EC2E /* SSToolkitTests.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SSToolkitTests.app;
+			remoteRef = FF10F2F5155D1EB700F4EC2E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FF10F2F8155D1EB700F4EC2E /* SSToolkitResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SSToolkitResources.bundle;
+			remoteRef = FF10F2F7155D1EB700F4EC2E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FFA4ED8C155D12D8008CB4CA /* Resources */ = {
@@ -266,8 +560,59 @@
 				FF10F2C9155D172400F4EC2E /* icon-tab-bar-profile@2x.png in Resources */,
 				FF10F2CC155D173800F4EC2E /* logo-140x74.png in Resources */,
 				FF10F2CD155D173800F4EC2E /* logo-140x74@2x.png in Resources */,
-				FF10F2D0155D174300F4EC2E /* btn-share-130x116.png in Resources */,
-				FF10F2D1155D174300F4EC2E /* btn-share-130x116@2x.png in Resources */,
+				FF10F2D8155D17F300F4EC2E /* bg-tab-bar.png in Resources */,
+				FF10F2D9155D17F300F4EC2E /* bg-tab-bar@2x.png in Resources */,
+				FF10F301155D22FB00F4EC2E /* BoardBigTile.xib in Resources */,
+				FF10F303155D243E00F4EC2E /* BoardNormalTile.xib in Resources */,
+				FF10F305155D247C00F4EC2E /* BoardItemTile.xib in Resources */,
+				FF621A47155D3D71004D059F /* bg.png in Resources */,
+				FF621A48155D3D71004D059F /* bg@2x.png in Resources */,
+				FF621A55155D4800004D059F /* LovelyItemTile.xib in Resources */,
+				FF263F12155D5D91005285DE /* btn-share-130x116.png in Resources */,
+				FF263F13155D5D91005285DE /* btn-share-130x116@2x.png in Resources */,
+				FF916C131560FD0B004C6A86 /* raed-nav-bg.png in Resources */,
+				FF916C1515610D22004C6A86 /* UserProfileHeaderTile.xib in Resources */,
+				FF916C2115613E78004C6A86 /* btn-nav-back.png in Resources */,
+				FF916C2215613E78004C6A86 /* btn-nav-back@2x.png in Resources */,
+				FF916C251561419B004C6A86 /* bg-nav-bar.png in Resources */,
+				FF916C261561419B004C6A86 /* bg-nav-bar@2x.png in Resources */,
+				FF916C331561563D004C6A86 /* SignupStoryboard.storyboard in Resources */,
+				FF916C36156157FF004C6A86 /* btn-join-twitter-420x80.png in Resources */,
+				FF916C37156157FF004C6A86 /* btn-join-twitter-420x80@2x.png in Resources */,
+				FF916C3C15615824004C6A86 /* logo-380x200.png in Resources */,
+				FF916C3D15615824004C6A86 /* logo-380x200@2x.png in Resources */,
+				FF916C3E15615824004C6A86 /* slogan-390x50.png in Resources */,
+				FF916C3F15615824004C6A86 /* slogan-390x50@2x.png in Resources */,
+				FF916C4215616156004C6A86 /* btn-select-username.png in Resources */,
+				FF916C4315616156004C6A86 /* btn-select-username@2x.png in Resources */,
+				FF27736C156260010062EBA9 /* btn-nav-map.png in Resources */,
+				FF27736D156260010062EBA9 /* btn-nav-map@2x.png in Resources */,
+				FF26E25A15627EB300BECF4C /* icon-item-action-active.png in Resources */,
+				FF26E25B15627EB300BECF4C /* icon-item-action-active@2x.png in Resources */,
+				FF26E25C15627EB300BECF4C /* icon-item-action-comment-active.png in Resources */,
+				FF26E25D15627EB300BECF4C /* icon-item-action-comment-active@2x.png in Resources */,
+				FF26E25E15627EB300BECF4C /* icon-item-action-comment.png in Resources */,
+				FF26E25F15627EB300BECF4C /* icon-item-action-comment@2x.png in Resources */,
+				FF26E26015627EB300BECF4C /* icon-item-action-got-active.png in Resources */,
+				FF26E26115627EB300BECF4C /* icon-item-action-got-active@2x.png in Resources */,
+				FF26E26215627EB300BECF4C /* icon-item-action-got.png in Resources */,
+				FF26E26315627EB300BECF4C /* icon-item-action-got@2x.png in Resources */,
+				FF26E26415627EB300BECF4C /* icon-item-action-like-active.png in Resources */,
+				FF26E26515627EB300BECF4C /* icon-item-action-like-active@2x.png in Resources */,
+				FF26E26615627EB300BECF4C /* icon-item-action-like.png in Resources */,
+				FF26E26715627EB300BECF4C /* icon-item-action-like@2x.png in Resources */,
+				FF26E26815627EB300BECF4C /* icon-item-action-want.png in Resources */,
+				FF26E26915627EB300BECF4C /* icon-item-action-want@2x.png in Resources */,
+				FF26E26E1562819E00BECF4C /* VenueCard.xib in Resources */,
+				FF26E2701562857200BECF4C /* VenueItemTile.xib in Resources */,
+				FF26E27315628BF300BECF4C /* btn-nav-add-item.png in Resources */,
+				FF26E27415628BF300BECF4C /* btn-nav-add-item@2x.png in Resources */,
+				FF26E27D1562A81700BECF4C /* icon-happy-face.png in Resources */,
+				FF26E27E1562A81700BECF4C /* icon-happy-face@2x.png in Resources */,
+				FF26E2811562A84F00BECF4C /* icon-cat-cart.png in Resources */,
+				FF26E2821562A84F00BECF4C /* icon-cat-cart@2x.png in Resources */,
+				FF26E2881562B62500BECF4C /* btn-nav-board.png in Resources */,
+				FF26E2891562B62500BECF4C /* btn-nav-board@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,10 +630,27 @@
 				FF10F2A1155D16B000F4EC2E /* olgotShareViewController.m in Sources */,
 				FF10F2A4155D16C000F4EC2E /* olgotProfileViewController.m in Sources */,
 				FF10F2A7155D16D400F4EC2E /* olgotMoreViewController.m in Sources */,
+				FF263F0F155D5AC4005285DE /* olgotBoardViewController.m in Sources */,
+				FF916C1C1561363F004C6A86 /* olgotItemViewController.m in Sources */,
+				FF916C4615616485004C6A86 /* olgotSignupRootViewController.m in Sources */,
+				FF916C49156165EE004C6A86 /* olgotChooseUsernameViewController.m in Sources */,
+				FF27736915625DAB0062EBA9 /* olgotMapViewController.m in Sources */,
+				FF26E26C1562807E00BECF4C /* olgotVenueViewController.m in Sources */,
+				FF26E277156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.m in Sources */,
+				FF26E2851562A90600BECF4C /* olgotAddItemConfirmationViewController.m in Sources */,
+				FF33102D156502F50083602B /* olgotAddItemDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FF10F2FA155D204300F4EC2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSToolkit;
+			targetProxy = FF10F2F9155D204300F4EC2E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FFA4ED9B155D12D8008CB4CA /* InfoPlist.strings */ = {
@@ -360,8 +722,13 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Olgot/Olgot-Prefix.pch";
+				HEADER_SEARCH_PATHS = Vendor/SSToolkit;
 				INFOPLIST_FILE = "Olgot/Olgot-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -372,8 +739,13 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Olgot/Olgot-Prefix.pch";
+				HEADER_SEARCH_PATHS = Vendor/SSToolkit;
 				INFOPLIST_FILE = "Olgot/Olgot-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

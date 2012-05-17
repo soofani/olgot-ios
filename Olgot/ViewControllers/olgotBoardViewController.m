@@ -1,19 +1,14 @@
 //
-//  olgotLovelyViewController.m
+//  olgotBoardViewController.m
 //  Olgot
 //
 //  Created by Raed Hamam on 5/11/12.
 //  Copyright (c) 2012 Not Another Fruit. All rights reserved.
 //
 
-#import "olgotLovelyViewController.h"
+#import "olgotBoardViewController.h"
 
-@interface olgotLovelyViewController ()
-
-@end
-
-@implementation olgotLovelyViewController
-
+@implementation olgotBoardViewController
 
 @synthesize itemCell = _itemCell;
 
@@ -36,10 +31,24 @@
     self.collectionView.backgroundView = tempImageView;
     self.collectionView.rowSpacing = 10.0f;
     
-    self.collectionView.scrollView.contentInset = UIEdgeInsetsMake(10.0,0.0,0.0,0.0);
+     self.collectionView.scrollView.contentInset = UIEdgeInsetsMake(10.0,0.0,0.0,0.0);
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
+    
+    UIImage *mapImage30 = [UIImage imageNamed:@"btn-nav-map"];
+    
+    UIButton *mapBtn = [[UIButton alloc] init];
+    mapBtn.frame=CGRectMake(0,0,35,30);
+    [mapBtn setBackgroundImage:mapImage30 forState:UIControlStateNormal];
+    [mapBtn addTarget:self action:@selector(showMapView) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:mapBtn];
+    
+}
 
+- (void)showMapView
+{
+    [self performSegueWithIdentifier:@"ShowMapView" sender:self];
 }
 
 - (void)viewDidUnload
@@ -66,12 +75,12 @@
 
 
 - (SSCollectionViewItem *)collectionView:(SSCollectionView *)aCollectionView itemForIndexPath:(NSIndexPath *)indexPath {
-	static NSString *myItemTileIdentifier = @"LovelyItemTileID";
+	static NSString *myItemTileIdentifier = @"BoardItemTileID";
 	
     SSCollectionViewItem *cell = [aCollectionView dequeueReusableItemWithIdentifier:myItemTileIdentifier];
     
     if (cell == nil) {
-        [[NSBundle mainBundle] loadNibNamed:@"LovelyItemTile" owner:self options:nil];
+        [[NSBundle mainBundle] loadNibNamed:@"BoardItemTile" owner:self options:nil];
         cell = _itemCell;
         self.itemCell = nil;
     }
@@ -87,7 +96,7 @@
     itemPrice = (UILabel *)[cell viewWithTag:4];    
     
     // configure custom data
-//    [itemLabel setText:[NSString stringWithFormat:@"Item %d", indexPath.row]];
+    //    [itemLabel setText:[NSString stringWithFormat:@"Item %d", indexPath.row]];
     
     return cell;
 }
@@ -110,6 +119,7 @@
 - (CGSize)collectionView:(SSCollectionView *)aCollectionView itemSizeForSection:(NSUInteger)section {
 	return CGSizeMake(145.0f, 186.0f);
 }
+
 
 - (void)collectionView:(SSCollectionView *)aCollectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     

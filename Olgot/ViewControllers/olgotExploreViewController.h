@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SSToolkit/SSToolkit.h>
 
-@interface olgotExploreViewController : UIViewController
+@interface olgotExploreViewController : SSCollectionViewController
+
+@property (nonatomic, strong) IBOutlet SSCollectionViewItem *boardBigTile;
+@property (nonatomic, strong) IBOutlet SSCollectionViewItem *boardNormalTile;
 
 @end

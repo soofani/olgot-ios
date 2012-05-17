@@ -1,22 +1,20 @@
 //
-//  olgotExploreViewController.m
+//  olgotVenueViewController.m
 //  Olgot
 //
-//  Created by Raed Hamam on 5/11/12.
+//  Created by Raed Hamam on 5/15/12.
 //  Copyright (c) 2012 Not Another Fruit. All rights reserved.
 //
 
-#import "olgotExploreViewController.h"
-#import <QuartzCore/QuartzCore.h>
-#import "olgotBoardViewController.h"
+#import "olgotVenueViewController.h"
 
-@interface olgotExploreViewController ()
+@interface olgotVenueViewController ()
 
 @end
 
-@implementation olgotExploreViewController
+@implementation olgotVenueViewController
 
-@synthesize boardBigTile = _boardBigTile, boardNormalTile = _boardNormalTile;
+@synthesize venueCardTile = _venueCardTile, venueItemTile = _venueItemTile;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+	// Do any additional setup after loading the view.
+    
     // background
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
     [tempImageView setFrame:self.collectionView.frame]; 
@@ -41,11 +40,19 @@
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
     
-    //title logo
-    UIImage *titleImage = [UIImage imageNamed:@"logo-140x74"];
-    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
-    [self.navigationController.navigationBar.topItem setTitleView:titleImageView];
-        
+    UIImage *addImage30 = [UIImage imageNamed:@"btn-nav-add-item"];
+    
+    UIButton *addBtn = [[UIButton alloc] init];
+    addBtn.frame=CGRectMake(0,0,35,30);
+    [addBtn setBackgroundImage:addImage30 forState:UIControlStateNormal];
+    [addBtn addTarget:self action:@selector(showAddItemView) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:addBtn];
+}
+
+- (void)showAddItemView
+{
+//    [self performSegueWithIdentifier:@"ShowAddItem" sender:self];
 }
 
 - (void)viewDidUnload
@@ -62,64 +69,56 @@
 #pragma mark - SSCollectionViewDataSource
 
 - (NSUInteger)numberOfSectionsInCollectionView:(SSCollectionView *)aCollectionView {
-	return 3;
+	return 2;
 }
 
 
 - (NSUInteger)collectionView:(SSCollectionView *)aCollectionView numberOfItemsInSection:(NSUInteger)section {
     if (section == 0) {
         return 1;
-    }else if(section == 1) {
-        return 4;
     }else{
-        return 12;
+        return 7;
     }
 }
 
 
 - (SSCollectionViewItem *)collectionView:(SSCollectionView *)aCollectionView itemForIndexPath:(NSIndexPath *)indexPath {
-	static NSString *myNormalTileIdentifier = @"NormalBoardTile";
-    static NSString *myBigTileIdentifier = @"BigBoardTile";
+	static NSString *myVenueItemTileIdentifier = @"VenueItemTileID";
+    static NSString *myVenueCardIdentifier = @"VenueCardID";
     
     if (indexPath.section == 0) {
-        SSCollectionViewItem *cell1 = [aCollectionView dequeueReusableItemWithIdentifier:myBigTileIdentifier];
+        SSCollectionViewItem *cell1 = [aCollectionView dequeueReusableItemWithIdentifier:myVenueCardIdentifier];
         
         if (cell1 == nil) {
-            [[NSBundle mainBundle] loadNibNamed:@"BoardBigTile" owner:self options:nil];
-            cell1 = _boardBigTile;
-            self.boardBigTile = nil;
+            [[NSBundle mainBundle] loadNibNamed:@"VenueCard" owner:self options:nil];
+            cell1 = _venueCardTile;
+            self.venueCardTile = nil;
         }
-        
-        UIImageView *tileImage;
-        UILabel *tileLabel;
-        
-        tileImage = (UIImageView *)[cell1 viewWithTag:1];
-        tileLabel = (UILabel *)[cell1 viewWithTag:2];
         
         // configure custom data
         
         return cell1;
     }
     else {
-        SSCollectionViewItem *cell2 = [aCollectionView dequeueReusableItemWithIdentifier:myNormalTileIdentifier];
+        SSCollectionViewItem *cell2 = [aCollectionView dequeueReusableItemWithIdentifier:myVenueItemTileIdentifier];
         
         if (cell2 == nil) {
-            [[NSBundle mainBundle] loadNibNamed:@"BoardNormalTile" owner:self options:nil];
-            cell2 = _boardNormalTile;
-            self.boardNormalTile = nil;
+            [[NSBundle mainBundle] loadNibNamed:@"VenueItemTile" owner:self options:nil];
+            cell2 = _venueItemTile;
+            self.venueItemTile = nil;
         }
         
-        UIImageView *tileImage;
-        UILabel *tileLabel;
+//        UIImageView *tileImage;
+//        UILabel *tileLabel;
         
-        tileImage = (UIImageView *)[cell2 viewWithTag:1];
-        tileLabel = (UILabel *)[cell2 viewWithTag:2];
+//        tileImage = (UIImageView *)[cell2 viewWithTag:1];
+//        tileLabel = (UILabel *)[cell2 viewWithTag:2];
         
         // configure custom data
         
         return cell2;
     }
- 
+    
 }
 
 
@@ -139,16 +138,17 @@
 
 - (CGSize)collectionView:(SSCollectionView *)aCollectionView itemSizeForSection:(NSUInteger)section {
     if (section == 0) {
-        return CGSizeMake(300.0f, 130.0f);
+        return CGSizeMake(300.0f, 150.0f);
     }else{
-        return CGSizeMake(145.0f, 130.0f);
+        return CGSizeMake(145.0f, 186.0f);
     }
 	
 }
 
 - (void)collectionView:(SSCollectionView *)aCollectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    [self performSegueWithIdentifier:@"ShowBoardView" sender:self];
+    
+    [self performSegueWithIdentifier:@"ShowItemView" sender:self];
 }
 
 
@@ -161,14 +161,5 @@
 	
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"ShowBoardView"]) {
-//        olgotBoardViewController *boardViewController = [segue destinationViewController];
-        
-        
-    }
-}
-
 
 @end
-

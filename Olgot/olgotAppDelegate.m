@@ -7,6 +7,7 @@
 //
 
 #import "olgotAppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation olgotAppDelegate
 
@@ -14,7 +15,115 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+        // Setup custom tab view
+        CGRect frame = CGRectMake(0, 0, 480, 49);
+        UIView *tabBarView = [[UIView alloc] initWithFrame:frame];
+        UIColor *tabBarColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-tab-bar"]];
+        
+        [tabBarView setBackgroundColor:tabBarColor];
+        
+        UITabBarController *tabbarController = (UITabBarController *) self.window.rootViewController;
+        
+        [tabbarController.tabBar insertSubview:tabBarView atIndex:1];
+        
+        // customize navigation bar
+        UIImage *NavigationPortraitBackground = [[UIImage imageNamed:@"bg-nav-bar"] 
+                                                 resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        
+        [[UINavigationBar appearance] setBackgroundImage:NavigationPortraitBackground 
+                                           forBarMetrics:UIBarMetricsDefault];
+        
+        [[UINavigationBar appearance] setTitleTextAttributes:
+         [NSDictionary dictionaryWithObjectsAndKeys:
+          [UIColor colorWithRed:232.0/255.0 green:78.0/255.0 blue:32.0/255.0 alpha:1.0], 
+          UITextAttributeTextColor, 
+          [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0], 
+          UITextAttributeTextShadowColor, 
+          [NSValue valueWithUIOffset:UIOffsetMake(0, 0)], 
+          UITextAttributeTextShadowOffset, 
+          [UIFont fontWithName:@"Helvetica-Neue-Bold" size:18.0], 
+          UITextAttributeFont, 
+          nil]];
+        
+        UIImage *backButton30 = [[UIImage imageNamed:@"btn-nav-back"] 
+                                 resizableImageWithCapInsets:UIEdgeInsetsMake(0, 16, 0, 10)];
+        
+        [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton30 
+                                                          forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+        
+        [[UIBarButtonItem appearance] setTitleTextAttributes:
+         [NSDictionary dictionaryWithObjectsAndKeys:
+          [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0], 
+          UITextAttributeTextColor, 
+          [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.0], 
+          UITextAttributeTextShadowColor, 
+          [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], 
+          UITextAttributeTextShadowOffset, 
+          [UIFont fontWithName:@"Helvetica-Neue-Bold" size:0.0], 
+          UITextAttributeFont, 
+          nil] 
+                                                    forState:UIControlStateNormal];
+        
+        // Cast all navigation controllers
+        UINavigationController *exploreNavigationController = (UINavigationController *) [[tabbarController viewControllers] objectAtIndex:0];
+        UINavigationController *lovelyNavigationController = (UINavigationController *) [[tabbarController viewControllers] objectAtIndex:1];
+        UINavigationController *shareNavigationController = (UINavigationController *) [[tabbarController viewControllers] objectAtIndex:2];
+        UINavigationController *profileNavigationController = (UINavigationController *) [[tabbarController viewControllers] objectAtIndex:3];
+        UINavigationController *moreNavigationController = (UINavigationController *) [[tabbarController viewControllers] objectAtIndex:4];
+        
+        for (UINavigationController *navC in tabbarController.viewControllers) {
+            navC.navigationBar.layer.shadowColor = [[UIColor blackColor] CGColor];
+            navC.navigationBar.layer.shadowOffset = CGSizeMake(0.0, 1.0);
+            navC.navigationBar.layer.shadowOpacity = 0.5;
+            navC.navigationBar.layer.masksToBounds = NO;
+        }
+        
+        // Configure navigation controllers and tab icons
+        UIImage *exploreSelected = [UIImage imageNamed:@"icon-tab-bar-explore-active"];
+        UIImage *lovelySelected = [UIImage imageNamed:@"icon-tab-bar-lovely-active"];
+        UIImage *shareSelected = [UIImage imageNamed:@"btn-share-130x116"];
+        UIImage *profileSelected = [UIImage imageNamed:@"icon-tab-bar-profile-active"];
+        UIImage *moreSelected = [UIImage imageNamed:@"icon-tab-bar-more-active"];
+        
+        UIImage *exploreUnSelected = [UIImage imageNamed:@"icon-tab-bar-explore"];
+        UIImage *lovelyUnSelected = [UIImage imageNamed:@"icon-tab-bar-lovely"];
+        UIImage *shareUnSelected = [UIImage imageNamed:@"btn-share-130x116"];
+        UIImage *profileUnSelected = [UIImage imageNamed:@"icon-tab-bar-profile"];
+        UIImage *moreUnSelected = [UIImage imageNamed:@"icon-tab-bar-more"];
+        
+        [[exploreNavigationController tabBarItem] setTitle:@"Explore"];
+        [[exploreNavigationController tabBarItem] setFinishedSelectedImage:exploreSelected withFinishedUnselectedImage:exploreUnSelected];
+        
+        
+        [[lovelyNavigationController tabBarItem] setTitle:@"Lovely"];
+        [[lovelyNavigationController tabBarItem] setFinishedSelectedImage:lovelySelected withFinishedUnselectedImage:lovelyUnSelected];
+        
+        
+        
+        [[shareNavigationController tabBarItem] setTitle:@"Share"];
+        [[shareNavigationController tabBarItem] setFinishedSelectedImage:shareSelected withFinishedUnselectedImage:shareUnSelected];
+        
+        
+        [[profileNavigationController tabBarItem] setTitle:@"Profile"];
+        [[profileNavigationController tabBarItem] setFinishedSelectedImage:profileSelected withFinishedUnselectedImage:profileUnSelected];
+        
+        
+        [[moreNavigationController tabBarItem] setTitle:@"More"];
+        [[moreNavigationController tabBarItem] setFinishedSelectedImage:moreSelected withFinishedUnselectedImage:moreUnSelected];
+        
+        [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor colorWithRed:168.0f/255.0f green:168.0f/255.0f blue:168.0f/255.0f alpha:255.0f/255.0f], UITextAttributeTextColor,
+                                                           nil] 
+                                                 forState:UIControlStateNormal];
+        
+        [[UITabBarItem appearance]  setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                            [UIColor colorWithRed:232.0f/255.0f green:78.0f/255.0f blue:32.0f/255.0f alpha:255.0f/255.0f], UITextAttributeTextColor,
+                                                            nil] 
+                                                  forState:UIControlStateSelected];
+    
+    
+    
     return YES;
 }
 							

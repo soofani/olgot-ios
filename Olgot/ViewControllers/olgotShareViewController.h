@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface olgotShareViewController : UIViewController
+@interface olgotShareViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+{
+    BOOL newMedia;
+}
 
+-(void)useCamera;
 @end

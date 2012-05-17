@@ -1,5 +1,5 @@
 //
-//  olgotLovelyViewController.h
+//  olgotBoardViewController.h
 //  Olgot
 //
 //  Created by Raed Hamam on 5/11/12.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSToolkit.h>
 
-@interface olgotLovelyViewController : SSCollectionViewController
+@interface olgotBoardViewController : SSCollectionViewController
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *itemCell;
 
