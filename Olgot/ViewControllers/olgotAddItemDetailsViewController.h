@@ -10,8 +10,10 @@
 
 @interface olgotAddItemDetailsViewController : UIViewController
 {
-    
+    UIImageView *itemImageView;
     __weak IBOutlet UITextField *whyCoolTF;
 }
+
+@property (nonatomic, strong) IBOutlet UIImageView *itemImageView;
 
 @end

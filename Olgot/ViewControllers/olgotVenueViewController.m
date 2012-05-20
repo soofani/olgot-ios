@@ -52,7 +52,7 @@
 
 - (void)showAddItemView
 {
-//    [self performSegueWithIdentifier:@"ShowAddItem" sender:self];
+    [self performSegueWithIdentifier:@"ShowAddItem" sender:self];
 }
 
 - (void)viewDidUnload
