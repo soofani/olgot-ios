@@ -27,6 +27,9 @@
         
         [tabbarController.tabBar insertSubview:tabBarView atIndex:1];
         
+    [[UIApplication sharedApplication] 
+     setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
+    
         // customize navigation bar
         UIImage *NavigationPortraitBackground = [[UIImage imageNamed:@"bg-nav-bar"] 
                                                  resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
@@ -126,6 +129,7 @@
     
     return YES;
 }
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface olgotMoreViewController : UIViewController
+@interface olgotMoreViewController : UITableViewController
 
 @end

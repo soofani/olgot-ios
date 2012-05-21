@@ -50,9 +50,9 @@
 -(void) viewDidAppear:(BOOL)animated
 {
 //    [self useCamera];
-    if ([self.capturedImages count] == 0){
-            [self cameraAction:self];
-    }
+
+//    [self cameraAction:self];
+
 }
 
 

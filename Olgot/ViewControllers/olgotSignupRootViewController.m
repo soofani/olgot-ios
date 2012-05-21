@@ -27,6 +27,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+//    self.navigationController.navigationBarHidden = YES;
+    
+    //title logo
+    UIImage *titleImage = [UIImage imageNamed:@"logo-140x74"];
+    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
+    [self.navigationController.navigationBar.topItem setTitleView:titleImageView];
+    
 }
 
 - (void)viewDidUnload

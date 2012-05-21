@@ -45,7 +45,12 @@
     UIImage *titleImage = [UIImage imageNamed:@"logo-140x74"];
     UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
     [self.navigationController.navigationBar.topItem setTitleView:titleImageView];
-        
+  
+    Boolean firstRun = YES;
+    
+    if(firstRun){
+//        [self performSegueWithIdentifier:@"ShowSignupFlow" sender:self];
+    }
 }
 
 - (void)viewDidUnload

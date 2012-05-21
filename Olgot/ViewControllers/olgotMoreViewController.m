@@ -26,7 +26,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    self.clearsSelectionOnViewWillAppear = YES;
+    
+	UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
+    [tempImageView setFrame:self.tableView.frame]; 
+    
+    self.tableView.backgroundView = tempImageView;
+    self.tableView.contentInset = UIEdgeInsetsMake(10.0,0.0,0.0,0.0);
 }
 
 - (void)viewDidUnload

@@ -37,6 +37,9 @@
 		FF10F301155D22FB00F4EC2E /* BoardBigTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF10F300155D22FB00F4EC2E /* BoardBigTile.xib */; };
 		FF10F303155D243E00F4EC2E /* BoardNormalTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF10F302155D243E00F4EC2E /* BoardNormalTile.xib */; };
 		FF10F305155D247C00F4EC2E /* BoardItemTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF10F304155D247C00F4EC2E /* BoardItemTile.xib */; };
+		FF2571D4156940F600D544F8 /* olgotChooseFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2571D3156940F600D544F8 /* olgotChooseFriendsViewController.m */; };
+		FF2571D7156942AE00D544F8 /* btn-user-list-follow.png in Resources */ = {isa = PBXBuildFile; fileRef = FF2571D5156942AE00D544F8 /* btn-user-list-follow.png */; };
+		FF2571D8156942AE00D544F8 /* btn-user-list-follow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF2571D6156942AE00D544F8 /* btn-user-list-follow@2x.png */; };
 		FF263F0F155D5AC4005285DE /* olgotBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF263F0E155D5AC4005285DE /* olgotBoardViewController.m */; };
 		FF263F12155D5D91005285DE /* btn-share-130x116.png in Resources */ = {isa = PBXBuildFile; fileRef = FF263F10155D5D91005285DE /* btn-share-130x116.png */; };
 		FF263F13155D5D91005285DE /* btn-share-130x116@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF263F11155D5D91005285DE /* btn-share-130x116@2x.png */; };
@@ -85,6 +88,12 @@
 		FF3310461565409B0083602B /* btn-cam-flash-off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF3310441565409B0083602B /* btn-cam-flash-off@2x.png */; };
 		FF331049156542150083602B /* icon-cam-80x60.png in Resources */ = {isa = PBXBuildFile; fileRef = FF331047156542150083602B /* icon-cam-80x60.png */; };
 		FF33104A156542150083602B /* icon-cam-80x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF331048156542150083602B /* icon-cam-80x60@2x.png */; };
+		FF57D9FE156A2D7800DFAB3E /* olgotAccountSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF57D9FD156A2D7800DFAB3E /* olgotAccountSettingsViewController.m */; };
+		FF57DA00156A3D3700DFAB3E /* cam-bg-strip.png in Resources */ = {isa = PBXBuildFile; fileRef = FF57D9FF156A3D3700DFAB3E /* cam-bg-strip.png */; };
+		FF57DA11156A558600DFAB3E /* btn-cam-shoot-on.png in Resources */ = {isa = PBXBuildFile; fileRef = FF57DA0D156A558600DFAB3E /* btn-cam-shoot-on.png */; };
+		FF57DA12156A558600DFAB3E /* btn-cam-shoot-on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF57DA0E156A558600DFAB3E /* btn-cam-shoot-on@2x.png */; };
+		FF57DA13156A558600DFAB3E /* btn-cam-shoot.png in Resources */ = {isa = PBXBuildFile; fileRef = FF57DA0F156A558600DFAB3E /* btn-cam-shoot.png */; };
+		FF57DA14156A558600DFAB3E /* btn-cam-shoot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF57DA10156A558600DFAB3E /* btn-cam-shoot@2x.png */; };
 		FF621A47155D3D71004D059F /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FF621A45155D3D71004D059F /* bg.png */; };
 		FF621A48155D3D71004D059F /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF621A46155D3D71004D059F /* bg@2x.png */; };
 		FF621A55155D4800004D059F /* LovelyItemTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF621A54155D4800004D059F /* LovelyItemTile.xib */; };
@@ -184,6 +193,10 @@
 		FF10F300155D22FB00F4EC2E /* BoardBigTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardBigTile.xib; sourceTree = "<group>"; };
 		FF10F302155D243E00F4EC2E /* BoardNormalTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardNormalTile.xib; sourceTree = "<group>"; };
 		FF10F304155D247C00F4EC2E /* BoardItemTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardItemTile.xib; sourceTree = "<group>"; };
+		FF2571D2156940F600D544F8 /* olgotChooseFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotChooseFriendsViewController.h; path = ViewControllers/olgotChooseFriendsViewController.h; sourceTree = "<group>"; };
+		FF2571D3156940F600D544F8 /* olgotChooseFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotChooseFriendsViewController.m; path = ViewControllers/olgotChooseFriendsViewController.m; sourceTree = "<group>"; };
+		FF2571D5156942AE00D544F8 /* btn-user-list-follow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-user-list-follow.png"; sourceTree = "<group>"; };
+		FF2571D6156942AE00D544F8 /* btn-user-list-follow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-user-list-follow@2x.png"; sourceTree = "<group>"; };
 		FF263F0D155D5AC4005285DE /* olgotBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotBoardViewController.h; path = ViewControllers/olgotBoardViewController.h; sourceTree = "<group>"; };
 		FF263F0E155D5AC4005285DE /* olgotBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotBoardViewController.m; path = ViewControllers/olgotBoardViewController.m; sourceTree = "<group>"; };
 		FF263F10155D5D91005285DE /* btn-share-130x116.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-share-130x116.png"; path = "../../../../Dropbox/Olgot - Raed/Bits/2- Explore/btn-share-130x116.png"; sourceTree = "<group>"; };
@@ -239,6 +252,13 @@
 		FF3310441565409B0083602B /* btn-cam-flash-off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-cam-flash-off@2x.png"; sourceTree = "<group>"; };
 		FF331047156542150083602B /* icon-cam-80x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cam-80x60.png"; sourceTree = "<group>"; };
 		FF331048156542150083602B /* icon-cam-80x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cam-80x60@2x.png"; sourceTree = "<group>"; };
+		FF57D9FC156A2D7800DFAB3E /* olgotAccountSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotAccountSettingsViewController.h; path = ViewControllers/olgotAccountSettingsViewController.h; sourceTree = "<group>"; };
+		FF57D9FD156A2D7800DFAB3E /* olgotAccountSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotAccountSettingsViewController.m; path = ViewControllers/olgotAccountSettingsViewController.m; sourceTree = "<group>"; };
+		FF57D9FF156A3D3700DFAB3E /* cam-bg-strip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam-bg-strip.png"; sourceTree = "<group>"; };
+		FF57DA0D156A558600DFAB3E /* btn-cam-shoot-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-cam-shoot-on.png"; sourceTree = "<group>"; };
+		FF57DA0E156A558600DFAB3E /* btn-cam-shoot-on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-cam-shoot-on@2x.png"; sourceTree = "<group>"; };
+		FF57DA0F156A558600DFAB3E /* btn-cam-shoot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-cam-shoot.png"; sourceTree = "<group>"; };
+		FF57DA10156A558600DFAB3E /* btn-cam-shoot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-cam-shoot@2x.png"; sourceTree = "<group>"; };
 		FF621A45155D3D71004D059F /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg.png; path = "../../../../Dropbox/Olgot - Raed/Bits/1- Signup/bg.png"; sourceTree = "<group>"; };
 		FF621A46155D3D71004D059F /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg@2x.png"; path = "../../../../Dropbox/Olgot - Raed/Bits/1- Signup/bg@2x.png"; sourceTree = "<group>"; };
 		FF621A54155D4800004D059F /* LovelyItemTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LovelyItemTile.xib; sourceTree = "<group>"; };
@@ -309,6 +329,8 @@
 				FF10F2A3155D16C000F4EC2E /* olgotProfileViewController.m */,
 				FF10F2A5155D16D400F4EC2E /* olgotMoreViewController.h */,
 				FF10F2A6155D16D400F4EC2E /* olgotMoreViewController.m */,
+				FF57D9FC156A2D7800DFAB3E /* olgotAccountSettingsViewController.h */,
+				FF57D9FD156A2D7800DFAB3E /* olgotAccountSettingsViewController.m */,
 				FF263F0D155D5AC4005285DE /* olgotBoardViewController.h */,
 				FF263F0E155D5AC4005285DE /* olgotBoardViewController.m */,
 				FF916C1A1561363F004C6A86 /* olgotItemViewController.h */,
@@ -317,6 +339,8 @@
 				FF916C4515616485004C6A86 /* olgotSignupRootViewController.m */,
 				FF916C47156165ED004C6A86 /* olgotChooseUsernameViewController.h */,
 				FF916C48156165EE004C6A86 /* olgotChooseUsernameViewController.m */,
+				FF2571D2156940F600D544F8 /* olgotChooseFriendsViewController.h */,
+				FF2571D3156940F600D544F8 /* olgotChooseFriendsViewController.m */,
 				FF27736715625DAB0062EBA9 /* olgotMapViewController.h */,
 				FF27736815625DAB0062EBA9 /* olgotMapViewController.m */,
 				FF26E26A1562807E00BECF4C /* olgotVenueViewController.h */,
@@ -337,6 +361,13 @@
 		FF10F2A9155D16F500F4EC2E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				FF57DA0D156A558600DFAB3E /* btn-cam-shoot-on.png */,
+				FF57DA0E156A558600DFAB3E /* btn-cam-shoot-on@2x.png */,
+				FF57DA0F156A558600DFAB3E /* btn-cam-shoot.png */,
+				FF57DA10156A558600DFAB3E /* btn-cam-shoot@2x.png */,
+				FF57D9FF156A3D3700DFAB3E /* cam-bg-strip.png */,
+				FF2571D5156942AE00D544F8 /* btn-user-list-follow.png */,
+				FF2571D6156942AE00D544F8 /* btn-user-list-follow@2x.png */,
 				FF331047156542150083602B /* icon-cam-80x60.png */,
 				FF331048156542150083602B /* icon-cam-80x60@2x.png */,
 				FF3310431565409B0083602B /* btn-cam-flash-off.png */,
@@ -662,6 +693,13 @@
 				FF3310461565409B0083602B /* btn-cam-flash-off@2x.png in Resources */,
 				FF331049156542150083602B /* icon-cam-80x60.png in Resources */,
 				FF33104A156542150083602B /* icon-cam-80x60@2x.png in Resources */,
+				FF2571D7156942AE00D544F8 /* btn-user-list-follow.png in Resources */,
+				FF2571D8156942AE00D544F8 /* btn-user-list-follow@2x.png in Resources */,
+				FF57DA00156A3D3700DFAB3E /* cam-bg-strip.png in Resources */,
+				FF57DA11156A558600DFAB3E /* btn-cam-shoot-on.png in Resources */,
+				FF57DA12156A558600DFAB3E /* btn-cam-shoot-on@2x.png in Resources */,
+				FF57DA13156A558600DFAB3E /* btn-cam-shoot.png in Resources */,
+				FF57DA14156A558600DFAB3E /* btn-cam-shoot@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,6 +727,8 @@
 				FF26E2851562A90600BECF4C /* olgotAddItemConfirmationViewController.m in Sources */,
 				FF33102D156502F50083602B /* olgotAddItemDetailsViewController.m in Sources */,
 				FF331035156527060083602B /* olgotCameraOverlayViewController.m in Sources */,
+				FF2571D4156940F600D544F8 /* olgotChooseFriendsViewController.m in Sources */,
+				FF57D9FE156A2D7800DFAB3E /* olgotAccountSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
