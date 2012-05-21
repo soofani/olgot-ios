@@ -49,7 +49,7 @@
     Boolean firstRun = YES;
     
     if(firstRun){
-//        [self performSegueWithIdentifier:@"ShowSignupFlow" sender:self];
+        [self performSegueWithIdentifier:@"ShowSignupFlow" sender:self];
     }
 }
 
