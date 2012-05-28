@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface olgotSignupRootViewController : UIViewController
+- (IBAction)hideSignup:(id)sender;
 
 @end

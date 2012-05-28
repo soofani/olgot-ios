@@ -15,7 +15,7 @@
 @implementation olgotLovelyViewController
 
 
-@synthesize itemCell = _itemCell;
+@synthesize itemTile = _itemTile;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,7 +61,7 @@
 
 
 - (NSUInteger)collectionView:(SSCollectionView *)aCollectionView numberOfItemsInSection:(NSUInteger)section {
-	return 20;
+	return 13;
 }
 
 
@@ -72,22 +72,24 @@
     
     if (cell == nil) {
         [[NSBundle mainBundle] loadNibNamed:@"LovelyItemTile" owner:self options:nil];
-        cell = _itemCell;
-        self.itemCell = nil;
+        cell = _itemTile;
+        self.itemTile = nil;
     }
     
-    UIImageView *itemImage;
-    UILabel *itemLabel;
-    UILabel *itemPlace;
-    UILabel *itemPrice;
-    
-    itemImage = (UIImageView *)[cell viewWithTag:1];
-    itemLabel = (UILabel *)[cell viewWithTag:2];
-    itemPlace = (UILabel *)[cell viewWithTag:3];
-    itemPrice = (UILabel *)[cell viewWithTag:4];    
+    UIImageView *tileImage;
+    UILabel *tileLabel;
+//    UILabel *itemPlace;
+//    UILabel *itemPrice;
+
+    tileImage = (UIImageView *)[cell viewWithTag:1];
+    tileLabel = (UILabel *)[cell viewWithTag:2];
+//    itemPlace = (UILabel *)[cell viewWithTag:3];
+//    itemPrice = (UILabel *)[cell viewWithTag:4];    
     
     // configure custom data
-//    [itemLabel setText:[NSString stringWithFormat:@"Item %d", indexPath.row]];
+    [tileLabel setText:[NSString stringWithFormat:@"Item %d", indexPath.row]];
+    [tileImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"dummy%d%@",indexPath.row + 1,@".jpg"]]];
+
     
     return cell;
 }

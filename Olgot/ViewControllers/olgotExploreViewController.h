@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSToolkit.h>
+#import <RestKit/RestKit.h>
 
-@interface olgotExploreViewController : SSCollectionViewController
+@interface olgotExploreViewController : SSCollectionViewController <RKObjectLoaderDelegate>{
+    Boolean *firstRun;
+    NSArray* _categories;
+    NSIndexPath* _selectedRowIndexPath;
+}
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *boardBigTile;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *boardNormalTile;

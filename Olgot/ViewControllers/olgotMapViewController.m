@@ -34,13 +34,15 @@
     boardBtn.frame=CGRectMake(0,0,35,30);
     [boardBtn setBackgroundImage:boardImage30 forState:UIControlStateNormal];
     [boardBtn addTarget:self action:@selector(showBoardView) forControlEvents:UIControlEventTouchUpInside];
+
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:boardBtn];
+    myNavItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:boardBtn];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:boardBtn];
 }
 
 - (void)showBoardView
 {
-//    [self performSegueWithIdentifier:@"ShowBoardView" sender:self];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)viewDidUnload

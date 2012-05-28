@@ -27,14 +27,22 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-//    self.navigationController.navigationBarHidden = YES;
-    
+       
     //title logo
-    UIImage *titleImage = [UIImage imageNamed:@"logo-140x74"];
-    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
-    [self.navigationController.navigationBar.topItem setTitleView:titleImageView];
+//    UIImage *titleImage = [UIImage imageNamed:@"logo-140x74"];
+//    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
+//    [self.navigationController.navigationBar.topItem setTitleView:titleImageView];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 - (void)viewDidUnload
@@ -48,4 +56,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)hideSignup:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
+}
 @end

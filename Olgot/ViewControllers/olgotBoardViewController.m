@@ -7,10 +7,11 @@
 //
 
 #import "olgotBoardViewController.h"
+#import "olgotItem.h"
 
 @implementation olgotBoardViewController
 
-@synthesize itemCell = _itemCell;
+@synthesize itemCell = _itemCell, categoryID = _categoryID, boardName = _boardName;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -19,6 +20,40 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)setCategoryID:(NSNumber *)categoryID
+{
+    if (_categoryID != categoryID) {
+        _categoryID = categoryID;
+        [self loadItems];
+    }
+}
+
+- (void)loadItems {
+    // Load the object model via RestKit
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    if(_boardName == @"Feed"){
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: @"1", @"id", nil];
+        NSString* resourcePath = [@"/feeditems/" appendQueryParams:myParams];
+        [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+        
+    }else if (_boardName == @"Nearby") {
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: @"0", @"lat", @"0" , @"long", nil];
+        NSString* resourcePath = [@"/nearbyitems/" appendQueryParams:myParams];
+        [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+        
+    }else if (_boardName == @"My Wants") {
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: @"1", @"user", nil];
+        NSString* resourcePath = [@"/userwants/" appendQueryParams:myParams];
+        [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+        
+    }else {
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _categoryID, @"category", nil];
+        NSString* resourcePath = [@"/categoryitems/" appendQueryParams:myParams];
+        [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+    }
+    
 }
 
 - (void)viewDidLoad
@@ -44,6 +79,8 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:mapBtn];
     
+    [self.navigationItem setTitle:_boardName];
+    [self loadItems];
 }
 
 - (void)showMapView
@@ -62,6 +99,28 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    NSLog(@"Loaded payload: %@", [response bodyAsString]);
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+    NSLog(@"Loaded items: %@", objects);
+    if([objectLoader.response isOK]){
+        _items = objects;
+        [self.collectionView reloadData];
+    }
+    
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    NSLog(@"Hit error: %@", error);
+}
+
+
 #pragma mark - SSCollectionViewDataSource
 
 - (NSUInteger)numberOfSectionsInCollectionView:(SSCollectionView *)aCollectionView {
@@ -70,7 +129,7 @@
 
 
 - (NSUInteger)collectionView:(SSCollectionView *)aCollectionView numberOfItemsInSection:(NSUInteger)section {
-	return 20;
+	return [_items count];
 }
 
 
@@ -87,16 +146,21 @@
     
     UIImageView *itemImage;
     UILabel *itemLabel;
-    UILabel *itemPlace;
-    UILabel *itemPrice;
     
     itemImage = (UIImageView *)[cell viewWithTag:1];
-    itemLabel = (UILabel *)[cell viewWithTag:2];
-    itemPlace = (UILabel *)[cell viewWithTag:3];
-    itemPrice = (UILabel *)[cell viewWithTag:4];    
     
-    // configure custom data
-    //    [itemLabel setText:[NSString stringWithFormat:@"Item %d", indexPath.row]];
+    
+    itemLabel = (UILabel *)[cell viewWithTag:2]; //description
+    [itemLabel setText:[[_items objectAtIndex:indexPath.row] itemDescription]];
+    
+    itemLabel = (UILabel *)[cell viewWithTag:3]; //venue
+    [itemLabel setText:[[_items objectAtIndex:indexPath.row] venueName_En]];
+    
+    itemLabel = (UILabel *)[cell viewWithTag:4]; //price
+    [itemLabel setText:[NSString stringWithFormat:@"%d %@",
+      [[[_items objectAtIndex:indexPath.row] itemPrice] integerValue],
+      [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]                  
+      ]];
     
     return cell;
 }

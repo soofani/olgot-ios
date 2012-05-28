@@ -108,13 +108,13 @@
             self.venueItemTile = nil;
         }
         
-//        UIImageView *tileImage;
-//        UILabel *tileLabel;
+        UIImageView *tileImage;
+        UILabel *tileLabel;
         
-//        tileImage = (UIImageView *)[cell2 viewWithTag:1];
-//        tileLabel = (UILabel *)[cell2 viewWithTag:2];
+        tileImage = (UIImageView *)[cell2 viewWithTag:1];
+        tileLabel = (UILabel *)[cell2 viewWithTag:2];
         
-        // configure custom data
+        [tileImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"dummy%d%@",indexPath.row + 1,@".jpg"]]];
         
         return cell2;
     }

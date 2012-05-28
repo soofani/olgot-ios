@@ -9,6 +9,7 @@
 #import "olgotExploreViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "olgotBoardViewController.h"
+#import "olgotCategory.h"
 
 @interface olgotExploreViewController ()
 
@@ -27,10 +28,20 @@
     return self;
 }
 
+- (void)loadCategories {
+    // Load the object model via RestKit
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+//    objectManager.client.baseURL = [RKURL URLWithString:@"http://www.twitter.com"];
+    [objectManager loadObjectsAtResourcePath:@"/categories" delegate:self];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+    
+    firstRun = YES;
+    
     // background
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
     [tempImageView setFrame:self.collectionView.frame]; 
@@ -45,10 +56,13 @@
     UIImage *titleImage = [UIImage imageNamed:@"logo-140x74"];
     UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
     [self.navigationController.navigationBar.topItem setTitleView:titleImageView];
-  
-    Boolean firstRun = YES;
-    
+    [self loadCategories];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
     if(firstRun){
+        firstRun = NO;
         [self performSegueWithIdentifier:@"ShowSignupFlow" sender:self];
     }
 }
@@ -64,6 +78,24 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    NSLog(@"Loaded payload: %@", [response bodyAsString]);
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+    NSLog(@"Loaded categories: %@", objects);
+    _categories = objects;
+    [self.collectionView reloadData];
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    NSLog(@"Hit error: %@", error);
+}
+
 #pragma mark - SSCollectionViewDataSource
 
 - (NSUInteger)numberOfSectionsInCollectionView:(SSCollectionView *)aCollectionView {
@@ -75,9 +107,9 @@
     if (section == 0) {
         return 1;
     }else if(section == 1) {
-        return 4;
+        return 2;
     }else{
-        return 12;
+        return [_categories count];
     }
 }
 
@@ -101,11 +133,12 @@
         tileImage = (UIImageView *)[cell1 viewWithTag:1];
         tileLabel = (UILabel *)[cell1 viewWithTag:2];
         
-        // configure custom data
+        tileImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"dummy%d%@", 14,@".jpg"]];
+        tileLabel.text = @"Feed";
         
         return cell1;
     }
-    else {
+    else if (indexPath.section == 1) {
         SSCollectionViewItem *cell2 = [aCollectionView dequeueReusableItemWithIdentifier:myNormalTileIdentifier];
         
         if (cell2 == nil) {
@@ -120,9 +153,35 @@
         tileImage = (UIImageView *)[cell2 viewWithTag:1];
         tileLabel = (UILabel *)[cell2 viewWithTag:2];
         
-        // configure custom data
+        if (indexPath.row == 0) {
+            tileImage.image = [UIImage imageNamed:@"dummy1.jpg"];
+            tileLabel.text = @"Nearby";
+        }else if (indexPath.row == 1) {
+            tileImage.image = [UIImage imageNamed:@"dummy2.jpg"];
+            tileLabel.text = @"My Wants";
+        }
         
         return cell2;
+    }
+    else {
+        SSCollectionViewItem *cell3 = [aCollectionView dequeueReusableItemWithIdentifier:myNormalTileIdentifier];
+        
+        if (cell3 == nil) {
+            [[NSBundle mainBundle] loadNibNamed:@"BoardNormalTile" owner:self options:nil];
+            cell3 = _boardNormalTile;
+            self.boardNormalTile = nil;
+        }
+        
+        UIImageView *tileImage;
+        UILabel *tileLabel;
+        
+        tileImage = (UIImageView *)[cell3 viewWithTag:1];
+        tileLabel = (UILabel *)[cell3 viewWithTag:2];
+        
+//        tileImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"dummy%d%@",indexPath.row + 1,@".jpg"]];
+        tileLabel.text = [[_categories objectAtIndex:indexPath.row] name_En];
+        
+        return cell3;
     }
  
 }
@@ -153,6 +212,7 @@
 
 - (void)collectionView:(SSCollectionView *)aCollectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    _selectedRowIndexPath = indexPath;
     [self performSegueWithIdentifier:@"ShowBoardView" sender:self];
 }
 
@@ -168,11 +228,34 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowBoardView"]) {
-//        olgotBoardViewController *boardViewController = [segue destinationViewController];
+        olgotBoardViewController *boardViewController = [segue destinationViewController];
+        
+        if (_selectedRowIndexPath.section == 0) {
+            boardViewController.categoryID = 0;
+            
+            boardViewController.boardName = @"Feed";
+            
+        }else if (_selectedRowIndexPath.section == 1) {
+            if (_selectedRowIndexPath.row == 0) {
+                boardViewController.categoryID = 0;
+                
+                boardViewController.boardName = @"Nearby";
+            } else if(_selectedRowIndexPath.row == 1) {
+                boardViewController.categoryID = 0;
+                
+                boardViewController.boardName = @"My Wants";  
+            }
+        }
+        else {
+            boardViewController.categoryID = [[_categories objectAtIndex:_selectedRowIndexPath.row] categoryID];
+            
+            boardViewController.boardName = [[_categories objectAtIndex:_selectedRowIndexPath.row] name_En];
+        }
         
         
     }
 }
+
 
 
 @end

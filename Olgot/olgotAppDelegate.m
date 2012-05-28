@@ -8,6 +8,13 @@
 
 #import "olgotAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
+#import <RestKit/RestKit.h>
+#import <RestKit/CoreData.h>
+#import "olgotCategory.h"
+#import "olgotItem.h"
+#import "olgotActionUser.h"
+#import "olgotComment.h"
+
 
 @implementation olgotAppDelegate
 
@@ -15,6 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self configureRestkit];
     
         // Setup custom tab view
         CGRect frame = CGRectMake(0, 0, 480, 49);
@@ -130,6 +138,114 @@
     return YES;
 }
 
+-(void)configureRestkit
+{
+    // Initialize RestKit
+    RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://olgot.com/olgot/index.php/api"];
+    
+    // Enable automatic network activity indicator management
+    objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
+    
+    //setup category mapping
+    RKObjectMapping* categoryMapping = [RKObjectMapping mappingForClass:[olgotCategory class]];
+    
+    [categoryMapping mapKeyPathsToAttributes:
+     @"id", @"categoryID",
+     @"name_En", @"name_En",
+     @"name_Ar", @"name_Ar",
+     @"cityId", @"cityID",
+     @"order", @"order",
+     @"items", @"items",
+     @"lastItemDate", @"lastItemDate",
+     nil];
+    
+    RKObjectMapping* itemMapping = [RKObjectMapping mappingForClass:[olgotItem class]];
+    
+    [itemMapping mapKeyPathsToAttributes:
+     @"itemID",@"itemID",
+     @"itemDescription",@"itemDescription",
+     @"itemPrice",@"itemPrice",
+     @"itemDiscount",@"itemDiscount",
+     @"itemDate",@"itemDate",
+     @"itemKey",@"itemKey",
+     @"itemPublished",@"itemPublished",
+     @"userID",@"userID",
+     @"userName",@"userName",
+     @"userFirstName",@"userFirstName",
+     @"userLastName",@"userLastName",
+     @"userProfileImgUrl",@"userProfileImgUrl",
+     @"itemPhotoId",@"itemPhotoId",
+     @"itemPhotoUrl",@"itemPhotoUrl",
+     @"itemStatsLikes",@"itemStatsLikes",
+     @"itemStatsWants",@"itemStatsWants",
+     @"itemStatsGots",@"itemStatsGots",
+     @"itemStatsComments",@"itemStatsComments",
+     @"venueId",@"venueId",
+     @"venueName_En",@"venueName_En",
+     @"name_Ar",@"name_Ar",
+     @"venueGeoLat",@"venueGeoLat",
+     @"venueGeoLong",@"venueGeoLong",
+     @"cityId",@"cityId",
+     @"cityName_En",@"cityName_En",
+     @"countryCurrencyShortName",@"countryCurrencyShortName",
+     @"itemScore",@"itemScore",
+     nil];
+    
+    RKObjectMapping* actionUserMapping = [RKObjectMapping mappingForClass:[olgotActionUser class]];
+    
+    [actionUserMapping mapKeyPathsToAttributes:
+     @"itemId", @"itemId",
+     @"date", @"date",
+     @"userId",@"userId",
+     @"userName",@"userName",
+     @"userFirstName",@"userFirstName",
+     @"userLastName",@"userLastName",
+     @"userProfileImgUrl",@"userProfileImgUrl",
+     @"venueId",@"venueId",
+     @"venueName_En",@"venueName_En",
+     @"venueName_Ar",@"venueName_Ar",
+     @"itemPhotoId",@"itemPhotoId",
+     @"itemPhotoUrl",@"itemPhotoUrl",
+     @"itemPhotoKey",@"itemPhotoKey",
+     nil];
+    
+    RKObjectMapping* commentMapping = [RKObjectMapping mappingForClass:[olgotComment class]];
+    
+    [commentMapping mapKeyPathsToAttributes:
+     @"itemId",@"itemId",
+     @"id",@"Id",
+     @"body",@"body",
+     @"date",@"date",
+     @"published", @"published",
+     @"userId",@"userId",
+     @"userName",@"userName",
+     @"userFirstName",@"userFirstName",
+     @"userLastName",@"userLastName",
+     @"userProfileImgUrl",@"userProfileImgUrl",
+     nil];
+    
+    
+    // Register our mappings with the provider
+    [objectManager.mappingProvider setObjectMapping:categoryMapping forResourcePathPattern:@"/categories"];
+    
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/item/"];
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/feeditems/"];
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/nearbyitems/"];
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/categoryitems/"];
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/useritems/"];
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/userwants/"];
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/userlikes/"];
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/venueitems/"];
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/hotitems/"];
+    
+    [objectManager.mappingProvider setObjectMapping:actionUserMapping forResourcePathPattern:@"/itemlikes/"];
+    [objectManager.mappingProvider setObjectMapping:actionUserMapping forResourcePathPattern:@"/itemwants/"];
+    [objectManager.mappingProvider setObjectMapping:actionUserMapping forResourcePathPattern:@"/itemgots/"];
+    
+    [objectManager.mappingProvider setObjectMapping:commentMapping forResourcePathPattern:@"/comments/"];
+    
+    
+}
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

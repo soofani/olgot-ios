@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface olgotMapViewController : UIViewController
+{
+    IBOutlet UINavigationItem *myNavItem;
+}
 
 - (IBAction)dismissMap:(id)sender;
+
 
 @end

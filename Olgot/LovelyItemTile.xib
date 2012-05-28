@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1296</int>
-		<string key="IBDocument.SystemVersion">11D50b</string>
+		<string key="IBDocument.SystemVersion">11E53</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
-		<string key="IBDocument.AppKitVersion">1138.32</string>
-		<string key="IBDocument.HIToolboxVersion">568.00</string>
+		<string key="IBDocument.AppKitVersion">1138.47</string>
+		<string key="IBDocument.HIToolboxVersion">569.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">1181</string>
@@ -39,7 +39,7 @@
 					<object class="IBUIImageView" id="525683266">
 						<reference key="NSNextResponder" ref="1007777650"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{2, 2}, {140, 140}}</string>
+						<string key="NSFrame">{{3, 3}, {139, 139}}</string>
 						<reference key="NSSuperview" ref="1007777650"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="474556805"/>
@@ -55,7 +55,7 @@
 					<object class="IBUILabel" id="474556805">
 						<reference key="NSNextResponder" ref="1007777650"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{2, 141}, {140, 21}}</string>
+						<string key="NSFrame">{{10, 145}, {111, 21}}</string>
 						<reference key="NSSuperview" ref="1007777650"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="238450852"/>
@@ -90,7 +90,7 @@
 					<object class="IBUILabel" id="238450852">
 						<reference key="NSNextResponder" ref="1007777650"/>
 						<int key="NSvFlags">294</int>
-						<string key="NSFrame">{{2, 160}, {45, 21}}</string>
+						<string key="NSFrame">{{10, 163}, {45, 21}}</string>
 						<reference key="NSSuperview" ref="1007777650"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="423244183"/>
@@ -125,7 +125,7 @@
 					<object class="IBUILabel" id="423244183">
 						<reference key="NSNextResponder" ref="1007777650"/>
 						<int key="NSvFlags">294</int>
-						<string key="NSFrame">{{50, 160}, {63, 21}}</string>
+						<string key="NSFrame">{{63, 163}, {63, 21}}</string>
 						<reference key="NSSuperview" ref="1007777650"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -177,11 +177,11 @@
 			<array class="NSMutableArray" key="connectionRecords">
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">itemCell</string>
+						<string key="label">itemTile</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="1007777650"/>
 					</object>
-					<int key="connectionID">9</int>
+					<int key="connectionID">10</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -251,12 +251,13 @@
 							<object class="IBUserDefinedRuntimeAttribute">
 								<string key="typeIdentifier">com.apple.InterfaceBuilder.userDefinedRuntimeAttributeType.string</string>
 								<string key="keyPath">reuseIdentifier</string>
-								<string key="value">LovelyItemTileID</string>
+								<string key="value">ItemTile</string>
 							</object>
 						</array>
 					</object>
 				</object>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<dictionary class="NSMutableDictionary" key="4.IBAttributePlaceholdersKey"/>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -266,7 +267,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">9</int>
+			<int key="maxID">10</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -290,13 +291,13 @@
 					<string key="className">olgotLovelyViewController</string>
 					<string key="superclassName">SSCollectionViewController</string>
 					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">itemCell</string>
+						<string key="NS.key.0">itemTile</string>
 						<string key="NS.object.0">SSCollectionViewItem</string>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">itemCell</string>
+						<string key="NS.key.0">itemTile</string>
 						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">itemCell</string>
+							<string key="name">itemTile</string>
 							<string key="candidateClassName">SSCollectionViewItem</string>
 						</object>
 					</object>

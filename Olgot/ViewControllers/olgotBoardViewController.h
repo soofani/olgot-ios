@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSToolkit.h>
+#import <RestKit/RestKit.h>
 
-@interface olgotBoardViewController : SSCollectionViewController
+@interface olgotBoardViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
+    NSArray* _items;
+    NSIndexPath* _selectedRowIndexPath;
+}
 
+@property (strong, nonatomic) NSNumber *categoryID;
+@property (strong, nonatomic) NSString *boardName;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *itemCell;
 
 @end

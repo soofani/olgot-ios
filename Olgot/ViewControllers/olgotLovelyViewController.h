@@ -11,6 +11,6 @@
 
 @interface olgotLovelyViewController : SSCollectionViewController
 
-@property (nonatomic, strong) IBOutlet SSCollectionViewItem *itemCell;
+@property (nonatomic, strong) IBOutlet SSCollectionViewItem *itemTile;
 
 @end

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SSToolkit/SSToolkit.h>
 
 @interface olgotAddItemConfirmationViewController : UIViewController
+{
+    IBOutlet SSLineView *line1;
+    IBOutlet SSLineView *line2;
+}
 
 @end
