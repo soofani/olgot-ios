@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Not Another Fruit. All rights reserved.
 //
 
+@class olgotItem;
+
 @interface olgotCategory : NSObject
 {
     
@@ -18,5 +20,6 @@
 @property (nonatomic, retain) NSNumber* order;
 @property (nonatomic, retain) NSNumber* items;
 @property (nonatomic, retain) NSString* lastItemDate;
+@property (nonatomic, retain) olgotItem* lastItem;
 
 @end

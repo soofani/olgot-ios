@@ -9,9 +9,16 @@
 
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSToolkit.h>
+#import <RestKit/RestKit.h>
 
-@interface olgotPeopleListViewController : SSCollectionViewController
+@interface olgotPeopleListViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
+    NSArray* _userActions;
+    NSIndexPath* _selectedRowIndexPath;
+}
 
+@property (strong, nonatomic) NSNumber *itemID;
+@property (strong, nonatomic) NSString *actionName;
+@property (strong, nonatomic) NSNumber *actionStats;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *personListHeader;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *personCell;
 

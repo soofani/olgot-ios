@@ -159,17 +159,18 @@
      @"lastItemDate", @"lastItemDate",
      nil];
     
+    
     RKObjectMapping* itemMapping = [RKObjectMapping mappingForClass:[olgotItem class]];
     
     [itemMapping mapKeyPathsToAttributes:
-     @"itemID",@"itemID",
+     @"itemId",@"itemID",
      @"itemDescription",@"itemDescription",
      @"itemPrice",@"itemPrice",
      @"itemDiscount",@"itemDiscount",
      @"itemDate",@"itemDate",
      @"itemKey",@"itemKey",
      @"itemPublished",@"itemPublished",
-     @"userID",@"userID",
+     @"userId",@"userID",
      @"userName",@"userName",
      @"userFirstName",@"userFirstName",
      @"userLastName",@"userLastName",
@@ -215,7 +216,7 @@
      @"itemId",@"itemId",
      @"id",@"Id",
      @"body",@"body",
-     @"date",@"date",
+     @"dateNatural",@"date",
      @"published", @"published",
      @"userId",@"userId",
      @"userName",@"userName",
@@ -224,8 +225,8 @@
      @"userProfileImgUrl",@"userProfileImgUrl",
      nil];
     
-    
     // Register our mappings with the provider
+    [categoryMapping mapKeyPath:@"lastItem" toRelationship:@"lastItem" withMapping: itemMapping];
     [objectManager.mappingProvider setObjectMapping:categoryMapping forResourcePathPattern:@"/categories"];
     
     [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/item/"];

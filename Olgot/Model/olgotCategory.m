@@ -16,6 +16,7 @@ name_En,
 cityID,
 order,
 items,
-lastItemDate;
+lastItemDate,
+lastItem;
 
 @end

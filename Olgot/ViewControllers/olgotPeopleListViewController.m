@@ -7,6 +7,8 @@
 //
 
 #import "olgotPeopleListViewController.h"
+#import "UIImageView+AFNetworking.h"
+#import "olgotActionUser.h"
 
 @interface olgotPeopleListViewController ()
 
@@ -16,6 +18,8 @@
 
 @synthesize personListHeader = _personListHeader ,personCell = _personCell;
 
+@synthesize itemID = _itemID, actionName = _actionName, actionStats = _actionStats;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -23,6 +27,57 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)setItemID:(NSNumber *)itemID
+{
+    if (_itemID != itemID) {
+        _itemID = itemID;
+        self.navigationItem.title = _actionName;
+        [self loadActions];
+    }
+}
+
+- (void)loadActions {
+    // Load the object model via RestKit
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    if(_actionName == @"Likes"){
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _itemID, @"item", nil];
+        NSString* resourcePath = [@"/itemlikes/" appendQueryParams:myParams];
+        [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+        
+    }else if (_actionName == @"Wants") {
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _itemID, @"item", @"0" , @"long", nil];
+        NSString* resourcePath = [@"/itemwants/" appendQueryParams:myParams];
+        [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+        
+    }else if (_actionName == @"Gots") {
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _itemID, @"item", nil];
+        NSString* resourcePath = [@"/itemgots/" appendQueryParams:myParams];
+        [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+        
+    }
+}
+
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    NSLog(@"Loaded payload: %@", [response bodyAsString]);
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+    NSLog(@"Loaded actions: %@", objects);
+    if([objectLoader.response isOK]){
+        _userActions = objects;
+        [self.collectionView reloadData];
+    }
+    
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    NSLog(@"Hit error: %@", error);
 }
 
 - (void)viewDidLoad
@@ -65,7 +120,7 @@
     } 
     else 
     {
-        return 10;
+        return [_userActions count];
     }
 }
 
@@ -84,6 +139,10 @@
             self.personListHeader = nil;
         }
         
+        UILabel* headerLabel;
+        headerLabel = (UILabel*)[cell viewWithTag:1];
+        [headerLabel setText:[NSString stringWithFormat:@"%d people %@ this", [_actionStats intValue] ,_actionName]];;
+        
         return cell;
     }
     else{
@@ -94,6 +153,18 @@
             cell = _personCell;
             self.personCell = nil;
         }
+        
+        UIImageView* actionImage;
+        UILabel* actionLabel;
+        
+        actionImage = (UIImageView*)[cell viewWithTag:1];
+        [actionImage setImageWithURL:[NSURL URLWithString:[[_userActions objectAtIndex:indexPath.row] userProfileImgUrl]]];
+        
+        actionLabel = (UILabel*)[cell viewWithTag:2]; //user full name
+        [actionLabel setText:[NSString stringWithFormat:@"%@ %@",[[_userActions objectAtIndex:indexPath.row] userFirstName],[[_userActions objectAtIndex:indexPath.row] userLastName]]];
+        
+        actionLabel = (UILabel*)[cell viewWithTag:3]; //username
+        [actionLabel setText:[[_userActions objectAtIndex:indexPath.row] userName]];
         
         return cell;
     }

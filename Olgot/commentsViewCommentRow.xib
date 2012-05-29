@@ -48,20 +48,21 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
 						</object>
+						<int key="IBUITag">1</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 					<object class="IBUILabel" id="989734982">
 						<reference key="NSNextResponder" ref="486167693"/>
-						<int key="NSvFlags">1316</int>
+						<int key="NSvFlags">1315</int>
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
-						<string key="NSFrame">{{137, 7}, {84, 21}}</string>
+						<string key="NSFrame">{{175, 7}, {116, 21}}</string>
 						<reference key="NSSuperview" ref="486167693"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
+						<int key="IBUITag">3</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">comment time</string>
@@ -74,7 +75,9 @@
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
 						<int key="IBUIBaselineAdjustment">0</int>
-						<float key="IBUIMinimumFontSize">10</float>
+						<float key="IBUIMinimumFontSize">1</float>
+						<int key="IBUITextAlignment">2</int>
+						<int key="IBUILineBreakMode">0</int>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="883534988">
 							<string key="name">HelveticaNeue</string>
 							<string key="family">Helvetica Neue</string>
@@ -86,18 +89,20 @@
 							<double key="NSSize">12</double>
 							<int key="NSfFlags">16</int>
 						</object>
+						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
 					<object class="IBUILabel" id="520771785">
 						<reference key="NSNextResponder" ref="486167693"/>
-						<int key="NSvFlags">1316</int>
+						<int key="NSvFlags">1319</int>
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
-						<string key="NSFrame">{{54, 7}, {75, 21}}</string>
+						<string key="NSFrame">{{54, 7}, {113, 21}}</string>
 						<reference key="NSSuperview" ref="486167693"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="731876949"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
+						<int key="IBUITag">2</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Person Name</string>
@@ -115,11 +120,12 @@
 							<double key="pointSize">12</double>
 						</object>
 						<reference key="IBUIFont" ref="170918783"/>
+						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
 					<object class="IBUILabel" id="731876949">
 						<reference key="NSNextResponder" ref="486167693"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{54, 27}, {214, 39}}</string>
+						<string key="NSFrame">{{54, 27}, {214, 53}}</string>
 						<reference key="NSSuperview" ref="486167693"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="989734982"/>
@@ -127,6 +133,7 @@
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
+						<int key="IBUITag">4</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">dummy text dummy text dummy text dummy text dummy text</string>
@@ -137,7 +144,7 @@
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<float key="IBUIMinimumFontSize">10</float>
-						<int key="IBUINumberOfLines">2</int>
+						<int key="IBUINumberOfLines">0</int>
 						<int key="IBUILineBreakMode">0</int>
 						<reference key="IBUIFontDescription" ref="883534988"/>
 						<reference key="IBUIFont" ref="170918783"/>

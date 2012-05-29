@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSToolkit.h>
+#import <RestKit/RestKit.h>
 
-@interface olgotCommentsListViewController : SSCollectionViewController
+@interface olgotCommentsListViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
+    NSArray* _comments;
+    NSIndexPath* _selectedRowIndexPath;
+}
 
+@property (strong, nonatomic) NSNumber *itemID;
+@property (strong, nonatomic) NSNumber *commentsNumber;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *commentsListHeader;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *commentCell;
 

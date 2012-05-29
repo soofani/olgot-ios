@@ -7,6 +7,8 @@
 //
 
 #import "olgotCommentsListViewController.h"
+#import "UIImageView+AFNetworking.h"
+#import "olgotComment.h"
 
 @interface olgotCommentsListViewController ()
 
@@ -16,6 +18,8 @@
 
 @synthesize commentCell = _commentCell, commentsListHeader = _commentsListHeader;
 
+@synthesize itemID = _itemID, commentsNumber = _commentsNumber;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -23,6 +27,23 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)setItemID:(NSNumber *)itemID
+{
+    if (_itemID != itemID) {
+        _itemID = itemID;
+        [self loadComments];
+    }
+}
+
+- (void)loadComments {
+    // Load the object model via RestKit
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _itemID, @"item", nil];
+    NSString* resourcePath = @"/comments/";
+    [objectManager loadObjectsAtResourcePath:[resourcePath stringByAppendingQueryParameters:myParams] delegate:self];
 }
 
 - (void)viewDidLoad
@@ -52,6 +73,25 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    NSLog(@"Loaded payload: %@", [response bodyAsString]);
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+    NSLog(@"Loaded comments: %@", objects);
+    _comments = objects;
+    [self.collectionView reloadData];
+    
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    NSLog(@"Hit error: %@", error);
+}
+
 #pragma mark - SSCollectionViewDataSource
 
 - (NSUInteger)numberOfSectionsInCollectionView:(SSCollectionView *)aCollectionView {
@@ -65,7 +105,7 @@
     } 
     else 
     {
-        return 10;
+        return [_comments count];
     }
 }
 
@@ -84,6 +124,11 @@
             self.commentsListHeader = nil;
         }
         
+        UILabel* commentsHeader;
+        
+        commentsHeader = (UILabel*)[cell viewWithTag:1];
+        [commentsHeader setText:[NSString stringWithFormat:@"%d comments", [_commentsNumber intValue]]];
+        
         return cell;
     }
     else{
@@ -94,6 +139,21 @@
             cell = _commentCell;
             self.commentCell = nil;
         }
+        
+        UIImageView* commentImage;
+        UILabel* commentLabel;
+        
+        commentImage = (UIImageView*)[cell viewWithTag:1];
+        [commentImage setImageWithURL:[NSURL URLWithString:[[_comments objectAtIndex:indexPath.row] userProfileImgUrl]]];
+        
+        commentLabel = (UILabel*)[cell viewWithTag:2]; //user name
+        [commentLabel setText:[NSString stringWithFormat:@"%@ %@",[[_comments objectAtIndex:indexPath.row] userFirstName],[[_comments objectAtIndex:indexPath.row] userLastName]]];
+        
+        commentLabel = (UILabel*)[cell viewWithTag:3]; //comment time
+        [commentLabel setText:[[_comments objectAtIndex:indexPath.row] date]];
+        
+        commentLabel = (UILabel*)[cell viewWithTag:4]; //comment text
+        [commentLabel setText:[[_comments objectAtIndex:indexPath.row] body]];
         
         return cell;
     }

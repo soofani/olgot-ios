@@ -7,6 +7,9 @@
 //
 
 #import "olgotLovelyViewController.h"
+#import "UIImageView+AFNetworking.h"
+#import "olgotItem.h"
+#import "olgotItemViewController.h"
 
 @interface olgotLovelyViewController ()
 
@@ -26,6 +29,15 @@
     return self;
 }
 
+- (void)loadItems {
+    // Load the object model via RestKit
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: @"0", @"lat", @"0", @"long", nil];
+    NSString* resourcePath = [@"/hotitems/" appendQueryParams:myParams];
+    [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -39,7 +51,10 @@
     self.collectionView.scrollView.contentInset = UIEdgeInsetsMake(10.0,0.0,0.0,0.0);
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
-
+    
+    [self loadItems];
+    
+    
 }
 
 - (void)viewDidUnload
@@ -53,6 +68,27 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    NSLog(@"Loaded payload: %@", [response bodyAsString]);
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+    NSLog(@"Loaded items: %@", objects);
+    if([objectLoader.response isOK]){
+        _items = objects;
+        [self.collectionView reloadData];
+    }
+    
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    NSLog(@"Hit error: %@", error);
+}
+
 #pragma mark - SSCollectionViewDataSource
 
 - (NSUInteger)numberOfSectionsInCollectionView:(SSCollectionView *)aCollectionView {
@@ -61,7 +97,7 @@
 
 
 - (NSUInteger)collectionView:(SSCollectionView *)aCollectionView numberOfItemsInSection:(NSUInteger)section {
-	return 13;
+	return [_items count];
 }
 
 
@@ -76,21 +112,24 @@
         self.itemTile = nil;
     }
     
-    UIImageView *tileImage;
-    UILabel *tileLabel;
-//    UILabel *itemPlace;
-//    UILabel *itemPrice;
-
-    tileImage = (UIImageView *)[cell viewWithTag:1];
-    tileLabel = (UILabel *)[cell viewWithTag:2];
-//    itemPlace = (UILabel *)[cell viewWithTag:3];
-//    itemPrice = (UILabel *)[cell viewWithTag:4];    
+    UIImageView *itemImage;
+    UILabel *itemLabel;
     
-    // configure custom data
-    [tileLabel setText:[NSString stringWithFormat:@"Item %d", indexPath.row]];
-    [tileImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"dummy%d%@",indexPath.row + 1,@".jpg"]]];
-
+    itemImage = (UIImageView *)[cell viewWithTag:1];
+    [itemImage setImageWithURL:[NSURL URLWithString:[[_items objectAtIndex:indexPath.row] itemPhotoUrl]]];
     
+    itemLabel = (UILabel *)[cell viewWithTag:2]; //description
+    [itemLabel setText:[[_items objectAtIndex:indexPath.row] itemDescription]];
+    
+    itemLabel = (UILabel *)[cell viewWithTag:3]; //venue
+    [itemLabel setText:[[_items objectAtIndex:indexPath.row] venueName_En]];
+    
+    itemLabel = (UILabel *)[cell viewWithTag:4]; //price
+    [itemLabel setText:[NSString stringWithFormat:@"%d %@",
+                        [[[_items objectAtIndex:indexPath.row] itemPrice] integerValue],
+                        [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]                  
+                        ]];
+
     return cell;
 }
 

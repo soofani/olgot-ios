@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SSToolkit/SSToolkit.h>
 
-@interface olgotProfileViewController : UIViewController
+@interface olgotProfileViewController : SSCollectionViewController
+
+@property (nonatomic, strong) IBOutlet SSCollectionViewItem *profileCardTile;
+@property (nonatomic, strong) IBOutlet SSCollectionViewItem *profileItemTile;
 
 @end

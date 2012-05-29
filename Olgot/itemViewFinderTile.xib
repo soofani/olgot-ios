@@ -125,7 +125,6 @@
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUITag">3</int>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUINormalTitle">Place Name</string>
 						<reference key="IBUIHighlightedTitleColor" ref="507737029"/>
@@ -149,7 +148,7 @@
 						<reference key="NSNextResponder" ref="486167693"/>
 						<int key="NSvFlags">1316</int>
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
-						<string key="NSFrame">{{141, 19}, {52, 21}}</string>
+						<string key="NSFrame">{{141, 18}, {76, 21}}</string>
 						<reference key="NSSuperview" ref="486167693"/>
 						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -174,6 +173,7 @@
 							<double key="NSSize">12</double>
 							<int key="NSfFlags">16</int>
 						</object>
+						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
 					<object class="IBUILabel" id="122710411">
 						<reference key="NSNextResponder" ref="486167693"/>

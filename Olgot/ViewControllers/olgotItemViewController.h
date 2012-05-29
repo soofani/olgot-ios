@@ -17,6 +17,8 @@
     NSArray* _likes;
     NSArray* _wants;
     NSArray* _gots;
+    NSArray* _comments;
+    NSIndexPath* _selectedRowIndexPath;
 }
 
 @property (nonatomic, strong) olgotItem *item;

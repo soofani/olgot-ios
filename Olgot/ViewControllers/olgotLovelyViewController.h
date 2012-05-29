@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSToolkit.h>
+#import <RestKit/RestKit.h>
 
-@interface olgotLovelyViewController : SSCollectionViewController
+@interface olgotLovelyViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
+    NSArray* _items;
+    NSIndexPath* _selectedRowIndexPath;
+}
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *itemTile;
 

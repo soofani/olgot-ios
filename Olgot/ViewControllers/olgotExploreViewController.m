@@ -8,8 +8,10 @@
 
 #import "olgotExploreViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UIImageView+AFNetworking.h"
 #import "olgotBoardViewController.h"
 #import "olgotCategory.h"
+#import "olgotItem.h"
 
 @interface olgotExploreViewController ()
 
@@ -179,6 +181,7 @@
         tileLabel = (UILabel *)[cell3 viewWithTag:2];
         
 //        tileImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"dummy%d%@",indexPath.row + 1,@".jpg"]];
+        [tileImage setImageWithURL:[NSURL URLWithString:[[[_categories objectAtIndex:indexPath.row] lastItem] itemPhotoUrl]]];
         tileLabel.text = [[_categories objectAtIndex:indexPath.row] name_En];
         
         return cell3;

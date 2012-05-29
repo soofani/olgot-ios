@@ -7,7 +7,9 @@
 //
 
 #import "olgotBoardViewController.h"
+#import "UIImageView+AFNetworking.h"
 #import "olgotItem.h"
+#import "olgotItemViewController.h"
 
 @implementation olgotBoardViewController
 
@@ -148,7 +150,7 @@
     UILabel *itemLabel;
     
     itemImage = (UIImageView *)[cell viewWithTag:1];
-    
+    [itemImage setImageWithURL:[NSURL URLWithString:[[_items objectAtIndex:indexPath.row] itemPhotoUrl]]];
     
     itemLabel = (UILabel *)[cell viewWithTag:2]; //description
     [itemLabel setText:[[_items objectAtIndex:indexPath.row] itemDescription]];
@@ -187,12 +189,22 @@
 
 - (void)collectionView:(SSCollectionView *)aCollectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    _selectedRowIndexPath = indexPath;
     [self performSegueWithIdentifier:@"ShowItemView" sender:self];
 }
 
 
 - (CGFloat)collectionView:(SSCollectionView *)aCollectionView heightForHeaderInSection:(NSUInteger)section {
 	return 0.0f;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"ShowItemView"]){
+        olgotItemViewController *itemViewController = [segue destinationViewController];
+        
+        itemViewController.item = [_items objectAtIndex:_selectedRowIndexPath.row];
+    }
 }
 
 
