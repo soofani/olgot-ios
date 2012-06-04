@@ -36,5 +36,13 @@
 @property (nonatomic, retain) NSString* cityName_En;
 @property (nonatomic, retain) NSString* countryCurrencyShortName;
 @property (nonatomic, retain) NSNumber* itemScore;
+@property (nonatomic, retain) NSArray* comments;
+@property (nonatomic, retain) NSArray* likes;
+@property (nonatomic, retain) NSArray* wants;
+@property (nonatomic, retain) NSArray* gots;
+@property (nonatomic,retain) NSNumber* iLike;
+@property (nonatomic,retain) NSNumber* iWant;
+@property (nonatomic,retain) NSNumber* iGot;
+
 
 @end

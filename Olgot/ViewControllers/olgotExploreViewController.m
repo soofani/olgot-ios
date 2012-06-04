@@ -42,7 +42,16 @@
 {
     [super viewDidLoad];
     
-    firstRun = YES;
+    // Get the stored data before the view loads
+    defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:1] forKey:@"userid"];
+    
+    if ([defaults objectForKey:@"userid"] == nil) {
+        [defaults setObject:nil forKey:@"firstRun"];
+    }
+    
+    NSLog(@"session user id = %@", [defaults objectForKey:@"userid"]);
+//    firstRun = [defaults objectForKey:@"firstRun"];
     
     // background
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
@@ -63,8 +72,8 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    if(firstRun){
-        firstRun = NO;
+    if([defaults objectForKey:@"firstRun"] == nil){
+        [defaults setObject:@"1" forKey:@"userid"];
         [self performSegueWithIdentifier:@"ShowSignupFlow" sender:self];
     }
 }
@@ -135,8 +144,13 @@
         tileImage = (UIImageView *)[cell1 viewWithTag:1];
         tileLabel = (UILabel *)[cell1 viewWithTag:2];
         
-        tileImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"dummy%d%@", 14,@".jpg"]];
+//        tileImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"dummy%d%@", 14,@".jpg"]];
+        tileImage.image = [UIImage imageNamed:@"thumb-feed.jpg"];
         tileLabel.text = @"Feed";
+        
+//        cell1.layer.shadowOpacity = 0.5;
+//        cell1.layer.shadowColor = [[UIColor blackColor] CGColor];
+//        cell1.layer.shadowOffset = CGSizeMake(1.0, 1.0);
         
         return cell1;
     }
@@ -163,6 +177,10 @@
             tileLabel.text = @"My Wants";
         }
         
+//        cell2.layer.shadowOpacity = 0.5;
+//        cell2.layer.shadowColor = [[UIColor blackColor] CGColor];
+//        cell2.layer.shadowOffset = CGSizeMake(1.0, 1.0);
+        
         return cell2;
     }
     else {
@@ -180,9 +198,12 @@
         tileImage = (UIImageView *)[cell3 viewWithTag:1];
         tileLabel = (UILabel *)[cell3 viewWithTag:2];
         
-//        tileImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"dummy%d%@",indexPath.row + 1,@".jpg"]];
         [tileImage setImageWithURL:[NSURL URLWithString:[[[_categories objectAtIndex:indexPath.row] lastItem] itemPhotoUrl]]];
         tileLabel.text = [[_categories objectAtIndex:indexPath.row] name_En];
+        
+//        cell3.layer.shadowOpacity = 0.5;
+//        cell3.layer.shadowColor = [[UIColor blackColor] CGColor];
+//        cell3.layer.shadowOffset = CGSizeMake(1.0, 1.0);
         
         return cell3;
     }
@@ -254,8 +275,7 @@
             
             boardViewController.boardName = [[_categories objectAtIndex:_selectedRowIndexPath.row] name_En];
         }
-        
-        
+   
     }
 }
 

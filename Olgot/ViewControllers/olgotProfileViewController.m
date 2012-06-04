@@ -7,6 +7,12 @@
 //
 
 #import "olgotProfileViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import "UIImageView+AFNetworking.h"
+#import "olgotItem.h"
+#import "olgotUser.h"
+#import "olgotItemViewController.h"
+
 
 @interface olgotProfileViewController ()
 
@@ -16,6 +22,8 @@
 
 @synthesize profileCardTile = _profileCardTile, profileItemTile = _profileItemTile;
 
+@synthesize userID = _userID;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -23,6 +31,55 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)setUserID:(NSNumber *)userID
+{
+    if (_userID != userID) {
+        _userID = userID;
+        [self loadItems];
+        [self loadUser];
+    }
+}
+
+-(void)loadUser
+{
+    defaults = [NSUserDefaults standardUserDefaults];
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _userID, @"user", [defaults objectForKey:@"userid"], @"id", nil];
+    NSString* resourcePath = [@"/user/" appendQueryParams:myParams];
+    [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+}
+
+- (void)loadItems {
+    // Load the object model via RestKit
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _userID, @"user", nil];
+    NSString* resourcePath = [@"/useritems/" appendQueryParams:myParams];
+    [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+}
+
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    NSLog(@"Loaded payload: %@", [response bodyAsString]);
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+    if ([[objects objectAtIndex:0] class] == [olgotUser class]) {
+        _user = [objects objectAtIndex:0];
+        [self.collectionView reloadData];
+    } else {
+        _items = objects;
+        [self.collectionView reloadData];
+    }
+    
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    NSLog(@"Hit error: %@", error);
 }
 
 - (void)viewDidLoad
@@ -39,10 +96,21 @@
     self.collectionView.scrollView.contentInset = UIEdgeInsetsMake(10.0,0.0,0.0,0.0);
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
+    
+    defaults = [NSUserDefaults standardUserDefaults];
+    if(_userID == nil){
+        _userID = [defaults objectForKey:@"userid"];
+        [self loadItems];
+        [self loadUser];
+    }
+    
+    
+    
 }
 
 - (void)viewDidUnload
 {
+    self.userID = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -55,7 +123,11 @@
 #pragma mark - SSCollectionViewDataSource
 
 - (NSUInteger)numberOfSectionsInCollectionView:(SSCollectionView *)aCollectionView {
-	return 2;
+    if (_user != NULL) {
+        return 2;
+    }else {
+        return 0;
+    }
 }
 
 
@@ -63,7 +135,7 @@
     if (section == 0) {
         return 1;
     }else{
-        return 7;
+        return [_items count];
     }
 }
 
@@ -81,7 +153,41 @@
             self.profileCardTile = nil;
         }
         
+        UIButton* followButton;
+        followButton = (UIButton*)[cell1 viewWithTag:7];
+        [followButton setTitle:[NSString stringWithFormat:@"Follow %@",[_user firstName]] forState:UIControlStateNormal];
+        
         // configure custom data
+        if ([_userID isEqualToNumber:[defaults objectForKey:@"userid"]]) {
+            [followButton setHidden:YES];
+        }else {
+            [followButton setHidden:NO];
+        }
+        
+        UIImageView* userImage;
+        UILabel* userLabel;
+        
+        userImage = (UIImageView*)[cell1 viewWithTag:1];
+        [userImage setImageWithURL:[NSURL URLWithString:[_user userProfileImageUrl]]];
+        
+        userLabel = (UILabel*)[cell1 viewWithTag:2];    //Name
+        userLabel.text = [NSString stringWithFormat:@"%@ %@",[_user firstName],[_user lastName]];
+        
+        userLabel = (UILabel*)[cell1 viewWithTag:3];    //username
+        userLabel.text = [_user username];
+        
+        userLabel = (UILabel*)[cell1 viewWithTag:4];    //items
+        userLabel.text = [[_user items] stringValue];
+        
+        userLabel = (UILabel*)[cell1 viewWithTag:5];    //followers
+        userLabel.text = [[_user followers] stringValue];
+        
+        userLabel = (UILabel*)[cell1 viewWithTag:6];    //following
+        userLabel.text = [[_user following] stringValue];
+        
+//        cell1.layer.shadowOpacity = 0.5;
+//        cell1.layer.shadowColor = [[UIColor blackColor] CGColor];
+//        cell1.layer.shadowOffset = CGSizeMake(1.0, 1.0);
         
         return cell1;
     }
@@ -94,13 +200,27 @@
             self.profileItemTile = nil;
         }
         
-        UIImageView *tileImage;
-        UILabel *tileLabel;
+        UIImageView *itemImage;
+        UILabel *itemLabel;
         
-        tileImage = (UIImageView *)[cell2 viewWithTag:1];
-        tileLabel = (UILabel *)[cell2 viewWithTag:2];
+        itemImage = (UIImageView *)[cell2 viewWithTag:1];
+        [itemImage setImageWithURL:[NSURL URLWithString:[[_items objectAtIndex:indexPath.row] itemPhotoUrl]]];
         
-        [tileImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"dummy%d%@",indexPath.row + 1,@".jpg"]]];
+        itemLabel = (UILabel *)[cell2 viewWithTag:2]; //description
+        [itemLabel setText:[[_items objectAtIndex:indexPath.row] itemDescription]];
+        
+        itemLabel = (UILabel *)[cell2 viewWithTag:3]; //venue
+        [itemLabel setText:[[_items objectAtIndex:indexPath.row] venueName_En]];
+        
+        itemLabel = (UILabel *)[cell2 viewWithTag:4]; //price
+        [itemLabel setText:[NSString stringWithFormat:@"%d %@",
+                            [[[_items objectAtIndex:indexPath.row] itemPrice] integerValue],
+                            [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]                  
+                            ]];
+        
+//        cell2.layer.shadowOpacity = 0.5;
+//        cell2.layer.shadowColor = [[UIColor blackColor] CGColor];
+//        cell2.layer.shadowOffset = CGSizeMake(1.0, 1.0);
         
         return cell2;
     }
@@ -124,9 +244,14 @@
 
 - (CGSize)collectionView:(SSCollectionView *)aCollectionView itemSizeForSection:(NSUInteger)section {
     if (section == 0) {
-        return CGSizeMake(300.0f, 138.0f);
+        if ([_userID isEqualToNumber:[defaults objectForKey:@"userid"]]) {
+            return CGSizeMake(300.0f, 95.0f);
+        }else {
+            return CGSizeMake(300.0f, 138.0f);
+        }
+        
     }else{
-        return CGSizeMake(145.0f, 186.0f);
+        return CGSizeMake(145.0f, 184.0f);
     }
 	
 }
@@ -134,6 +259,7 @@
 - (void)collectionView:(SSCollectionView *)aCollectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     if(indexPath.section == 1){
+        _selectedRowIndexPath = indexPath;
         [self performSegueWithIdentifier:@"ShowItemView" sender:self];
     }
     
@@ -147,6 +273,16 @@
         return 0.0f;
     }
 	
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"ShowItemView"]){
+        olgotItemViewController *itemViewController = [segue destinationViewController];
+        
+        itemViewController.itemID = [[_items objectAtIndex:_selectedRowIndexPath.row] itemID];
+        itemViewController.itemKey = [[_items objectAtIndex:_selectedRowIndexPath.row] itemKey];
+    }
 }
 
 

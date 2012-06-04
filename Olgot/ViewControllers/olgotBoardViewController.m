@@ -7,6 +7,7 @@
 //
 
 #import "olgotBoardViewController.h"
+#import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AFNetworking.h"
 #import "olgotItem.h"
 #import "olgotItemViewController.h"
@@ -164,6 +165,10 @@
       [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]                  
       ]];
     
+//    cell.layer.shadowOpacity = 0.5;
+//    cell.layer.shadowColor = [[UIColor blackColor] CGColor];
+//    cell.layer.shadowOffset = CGSizeMake(1.0, 1.0);
+    
     return cell;
 }
 
@@ -203,7 +208,8 @@
     if([[segue identifier] isEqualToString:@"ShowItemView"]){
         olgotItemViewController *itemViewController = [segue destinationViewController];
         
-        itemViewController.item = [_items objectAtIndex:_selectedRowIndexPath.row];
+        itemViewController.itemID = [[_items objectAtIndex:_selectedRowIndexPath.row] itemID];
+        itemViewController.itemKey = [[_items objectAtIndex:_selectedRowIndexPath.row] itemKey];
     }
 }
 

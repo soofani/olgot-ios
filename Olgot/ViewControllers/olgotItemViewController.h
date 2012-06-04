@@ -20,7 +20,10 @@
     NSArray* _comments;
     NSIndexPath* _selectedRowIndexPath;
 }
+- (IBAction)showProfile:(id)sender;
 
+@property (strong, nonatomic) NSNumber *itemID;
+@property (strong, nonatomic) NSNumber *itemKey;
 @property (nonatomic, strong) olgotItem *item;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *itemCell;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *finderCell;
@@ -28,7 +31,16 @@
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *commentsHeader;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *commentCell;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *commentsFooter;
+@property (strong, nonatomic) IBOutlet UIButton *likeButton;
+@property (strong, nonatomic) IBOutlet UIButton *wantButton;
+@property (strong, nonatomic) IBOutlet UIButton *gotButton;
+@property (strong, nonatomic) IBOutlet UIButton *commentButton;
 
 - (IBAction)showVenue:(id)sender;
+- (IBAction)likeAction:(id)sender;
+- (IBAction)wantAction:(id)sender;
+- (IBAction)gotAction:(id)sender;
+
+
 
 @end

@@ -7,10 +7,15 @@
 //
 
 #import "olgotChooseFriends.h"
+#import "UIImageView+AFNetworking.h"
+#import "olgotMyFriend.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation olgotChooseFriends
 
 @synthesize headerCell = _headerCell, personCell = _personCell, footerCell = _footerCell;
+@synthesize userID = _userID;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -20,6 +25,86 @@
     }
     return self;
 }
+
+-(void)setUserID:(NSString *)userID
+{
+    if (_userID != userID) {
+        _userID = userID;
+        [self loadFriends];
+    }
+}
+
+-(void)loadFriends{
+    // Load the object model via RestKit
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _userID, @"user", nil];
+    NSString* resourcePath = [@"/friends/" appendQueryParams:myParams];
+    [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+}
+
+-(void)followFriend:(UIButton*)sender
+{
+    SSCollectionViewItem* cell = (SSCollectionViewItem*)[sender superview];
+    
+//    [sender setHidden:YES];
+    NSLog(@"follow %@ with id %@", [[_myFriends objectAtIndex:cell.tag] username], [[_myFriends objectAtIndex:cell.tag] userId]);
+    
+    [[_myFriends objectAtIndex:cell.tag] setIFollow:[NSNumber numberWithInt:1]];
+    
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            _userID, @"id",
+                            [[_myFriends objectAtIndex:cell.tag] userId], @"user",
+                            nil];
+    
+    [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [[RKClient sharedClient] post:@"/follower/" params:params delegate:self];
+  
+}
+
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    NSLog(@"Loaded payload %@", [response bodyAsString]);
+    
+    if ([request isGET]) {   
+        if ([response isOK]) {  
+            // Success! Let's take a look at the data  
+            NSLog(@"Retrieved XML: %@", [response bodyAsString]);  
+        }  
+        
+    } else if ([request isPOST]) {  
+        
+        if ([response isJSON]) {
+            id resp = [NSJSONSerialization JSONObjectWithData:[response body]
+                                                      options:0
+                                                        error:nil];
+            if([response isOK]){
+                NSLog(@"Got a JSON response back from our POST! %@", [response bodyAsString]);
+                [self.navigationItem.rightBarButtonItem setEnabled:YES];
+                [self.collectionView reloadData];
+            }else {
+                
+            }
+        }  
+        
+    }
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+    NSLog(@"Loaded actions: %@", objects);
+    if([objectLoader.response isOK]){
+        _myFriends = objects;
+        [self.collectionView reloadData];
+    }
+    
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    NSLog(@"Hit error: %@", error);
+}
+
 
 - (void)viewDidLoad
 {
@@ -42,9 +127,9 @@
     [finishBtn setBackgroundImage:finishImage30 forState:UIControlStateNormal];
     [finishBtn addTarget:self action:@selector(finishSignup) forControlEvents:UIControlEventTouchUpInside];
     
-
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:finishBtn];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:finishBtn];
+    [self.navigationItem.rightBarButtonItem setEnabled:NO];
 }
 
 -(void)finishSignup
@@ -77,7 +162,7 @@
     }else if (section == 2) {
         return 1;
     }else {
-        return 5;
+        return [_myFriends count];
     }
 }
 
@@ -117,11 +202,39 @@
             self.personCell = nil;
         }
         
+        UIImageView* friendImage;
+        UILabel* friendLabel;
+        UIButton* followButton;
+        
+        friendImage = (UIImageView*)[cell viewWithTag:1];
+        [friendImage setImageWithURL:[NSURL URLWithString:[[_myFriends objectAtIndex:indexPath.row
+                                                            ] userProfileImgUrl]]];
+        
+        friendLabel = (UILabel*)[cell viewWithTag:2]; // Full Name
+        friendLabel.text = [NSString stringWithFormat:@"%@ %@", 
+                            [[_myFriends objectAtIndex:indexPath.row] firstName],
+                            [[_myFriends objectAtIndex:indexPath.row] lastName]
+                            ];
+        
+        friendLabel = (UILabel*)[cell viewWithTag:3]; // username
+        friendLabel.text = [[_myFriends objectAtIndex:indexPath.row] username];
+        
+        followButton = (UIButton*)[cell viewWithTag:4]; //follow
+        [followButton addTarget:self action:@selector(followFriend:) forControlEvents:UIControlEventTouchUpInside];
+        
+        if([[_myFriends objectAtIndex:indexPath.row] iFollow] == 0){
+            [followButton addTarget:self action:@selector(followFriend:) forControlEvents:UIControlEventTouchUpInside];
+            [followButton setImage:[UIImage imageNamed:@"btn-user-list-follow"] forState:UIControlStateNormal];
+        }else {
+            [followButton removeTarget:self action:@selector(followFriend:) forControlEvents:UIControlEventTouchUpInside];
+            [followButton setImage:[UIImage imageNamed:@"btn-user-list-following"] forState:UIControlStateNormal];
+        }
+        
+        [cell setTag:indexPath.row];
         return cell;
     }
 	
 }
-
 
 - (UIView *)collectionView:(SSCollectionView *)aCollectionView viewForHeaderInSection:(NSUInteger)section {
 	SSLabel *header = [[SSLabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 40.0f)];
@@ -159,6 +272,8 @@
 - (CGFloat)collectionView:(SSCollectionView *)aCollectionView heightForHeaderInSection:(NSUInteger)section {
 	return 0.0f;
 }
+
+
 
 
 

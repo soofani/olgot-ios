@@ -36,6 +36,13 @@ venueGeoLong,
 cityId,
 cityName_En,
 countryCurrencyShortName,
-itemScore;
+itemScore,
+comments,
+likes,
+wants,
+gots,
+iLike,
+iWant,
+iGot;
 
 @end

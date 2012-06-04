@@ -12,8 +12,11 @@
 #import <RestKit/CoreData.h>
 #import "olgotCategory.h"
 #import "olgotItem.h"
+#import "olgotUser.h"
 #import "olgotActionUser.h"
+#import "olgotVenue.h"
 #import "olgotComment.h"
+#import "olgotMyFriend.h"
 
 
 @implementation olgotAppDelegate
@@ -141,6 +144,8 @@
 -(void)configureRestkit
 {
     // Initialize RestKit
+    RKClient* client = [RKClient clientWithBaseURL:[NSURL URLWithString:@"http://olgot.com/olgot/index.php/api"]];  
+    
     RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://olgot.com/olgot/index.php/api"];
     
     // Enable automatic network activity indicator management
@@ -190,6 +195,22 @@
      @"cityName_En",@"cityName_En",
      @"countryCurrencyShortName",@"countryCurrencyShortName",
      @"itemScore",@"itemScore",
+     @"userActions.Like",@"iLike",
+     @"userActions.want",@"iWant",
+     @"userActions.got",@"iGot",
+     nil];
+    
+    RKObjectMapping* userMapping = [RKObjectMapping mappingForClass:[olgotUser class]];
+    
+    [userMapping mapKeyPathsToAttributes:
+     @"id", @"userId",
+     @"username", @"username",
+     @"firstName", @"firstName",
+     @"lastName", @"lastName",
+     @"profileImgUrl",@"userProfileImageUrl",
+     @"followers",@"followers",
+     @"following", @"following",
+     @"items",@"items",
      nil];
     
     RKObjectMapping* actionUserMapping = [RKObjectMapping mappingForClass:[olgotActionUser class]];
@@ -210,6 +231,23 @@
      @"itemPhotoKey",@"itemPhotoKey",
      nil];
     
+    RKObjectMapping* innerActionUserMapping = [RKObjectMapping mappingForClass:[olgotActionUser class]];
+    
+    [innerActionUserMapping mapKeyPathsToAttributes:
+     @"profileImgUrl",@"userProfileImgUrl",
+     nil];
+    
+    RKObjectMapping* venueMapping = [RKObjectMapping mappingForClass:[olgotVenue class]];
+    
+    [venueMapping mapKeyPathsToAttributes:
+     @"id",@"venueId",
+     @"name_Ar",@"name_Ar",
+     @"name_En",@"name_En",
+     @"geoLat",@"geoLat",
+     @"geoLong",@"geoLong",
+     @"items",@"items",
+     nil];
+    
     RKObjectMapping* commentMapping = [RKObjectMapping mappingForClass:[olgotComment class]];
     
     [commentMapping mapKeyPathsToAttributes:
@@ -225,11 +263,43 @@
      @"userProfileImgUrl",@"userProfileImgUrl",
      nil];
     
+    RKObjectMapping* innerCommentMapping = [RKObjectMapping mappingForClass:[olgotComment class]];
+    
+    [innerCommentMapping mapKeyPathsToAttributes:
+     @"itemId",@"itemId",
+     @"id",@"Id",
+     @"body",@"body",
+     @"date",@"date",
+     @"published", @"published",
+     @"userId",@"userId",
+     @"firstName",@"userFirstName",
+     @"lastName",@"userLastName",
+     @"profileImgUrl",@"userProfileImgUrl",
+     nil];
+    
+    
+    RKObjectMapping* myFriendMapping = [RKObjectMapping mappingForClass:[olgotMyFriend class]];
+    [myFriendMapping mapKeyPathsToAttributes:
+     @"userId",@"userId",
+     @"username",@"username",
+     @"firstName",@"firstName",
+     @"lastName",@"lastName",
+     @"facebookFriend",@"facebookFriend",
+     @"twitterFriend",@"twitterFriend",
+     @"foursqaureFriend",@"foursqaureFriend",
+     @"userProfileImgUrl",@"userProfileImgUrl",
+     nil];
+    
     // Register our mappings with the provider
     [categoryMapping mapKeyPath:@"lastItem" toRelationship:@"lastItem" withMapping: itemMapping];
     [objectManager.mappingProvider setObjectMapping:categoryMapping forResourcePathPattern:@"/categories"];
     
+    [itemMapping mapKeyPath:@"comments" toRelationship:@"comments" withMapping:innerCommentMapping];
+    [itemMapping mapKeyPath:@"likes" toRelationship:@"likes" withMapping:innerActionUserMapping];
+    [itemMapping mapKeyPath:@"wants" toRelationship:@"wants" withMapping:innerActionUserMapping];
+    [itemMapping mapKeyPath:@"gots" toRelationship:@"gots" withMapping:innerActionUserMapping];
     [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/item/"];
+    
     [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/feeditems/"];
     [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/nearbyitems/"];
     [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/categoryitems/"];
@@ -239,11 +309,17 @@
     [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/venueitems/"];
     [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/hotitems/"];
     
+    [objectManager.mappingProvider setObjectMapping:userMapping forResourcePathPattern:@"/user/"];
+    
+    [objectManager.mappingProvider setObjectMapping:venueMapping forResourcePathPattern:@"/venue/"];
+    
     [objectManager.mappingProvider setObjectMapping:actionUserMapping forResourcePathPattern:@"/itemlikes/"];
     [objectManager.mappingProvider setObjectMapping:actionUserMapping forResourcePathPattern:@"/itemwants/"];
     [objectManager.mappingProvider setObjectMapping:actionUserMapping forResourcePathPattern:@"/itemgots/"];
     
     [objectManager.mappingProvider setObjectMapping:commentMapping forResourcePathPattern:@"/comments/"];
+    
+    [objectManager.mappingProvider setObjectMapping:myFriendMapping forResourcePathPattern:@"/friends/"];
     
     
 }

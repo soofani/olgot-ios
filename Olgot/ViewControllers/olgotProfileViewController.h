@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSToolkit.h>
+#import <RestKit/RestKit.h>
+#import "olgotUser.h"
 
-@interface olgotProfileViewController : SSCollectionViewController
+@interface olgotProfileViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
+    NSArray* _items;
+    olgotUser* _user;
+    NSIndexPath* _selectedRowIndexPath;
+    NSUserDefaults* defaults;
+}
 
+@property (strong, nonatomic) NSNumber *userID;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *profileCardTile;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *profileItemTile;
 

@@ -66,13 +66,14 @@
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC42IDAuNiAwLjYAA</bytes>
 						</object>
+						<int key="IBUITag">1</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 					<object class="IBUILabel" id="939355695">
 						<reference key="NSNextResponder" ref="631208757"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{49, 3}, {77, 21}}</string>
+						<string key="NSFrame">{{49, 3}, {168, 21}}</string>
 						<reference key="NSSuperview" ref="631208757"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="140644811"/>
@@ -80,6 +81,7 @@
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
+						<int key="IBUITag">2</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Person Name</string>
@@ -105,7 +107,7 @@
 					<object class="IBUILabel" id="140644811">
 						<reference key="NSNextResponder" ref="631208757"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{49, 20}, {86, 21}}</string>
+						<string key="NSFrame">{{49, 20}, {168, 21}}</string>
 						<reference key="NSSuperview" ref="631208757"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="192784541"/>
@@ -113,6 +115,7 @@
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
+						<int key="IBUITag">3</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">@accountname</string>
@@ -141,6 +144,7 @@
 						<reference key="NSNextKeyView" ref="47857719"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
+						<int key="IBUITag">4</int>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -272,7 +276,7 @@
 							<object class="IBUserDefinedRuntimeAttribute">
 								<string key="typeIdentifier">com.apple.InterfaceBuilder.userDefinedRuntimeAttributeType.string</string>
 								<string key="keyPath">reuseIdentifier</string>
-								<string key="value">personTileID</string>
+								<string key="value">person</string>
 							</object>
 						</array>
 					</object>

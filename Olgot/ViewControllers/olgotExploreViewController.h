@@ -11,9 +11,10 @@
 #import <RestKit/RestKit.h>
 
 @interface olgotExploreViewController : SSCollectionViewController <RKObjectLoaderDelegate>{
-    Boolean *firstRun;
+    NSString *firstRun;
     NSArray* _categories;
     NSIndexPath* _selectedRowIndexPath;
+    NSUserDefaults* defaults;
 }
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *boardBigTile;

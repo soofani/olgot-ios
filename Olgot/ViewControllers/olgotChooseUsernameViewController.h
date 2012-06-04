@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
 
-@interface olgotChooseUsernameViewController : UIViewController
+@interface olgotChooseUsernameViewController : UIViewController<RKRequestDelegate>
+{
+    id _twitterJson;
+    NSString* _userID;
+}
+
+@property (strong, nonatomic) NSData *twitterResponseData;
+@property (strong, nonatomic) IBOutlet UITextField *usernameTF;
+@property (strong, nonatomic) IBOutlet UITextField *userEmail;
+@property (strong, nonatomic) IBOutlet UIButton *createAccountBtn;
+
+- (IBAction)createAccount:(id)sender;
+
 
 @end

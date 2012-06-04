@@ -47,4 +47,30 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 2 && indexPath.row == 0) {
+        NSLog(@"logout");
+        // Store the data
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        [defaults setObject:nil forKey:@"firstRun"];
+        [defaults setObject:nil forKey:@"userid"];
+        [defaults setObject:nil forKey:@"username"];
+        [defaults setObject:nil forKey:@"email"];
+        [defaults setObject:nil forKey:@"fullname"];
+        [defaults setObject:nil forKey:@"twitterid"];
+        [defaults setObject:nil forKey:@"twittername"];
+        
+        [defaults synchronize];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:@"You have been logged out."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
 @end

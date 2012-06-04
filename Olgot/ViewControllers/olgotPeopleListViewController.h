@@ -8,6 +8,7 @@
 
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import <SSToolkit/SSToolkit.h>
 #import <RestKit/RestKit.h>
 

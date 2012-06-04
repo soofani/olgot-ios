@@ -7,6 +7,7 @@
 //
 
 #import "olgotCommentsListViewController.h"
+#import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AFNetworking.h"
 #import "olgotComment.h"
 

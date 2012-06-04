@@ -9,6 +9,7 @@
 #import "olgotPeopleListViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "olgotActionUser.h"
+#import "olgotProfileViewController.h"
 
 @interface olgotPeopleListViewController ()
 
@@ -143,6 +144,7 @@
         headerLabel = (UILabel*)[cell viewWithTag:1];
         [headerLabel setText:[NSString stringWithFormat:@"%d people %@ this", [_actionStats intValue] ,_actionName]];;
         
+        
         return cell;
     }
     else{
@@ -196,7 +198,8 @@
 - (void)collectionView:(SSCollectionView *)aCollectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 1) {
-//        [self performSegueWithIdentifier:@"showProfile" sender:self];
+        _selectedRowIndexPath = indexPath;
+        [self performSegueWithIdentifier:@"showProfile" sender:self];
     }
     
 }
@@ -206,5 +209,13 @@
 	return 0.0f;
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqual:@"showProfile"]){
+        olgotProfileViewController *profileViewController = [segue destinationViewController];
+        
+        profileViewController.userID = [[_userActions objectAtIndex:_selectedRowIndexPath.row] userId];
+    }
+}
 
 @end

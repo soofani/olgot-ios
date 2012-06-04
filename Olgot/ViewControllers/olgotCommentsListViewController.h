@@ -20,4 +20,5 @@
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *commentsListHeader;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *commentCell;
 
+
 @end

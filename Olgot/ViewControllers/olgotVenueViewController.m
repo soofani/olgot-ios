@@ -7,6 +7,10 @@
 //
 
 #import "olgotVenueViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import "UIImageView+AFNetworking.h"
+#import "olgotItem.h"
+#import "olgotItemViewController.h"
 
 @interface olgotVenueViewController ()
 
@@ -16,6 +20,8 @@
 
 @synthesize venueCardTile = _venueCardTile, venueItemTile = _venueItemTile;
 
+@synthesize venueId = _venueId;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -23,6 +29,56 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)setVenueId:(NSNumber *)venueId
+{
+    if (_venueId != venueId) {
+        _venueId = venueId;
+        [self loadItems];
+        [self loadVenue];
+    }
+}
+
+-(void)loadVenue
+{
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _venueId, @"venue", nil];
+    NSString* resourcePath = [@"/venue/" appendQueryParams:myParams];
+    [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+}
+
+- (void)loadItems {
+    // Load the object model via RestKit
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _venueId, @"venue", nil];
+    NSString* resourcePath = [@"/venueitems/" appendQueryParams:myParams];
+    [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+}
+
+#pragma mark RKObjectLoaderDelegate methods
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    NSLog(@"Loaded payload: %@", [response bodyAsString]);
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+    NSLog(@"Loaded items: %@", objects);
+    
+    if ([[objects objectAtIndex:0] class] == [olgotVenue class]) {
+        _venue = [objects objectAtIndex:0];
+        [self.collectionView reloadData];
+    }else {
+        _items = objects;
+        [self.collectionView reloadData];
+    }
+    
+}
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    NSLog(@"Hit error: %@", error);
 }
 
 - (void)viewDidLoad
@@ -77,7 +133,7 @@
     if (section == 0) {
         return 1;
     }else{
-        return 7;
+        return [_items count];
     }
 }
 
@@ -95,7 +151,14 @@
             self.venueCardTile = nil;
         }
         
-        // configure custom data
+        UILabel *venueLabel;
+        venueLabel = (UILabel *)[cell1 viewWithTag:2];
+        
+        [venueLabel setText:[_venue name_En]];
+        
+//        cell1.layer.shadowOpacity = 0.5;
+//        cell1.layer.shadowColor = [[UIColor blackColor] CGColor];
+//        cell1.layer.shadowOffset = CGSizeMake(1.0, 1.0);
         
         return cell1;
     }
@@ -108,13 +171,27 @@
             self.venueItemTile = nil;
         }
         
-        UIImageView *tileImage;
-        UILabel *tileLabel;
+        UIImageView *itemImage;
+        UILabel *itemLabel;
         
-        tileImage = (UIImageView *)[cell2 viewWithTag:1];
-        tileLabel = (UILabel *)[cell2 viewWithTag:2];
+        itemImage = (UIImageView *)[cell2 viewWithTag:1];
+        [itemImage setImageWithURL:[NSURL URLWithString:[[_items objectAtIndex:indexPath.row] itemPhotoUrl]]];
         
-        [tileImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"dummy%d%@",indexPath.row + 1,@".jpg"]]];
+        itemLabel = (UILabel *)[cell2 viewWithTag:2]; //description
+        [itemLabel setText:[[_items objectAtIndex:indexPath.row] itemDescription]];
+        
+        itemLabel = (UILabel *)[cell2 viewWithTag:3]; //venue
+        [itemLabel setText:[[_items objectAtIndex:indexPath.row] venueName_En]];
+        
+        itemLabel = (UILabel *)[cell2 viewWithTag:4]; //price
+        [itemLabel setText:[NSString stringWithFormat:@"%d %@",
+                            [[[_items objectAtIndex:indexPath.row] itemPrice] integerValue],
+                            [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]                  
+                            ]];
+        
+//        cell2.layer.shadowOpacity = 0.5;
+//        cell2.layer.shadowColor = [[UIColor blackColor] CGColor];
+//        cell2.layer.shadowOffset = CGSizeMake(1.0, 1.0);
         
         return cell2;
     }
@@ -140,15 +217,16 @@
     if (section == 0) {
         return CGSizeMake(300.0f, 150.0f);
     }else{
-        return CGSizeMake(145.0f, 186.0f);
+        return CGSizeMake(145.0f, 184.0f);
     }
 	
 }
 
 - (void)collectionView:(SSCollectionView *)aCollectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
-    [self performSegueWithIdentifier:@"ShowItemView" sender:self];
+    if(indexPath.section == 1){
+        _selectedRowIndexPath = indexPath;
+        [self performSegueWithIdentifier:@"ShowItemView" sender:self];
+    }
 }
 
 
@@ -159,6 +237,16 @@
         return 0.0f;
     }
 	
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"ShowItemView"]){
+        olgotItemViewController *itemViewController = [segue destinationViewController];
+        
+        itemViewController.itemID = [[_items objectAtIndex:_selectedRowIndexPath.row] itemID];
+        itemViewController.itemKey = [[_items objectAtIndex:_selectedRowIndexPath.row] itemKey];
+    }
 }
 
 

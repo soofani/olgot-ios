@@ -7,9 +7,12 @@
 //
 
 #import "olgotItemViewController.h"
+#import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AFNetworking.h"
 #import "olgotCommentsListViewController.h"
 #import "olgotPeopleListViewController.h"
+#import "olgotProfileViewController.h"
+#import "olgotVenueViewController.h"
 #import "olgotItem.h"
 #import "olgotActionUser.h"
 #import "olgotComment.h"
@@ -20,10 +23,16 @@
 @end
 
 @implementation olgotItemViewController
+@synthesize wantButton = _wantButton;
+@synthesize likeButton = _likeButton;
+@synthesize gotButton = _gotButton;
+@synthesize commentButton = _commentButton;
 
 @synthesize itemCell = _itemCell, finderCell = _finderCell, peopleRowCell = _peopleRowCell,  commentsHeader, commentCell = _commentCell, commentsFooter = _commentsFooter;
 
 @synthesize item = _item;
+
+@synthesize itemID = _itemID, itemKey = _itemKey;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,44 +43,27 @@
     return self;
 }
 
--(void)setItem:(olgotItem *)item
-{
-    if(_item != item){
-        _item = item;
-        self.navigationItem.title = [_item itemDescription];
-        NSLog(@"item ID = %d", [[_item itemID] intValue]);
-        [self loadItemData];
-    }
-}
+//-(void)setItem:(olgotItem *)item
+//{
+//    if(_item != item){
+//        _item = item;
+//        self.navigationItem.title = [_item itemDescription];
+//        NSLog(@"item ID = %d", [[_item itemID] intValue]);
+//        
+//        [self loadItemData];
+//    }
+//}
 
 -(void)loadItemData
 {
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: [_item itemID], @"item", nil];
-    
-    
-    
-    //likes
-    NSString* resourcePath = @"/itemlikes/";
-//    [objectManager loadObjectsAtResourcePath:[resourcePath stringByAppendingQueryParameters:myParams] delegate:self];
-    RKObjectLoader* likesLoader = [objectManager loaderWithResourcePath:[resourcePath stringByAppendingQueryParameters:myParams]];
-    likesLoader.userData = @"likes shit";
-    [likesLoader send];
-//    [objectManager configureObjectLoader:likesLoader];
-    
+//    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: [_item itemID], @"item", [_item itemKey], @"key", nil];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _itemID, @"item", _itemKey, @"key", [defaults objectForKey:@"userid"], @"id", nil];
 
-    
-    //wants
-    resourcePath = @"/itemwants/";
-//    [objectManager loadObjectsAtResourcePath:[resourcePath stringByAppendingQueryParameters:myParams] delegate:self];
-    
-    //gots
-    resourcePath = @"/itemgots/";
-//    [objectManager loadObjectsAtResourcePath:[resourcePath stringByAppendingQueryParameters:myParams] delegate:self];
-    
-    //comments
-    resourcePath = @"/comments/";
-//    [objectManager loadObjectsAtResourcePath:[resourcePath stringByAppendingQueryParameters:myParams] delegate:self];
+    //likes
+    NSString* resourcePath = @"/item/";
+    [objectManager loadObjectsAtResourcePath:[resourcePath stringByAppendingQueryParameters:myParams] delegate:self];
 }
 
 - (void)viewDidLoad
@@ -84,14 +76,20 @@
     self.collectionView.backgroundView = tempImageView;
     self.collectionView.rowSpacing = 0.0f;
     
-    self.collectionView.scrollView.contentInset = UIEdgeInsetsMake(10.0,0.0,0.0,0.0);
+    self.collectionView.scrollView.contentInset = UIEdgeInsetsMake(10.0,0.0,40.0,0.0);
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
+    
+    [self loadItemData];
 }
 
 
 - (void)viewDidUnload
 {
+    [self setLikeButton:nil];
+    [self setWantButton:nil];
+    [self setGotButton:nil];
+    [self setCommentButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -104,19 +102,68 @@
 #pragma mark RKObjectLoaderDelegate methods
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    NSLog(@"resource path: %@",[request resourcePath]);
     NSLog(@"Loaded payload: %@", [response bodyAsString]);
+    if ([request isPOST]) {  
+        
+        if ([response isJSON]) {
+            
+            if([response isOK]){
+                if ([[request resourcePath] isEqual:@"/likeitem/"]) {
+                    NSLog(@"succesful like");
+                    [_item setILike:[NSNumber numberWithInt:1]];
+                }else if ([[request resourcePath] isEqual:@"/wantitem/"]) {
+                    NSLog(@"succesful want");
+                    [_item setIWant:[NSNumber numberWithInt:1]];
+                }else if ([[request resourcePath] isEqual:@"/gotitem/"]) {
+                    NSLog(@"succesful got");
+                    [_item setIGot:[NSNumber numberWithInt:1]];
+                }
+                NSLog(@"Got a JSON response back from our POST! %@", [response bodyAsString]);
+                
+                [self.collectionView reloadData];
+            }else {
+                
+            }
+        }  
+        
+    }else if ([request isDELETE]) {
+        if ([response isJSON]) {
+            
+            if([response isOK]){
+                id userData = [request userData];
+                
+                if ([userData isEqual:@"unlike"]) {
+                    NSLog(@"succesful unlike");
+                    [_item setILike:[NSNumber numberWithInt:0]];
+                }else if ([userData isEqual:@"unwant"]) {
+                    NSLog(@"succesful unwant");
+                    [_item setIWant:[NSNumber numberWithInt:0]];
+                }else if ([userData isEqual:@"ungot"]) {
+                    NSLog(@"succesful ungot");
+                    [_item setIGot:[NSNumber numberWithInt:0]];
+                }
+                NSLog(@"Got a JSON response back from our DELETE! %@", [response bodyAsString]);
+                
+                [self.collectionView reloadData];
+            }else {
+                
+            }
+        }
+    }
+
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-//    if([objectLoader.userData isEqual:@"likes"]){
-//        NSLog(@"got likes");
-//    }else if ([objectLoader.userData isEqual:@"wants"]) {
-//        NSLog(@"got wants");
-//    }else {
-//        NSLog(@"got something else");
-//    }
-    NSLog(@"user data: %@", objectLoader.userData);
+    NSLog(@"loaded item %@", objects);
+    _item = [objects objectAtIndex:0];
+    _comments = [_item comments];
+    _likes = [_item likes];
+    _wants = [_item wants];
+    _gots = [_item gots];
+    NSLog(@"user actions: %@ %@ %@",[_item iLike],[_item iWant],[_item iGot]);
     
+    [self.collectionView reloadData];
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
@@ -129,34 +176,64 @@
 #pragma mark - SSCollectionViewDataSource
 
 - (NSUInteger)numberOfSectionsInCollectionView:(SSCollectionView *)aCollectionView {
-	return 8;
+    if (_item != NULL) {
+        return 8;
+    }
+    else {
+        return 0;
+    }
+	
 }
 
 
 - (NSUInteger)collectionView:(SSCollectionView *)aCollectionView numberOfItemsInSection:(NSUInteger)section {
-    if(section == 0){
+    if(section == 0){   //item header
         return 1;
     }
-    else if (section == 1) {
+    else if (section == 1) {    //finder
         return 1;
     }
-    else if (section == 2) {
-        return 1;
+    else if (section == 2) {    //likes
+        if ([[_item itemStatsLikes] intValue] > 0) {
+            return 1;
+        }else {
+            return 0;
+        }
     }
-    else if (section == 3) {
-        return 1;
+    else if (section == 3) {    //wants
+        if ([[_item itemStatsWants] intValue] > 0) {
+            return 1;
+        }else {
+            return 0;
+        }
     }
-    else if (section == 4) {
-        return 1;
+    else if (section == 4) {    //gots
+        if ([[_item itemStatsGots] intValue] > 0) {
+            return 1;
+        }else {
+            return 0;
+        }
     }
-    else if (section == 5) {
-        return 1;
+    else if (section == 5) {    //comments header
+        if ([[_item itemStatsComments] intValue] > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
-    else if (section == 6){
-        return 2;
+    else if (section == 6){ //comments
+        if ([[_item itemStatsComments] intValue] > 0) {
+            return 2;
+        } else {
+            return 0;
+        }
     }
-    else {
-        return 1;
+    else {  //comments footer
+        if ([[_item itemStatsComments] intValue] > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }
 
@@ -178,6 +255,27 @@
             self.itemCell = nil;
         }
         
+        if ([[_item iLike] isEqual:[NSNumber numberWithInt:1]]) {
+            NSLog(@"user likes this");
+            [self.likeButton setImage:[UIImage imageNamed:@"icon-item-action-like-active"] forState:UIControlStateNormal];
+        }else {
+            [self.likeButton setImage:[UIImage imageNamed:@"icon-item-action-like"] forState:UIControlStateNormal];
+        }
+        
+        if ([[_item iWant] isEqual:[NSNumber numberWithInt:1]]) {
+            NSLog(@"user wants this");
+            [self.wantButton setImage:[UIImage imageNamed:@"icon-item-action-want-active"] forState:UIControlStateNormal];
+        }else {
+            [self.wantButton setImage:[UIImage imageNamed:@"icon-item-action-want"] forState:UIControlStateNormal];
+        }
+        
+        if ([[_item iGot] isEqual:[NSNumber numberWithInt:1]]) {
+            NSLog(@"user got this");
+            [self.gotButton setImage:[UIImage imageNamed:@"icon-item-action-got-active"] forState:UIControlStateNormal];
+        }else {
+            [self.gotButton setImage:[UIImage imageNamed:@"icon-item-action-got"] forState:UIControlStateNormal];
+        }
+        
         UIImageView* itemImage;
         UILabel* itemDescription;
         
@@ -186,6 +284,8 @@
         
         [itemImage setImageWithURL:[NSURL URLWithString:[_item itemPhotoUrl]]];
         [itemDescription setText:[_item itemDescription]];
+        
+        
         
         return cell;
     }
@@ -205,8 +305,8 @@
         finderImage = (UIImageView*)[cell viewWithTag:1];
         [finderImage setImageWithURL:[NSURL URLWithString:[_item userProfileImgUrl]]];
         
-        finderLabel = (UILabel*)[cell viewWithTag:2]; //finder name
-        [finderLabel setText:[NSString stringWithFormat:@"%@ %@",[_item userFirstName],[_item userLastName] ]];
+        finderButton = (UIButton*)[cell viewWithTag:2]; //finder name
+        [finderButton setTitle:[NSString stringWithFormat:@"%@ %@",[_item userFirstName],[_item userLastName]] forState:UIControlStateNormal ];
         
         finderButton = (UIButton*)[cell viewWithTag:3]; //venue name
         [finderButton setTitle:[_item venueName_En] forState:UIControlStateNormal];
@@ -216,7 +316,7 @@
         
         return cell;
     }
-    else if (indexPath.section == 2) {
+    else if (indexPath.section == 2) {  //likes
         SSCollectionViewItem *cell = [aCollectionView dequeueReusableItemWithIdentifier:myPeopleTileIdentifier];
         
         if (cell == nil) {
@@ -230,9 +330,20 @@
         peopleLabel = (UILabel*)[cell viewWithTag:1];
         [peopleLabel setText:@"Like it"];
         
+        peopleLabel = (UILabel*)[cell viewWithTag:2];
+        [peopleLabel setText:[NSString stringWithFormat:@"%@ people likes this",[_item itemStatsLikes]]];
+        
+        int x = 10;
+        for (olgotActionUser *actioner in _likes) {
+            UIImageView* actionerIV = [[UIImageView alloc] initWithFrame:CGRectMake(x, 25, 35, 35)];
+            [actionerIV setImageWithURL:[NSURL URLWithString:[actioner userProfileImgUrl]]];
+            [cell addSubview:actionerIV];
+            x = x + 35 + 5;
+        }
+        
         return cell;
     }
-    else if (indexPath.section == 3) {
+    else if (indexPath.section == 3) {  //wants
         SSCollectionViewItem *cell = [aCollectionView dequeueReusableItemWithIdentifier:myPeopleTileIdentifier];
         
         if (cell == nil) {
@@ -246,9 +357,20 @@
         peopleLabel = (UILabel*)[cell viewWithTag:1];
         [peopleLabel setText:@"Want it"];
         
+        peopleLabel = (UILabel*)[cell viewWithTag:2];
+        [peopleLabel setText:[NSString stringWithFormat:@"%@ people want this",[_item itemStatsWants]]];
+        
+        int x = 10;
+        for (olgotActionUser *actioner in _wants) {
+            UIImageView* actionerIV = [[UIImageView alloc] initWithFrame:CGRectMake(x, 25, 35, 35)];
+            [actionerIV setImageWithURL:[NSURL URLWithString:[actioner userProfileImgUrl]]];
+            [cell addSubview:actionerIV];
+            x = x + 35 + 5;
+        }
+        
         return cell;
     }
-    else if (indexPath.section == 4) {
+    else if (indexPath.section == 4) {  //gots
         SSCollectionViewItem *cell = [aCollectionView dequeueReusableItemWithIdentifier:myPeopleTileIdentifier];
         
         if (cell == nil) {
@@ -262,6 +384,17 @@
         peopleLabel = (UILabel*)[cell viewWithTag:1];
         [peopleLabel setText:@"Got it"];
         
+        peopleLabel = (UILabel*)[cell viewWithTag:2];
+        [peopleLabel setText:[NSString stringWithFormat:@"%@ people got this",[_item itemStatsGots]]];
+        
+        int x = 10;
+        for (olgotActionUser *actioner in _gots) {
+            UIImageView* actionerIV = [[UIImageView alloc] initWithFrame:CGRectMake(x, 25, 35, 35)];
+            [actionerIV setImageWithURL:[NSURL URLWithString:[actioner userProfileImgUrl]]];
+            [cell addSubview:actionerIV];
+            x = x + 35 + 5;
+        }
+        
         return cell;
     }
     else if (indexPath.section == 5) {
@@ -270,7 +403,7 @@
         
         return commentsHeader;
     }
-    else if (indexPath.section == 6) {
+    else if (indexPath.section == 6) {  //comments
         SSCollectionViewItem *cell = [aCollectionView dequeueReusableItemWithIdentifier:myCommentTileIdentifier];
         
         if (cell == nil) {
@@ -379,9 +512,101 @@
 	
 }
 
+-(void)showPopup:(NSString*)sender
+{
+    NSLog(@"show action popup");
+    UIImageView* actionPopup;
+    if ([sender isEqualToString:@"like"]) {
+        if ([[_item iLike] isEqual:[NSNumber numberWithInt:1]]) {
+            return;
+        }
+        actionPopup = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"msg-action-like"]];
+    } else if([sender isEqualToString:@"want"]){
+        if ([[_item iWant] isEqual:[NSNumber numberWithInt:1]]) {
+            return;
+        }
+        actionPopup = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"msg-action-want"]];       
+    } else if([sender isEqualToString:@"got"]){
+        if ([[_item iGot] isEqual:[NSNumber numberWithInt:1]]) {
+            return;
+        }
+        actionPopup = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"msg-action-got"]];
+    }else {
+        return;
+    }
+    
+    CGRect b = self.view.bounds;
+    
+    actionPopup.frame = CGRectMake((b.size.width - 0) / 2, (b.size.height - 0) / 2, 0, 0);
+    [self.view addSubview: actionPopup];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    
+    actionPopup.frame = CGRectMake((b.size.width - 113) / 2, (b.size.height - 113) / 2, 113, 113);
+    [UIView commitAnimations];
+    
+    [UIView animateWithDuration:0.5 delay:2.0 options:UIViewAnimationCurveEaseOut animations:^{
+        actionPopup.alpha = 0.0;} completion:^(BOOL finished){[actionPopup removeFromSuperview];}];
+    
+}
+
+-(void)sendItemAction:(NSString*)sender
+{
+    NSLog(@"%@ item with id %@", sender, [_item itemID]);
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            [_item itemID], @"item",
+                            [defaults objectForKey:@"userid"], @"id",
+                            nil];
+    
+    [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    if ([sender isEqualToString:@"like"]) {
+        if ([[_item iLike] isEqual:[NSNumber numberWithInt:1]]) {
+            [[[RKClient sharedClient] delete:[@"/likeitem/" stringByAppendingQueryParameters:params] delegate:self] setUserData:@"unlike"];
+        }else {
+            [[RKClient sharedClient] post:@"/likeitem/" params:params delegate:self];
+        }
+        
+    } else if([sender isEqualToString:@"want"]){
+        if ([[_item iWant] isEqual:[NSNumber numberWithInt:1]]) {
+            [[[RKClient sharedClient] delete:[@"/wantitem/" stringByAppendingQueryParameters:params] delegate:self]  setUserData:@"unwant"];
+        }else {
+            [[RKClient sharedClient] post:@"/wantitem/" params:params delegate:self];
+        }
+    } else if([sender isEqualToString:@"got"]){
+        if ([[_item iGot] isEqual:[NSNumber numberWithInt:1]]) {
+            [[[RKClient sharedClient] delete:[@"/gotitem/" stringByAppendingQueryParameters:params] delegate:self]  setUserData:@"ungot"];
+        }else {
+            [[RKClient sharedClient] post:@"/gotitem/" params:params delegate:self];
+        }
+    }else {
+        return;
+    }
+    
+}
 
 - (IBAction)showVenue:(id)sender {
     [self performSegueWithIdentifier:@"showVenue" sender:self];
+    
+}
+
+- (IBAction)likeAction:(id)sender {
+    [self performSelector:@selector(showPopup:) withObject:@"like"];
+    [self performSelector:@selector(sendItemAction:) withObject:@"like"];
+}
+
+- (IBAction)wantAction:(id)sender {
+    [self performSelector:@selector(showPopup:) withObject:@"want"];
+    [self performSelector:@selector(sendItemAction:) withObject:@"want"];
+}
+
+- (IBAction)gotAction:(id)sender {
+    [self performSelector:@selector(showPopup:) withObject:@"got"];
+    [self performSelector:@selector(sendItemAction:) withObject:@"got"];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -413,7 +638,20 @@
         peopleViewController.actionName = @"Gots";
         peopleViewController.itemID = [_item itemID];
     }
+    else if ([[segue identifier] isEqualToString:@"showProfile"]) {
+        olgotProfileViewController *profileViewController = [segue destinationViewController];
+        
+        profileViewController.userID = [_item userID];
+    }
+    else if ([[segue identifier] isEqualToString:@"showVenue"]) {
+        olgotVenueViewController *venueViewController = [segue destinationViewController];
+        
+        venueViewController.venueId = [_item venueId];
+        venueViewController.navigationItem.title = [_item venueName_En];
+    }
 }
 
-
+- (IBAction)showProfile:(id)sender {
+    [self performSegueWithIdentifier:@"showProfile" sender:self];
+}
 @end

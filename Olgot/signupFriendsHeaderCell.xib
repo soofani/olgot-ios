@@ -146,7 +146,7 @@
 							<object class="IBUserDefinedRuntimeAttribute">
 								<string key="typeIdentifier">com.apple.InterfaceBuilder.userDefinedRuntimeAttributeType.string</string>
 								<string key="keyPath">reuseIdentifier</string>
-								<string key="value">headerTileID</string>
+								<string key="value">header</string>
 							</object>
 						</array>
 					</object>

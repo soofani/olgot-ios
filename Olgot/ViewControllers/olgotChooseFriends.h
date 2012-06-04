@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSToolkit.h>
+#import <RestKit/RestKit.h>
 
-@interface olgotChooseFriends : SSCollectionViewController
+@interface olgotChooseFriends : SSCollectionViewController<RKObjectLoaderDelegate>
+{
+    NSArray* _myFriends;
+    NSIndexPath* _selectedRowIndexPath;
+}
 
+@property (nonatomic, strong) NSString* userID;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *headerCell;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *personCell;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *footerCell;

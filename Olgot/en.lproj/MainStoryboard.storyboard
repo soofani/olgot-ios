@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
@@ -34,7 +33,9 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AX4-Pc-wGT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="RkR-jM-mZQ" customClass="olgotExploreViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Explore" id="I2T-sA-9Qu"/>
+                    <navigationItem key="navigationItem" title="Explore" id="I2T-sA-9Qu">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="1Xx-OT-Mfq"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="onH-ec-kNX" kind="push" identifier="ShowBoardView" id="fbn-lq-Vkq"/>
                         <segue destination="1Tv-LN-MnF" kind="modal" identifier="ShowSignupFlow" id="RCd-9y-Ngg"/>
@@ -135,10 +136,11 @@
                         <segue destination="XiP-jZ-yvg" kind="push" identifier="showGots" id="RHL-EU-5bw"/>
                         <segue destination="gYY-SF-9fN" kind="push" identifier="showVenue" id="8qL-vQ-cOH"/>
                         <segue destination="qgL-I9-Ymt" kind="push" identifier="showAllComments" id="E7X-2i-Ytm"/>
+                        <segue destination="HAn-Se-f9H" kind="push" identifier="showProfile" id="jD9-Wv-5GK"/>
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2596" y="-417"/>
+            <point key="canvasLocation" x="2406" y="-435"/>
         </scene>
         <!--Olgot People List View Controller-->
         <scene sceneID="dRN-Wf-YUD">
@@ -151,6 +153,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="XmV-Tb-hVa"/>
+                    <connections>
+                        <segue destination="HAn-Se-f9H" kind="push" identifier="showProfile" id="UlP-O7-YDP"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="3150" y="-417"/>
@@ -161,7 +166,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSt-x6-VLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="gYY-SF-9fN" customClass="olgotVenueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dV0-qV-LCI">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -184,7 +189,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Lovely" id="qrQ-nn-H2O"/>
+                    <navigationItem key="navigationItem" title="Lovely" id="qrQ-nn-H2O">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="EP3-tX-rr7"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="Fmr-fE-SC3" kind="push" identifier="ShowItemView" id="KPj-ac-EUo"/>
                     </connections>
@@ -198,11 +205,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pxs-2g-ciK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="fsi-nE-oPn" customClass="olgotShareViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yvX-Mo-9yC">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="JVG-3v-Hve">
-                                <rect key="frame" x="38" y="51" width="245" height="208"/>
+                                <rect key="frame" x="38" y="51" width="245" height="301"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TNM-sz-gcH">
@@ -223,7 +230,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Share" id="NOE-uH-0Xs"/>
+                    <navigationItem key="navigationItem" title="Share" id="NOE-uH-0Xs">
+                        <barButtonItem key="backBarButtonItem" title="Share" id="QXK-Jl-bou"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="JVG-3v-Hve" id="6iF-uy-aCM"/>
                         <segue destination="W0F-bq-L6J" kind="push" identifier="ShowNearbyPlaces" id="mDe-EP-u9J"/>
@@ -238,7 +247,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gp-Xt-1FY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController hidesBottomBarWhenPushed="YES" id="W0F-bq-L6J" customClass="olgotAddItemNearbyPlacesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gvJ-vJ-3zt">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="edZ-Nm-k97">
@@ -252,7 +261,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="1Sa-36-rGF">
-                                <rect key="frame" x="0.0" y="43" width="320" height="351"/>
+                                <rect key="frame" x="0.0" y="43" width="320" height="392"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -297,15 +306,15 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7z0-fM-xgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Hte-Zn-Pmt" customClass="olgotAddItemDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v6c-Cb-I40">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="wNy-dX-QSg">
-                                <rect key="frame" x="0.0" y="-22" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="-22" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="Cj3-Wu-qDk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="GEw-0L-3nP">
@@ -407,15 +416,15 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zwj-lH-pPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="AmF-Fo-vjg" customClass="olgotAddItemConfirmationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sR6-nh-WIA">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="yzm-QS-IkH">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="Wct-9k-aY7">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="kod-nd-urD">
@@ -566,13 +575,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhJ-b2-O2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="qgL-I9-Ymt" customClass="olgotCommentsListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uUV-e7-4t0">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="8Fk-8d-t1L">
                         <barButtonItem key="backBarButtonItem" title="Back" id="S5e-x9-Z0j"/>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="3156" y="159"/>
@@ -606,7 +616,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="KVA-77-0Ip"/>
+                    <navigationItem key="navigationItem" title="Profile" id="KVA-77-0Ip">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="DJx-Br-ETd"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="Fmr-fE-SC3" kind="push" identifier="ShowItemView" id="rOZ-3k-il0"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1116" y="769"/>
@@ -663,7 +678,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="PTG-8b-tCg" kind="push" identifier="ShowChooseUsername" id="b4z-RB-wS1"/>
+                                    <action selector="twitterSignin:" destination="2Yr-NR-tJx" eventType="touchUpInside" id="7mM-4D-zho"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="l8C-qk-Nwp">
@@ -685,6 +700,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="OjZ-FW-zks"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="twitterSigninButton" destination="7CT-oO-27O" id="hyw-6k-FiS"/>
+                        <segue destination="PTG-8b-tCg" kind="push" identifier="ShowChooseUsername" id="BTe-DC-rJm"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1166" y="-1706"/>
@@ -707,7 +726,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="jTr-Tg-488">
-                                        <rect key="frame" x="8" y="20" width="304" height="161"/>
+                                        <rect key="frame" x="8" y="20" width="304" height="204"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
@@ -715,18 +734,11 @@
                                         <rect key="frame" x="274" y="102" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </activityIndicatorView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="validation result" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="EvF-ze-9LY">
-                                        <rect key="frame" x="20" y="137" width="97" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="DMo-8a-MNv">
                                         <rect key="frame" x="20" y="98" width="280" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="People will use your Olgot name to communicate with you, make it short and memorable :)" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="10" id="vBG-ix-SwD">
                                         <rect key="frame" x="20" y="26" width="280" height="35"/>
@@ -735,15 +747,22 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Create a username:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="vCa-BU-Fkr">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Username:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="vCa-BU-Fkr">
                                         <rect key="frame" x="20" y="69" width="151" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="mzR-Ll-GCg">
+                                        <rect key="frame" x="20" y="134" width="151" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2fx-fw-ABl">
-                                        <rect key="frame" x="8" y="189" width="304" height="37"/>
+                                        <rect key="frame" x="8" y="232" width="304" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Take It" backgroundImage="btn-select-username.png">
@@ -754,9 +773,15 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Qpl-3d-aeD" kind="push" id="Lbc-FX-MQT"/>
+                                            <action selector="createAccount:" destination="PTG-8b-tCg" eventType="touchUpInside" id="F6K-a6-YCS"/>
                                         </connections>
                                     </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="5uH-QK-SYA">
+                                        <rect key="frame" x="20" y="160" width="280" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="done"/>
+                                    </textField>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -765,6 +790,12 @@
                     <navigationItem key="navigationItem" id="gpo-eh-2pr">
                         <barButtonItem key="backBarButtonItem" title="Back" id="mEF-Ro-Bvq"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="createAccountBtn" destination="2fx-fw-ABl" id="Fkq-bY-Xlk"/>
+                        <outlet property="userEmail" destination="5uH-QK-SYA" id="hx3-ri-W7U"/>
+                        <outlet property="usernameTF" destination="DMo-8a-MNv" id="Abh-fG-4ri"/>
+                        <segue destination="Qpl-3d-aeD" kind="push" identifier="ShowChooseFriends" id="KJP-dM-Nkb"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1620" y="-1706"/>
@@ -1018,7 +1049,9 @@
                             <outlet property="delegate" destination="CVZ-O8-kBz" id="O3G-Qx-4dU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="More" id="GIT-h3-Aao"/>
+                    <navigationItem key="navigationItem" title="More" id="GIT-h3-Aao">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="j9l-6B-h99"/>
+                    </navigationItem>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1116" y="1360"/>
@@ -1468,6 +1501,12 @@
         </class>
         <class className="olgotChooseUsernameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotChooseUsernameViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="createAccount:"/>
+                <relationship kind="outlet" name="createAccountBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="userEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="usernameTF" candidateClass="UITextField"/>
+            </relationships>
         </class>
         <class className="olgotCommentsListViewController" superclassName="SSCollectionViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotCommentsListViewController.h"/>
@@ -1486,13 +1525,21 @@
         <class className="olgotItemViewController" superclassName="SSCollectionViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotItemViewController.h"/>
             <relationships>
+                <relationship kind="action" name="gotAction:"/>
+                <relationship kind="action" name="likeAction:"/>
+                <relationship kind="action" name="showProfile:"/>
                 <relationship kind="action" name="showVenue:"/>
+                <relationship kind="action" name="wantAction:"/>
+                <relationship kind="outlet" name="commentButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="commentCell" candidateClass="SSCollectionViewItem"/>
                 <relationship kind="outlet" name="commentsFooter" candidateClass="SSCollectionViewItem"/>
                 <relationship kind="outlet" name="commentsHeader" candidateClass="SSCollectionViewItem"/>
                 <relationship kind="outlet" name="finderCell" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="gotButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="itemCell" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="likeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="peopleRowCell" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="wantButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="olgotLovelyViewController" superclassName="SSCollectionViewController">
@@ -1518,8 +1565,12 @@
                 <relationship kind="outlet" name="personListHeader" candidateClass="SSCollectionViewItem"/>
             </relationships>
         </class>
-        <class className="olgotProfileViewController" superclassName="UIViewController">
+        <class className="olgotProfileViewController" superclassName="SSCollectionViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotProfileViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="profileCardTile" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="profileItemTile" candidateClass="SSCollectionViewItem"/>
+            </relationships>
         </class>
         <class className="olgotShareViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotShareViewController.h"/>
@@ -1533,6 +1584,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotSignupRootViewController.h"/>
             <relationships>
                 <relationship kind="action" name="hideSignup:"/>
+                <relationship kind="action" name="twitterSignin:"/>
+                <relationship kind="outlet" name="twitterSigninButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="olgotVenueViewController" superclassName="SSCollectionViewController">
@@ -1548,10 +1601,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="bZT-pi-WSc"/>
-        <segue reference="7g4-gO-LGR"/>
-        <segue reference="8qL-vQ-cOH"/>
-        <segue reference="aDs-8U-WhC"/>
-    </inferredMetricsTieBreakers>
 </document>

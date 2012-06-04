@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSToolkit.h>
+#import <RestKit/RestKit.h>
+#import "olgotVenue.h"
 
-@interface olgotVenueViewController : SSCollectionViewController
+@interface olgotVenueViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
+    olgotVenue* _venue;
+    NSArray* _items;
+    NSIndexPath* _selectedRowIndexPath;
+}
 
+@property (nonatomic, strong) NSNumber *venueId;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *venueCardTile;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *venueItemTile;
 
