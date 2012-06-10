@@ -113,6 +113,12 @@
 		FF69BBA1156CEA14008A5D52 /* logo-140x74-temp.png in Resources */ = {isa = PBXBuildFile; fileRef = FF69BB9F156CEA14008A5D52 /* logo-140x74-temp.png */; };
 		FF69BBA2156CEA14008A5D52 /* logo-140x74-temp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF69BBA0156CEA14008A5D52 /* logo-140x74-temp@2x.png */; };
 		FF69BBA5156CF539008A5D52 /* DTCustomColoredAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = FF69BBA4156CF539008A5D52 /* DTCustomColoredAccessory.m */; };
+		FF6AFF821580E9DD000A24BA /* nearbyViewPlaceRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF6AFF811580E9DD000A24BA /* nearbyViewPlaceRow.xib */; };
+		FF6AFF95158144DF000A24BA /* LocalyticsDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6AFF8F158144DF000A24BA /* LocalyticsDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF6AFF96158144DF000A24BA /* LocalyticsSession.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6AFF91158144DF000A24BA /* LocalyticsSession.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF6AFF97158144DF000A24BA /* LocalyticsUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6AFF93158144DF000A24BA /* LocalyticsUploader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF6AFF9915814626000A24BA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6AFF9815814626000A24BA /* libz.dylib */; };
+		FF6AFF9B15814637000A24BA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6AFF9A15814636000A24BA /* libsqlite3.dylib */; };
 		FF7A000115750F0500BB5A65 /* profileViewPersonCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7A000015750F0500BB5A65 /* profileViewPersonCard.xib */; };
 		FF7A00041575106E00BB5A65 /* box-stats.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7A00021575106E00BB5A65 /* box-stats.png */; };
 		FF7A00051575106E00BB5A65 /* box-stats@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7A00031575106E00BB5A65 /* box-stats@2x.png */; };
@@ -156,6 +162,7 @@
 		FF919A41157CD230000978A5 /* msg-action-like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF919A3B157CD230000978A5 /* msg-action-like@2x.png */; };
 		FF919A42157CD230000978A5 /* msg-action-want.png in Resources */ = {isa = PBXBuildFile; fileRef = FF919A3C157CD230000978A5 /* msg-action-want.png */; };
 		FF919A43157CD230000978A5 /* msg-action-want@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF919A3D157CD230000978A5 /* msg-action-want@2x.png */; };
+		FF919A45157D04B3000978A5 /* itemViewWriteCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF919A44157D04B3000978A5 /* itemViewWriteCommentView.xib */; };
 		FFA4ED93155D12D8008CB4CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED92155D12D8008CB4CA /* UIKit.framework */; };
 		FFA4ED95155D12D8008CB4CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED94155D12D8008CB4CA /* Foundation.framework */; };
 		FFA4ED97155D12D8008CB4CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED96155D12D8008CB4CA /* CoreGraphics.framework */; };
@@ -410,6 +417,16 @@
 		FF69BBA0156CEA14008A5D52 /* logo-140x74-temp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-140x74-temp@2x.png"; sourceTree = "<group>"; };
 		FF69BBA3156CF539008A5D52 /* DTCustomColoredAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCustomColoredAccessory.h; sourceTree = "<group>"; };
 		FF69BBA4156CF539008A5D52 /* DTCustomColoredAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCustomColoredAccessory.m; sourceTree = "<group>"; };
+		FF6AFF811580E9DD000A24BA /* nearbyViewPlaceRow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = nearbyViewPlaceRow.xib; sourceTree = "<group>"; };
+		FF6AFF8E158144DF000A24BA /* LocalyticsDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalyticsDatabase.h; sourceTree = "<group>"; };
+		FF6AFF8F158144DF000A24BA /* LocalyticsDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalyticsDatabase.m; sourceTree = "<group>"; };
+		FF6AFF90158144DF000A24BA /* LocalyticsSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalyticsSession.h; sourceTree = "<group>"; };
+		FF6AFF91158144DF000A24BA /* LocalyticsSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalyticsSession.m; sourceTree = "<group>"; };
+		FF6AFF92158144DF000A24BA /* LocalyticsUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalyticsUploader.h; sourceTree = "<group>"; };
+		FF6AFF93158144DF000A24BA /* LocalyticsUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalyticsUploader.m; sourceTree = "<group>"; };
+		FF6AFF94158144DF000A24BA /* WebserviceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebserviceConstants.h; sourceTree = "<group>"; };
+		FF6AFF9815814626000A24BA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		FF6AFF9A15814636000A24BA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		FF7A000015750F0500BB5A65 /* profileViewPersonCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = profileViewPersonCard.xib; sourceTree = "<group>"; };
 		FF7A00021575106E00BB5A65 /* box-stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box-stats.png"; sourceTree = "<group>"; };
 		FF7A00031575106E00BB5A65 /* box-stats@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box-stats@2x.png"; sourceTree = "<group>"; };
@@ -467,6 +484,7 @@
 		FF919A3B157CD230000978A5 /* msg-action-like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "msg-action-like@2x.png"; sourceTree = "<group>"; };
 		FF919A3C157CD230000978A5 /* msg-action-want.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "msg-action-want.png"; sourceTree = "<group>"; };
 		FF919A3D157CD230000978A5 /* msg-action-want@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "msg-action-want@2x.png"; sourceTree = "<group>"; };
+		FF919A44157D04B3000978A5 /* itemViewWriteCommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = itemViewWriteCommentView.xib; sourceTree = "<group>"; };
 		FFA4ED8E155D12D8008CB4CA /* Olgot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Olgot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFA4ED92155D12D8008CB4CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FFA4ED94155D12D8008CB4CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -542,6 +560,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF6AFF9B15814637000A24BA /* libsqlite3.dylib in Frameworks */,
+				FF6AFF9915814626000A24BA /* libz.dylib in Frameworks */,
 				FF20E760157525F5004EC879 /* Accounts.framework in Frameworks */,
 				FF20E75E157525EE004EC879 /* Twitter.framework in Frameworks */,
 				FF7AAF08157237DE0073EAA3 /* libRestKit.a in Frameworks */,
@@ -742,10 +762,26 @@
 				FFDC6337156E839D008CCA28 /* commentsViewCommentRow.xib */,
 				FFA85435156D3FE20009134C /* itemViewCommentsHeader.xib */,
 				FFA85453156D44270009134C /* itemViewCommentsFooter.xib */,
+				FF919A44157D04B3000978A5 /* itemViewWriteCommentView.xib */,
 				FF7A000015750F0500BB5A65 /* profileViewPersonCard.xib */,
 				FF20E75B1575175A004EC879 /* profileViewItemTile.xib */,
+				FF6AFF811580E9DD000A24BA /* nearbyViewPlaceRow.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		FF6AFF8D158144DE000A24BA /* src */ = {
+			isa = PBXGroup;
+			children = (
+				FF6AFF8E158144DF000A24BA /* LocalyticsDatabase.h */,
+				FF6AFF8F158144DF000A24BA /* LocalyticsDatabase.m */,
+				FF6AFF90158144DF000A24BA /* LocalyticsSession.h */,
+				FF6AFF91158144DF000A24BA /* LocalyticsSession.m */,
+				FF6AFF92158144DF000A24BA /* LocalyticsUploader.h */,
+				FF6AFF93158144DF000A24BA /* LocalyticsUploader.m */,
+				FF6AFF94158144DF000A24BA /* WebserviceConstants.h */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		FF7AAEE81572370D0073EAA3 /* Products */ = {
@@ -791,6 +827,9 @@
 		FFA4ED83155D12D8008CB4CA = {
 			isa = PBXGroup;
 			children = (
+				FF6AFF9A15814636000A24BA /* libsqlite3.dylib */,
+				FF6AFF9815814626000A24BA /* libz.dylib */,
+				FF6AFF8D158144DE000A24BA /* src */,
 				FF20E75F157525F5004EC879 /* Accounts.framework */,
 				FF20E75D157525EE004EC879 /* Twitter.framework */,
 				FF7AFF7B1574C7DB00BB5A65 /* AFNetworking */,
@@ -1223,6 +1262,8 @@
 				FF919A41157CD230000978A5 /* msg-action-like@2x.png in Resources */,
 				FF919A42157CD230000978A5 /* msg-action-want.png in Resources */,
 				FF919A43157CD230000978A5 /* msg-action-want@2x.png in Resources */,
+				FF919A45157D04B3000978A5 /* itemViewWriteCommentView.xib in Resources */,
+				FF6AFF821580E9DD000A24BA /* nearbyViewPlaceRow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1273,6 +1314,9 @@
 				FFEF1F931577B1B300CE9AE9 /* olgotMyFriend.m in Sources */,
 				FF423CEC157991B600A3B970 /* olgotUser.m in Sources */,
 				FF423CEF157997D400A3B970 /* olgotVenue.m in Sources */,
+				FF6AFF95158144DF000A24BA /* LocalyticsDatabase.m in Sources */,
+				FF6AFF96158144DF000A24BA /* LocalyticsSession.m in Sources */,
+				FF6AFF97158144DF000A24BA /* LocalyticsUploader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+#import <SSToolkit/SSToolkit.h>
+#import <RestKit/RestKit.h>
 
-@interface olgotAddItemNearbyPlacesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface olgotAddItemNearbyPlacesViewController : SSCollectionViewController <RKObjectLoaderDelegate>
 {
-    NSArray *placeNames;
+    NSArray* _places;
+    NSIndexPath* _selectedRowIndexPath;
 }
 
-@property (strong, nonatomic) NSArray *placeNames;
+@property (nonatomic, strong) IBOutlet SSCollectionViewItem *placeCell;
+@property (strong, nonatomic) UIImage *capturedImage;
 
 @end

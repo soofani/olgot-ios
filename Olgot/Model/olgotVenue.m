@@ -15,6 +15,7 @@ name_Ar = _name_Ar,
 name_En = _name_En,
 geoLat = _geoLat,
 geoLong = _geoLong,
-items = _items;
+items = _items,
+venueIcon = _venueIcon;
 
 @end

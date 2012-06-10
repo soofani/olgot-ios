@@ -12,13 +12,15 @@
 
 @class olgotItem;
 
-@interface olgotItemViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
+@interface olgotItemViewController : SSCollectionViewController<RKObjectLoaderDelegate, UITextFieldDelegate>{
     SSCollectionViewItem *commentsHeader;
     NSArray* _likes;
     NSArray* _wants;
     NSArray* _gots;
     NSArray* _comments;
     NSIndexPath* _selectedRowIndexPath;
+    
+    UIView* myCommentView;
 }
 - (IBAction)showProfile:(id)sender;
 
@@ -36,11 +38,16 @@
 @property (strong, nonatomic) IBOutlet UIButton *gotButton;
 @property (strong, nonatomic) IBOutlet UIButton *commentButton;
 
+@property (strong, nonatomic) IBOutlet UIImageView *mySmallImage;
+@property (strong, nonatomic) IBOutlet UITextField *myCommentTF;
+
 - (IBAction)showVenue:(id)sender;
 - (IBAction)likeAction:(id)sender;
 - (IBAction)wantAction:(id)sender;
 - (IBAction)gotAction:(id)sender;
 
+- (IBAction)touchedWriteComment:(id)sender;
+- (IBAction)finishedComment:(id)sender;
 
 
 @end

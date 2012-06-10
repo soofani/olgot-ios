@@ -151,7 +151,7 @@
         [commentLabel setText:[NSString stringWithFormat:@"%@ %@",[[_comments objectAtIndex:indexPath.row] userFirstName],[[_comments objectAtIndex:indexPath.row] userLastName]]];
         
         commentLabel = (UILabel*)[cell viewWithTag:3]; //comment time
-        [commentLabel setText:[[_comments objectAtIndex:indexPath.row] date]];
+        [commentLabel setText:[[_comments objectAtIndex:indexPath.row] commentDate]];
         
         commentLabel = (UILabel*)[cell viewWithTag:4]; //comment text
         [commentLabel setText:[[_comments objectAtIndex:indexPath.row] body]];

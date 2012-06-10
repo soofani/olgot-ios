@@ -13,7 +13,7 @@
 @synthesize itemId = _itemId,
 Id = _Id,
 body = _body,
-date = _date,
+commentDate = _commentDate,
 published = _published,
 userId = _userId,
 userName = _userName,

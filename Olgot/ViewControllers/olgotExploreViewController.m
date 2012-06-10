@@ -13,6 +13,7 @@
 #import "olgotCategory.h"
 #import "olgotItem.h"
 
+
 @interface olgotExploreViewController ()
 
 @end
@@ -41,6 +42,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     
     // Get the stored data before the view loads
     defaults = [NSUserDefaults standardUserDefaults];
@@ -251,6 +254,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([[segue identifier] isEqualToString:@"ShowBoardView"]) {
         olgotBoardViewController *boardViewController = [segue destinationViewController];
         

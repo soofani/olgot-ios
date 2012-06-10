@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSNumber* itemId;
 @property (nonatomic, strong) NSNumber* Id;
 @property (nonatomic, strong) NSString* body;
-@property (nonatomic, strong) NSString* date;
+@property (nonatomic, strong) NSString* commentDate;
 @property (nonatomic, strong) NSNumber* published;
 @property (nonatomic, strong) NSNumber* userId;
 @property (nonatomic, strong) NSString* userName;

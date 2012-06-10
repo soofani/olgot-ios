@@ -17,6 +17,8 @@ lastName = _lastName,
 userProfileImageUrl = _userProfileImageUrl,
 followers = _followers,
 following = _following,
-items = _items;
+items = _items,
+iFollow = _iFollow,
+followsMe = _followsMe;
 
 @end

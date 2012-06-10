@@ -21,6 +21,8 @@
 
 @synthesize itemID = _itemID, actionName = _actionName, actionStats = _actionStats;
 
+@synthesize userID = _userID;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -34,6 +36,15 @@
 {
     if (_itemID != itemID) {
         _itemID = itemID;
+        self.navigationItem.title = _actionName;
+        [self loadActions];
+    }
+}
+
+-(void)setUserID:(NSNumber *)userID
+{
+    if (_userID != userID) {
+        _userID = userID;
         self.navigationItem.title = _actionName;
         [self loadActions];
     }
@@ -57,6 +68,16 @@
         NSString* resourcePath = [@"/itemgots/" appendQueryParams:myParams];
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
         
+    }else if (_actionName == @"Followers") {
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _userID, @"user", nil];
+        NSString* resourcePath = [@"/followers/" appendQueryParams:myParams];
+        [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+        
+    }
+    else if (_actionName == @"Following") {
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _userID, @"user", nil];
+        NSString* resourcePath = [@"/followers/" appendQueryParams:myParams];
+        [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
     }
 }
 
@@ -142,8 +163,15 @@
         
         UILabel* headerLabel;
         headerLabel = (UILabel*)[cell viewWithTag:1];
-        [headerLabel setText:[NSString stringWithFormat:@"%d people %@ this", [_actionStats intValue] ,_actionName]];;
-        
+        if ([_actionName isEqualToString:@"Likes"] || [_actionName isEqualToString:@"Wants"] || [_actionName isEqualToString:@"Gots"]) {
+            
+            [headerLabel setText:[NSString stringWithFormat:@"%d people %@ this", [_actionStats intValue] ,_actionName]];;
+        }else if ([_actionName isEqualToString:@"Followers"]) {
+            [headerLabel setText:[NSString stringWithFormat:@"%d followers", [_actionStats intValue]]];;
+        }else if ([_actionName isEqualToString:@"Following"]) {
+            [headerLabel setText:[NSString stringWithFormat:@"Following %d people", [_actionStats intValue]]];;
+        }
+         
         
         return cell;
     }

@@ -26,5 +26,7 @@
 @property (nonatomic, retain) NSNumber* itemPhotoId;
 @property (nonatomic, retain) NSString* itemPhotoUrl;
 @property (nonatomic, retain) NSNumber* itemPhotoKey;
+@property (nonatomic, retain) NSNumber* iFollow;
+@property (nonatomic, retain) NSNumber* followsMe;
 
 @end

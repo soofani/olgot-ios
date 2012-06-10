@@ -18,6 +18,9 @@
 @property (nonatomic, retain) NSNumber* followers;
 @property (nonatomic, retain) NSNumber* following;
 @property (nonatomic, retain) NSNumber* items;
+@property (nonatomic, retain) NSNumber* iFollow;
+@property (nonatomic, retain) NSNumber* followsMe;
+
 
 
 

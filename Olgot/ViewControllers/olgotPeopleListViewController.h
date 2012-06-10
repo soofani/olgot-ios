@@ -18,6 +18,7 @@
 }
 
 @property (strong, nonatomic) NSNumber *itemID;
+@property (strong, nonatomic) NSNumber *userID;
 @property (strong, nonatomic) NSString *actionName;
 @property (strong, nonatomic) NSNumber *actionStats;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *personListHeader;

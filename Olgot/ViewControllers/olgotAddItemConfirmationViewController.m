@@ -24,8 +24,20 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    line1.lineColor = [UIColor lightGrayColor];
-    line2.lineColor = [UIColor lightGrayColor];
+    
+    UIImage *finishImage30 = [UIImage imageNamed:@"btn-nav-finish"];
+    
+    UIButton *finishBtn = [[UIButton alloc] init];
+    finishBtn.frame=CGRectMake(0,0,50,30);
+    [finishBtn setBackgroundImage:finishImage30 forState:UIControlStateNormal];
+    [finishBtn addTarget:self action:@selector(finishUpload) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:finishBtn];
+}
+
+-(void)finishUpload
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)viewDidUnload
@@ -39,6 +51,5 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
 
 @end

@@ -17,7 +17,7 @@
 #import "olgotVenue.h"
 #import "olgotComment.h"
 #import "olgotMyFriend.h"
-
+#import "LocalyticsSession.h"
 
 @implementation olgotAppDelegate
 
@@ -25,6 +25,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[LocalyticsSession sharedLocalyticsSession] startSession:@"79e9cf2757a4dbe32bfda7c-8361ac6a-8e30-11e1-356e-00ef75f32667"];
+    
     [self configureRestkit];
     
         // Setup custom tab view
@@ -211,6 +213,8 @@
      @"followers",@"followers",
      @"following", @"following",
      @"items",@"items",
+     @"iFollow",@"iFollow",
+     @"followsMe",@"followsMe",
      nil];
     
     RKObjectMapping* actionUserMapping = [RKObjectMapping mappingForClass:[olgotActionUser class]];
@@ -229,12 +233,35 @@
      @"itemPhotoId",@"itemPhotoId",
      @"itemPhotoUrl",@"itemPhotoUrl",
      @"itemPhotoKey",@"itemPhotoKey",
+     @"iFollow",@"iFollow",
+     @"followsMe",@"followsMe",
+     nil];
+    
+    RKObjectMapping* followersFollowingMapping = [RKObjectMapping mappingForClass:[olgotActionUser class]];
+    
+    [followersFollowingMapping mapKeyPathsToAttributes:
+     @"itemId", @"itemId",
+     @"date", @"date",
+     @"userId",@"userId",
+     @"userName",@"userName",
+     @"firstName",@"userFirstName",
+     @"lastName",@"userLastName",
+     @"userProfileImgUrl",@"userProfileImgUrl",
+     @"venueId",@"venueId",
+     @"venueName_En",@"venueName_En",
+     @"venueName_Ar",@"venueName_Ar",
+     @"itemPhotoId",@"itemPhotoId",
+     @"itemPhotoUrl",@"itemPhotoUrl",
+     @"itemPhotoKey",@"itemPhotoKey",
+     @"iFollow",@"iFollow",
+     @"followsMe",@"followsMe",
      nil];
     
     RKObjectMapping* innerActionUserMapping = [RKObjectMapping mappingForClass:[olgotActionUser class]];
     
     [innerActionUserMapping mapKeyPathsToAttributes:
      @"profileImgUrl",@"userProfileImgUrl",
+     
      nil];
     
     RKObjectMapping* venueMapping = [RKObjectMapping mappingForClass:[olgotVenue class]];
@@ -246,6 +273,7 @@
      @"geoLat",@"geoLat",
      @"geoLong",@"geoLong",
      @"items",@"items",
+     @"iconUrl",@"venueIcon",
      nil];
     
     RKObjectMapping* commentMapping = [RKObjectMapping mappingForClass:[olgotComment class]];
@@ -254,7 +282,7 @@
      @"itemId",@"itemId",
      @"id",@"Id",
      @"body",@"body",
-     @"dateNatural",@"date",
+     @"dateNatural",@"commentDate",
      @"published", @"published",
      @"userId",@"userId",
      @"userName",@"userName",
@@ -269,7 +297,7 @@
      @"itemId",@"itemId",
      @"id",@"Id",
      @"body",@"body",
-     @"date",@"date",
+     @"dateNatural",@"commentDate",
      @"published", @"published",
      @"userId",@"userId",
      @"firstName",@"userFirstName",
@@ -311,17 +339,22 @@
     
     [objectManager.mappingProvider setObjectMapping:userMapping forResourcePathPattern:@"/user/"];
     
-    [objectManager.mappingProvider setObjectMapping:venueMapping forResourcePathPattern:@"/venue/"];
+    [objectManager.mappingProvider setObjectMapping:venueMapping forResourcePathPattern:@"/nearbyvenues/"];
     
     [objectManager.mappingProvider setObjectMapping:actionUserMapping forResourcePathPattern:@"/itemlikes/"];
     [objectManager.mappingProvider setObjectMapping:actionUserMapping forResourcePathPattern:@"/itemwants/"];
     [objectManager.mappingProvider setObjectMapping:actionUserMapping forResourcePathPattern:@"/itemgots/"];
     
+    [objectManager.mappingProvider setObjectMapping:followersFollowingMapping forResourcePathPattern:@"/followers/"];
+    [objectManager.mappingProvider setObjectMapping:followersFollowingMapping forResourcePathPattern:@"/following/"];
+    
     [objectManager.mappingProvider setObjectMapping:commentMapping forResourcePathPattern:@"/comments/"];
     
     [objectManager.mappingProvider setObjectMapping:myFriendMapping forResourcePathPattern:@"/friends/"];
     
-    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [[LocalyticsSession sharedLocalyticsSession] tagEvent:[NSString stringWithFormat:@"user %@ started the app", [defaults objectForKey:@"userid"]]];
+ 
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -334,11 +367,15 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [[LocalyticsSession sharedLocalyticsSession] close];
+    [[LocalyticsSession sharedLocalyticsSession] upload];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [[LocalyticsSession sharedLocalyticsSession] resume];
+    [[LocalyticsSession sharedLocalyticsSession] upload];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -349,6 +386,8 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[LocalyticsSession sharedLocalyticsSession] close];
+    [[LocalyticsSession sharedLocalyticsSession] upload];
 }
 
 @end

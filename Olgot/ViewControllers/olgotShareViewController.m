@@ -7,6 +7,7 @@
 //
 
 #import "olgotShareViewController.h"
+#import "olgotAddItemNearbyPlacesViewController.h"
 
 @interface olgotShareViewController ()
 
@@ -115,10 +116,6 @@
             // we took a single shot
             [self.imageView setImage:[self.capturedImages objectAtIndex:0]];
             
-            olgotAddItemDetailsViewController *detailController = [[olgotAddItemDetailsViewController alloc] init];
-            
-            [detailController.itemImageView setImage:[self.capturedImages objectAtIndex:0]];
-            
             [self performSegueWithIdentifier:@"ShowNearbyPlaces" sender:self];
         }
         else
@@ -137,7 +134,15 @@
     }
 }
 
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"ShowNearbyPlaces"]) {
+        olgotAddItemNearbyPlacesViewController* nearbyController = [segue destinationViewController];
+        
+        nearbyController.capturedImage = [self.capturedImages objectAtIndex:0];
+        
+    }
+}
 
 //- (void) useCamera
 //{

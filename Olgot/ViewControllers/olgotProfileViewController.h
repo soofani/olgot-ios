@@ -21,5 +21,7 @@
 @property (strong, nonatomic) NSNumber *userID;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *profileCardTile;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *profileItemTile;
+- (IBAction)showFollowersAction:(id)sender;
+- (IBAction)showFollowingAction:(id)sender;
 
 @end

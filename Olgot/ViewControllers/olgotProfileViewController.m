@@ -12,6 +12,7 @@
 #import "olgotItem.h"
 #import "olgotUser.h"
 #import "olgotItemViewController.h"
+#import "olgotPeopleListViewController.h"
 
 
 @interface olgotProfileViewController ()
@@ -130,7 +131,6 @@
     }
 }
 
-
 - (NSUInteger)collectionView:(SSCollectionView *)aCollectionView numberOfItemsInSection:(NSUInteger)section {
     if (section == 0) {
         return 1;
@@ -155,13 +155,22 @@
         
         UIButton* followButton;
         followButton = (UIButton*)[cell1 viewWithTag:7];
-        [followButton setTitle:[NSString stringWithFormat:@"Follow %@",[_user firstName]] forState:UIControlStateNormal];
+        
         
         // configure custom data
         if ([_userID isEqualToNumber:[defaults objectForKey:@"userid"]]) {
             [followButton setHidden:YES];
         }else {
             [followButton setHidden:NO];
+        }
+        
+        if ([[_user iFollow] isEqualToNumber:[NSNumber numberWithInt:1]]) {
+            [followButton setBackgroundImage:[UIImage imageNamed:@"btn-user-list-following"] forState:UIControlStateNormal];
+            [followButton setTitle:@"" forState:UIControlStateNormal];
+        }else {
+            
+            [followButton setBackgroundImage:[UIImage imageNamed:@"btn-select-username"] forState:UIControlStateNormal];
+            [followButton setTitle:[NSString stringWithFormat:@"Follow %@",[_user firstName]] forState:UIControlStateNormal];
         }
         
         UIImageView* userImage;
@@ -174,7 +183,7 @@
         userLabel.text = [NSString stringWithFormat:@"%@ %@",[_user firstName],[_user lastName]];
         
         userLabel = (UILabel*)[cell1 viewWithTag:3];    //username
-        userLabel.text = [_user username];
+        userLabel.text = [NSString stringWithFormat:@"@%@", [_user username]];
         
         userLabel = (UILabel*)[cell1 viewWithTag:4];    //items
         userLabel.text = [[_user items] stringValue];
@@ -185,9 +194,10 @@
         userLabel = (UILabel*)[cell1 viewWithTag:6];    //following
         userLabel.text = [[_user following] stringValue];
         
-//        cell1.layer.shadowOpacity = 0.5;
+//        cell1.layer.shadowOpacity = 0.3;
 //        cell1.layer.shadowColor = [[UIColor blackColor] CGColor];
-//        cell1.layer.shadowOffset = CGSizeMake(1.0, 1.0);
+//        cell1.layer.shadowOffset = CGSizeMake(0.0, 1.0);
+//        cell1.layer.shouldRasterize = YES;
         
         return cell1;
     }
@@ -221,6 +231,7 @@
 //        cell2.layer.shadowOpacity = 0.5;
 //        cell2.layer.shadowColor = [[UIColor blackColor] CGColor];
 //        cell2.layer.shadowOffset = CGSizeMake(1.0, 1.0);
+//        cell2.layer.shouldRasterize = YES;
         
         return cell2;
     }
@@ -282,8 +293,29 @@
         
         itemViewController.itemID = [[_items objectAtIndex:_selectedRowIndexPath.row] itemID];
         itemViewController.itemKey = [[_items objectAtIndex:_selectedRowIndexPath.row] itemKey];
+    }else if ([[segue identifier] isEqualToString:@"ShowFollowers"]) {
+        olgotPeopleListViewController *peopleViewController = [segue destinationViewController];
+        
+        peopleViewController.actionStats = [_user followers];
+        peopleViewController.actionName = @"Followers";
+        peopleViewController.userID = [_user userId];
+    }
+    else if ([[segue identifier] isEqualToString:@"ShowFollowing"]) {
+        olgotPeopleListViewController *peopleViewController = [segue destinationViewController];
+        
+        peopleViewController.actionStats = [_user following];
+        peopleViewController.actionName = @"Following";
+        peopleViewController.userID = [_user userId];
+        
     }
 }
 
 
+- (IBAction)showFollowersAction:(id)sender {
+    [self performSegueWithIdentifier:@"ShowFollowing" sender:self];
+}
+
+- (IBAction)showFollowingAction:(id)sender {
+    [self performSegueWithIdentifier:@"ShowFollowers" sender:self];
+}
 @end

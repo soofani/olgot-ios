@@ -16,5 +16,6 @@
 @property (nonatomic, retain) NSNumber* geoLat;
 @property (nonatomic, retain) NSNumber* geoLong;
 @property (nonatomic, retain) NSNumber* items;
+@property (nonatomic, retain) NSString* venueIcon;
 
 @end

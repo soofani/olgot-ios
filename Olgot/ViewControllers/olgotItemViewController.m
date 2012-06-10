@@ -27,6 +27,8 @@
 @synthesize likeButton = _likeButton;
 @synthesize gotButton = _gotButton;
 @synthesize commentButton = _commentButton;
+@synthesize mySmallImage = _mySmallImage;
+@synthesize myCommentTF = _myCommentTF;
 
 @synthesize itemCell = _itemCell, finderCell = _finderCell, peopleRowCell = _peopleRowCell,  commentsHeader, commentCell = _commentCell, commentsFooter = _commentsFooter;
 
@@ -80,9 +82,28 @@
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
     
+    myCommentView = [[[NSBundle mainBundle] loadNibNamed:@"itemViewWriteCommentView" owner:self options:nil] objectAtIndex:0];
+    
+    myCommentView.frame = CGRectMake(0, 378, 320, 40);
+    [self.view addSubview:myCommentView];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] 
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [tap setCancelsTouchesInView:NO];
+    [self.view addGestureRecognizer:tap];
+    
     [self loadItemData];
 }
 
+-(void)dismissKeyboard {
+    [self.myCommentTF resignFirstResponder];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    myCommentView.frame = CGRectMake(0, 378, 320, 40);
+    [UIView commitAnimations];
+}
 
 - (void)viewDidUnload
 {
@@ -90,6 +111,8 @@
     [self setWantButton:nil];
     [self setGotButton:nil];
     [self setCommentButton:nil];
+    [self setMySmallImage:nil];
+    [self setMyCommentTF:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -161,6 +184,7 @@
     _likes = [_item likes];
     _wants = [_item wants];
     _gots = [_item gots];
+    [self.mySmallImage setImageWithURL:[NSURL URLWithString:[_item userProfileImgUrl]]];
     NSLog(@"user actions: %@ %@ %@",[_item iLike],[_item iWant],[_item iGot]);
     
     [self.collectionView reloadData];
@@ -223,7 +247,7 @@
     }
     else if (section == 6){ //comments
         if ([[_item itemStatsComments] intValue] > 0) {
-            return 2;
+            return [_comments count];
         } else {
             return 0;
         }
@@ -411,6 +435,26 @@
             cell = _commentCell;
             self.commentCell = nil;
         }
+        
+        UIImageView* commentImage;
+        UILabel* commentLabel;
+        
+        commentImage = (UIImageView*)[cell viewWithTag:1];
+        [commentImage setImageWithURL:
+         [NSURL URLWithString:
+          [[_comments objectAtIndex:indexPath.row] userProfileImgUrl]]];
+        
+        commentLabel = (UILabel*)[cell viewWithTag:2];  //person name
+        commentLabel.text = [NSString stringWithFormat:
+                             @"%@ %@",
+                             [[_comments objectAtIndex:indexPath.row] userFirstName],
+                             [[_comments objectAtIndex:indexPath.row] userLastName]];
+        
+        commentLabel = (UILabel*)[cell viewWithTag:3];  //comment time
+        commentLabel.text = [[_comments objectAtIndex:indexPath.row] commentDate];
+        
+        commentLabel = (UILabel*)[cell viewWithTag:4];  //comment body
+        commentLabel.text = [[_comments objectAtIndex:indexPath.row] body];
         
         return cell;
  
@@ -607,6 +651,43 @@
 - (IBAction)gotAction:(id)sender {
     [self performSelector:@selector(showPopup:) withObject:@"got"];
     [self performSelector:@selector(sendItemAction:) withObject:@"got"];
+}
+
+- (IBAction)touchedWriteComment:(id)sender {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+//    [UIView setAnimationDelay:0.1];
+    myCommentView.frame = CGRectMake(0, 160, 320, 40);
+    [UIView commitAnimations];
+}
+
+- (IBAction)finishedComment:(id)sender {
+    [self performSelector:@selector(dismissKeyboard)];
+    NSLog(@"user finished commenting: %@", self.myCommentTF.text);
+    
+    NSString* commentBody = self.myCommentTF.text;
+    NSString *trimmedBody = [commentBody stringByTrimmingCharactersInSet:
+                               [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    if (![trimmedBody isEqualToString:@""]) {
+        NSLog(@"sending comment");
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        
+        NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [_item itemID], @"item",
+                                [defaults objectForKey:@"userid"], @"id",
+                                commentBody, @"body",
+                                nil];
+        
+        [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        
+        [[RKClient sharedClient] post:@"/comment/" params:params delegate:self];
+    }else {
+        NSLog(@"empty comment, not sending");
+    }
+    
+    self.myCommentTF.text = nil;
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

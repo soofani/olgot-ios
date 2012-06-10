@@ -22,6 +22,8 @@ venueName_En = _venueName_En,
 venueName_Ar = _venueName_Ar,
 itemPhotoId = _itemPhotoId,
 itemPhotoUrl = _itemPhotoUrl,
-itemPhotoKey = _itemPhotoKey;
+itemPhotoKey = _itemPhotoKey,
+iFollow = _iFollow,
+followsMe = _followsMe;
 
 @end

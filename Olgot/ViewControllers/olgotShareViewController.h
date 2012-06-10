@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "olgotCameraOverlayViewController.h"
-#import "olgotAddItemDetailsViewController.h"
 
 @interface olgotShareViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, olgotCameraOverlayViewControllerDelegate>
 {
