@@ -10,11 +10,14 @@
 #import <QuartzCore/QuartzCore.h>
 #import <SSToolkit/SSToolkit.h>
 #import <RestKit/RestKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface olgotAddItemNearbyPlacesViewController : SSCollectionViewController <RKObjectLoaderDelegate>
+@interface olgotAddItemNearbyPlacesViewController : SSCollectionViewController <RKObjectLoaderDelegate,CLLocationManagerDelegate>
 {
     NSArray* _places;
     NSIndexPath* _selectedRowIndexPath;
+    CLLocationManager* locationManager;
+    
 }
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *placeCell;

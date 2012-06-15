@@ -9,15 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSToolkit.h>
 #import <RestKit/RestKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface olgotExploreViewController : SSCollectionViewController <RKObjectLoaderDelegate>{
+@interface olgotExploreViewController : SSCollectionViewController <RKObjectLoaderDelegate, CLLocationManagerDelegate>{
     NSString *firstRun;
     NSArray* _categories;
     NSIndexPath* _selectedRowIndexPath;
     NSUserDefaults* defaults;
+    CLLocationManager* locationManager;
 }
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *boardBigTile;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *boardNormalTile;
+
 
 @end

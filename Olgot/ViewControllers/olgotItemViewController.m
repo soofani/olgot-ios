@@ -500,7 +500,13 @@
 
 - (CGSize)collectionView:(SSCollectionView *)aCollectionView itemSizeForSection:(NSUInteger)section {
     if(section == 0){
-        return CGSizeMake(300.0f, 370.0f);
+        CGSize labelSize = [[_item itemDescription] sizeWithFont:[UIFont systemFontOfSize:18.0] constrainedToSize:CGSizeMake(280.0, 9000.0) lineBreakMode:UILineBreakModeWordWrap];
+        
+        CGSize itemSize = CGSizeMake(300.0, labelSize.height + 310.0);
+
+        return itemSize; 
+        
+//        return CGSizeMake(300.0f, 370.0f);
     }
     else if (section == 1) {
         return CGSizeMake(300.0f, 44.0f);
@@ -518,7 +524,9 @@
         return CGSizeMake(300.0f, 30.0f);
     }
     else if (section == 6){
-        return CGSizeMake(300.0f, 86.0f);
+//        CGSize commentSize = [[_comments objectAtIndex:indexPath.row] body]
+        
+        return CGSizeMake(300.0f, 70.0f);
     }
     else {
         return CGSizeMake(300.0f, 44.0f);
@@ -543,7 +551,6 @@
         [self performSegueWithIdentifier:@"showAllComments" sender:self];
     }
 }
-
 
 - (CGFloat)collectionView:(SSCollectionView *)aCollectionView heightForHeaderInSection:(NSUInteger)section {
     

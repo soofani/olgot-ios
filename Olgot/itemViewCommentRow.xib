@@ -34,7 +34,7 @@
 			</object>
 			<object class="IBUIView" id="486167693">
 				<reference key="NSNextResponder"/>
-				<int key="NSvFlags">292</int>
+				<int key="NSvFlags">288</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIImageView" id="1020722381">
 						<reference key="NSNextResponder" ref="486167693"/>
@@ -121,8 +121,8 @@
 					</object>
 					<object class="IBUILabel" id="731876949">
 						<reference key="NSNextResponder" ref="486167693"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{54, 27}, {214, 39}}</string>
+						<int key="NSvFlags">272</int>
+						<string key="NSFrame">{{54, 27}, {240, 15}}</string>
 						<reference key="NSSuperview" ref="486167693"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="989734982"/>
@@ -133,7 +133,7 @@
 						<int key="IBUITag">4</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">dummy text dummy text dummy text dummy text dummy text</string>
+						<string key="IBUIText">dummy text dummy text dummy text dummy text dummy text </string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwIDAAA</bytes>
@@ -141,12 +141,13 @@
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<float key="IBUIMinimumFontSize">10</float>
-						<int key="IBUINumberOfLines">2</int>
+						<int key="IBUINumberOfLines">3</int>
 						<reference key="IBUIFontDescription" ref="883534988"/>
 						<reference key="IBUIFont" ref="170918783"/>
+						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
 				</array>
-				<string key="NSFrameSize">{300, 86}</string>
+				<string key="NSFrameSize">{300, 42}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="1020722381"/>
@@ -284,6 +285,7 @@
 					<string key="className">olgotItemViewController</string>
 					<string key="superclassName">SSCollectionViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="finishedComment:">id</string>
 						<string key="gotAction:">id</string>
 						<string key="likeAction:">id</string>
 						<string key="showProfile:">id</string>
@@ -292,6 +294,10 @@
 						<string key="wantAction:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="finishedComment:">
+							<string key="name">finishedComment:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="gotAction:">
 							<string key="name">gotAction:</string>
 							<string key="candidateClassName">id</string>

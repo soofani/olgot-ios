@@ -119,6 +119,8 @@
 		FF6AFF97158144DF000A24BA /* LocalyticsUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6AFF93158144DF000A24BA /* LocalyticsUploader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF6AFF9915814626000A24BA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6AFF9815814626000A24BA /* libz.dylib */; };
 		FF6AFF9B15814637000A24BA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6AFF9A15814636000A24BA /* libsqlite3.dylib */; };
+		FF6F63E4158785E400877C3E /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6F63E3158785E400877C3E /* UIImage+fixOrientation.m */; };
+		FF6F63E715878B7E00877C3E /* olgotFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6F63E615878B7E00877C3E /* olgotFeedbackViewController.m */; };
 		FF7A000115750F0500BB5A65 /* profileViewPersonCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7A000015750F0500BB5A65 /* profileViewPersonCard.xib */; };
 		FF7A00041575106E00BB5A65 /* box-stats.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7A00021575106E00BB5A65 /* box-stats.png */; };
 		FF7A00051575106E00BB5A65 /* box-stats@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7A00031575106E00BB5A65 /* box-stats@2x.png */; };
@@ -205,6 +207,7 @@
 		FFBE48CE156E664D00DF3716 /* dummy12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FFBE48C0156E664D00DF3716 /* dummy12.jpg */; };
 		FFBE48CF156E664D00DF3716 /* dummy13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FFBE48C1156E664D00DF3716 /* dummy13.jpg */; };
 		FFBE48D0156E664D00DF3716 /* dummy14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FFBE48C2156E664D00DF3716 /* dummy14.jpg */; };
+		FFDAE0B715849FFC00859B3A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDAE0B615849FFC00859B3A /* CoreLocation.framework */; };
 		FFDC6334156E814C008CCA28 /* olgotCommentsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDC6333156E814C008CCA28 /* olgotCommentsListViewController.m */; };
 		FFDC6336156E8232008CCA28 /* commentsListHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFDC6335156E8232008CCA28 /* commentsListHeaderCell.xib */; };
 		FFDC6338156E839D008CCA28 /* commentsViewCommentRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFDC6337156E839D008CCA28 /* commentsViewCommentRow.xib */; };
@@ -427,6 +430,10 @@
 		FF6AFF94158144DF000A24BA /* WebserviceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebserviceConstants.h; sourceTree = "<group>"; };
 		FF6AFF9815814626000A24BA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		FF6AFF9A15814636000A24BA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		FF6F63E2158785E400877C3E /* UIImage+fixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+fixOrientation.h"; sourceTree = "<group>"; };
+		FF6F63E3158785E400877C3E /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+fixOrientation.m"; sourceTree = "<group>"; };
+		FF6F63E515878B7D00877C3E /* olgotFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotFeedbackViewController.h; path = ViewControllers/olgotFeedbackViewController.h; sourceTree = "<group>"; };
+		FF6F63E615878B7E00877C3E /* olgotFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotFeedbackViewController.m; path = ViewControllers/olgotFeedbackViewController.m; sourceTree = "<group>"; };
 		FF7A000015750F0500BB5A65 /* profileViewPersonCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = profileViewPersonCard.xib; sourceTree = "<group>"; };
 		FF7A00021575106E00BB5A65 /* box-stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box-stats.png"; sourceTree = "<group>"; };
 		FF7A00031575106E00BB5A65 /* box-stats@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box-stats@2x.png"; sourceTree = "<group>"; };
@@ -533,6 +540,7 @@
 		FFBE48C0156E664D00DF3716 /* dummy12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dummy12.jpg; sourceTree = "<group>"; };
 		FFBE48C1156E664D00DF3716 /* dummy13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dummy13.jpg; sourceTree = "<group>"; };
 		FFBE48C2156E664D00DF3716 /* dummy14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dummy14.jpg; sourceTree = "<group>"; };
+		FFDAE0B615849FFC00859B3A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FFDC6332156E814C008CCA28 /* olgotCommentsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotCommentsListViewController.h; path = ViewControllers/olgotCommentsListViewController.h; sourceTree = "<group>"; };
 		FFDC6333156E814C008CCA28 /* olgotCommentsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotCommentsListViewController.m; path = ViewControllers/olgotCommentsListViewController.m; sourceTree = "<group>"; };
 		FFDC6335156E8232008CCA28 /* commentsListHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = commentsListHeaderCell.xib; sourceTree = "<group>"; };
@@ -560,6 +568,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFDAE0B715849FFC00859B3A /* CoreLocation.framework in Frameworks */,
 				FF6AFF9B15814637000A24BA /* libsqlite3.dylib in Frameworks */,
 				FF6AFF9915814626000A24BA /* libz.dylib in Frameworks */,
 				FF20E760157525F5004EC879 /* Accounts.framework in Frameworks */,
@@ -610,6 +619,8 @@
 				FF27736815625DAB0062EBA9 /* olgotMapViewController.m */,
 				FF26E26A1562807E00BECF4C /* olgotVenueViewController.h */,
 				FF26E26B1562807E00BECF4C /* olgotVenueViewController.m */,
+				FF6F63E515878B7D00877C3E /* olgotFeedbackViewController.h */,
+				FF6F63E615878B7E00877C3E /* olgotFeedbackViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -827,6 +838,7 @@
 		FFA4ED83155D12D8008CB4CA = {
 			isa = PBXGroup;
 			children = (
+				FFDAE0B615849FFC00859B3A /* CoreLocation.framework */,
 				FF6AFF9A15814636000A24BA /* libsqlite3.dylib */,
 				FF6AFF9815814626000A24BA /* libz.dylib */,
 				FF6AFF8D158144DE000A24BA /* src */,
@@ -885,6 +897,8 @@
 				FF69BBA3156CF539008A5D52 /* DTCustomColoredAccessory.h */,
 				FF69BBA4156CF539008A5D52 /* DTCustomColoredAccessory.m */,
 				FFE9A06B157279D000509B09 /* categories.json */,
+				FF6F63E2158785E400877C3E /* UIImage+fixOrientation.h */,
+				FF6F63E3158785E400877C3E /* UIImage+fixOrientation.m */,
 			);
 			path = Olgot;
 			sourceTree = "<group>";
@@ -1317,6 +1331,8 @@
 				FF6AFF95158144DF000A24BA /* LocalyticsDatabase.m in Sources */,
 				FF6AFF96158144DF000A24BA /* LocalyticsSession.m in Sources */,
 				FF6AFF97158144DF000A24BA /* LocalyticsUploader.m in Sources */,
+				FF6F63E4158785E400877C3E /* UIImage+fixOrientation.m in Sources */,
+				FF6F63E715878B7E00877C3E /* olgotFeedbackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

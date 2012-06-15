@@ -64,12 +64,14 @@
         
         [defaults synchronize];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
-                                                        message:@"You have been logged out."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+//                                                        message:@"You have been logged out."
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil];
+        
+        [self.tabBarController setSelectedIndex:0];
+//        [alert show];
     }
 }
 

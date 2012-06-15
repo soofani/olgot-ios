@@ -9,6 +9,7 @@
 #import "olgotAddItemDetailsViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AFNetworking.h"
+#import "UIImage+fixOrientation.h"
 
 @interface olgotAddItemDetailsViewController ()
 
@@ -160,7 +161,11 @@
 }
 
 - (IBAction)addedPrice:(id)sender {
-
+    UITextField* priceTF = sender;
+    
+    if ([priceTF.text length] == 0) {
+        [priceTF setText:@"0.00"];
+    }
     [self performSelector:@selector(dismissKeyboard)];
 }
 
@@ -170,11 +175,17 @@
 }
 
 - (IBAction)postButtonPressed:(id)sender {
+    [self.postButton setEnabled:NO];
     [self performSelector:@selector(dismissKeyboard)];
     [self performSelector:@selector(postItem)];
 }
 
 - (IBAction)editPrice:(id)sender {
+    UITextField* priceTF = sender;
+    
+    if ([priceTF.text isEqualToString:@"0.00"]) {
+        [priceTF setText:@""];
+    }
     [self.scrollView setContentOffset:CGPointMake(0.0, 100.0) animated:YES];
 }
 
@@ -205,7 +216,7 @@
     [params setValue:_itemID forParam:@"item"];
     
 //    NSData* imageData = UIImagePNGRepresentation(_itemImage);
-    NSData* imageData = UIImageJPEGRepresentation(_itemImage, 0.7);
+    NSData* imageData = UIImageJPEGRepresentation([_itemImage fixOrientation], 0.7);
 //    [params setData:imageData MIMEType:@"image/jpeg" forParam:@"file"];
     [params setData:imageData MIMEType:@"image/jpeg" fileName:@"myimage.jpg" forParam:@"file"];
     

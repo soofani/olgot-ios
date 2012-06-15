@@ -38,6 +38,22 @@
     [objectManager loadObjectsAtResourcePath:@"/categories" delegate:self];
 }
 
+- (void)startStandardUpdates
+{
+    // Create the location manager if this object does not
+    // already have one.
+    if (nil == locationManager)
+        locationManager = [[CLLocationManager alloc] init];
+    
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    // Set a movement threshold for new events.
+    locationManager.distanceFilter = 10;
+    
+    [locationManager startUpdatingLocation];
+}
+
 
 - (void)viewDidLoad
 {
@@ -66,10 +82,14 @@
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
     
+    //start location updates
+    [self startStandardUpdates];
+    
     //title logo
     UIImage *titleImage = [UIImage imageNamed:@"logo-140x74"];
     UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
     [self.navigationController.navigationBar.topItem setTitleView:titleImageView];
+    
     [self loadCategories];
 }
 
@@ -253,6 +273,8 @@
 	
 }
 
+
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"ShowBoardView"]) {
@@ -283,7 +305,32 @@
     }
 }
 
+// Delegate method from the CLLocationManagerDelegate protocol.
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation
+{
+    // If it's a relatively recent event, turn off updates to save power
+    NSDate* eventDate = newLocation.timestamp;
+    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
+    if (abs(howRecent) < 15.0)
+    {
+        NSLog(@"latitude %+.6f, longitude %+.6f\n",
+              newLocation.coordinate.latitude,
+              newLocation.coordinate.longitude);
+        
+        [defaults setObject:[NSNumber numberWithFloat:newLocation.coordinate.latitude] forKey:@"lastestLatitude"];
+        [defaults setObject:[NSNumber numberWithFloat:newLocation.coordinate.longitude] forKey:@"lastestLongitude"];
+        
+        [defaults synchronize];
+    }
+    // else skip the event and process the next one.
+}
 
+//+(CLLocation*)getLatestLocation
+//{
+//    return 
+//}
 
 @end
 

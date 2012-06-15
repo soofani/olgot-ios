@@ -31,10 +31,15 @@
 - (void)loadVenues {
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    
+    NSNumber* lat = [NSNumber numberWithDouble:locationManager.location.coordinate.latitude];
+    NSNumber* lng = [NSNumber numberWithDouble:locationManager.location.coordinate.longitude];
+    
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: lat, @"lat", lng,@"long", nil];
 
-        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: @"0.0", @"lat",@"0.0",@"long", nil];
-        NSString* resourcePath = [@"/nearbyvenues/" appendQueryParams:myParams];
-        [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+    NSString* resourcePath = [@"/nearbyvenues/" appendQueryParams:myParams];
+    NSLog(@"requesting nearby place %@", resourcePath);
+    [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
 }
 
 
@@ -53,7 +58,18 @@
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
     
-    [self loadVenues];
+    // Create the location manager if this object does not
+    // already have one.
+    if (nil == locationManager)
+        locationManager = [[CLLocationManager alloc] init];
+    
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    // Set a movement threshold for new events.
+    locationManager.distanceFilter = 10;
+    
+    [locationManager startUpdatingLocation];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -181,6 +197,24 @@
 	return 0.0f;
 }
 
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"latitude %+.6f, longitude %+.6f\n",
+          newLocation.coordinate.latitude,
+          newLocation.coordinate.longitude);
+    
+    // If it's a relatively recent event, turn off updates to save power
+    NSDate* eventDate = newLocation.timestamp;
+    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
+    if (abs(howRecent) < 15.0)
+    {
+        [manager stopUpdatingLocation];
+        [self loadVenues];
 
+    }
+    // else skip the event and process the next one.
+}
 
 @end
