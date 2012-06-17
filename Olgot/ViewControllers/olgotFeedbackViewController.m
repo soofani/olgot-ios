@@ -73,7 +73,7 @@
     
     NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
                             userID, @"id",
-                            feedbackText, @"body",
+                            feedbackText, @"message",
                             nil];
     
     [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -105,7 +105,9 @@
                                                                            options:0
                                                                              error:&jsonError];
                     
-//                    _itemID = [_itemJsonResponse objectForKey:@"id"];
+                    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:[_feedbackJsonResponse objectForKey:@"message"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert show];
+                    
                     [self.navigationController popToRootViewControllerAnimated:YES];
                 }
             }else {
