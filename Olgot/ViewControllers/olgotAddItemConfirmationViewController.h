@@ -8,11 +8,40 @@
 
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSToolkit.h>
+#import <RestKit/RestKit.h>
+#import "UIImageView+AFNetworking.h"
 
-@interface olgotAddItemConfirmationViewController : UIViewController
+@class olgotItem;
+
+@interface olgotAddItemConfirmationViewController : UIViewController<RKObjectLoaderDelegate>
 {
     IBOutlet SSLineView *line1;
     IBOutlet SSLineView *line2;
 }
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (strong, nonatomic) NSString *itemID;
+@property (strong, nonatomic) NSString *itemKey;
+@property (strong, nonatomic) NSNumber *venueID;
+@property (strong, nonatomic) NSNumber *venueItemCount;
+@property (nonatomic, strong) olgotItem *item;
+
+@property (strong, nonatomic) IBOutlet UIImageView *itemImage;
+@property (strong, nonatomic) IBOutlet UIButton *venueNameBtn;
+@property (strong, nonatomic) IBOutlet UILabel *itemPriceLabel;
+@property (strong, nonatomic) IBOutlet UIButton *gotButton;
+@property (strong, nonatomic) IBOutlet UIButton *wantButton;
+@property (strong, nonatomic) IBOutlet UIButton *likeButton;
+
+@property (strong, nonatomic) IBOutlet UILabel *placeBigLabel;
+@property (strong, nonatomic) IBOutlet UILabel *placeItemCountLabel;
+
+- (IBAction)gotPressed:(id)sender;
+- (IBAction)wantPressed:(id)sender;
+- (IBAction)likePressed:(id)sender;
+- (IBAction)venueNamePressed:(id)sender;
+
+
 
 @end

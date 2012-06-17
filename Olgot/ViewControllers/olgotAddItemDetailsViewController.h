@@ -14,6 +14,7 @@
 {
     UIImageView *itemImageView;
     NSString* _itemID;
+    NSString* _itemKey;
 }
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 

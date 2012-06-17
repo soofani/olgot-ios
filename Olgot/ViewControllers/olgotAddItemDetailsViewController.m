@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AFNetworking.h"
 #import "UIImage+fixOrientation.h"
+#import "olgotAddItemConfirmationViewController.h"
 
 @interface olgotAddItemDetailsViewController ()
 
@@ -67,6 +68,7 @@
                                                                      error:&jsonError];
                     
                     _itemID = [_itemJsonResponse objectForKey:@"id"];
+                    _itemKey = [_itemJsonResponse objectForKey:@"key"];
                     [_progressView setProgress:0.0];
                     [_progressView setHidden:NO];
                     [self performSelector:@selector(postPhoto)];
@@ -216,7 +218,7 @@
     [params setValue:_itemID forParam:@"item"];
     
 //    NSData* imageData = UIImagePNGRepresentation(_itemImage);
-    NSData* imageData = UIImageJPEGRepresentation([_itemImage fixOrientation], 0.7);
+    NSData* imageData = UIImageJPEGRepresentation([_itemImage fixOrientation], 0.5);
 //    [params setData:imageData MIMEType:@"image/jpeg" forParam:@"file"];
     [params setData:imageData MIMEType:@"image/jpeg" fileName:@"myimage.jpg" forParam:@"file"];
     
@@ -224,6 +226,19 @@
     NSLog(@"RKParams HTTPHeaderValueForContentLength = %d", [params HTTPHeaderValueForContentLength]);
     
     [[[RKClient sharedClient] post:@"/photo/" params:params delegate:self] setUserData:@"uploadPhoto"];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqual:@"ShowAddItemConfirmation"]){
+        olgotAddItemConfirmationViewController* confirmationController = [segue destinationViewController];
+        
+        confirmationController.itemID = _itemID;
+        confirmationController.itemKey = _itemKey;
+        confirmationController.venueID = [_venue venueId];
+        confirmationController.venueItemCount = [_venue items];
+        
+    }
 }
 
 @end
