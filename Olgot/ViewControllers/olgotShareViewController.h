@@ -17,9 +17,13 @@
     NSMutableArray *capturedImages; // the list of images captures from the camera (either 1 or multiple)
     
     BOOL newMedia;
+    BOOL showCam;
     olgotCameraOverlayViewController *mOverlayController;
+    
+//    UIImagePickerController* imgPicker;
 }
 
+@property (nonatomic, retain) UIImagePickerController* imgPicker;
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
 //@property (nonatomic, retain) IBOutlet UIToolbar *myToolbar;
 

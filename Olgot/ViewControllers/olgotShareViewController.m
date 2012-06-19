@@ -15,6 +15,8 @@
 
 @implementation olgotShareViewController
 
+@synthesize imgPicker;
+
 @synthesize imageView, mOverlayViewController, capturedImages;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -26,9 +28,28 @@
     return self;
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+//    self.imgPicker = [[UIImagePickerController alloc] init];
+//    self.imgPicker.allowsEditing = NO;
+//    self.imgPicker.delegate = self;
+//    self.imgPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+//    [self presentModalViewController:self.imgPicker animated:NO];  
+    if (showCam) {
+        [self showImagePicker:UIImagePickerControllerSourceTypeCamera];
+    }
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    showCam = YES;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSLog(@"set show cam to yes");
+    showCam = YES;
     
     self.mOverlayViewController =
     [[olgotCameraOverlayViewController alloc] initWithNibName:@"olgotCameraOverlayViewController" bundle:nil];
@@ -48,20 +69,9 @@
 //    }
 }
 
--(void) viewDidAppear:(BOOL)animated
-{
-//    [self useCamera];
-
-//    [self cameraAction:self];
-
-}
-
-
-
 - (void)viewDidUnload
 {
     self.imageView = nil;
-//    self.myToolbar = nil;
     
     self.mOverlayViewController = nil;
     self.capturedImages = nil;
@@ -72,8 +82,8 @@
 
 - (void)showImagePicker:(UIImagePickerControllerSourceType)sourceType
 {
-    if (self.imageView.isAnimating)
-        self.imageView.stopAnimating;
+//    if (self.imageView.isAnimating)
+//        self.imageView.stopAnimating;
     
     if (self.capturedImages.count > 0)
         [self.capturedImages removeAllObjects];
@@ -83,11 +93,6 @@
         [self.mOverlayViewController setupImagePicker:sourceType];
         [self presentModalViewController:self.mOverlayViewController.imagePickerController animated:NO];
     }
-}
-
-- (IBAction)photoLibraryAction:(id)sender
-{   
-    [self showImagePicker:UIImagePickerControllerSourceTypePhotoLibrary];
 }
 
 - (IBAction)cameraAction:(id)sender
@@ -107,7 +112,8 @@
 // as a delegate we are told to finished with the camera
 - (void)didFinishWithCamera
 {
-    [self dismissModalViewControllerAnimated:NO];
+    showCam = NO;
+    
     
     if ([self.capturedImages count] > 0)
     {
@@ -115,8 +121,10 @@
         {
             // we took a single shot
             [self.imageView setImage:[self.capturedImages objectAtIndex:0]];
+            [self dismissViewControllerAnimated:NO completion:^(void){
+                        [self performSegueWithIdentifier:@"ShowNearbyPlaces" sender:self];
+            }];
             
-            [self performSegueWithIdentifier:@"ShowNearbyPlaces" sender:self];
         }
         else
         {
@@ -129,8 +137,12 @@
             
             self.imageView.animationDuration = 5.0;    // show each captured photo for 5 seconds
             self.imageView.animationRepeatCount = 0;   // animate forever (show all photos)
-            self.imageView.startAnimating;
+//            self.imageView.startAnimating;
         }
+    }else {
+        [self dismissViewControllerAnimated:NO completion:^(void){
+            self.tabBarController.selectedIndex = 0;
+        }];
     }
 }
 

@@ -20,14 +20,8 @@
 @private
     UIButton *takePictureButton;
     UIButton *cancelButton;
-    
-//    UIBarButtonItem *takePictureButton;
-    UIBarButtonItem *startStopButton;
-    UIBarButtonItem *timedButton;
-//    UIBarButtonItem *cancelButton;
-    
-    NSTimer *tickTimer;
-    NSTimer *cameraTimer;
+    UIButton *openLibraryButton;
+
 }
 
 @property (nonatomic, strong) id <olgotCameraOverlayViewControllerDelegate> delegate;
@@ -35,22 +29,14 @@
 
 @property (nonatomic, retain) IBOutlet UIButton *takePictureButton;
 @property (nonatomic, retain) IBOutlet UIButton *cancelButton;
-
-//@property (nonatomic, retain) IBOutlet UIBarButtonItem *takePictureButton;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *startStopButton;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *timedButton;
-//@property (nonatomic, retain) IBOutlet UIBarButtonItem *cancelButton;
-
-@property (nonatomic, retain) NSTimer *tickTimer;
-@property (nonatomic, retain) NSTimer *cameraTimer;
+@property (nonatomic, retain) IBOutlet UIButton *openLibraryButton;
 
 - (void)setupImagePicker:(UIImagePickerControllerSourceType)sourceType;
 
 // camera page (overlay view)
 - (IBAction)done:(id)sender;
 - (IBAction)takePhoto:(id)sender;
-- (IBAction)startStop:(id)sender;
-- (IBAction)timedTakePhoto:(id)sender;
+-(IBAction)openLibrary:(id)sender;
 
 @end
 
