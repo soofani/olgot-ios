@@ -11,19 +11,23 @@
 #import <Accounts/Accounts.h>
 #import <RestKit/RestKit.h>
 
-@interface olgotSignupRootViewController : UIViewController<RKRequestDelegate>
+@interface olgotSignupRootViewController : UIViewController<RKRequestDelegate, UIActionSheetDelegate>
 {
     NSString* _twitterName;
     NSData* _twitterResponse;
+    NSArray* twitterAccounts;
+    UIPickerView* accountsPicker;
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *twitterSigninButton;
-
+@property (nonatomic, strong) IBOutlet UIPickerView* accountsPicker;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 - (IBAction)hideSignup:(id)sender;
 
 - (IBAction)twitterSignin:(id)sender;
 - (void)canTweetStatus;
 - (void)checkTwitterName:(NSString *)text;
+
 
 @end

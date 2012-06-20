@@ -123,12 +123,12 @@
             </objects>
             <point key="canvasLocation" x="2541" y="-1499"/>
         </scene>
-        <!--Olgot Item View Controller - Item View-->
+        <!--Olgot Item View Controller-->
         <scene sceneID="2iW-DK-6if">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0f-Kv-jdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="Fmr-fE-SC3" customClass="olgotItemViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Item View" id="rlt-7Z-Zwt">
+                    <navigationItem key="navigationItem" id="rlt-7Z-Zwt">
                         <barButtonItem key="backBarButtonItem" title="Back" id="jT5-Wz-vXr"/>
                     </navigationItem>
                     <connections>
@@ -141,7 +141,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2454" y="-307"/>
+            <point key="canvasLocation" x="2470" y="-451"/>
         </scene>
         <!--Olgot People List View Controller-->
         <scene sceneID="dRN-Wf-YUD">
@@ -167,7 +167,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSt-x6-VLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="gYY-SF-9fN" customClass="olgotVenueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dV0-qV-LCI">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -180,7 +180,7 @@
             </objects>
             <point key="canvasLocation" x="3126" y="-1342"/>
         </scene>
-        <!--Olgot Lovely View Controller - Lovely-->
+        <!--Olgot Lovely View Controller - Hot-->
         <scene sceneID="45u-xx-Xjr">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LKt-NN-eUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -190,7 +190,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Lovely" id="qrQ-nn-H2O">
+                    <navigationItem key="navigationItem" title="Hot" id="qrQ-nn-H2O">
                         <barButtonItem key="backBarButtonItem" title="Back" id="EP3-tX-rr7"/>
                     </navigationItem>
                     <connections>
@@ -699,12 +699,18 @@
                                     <action selector="hideSignup:" destination="2Yr-NR-tJx" eventType="touchUpInside" id="59e-P1-dIa"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="sQf-E2-iaS">
+                                <rect key="frame" x="150" y="207" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="OjZ-FW-zks"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="sQf-E2-iaS" id="P1Z-Rf-5Ap"/>
                         <outlet property="twitterSigninButton" destination="7CT-oO-27O" id="hyw-6k-FiS"/>
                         <segue destination="PTG-8b-tCg" kind="push" identifier="ShowChooseUsername" id="BTe-DC-rJm"/>
                     </connections>
@@ -1626,7 +1632,7 @@
                 <relationship kind="outlet" name="profileItemTile" candidateClass="SSCollectionViewItem"/>
             </relationships>
         </class>
-        <class className="olgotShareViewController" superclassName="UIImagePickerController">
+        <class className="olgotShareViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotShareViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cameraAction:"/>
@@ -1639,6 +1645,8 @@
             <relationships>
                 <relationship kind="action" name="hideSignup:"/>
                 <relationship kind="action" name="twitterSignin:"/>
+                <relationship kind="outlet" name="accountsPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="twitterSigninButton" candidateClass="UIButton"/>
             </relationships>
         </class>
@@ -1656,10 +1664,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Mt9-Yo-4gg"/>
-        <segue reference="bZT-pi-WSc"/>
-        <segue reference="jD9-Wv-5GK"/>
+        <segue reference="KPj-ac-EUo"/>
         <segue reference="tAB-hG-qL1"/>
-        <segue reference="Uzc-ys-Bnq"/>
+        <segue reference="jD9-Wv-5GK"/>
+        <segue reference="8qL-vQ-cOH"/>
+        <segue reference="Mt9-Yo-4gg"/>
     </inferredMetricsTieBreakers>
 </document>

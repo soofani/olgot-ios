@@ -112,7 +112,7 @@
         [[exploreNavigationController tabBarItem] setFinishedSelectedImage:exploreSelected withFinishedUnselectedImage:exploreUnSelected];
         
         
-        [[lovelyNavigationController tabBarItem] setTitle:@"Lovely"];
+        [[lovelyNavigationController tabBarItem] setTitle:@"Hot"];
         [[lovelyNavigationController tabBarItem] setFinishedSelectedImage:lovelySelected withFinishedUnselectedImage:lovelyUnSelected];
         
         

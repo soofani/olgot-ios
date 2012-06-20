@@ -16,7 +16,9 @@
 @end
 
 @implementation olgotSignupRootViewController
-@synthesize twitterSigninButton;
+@synthesize activityIndicator;
+@synthesize twitterSigninButton,accountsPicker;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,6 +41,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(canTweetStatus) name:ACAccountStoreDidChangeNotification object:nil];
     
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -54,6 +58,7 @@
 - (void)viewDidUnload
 {
     [self setTwitterSigninButton:nil];
+    [self setActivityIndicator:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -63,6 +68,15 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+//-(void)hideAccountPicker{
+//    [self.twitterSigninButton setEnabled:YES];
+//    [UIView animateWithDuration:0.5 animations:^{
+//        accountsPicker.frame = CGRectMake(0, 460, 320, 216);
+//    }completion:^(BOOL finished){
+//        [accountsPicker removeFromSuperview];    
+//    }];
+//    
+//}
 
 - (IBAction)hideSignup:(id)sender {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -71,69 +85,57 @@
 }
 
 - (IBAction)twitterSignin:(id)sender {
+    [self.twitterSigninButton setEnabled:NO];
+    [self.activityIndicator startAnimating];
     ACAccountStore *store = [[ACAccountStore alloc] init]; // Long-lived
     ACAccountType *twitterType = [store accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
     [store requestAccessToAccountsWithType:twitterType withCompletionHandler:^(BOOL granted, NSError *error) {
         if(granted) {
             // Remember that twitterType was instantiated above
-            NSArray *twitterAccounts = [store accountsWithAccountType:twitterType];
+            twitterAccounts = [store accountsWithAccountType:twitterType];
             
             // If there are no accounts, we need to pop up an alert
             if(twitterAccounts != nil && [twitterAccounts count] > 0) {
-                ACAccount *account = [twitterAccounts objectAtIndex:0];
-                // Do something with their Twitter account
-                NSURL *url = [NSURL URLWithString:@"http://api.twitter.com/1/account/verify_credentials.json"];
-                TWRequest *req = [[TWRequest alloc] initWithURL:url
-                                                     parameters:nil
-                                                  requestMethod:TWRequestMethodGET];
+                // Get the list of Twitter accounts.
                 
-                // Important: attach the user's Twitter ACAccount object to the request
-                req.account = account;
-                
-                [req performRequestWithHandler:^(NSData *responseData,
-                                                 NSHTTPURLResponse *urlResponse,
-                                                 NSError *error) {
-                    
-                    // If there was an error making the request, display a message to the user
-                    if(error != nil) {
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter Error"
-                                                                        message:@"There was an error talking to Twitter. Please try again later."
-                                                                       delegate:nil
-                                                              cancelButtonTitle:@"OK"
-                                                              otherButtonTitles:nil];
-                        [alert show];
-                        return;
-                    }
-                    
-                    // Parse the JSON response
-                    NSError *jsonError = nil;
-                    id resp = [NSJSONSerialization JSONObjectWithData:responseData
-                                                              options:0
-                                                                error:&jsonError];
-                    
-                    // If there was an error decoding the JSON, display a message to the user
-                    if(jsonError != nil) {
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter Error"
-                                                                        message:@"Twitter is not acting properly right now. Please try again later."
-                                                                       delegate:nil
-                                                              cancelButtonTitle:@"OK"
-                                                              otherButtonTitles:nil];
-                        [alert show];
-                        return;
-                    }
-                    
-                    _twitterResponse = responseData;
-                    NSString *screenName = [resp objectForKey:@"screen_name"];
-                    
-                    // Make sure to perform our operation back on the main thread
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        // Do something with the fetched data
-                        [self performSelectorOnMainThread:@selector(checkTwitterName:) withObject:screenName waitUntilDone:NO];
-                    });
-                }];
+                NSLog(@"accounts: %@",twitterAccounts);
                 
                 
-            } else {
+//                accountsPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 460, 320, 216)];
+//                
+//                accountsPicker.delegate = self;
+//                accountsPicker.dataSource = self;
+//                
+//                accountsPicker.showsSelectionIndicator = YES;
+//                [accountsPicker selectRow:-1 inComponent:0 animated:NO];
+                
+//                [self.view addSubview:accountsPicker];
+                
+                [self.activityIndicator stopAnimating];
+                
+                UIActionSheet* twitterActionSheet;
+                NSMutableArray* actionSheetButtons = [[NSMutableArray alloc] init];
+                for (ACAccount* ac in twitterAccounts) {
+                    [actionSheetButtons addObject:[ac accountDescription]];
+                }
+                
+                NSLog(@"buttons: %@",actionSheetButtons);
+                
+                if ([actionSheetButtons count] == 1) {
+                    twitterActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Twitter account" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:[actionSheetButtons objectAtIndex:0], nil];
+                } else {
+                     twitterActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Twitter account" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:[actionSheetButtons componentsJoinedByString:@","], nil];       
+                }
+                
+                
+                [twitterActionSheet showInView:self.view];
+//                [UIView beginAnimations:nil context:nil];
+//                [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+//                accountsPicker.frame = CGRectMake(0, 244, 320, 216);
+//                [UIView commitAnimations];
+            } 
+            
+            else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Twitter Accounts"
                                                                 message:@"There are no Twitter accounts configured. You can add or create a Twitter account in Settings."
                                                                delegate:nil
@@ -161,7 +163,6 @@
 }
 
 
-
 - (void)canTweetStatus {
     if ([TWTweetComposeViewController canSendTweet]) {
         self.twitterSigninButton.enabled = YES;
@@ -172,5 +173,84 @@
     }
 }
 
+- (void) chooseTwitterAccount:(int)accountNumber
+{
+    [self.activityIndicator startAnimating];
+    ACAccountStore *store = [[ACAccountStore alloc] init]; // Long-lived
+    ACAccountType *twitterType = [store accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    [store requestAccessToAccountsWithType:twitterType withCompletionHandler:^(BOOL granted, NSError *error) {
+        if(granted) {
+            [self.activityIndicator stopAnimating];
+            twitterAccounts = [store accountsWithAccountType:twitterType];
+            ACAccount *account = [twitterAccounts objectAtIndex:accountNumber];
+            // Do something with their Twitter account
+            NSURL *url = [NSURL URLWithString:@"http://api.twitter.com/1/account/verify_credentials.json"];
+            TWRequest *req = [[TWRequest alloc] initWithURL:url
+                                                 parameters:nil
+                                              requestMethod:TWRequestMethodGET];
+            
+            // Important: attach the user's Twitter ACAccount object to the request
+            req.account = account;
+            
+            [req performRequestWithHandler:^(NSData *responseData,
+                                             NSHTTPURLResponse *urlResponse,
+                                             NSError *error) {
+                
+                // If there was an error making the request, display a message to the user
+                if(error != nil) {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter Error"
+                                                                    message:@"There was an error talking to Twitter. Please try again later."
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil];
+                    [alert show];
+                    return;
+                }
+                
+                // Parse the JSON response
+                NSError *jsonError = nil;
+                id resp = [NSJSONSerialization JSONObjectWithData:responseData
+                                                          options:0
+                                                            error:&jsonError];
+                
+                // If there was an error decoding the JSON, display a message to the user
+                if(jsonError != nil) {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter Error"
+                                                                    message:@"Twitter is not acting properly right now. Please try again later."
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil];
+                    [alert show];
+                    return;
+                }
+                
+                _twitterResponse = responseData;
+                NSString *screenName = [resp objectForKey:@"screen_name"];
+                
+                // Make sure to perform our operation back on the main thread
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    // Do something with the fetched data
+                    [self.twitterSigninButton setEnabled:YES];
+                    [self performSelectorOnMainThread:@selector(checkTwitterName:) withObject:screenName waitUntilDone:NO];
+                });
+            }];
+
+        }
+    }];
+    
+}
+
+#pragma mark -
+#pragma mark UIActionSheet Delegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"selected index %d",buttonIndex);
+    if (buttonIndex < ([actionSheet numberOfButtons] - 1)) {
+        [self chooseTwitterAccount:buttonIndex];
+    }else {
+        [self.twitterSigninButton setEnabled:YES];
+    }
+    
+}
 
 @end
