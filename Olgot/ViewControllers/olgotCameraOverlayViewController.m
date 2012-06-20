@@ -21,7 +21,7 @@ enum
 @implementation olgotCameraOverlayViewController
 
 @synthesize delegate, takePictureButton,
-cancelButton, imagePickerController, openLibraryButton;
+cancelButton, imagePickerController, openLibraryButton,flashButton;
 
 #pragma mark -
 #pragma mark OverlayViewController
@@ -42,6 +42,7 @@ cancelButton, imagePickerController, openLibraryButton;
     self.takePictureButton = nil;
     self.cancelButton = nil;
     self.openLibraryButton = nil;
+    self.flashButton = nil;
     [super viewDidUnload];
 }
 
@@ -54,6 +55,7 @@ cancelButton, imagePickerController, openLibraryButton;
         // user wants to use the camera interface
         //
         self.imagePickerController.showsCameraControls = NO;
+        self.imagePickerController.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
         
         if ([[self.imagePickerController.cameraOverlayView subviews] count] == 0)
         {
@@ -115,6 +117,23 @@ cancelButton, imagePickerController, openLibraryButton;
     libraryPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     [self presentModalViewController:libraryPicker animated:YES];
+}
+
+-(IBAction)changeFlash:(id)sender
+{
+    if (self.imagePickerController.cameraFlashMode == UIImagePickerControllerCameraFlashModeOff) {
+        
+        [self.imagePickerController setCameraFlashMode:UIImagePickerControllerCameraFlashModeOn];
+        
+        [self.flashButton setImage:[UIImage imageNamed:@"btn-cam-flash-on"] forState:UIControlStateNormal];
+        [self.flashButton setImage:[UIImage imageNamed:@"btn-cam-flash-off"] forState:UIControlStateSelected];
+    }else if (self.imagePickerController.cameraFlashMode == UIImagePickerControllerCameraFlashModeOn) {
+        
+        [self.imagePickerController setCameraFlashMode:UIImagePickerControllerCameraFlashModeOff];
+        
+        [self.flashButton setImage:[UIImage imageNamed:@"btn-cam-flash-off"] forState:UIControlStateNormal];
+        [self.flashButton setImage:[UIImage imageNamed:@"btn-cam-flash-on"] forState:UIControlStateSelected];
+    }
 }
 
 

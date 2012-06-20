@@ -37,6 +37,10 @@
 		FF10F301155D22FB00F4EC2E /* BoardBigTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF10F300155D22FB00F4EC2E /* BoardBigTile.xib */; };
 		FF10F303155D243E00F4EC2E /* BoardNormalTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF10F302155D243E00F4EC2E /* BoardNormalTile.xib */; };
 		FF10F305155D247C00F4EC2E /* BoardItemTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF10F304155D247C00F4EC2E /* BoardItemTile.xib */; };
+		FF1FAB7E1591CF39003AA50A /* btn-cam-flash-on.png in Resources */ = {isa = PBXBuildFile; fileRef = FF1FAB7C1591CF39003AA50A /* btn-cam-flash-on.png */; };
+		FF1FAB7F1591CF39003AA50A /* btn-cam-flash-on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF1FAB7D1591CF39003AA50A /* btn-cam-flash-on@2x.png */; };
+		FF1FAB821591CF4B003AA50A /* btn-cam-pretty-on.png in Resources */ = {isa = PBXBuildFile; fileRef = FF1FAB801591CF4B003AA50A /* btn-cam-pretty-on.png */; };
+		FF1FAB831591CF4B003AA50A /* btn-cam-pretty-on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF1FAB811591CF4B003AA50A /* btn-cam-pretty-on@2x.png */; };
 		FF20E75C1575175A004EC879 /* profileViewItemTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF20E75B1575175A004EC879 /* profileViewItemTile.xib */; };
 		FF20E75E157525EE004EC879 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF20E75D157525EE004EC879 /* Twitter.framework */; };
 		FF20E760157525F5004EC879 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF20E75F157525F5004EC879 /* Accounts.framework */; };
@@ -333,6 +337,10 @@
 		FF10F300155D22FB00F4EC2E /* BoardBigTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardBigTile.xib; sourceTree = "<group>"; };
 		FF10F302155D243E00F4EC2E /* BoardNormalTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardNormalTile.xib; sourceTree = "<group>"; };
 		FF10F304155D247C00F4EC2E /* BoardItemTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BoardItemTile.xib; sourceTree = "<group>"; };
+		FF1FAB7C1591CF39003AA50A /* btn-cam-flash-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-cam-flash-on.png"; sourceTree = "<group>"; };
+		FF1FAB7D1591CF39003AA50A /* btn-cam-flash-on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-cam-flash-on@2x.png"; sourceTree = "<group>"; };
+		FF1FAB801591CF4B003AA50A /* btn-cam-pretty-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-cam-pretty-on.png"; sourceTree = "<group>"; };
+		FF1FAB811591CF4B003AA50A /* btn-cam-pretty-on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-cam-pretty-on@2x.png"; sourceTree = "<group>"; };
 		FF20E75B1575175A004EC879 /* profileViewItemTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = profileViewItemTile.xib; sourceTree = "<group>"; };
 		FF20E75D157525EE004EC879 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		FF20E75F157525F5004EC879 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -663,8 +671,12 @@
 				FF331048156542150083602B /* icon-cam-80x60@2x.png */,
 				FF3310431565409B0083602B /* btn-cam-flash-off.png */,
 				FF3310441565409B0083602B /* btn-cam-flash-off@2x.png */,
+				FF1FAB7C1591CF39003AA50A /* btn-cam-flash-on.png */,
+				FF1FAB7D1591CF39003AA50A /* btn-cam-flash-on@2x.png */,
 				FF33103F156540820083602B /* btn-cam-pretty.png */,
 				FF331040156540820083602B /* btn-cam-pretty@2x.png */,
+				FF1FAB801591CF4B003AA50A /* btn-cam-pretty-on.png */,
+				FF1FAB811591CF4B003AA50A /* btn-cam-pretty-on@2x.png */,
 				FF33103B15653F7C0083602B /* btn-cam-library.png */,
 				FF33103C15653F7C0083602B /* btn-cam-library@2x.png */,
 				FF33103715653F6E0083602B /* btn-cam-close.png */,
@@ -1278,6 +1290,10 @@
 				FF919A45157D04B3000978A5 /* itemViewWriteCommentView.xib in Resources */,
 				FF6AFF821580E9DD000A24BA /* nearbyViewPlaceRow.xib in Resources */,
 				FFA14F34158DFB3F00470720 /* Icon.png in Resources */,
+				FF1FAB7E1591CF39003AA50A /* btn-cam-flash-on.png in Resources */,
+				FF1FAB7F1591CF39003AA50A /* btn-cam-flash-on@2x.png in Resources */,
+				FF1FAB821591CF4B003AA50A /* btn-cam-pretty-on.png in Resources */,
+				FF1FAB831591CF4B003AA50A /* btn-cam-pretty-on@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,7 +21,7 @@
     UIButton *takePictureButton;
     UIButton *cancelButton;
     UIButton *openLibraryButton;
-
+    UIButton *flashButton;
 }
 
 @property (nonatomic, strong) id <olgotCameraOverlayViewControllerDelegate> delegate;
@@ -30,6 +30,7 @@
 @property (nonatomic, retain) IBOutlet UIButton *takePictureButton;
 @property (nonatomic, retain) IBOutlet UIButton *cancelButton;
 @property (nonatomic, retain) IBOutlet UIButton *openLibraryButton;
+@property (nonatomic, retain) IBOutlet UIButton *flashButton;
 
 - (void)setupImagePicker:(UIImagePickerControllerSourceType)sourceType;
 
@@ -37,6 +38,7 @@
 - (IBAction)done:(id)sender;
 - (IBAction)takePhoto:(id)sender;
 -(IBAction)openLibrary:(id)sender;
+-(IBAction)changeFlash:(id)sender;
 
 @end
 
