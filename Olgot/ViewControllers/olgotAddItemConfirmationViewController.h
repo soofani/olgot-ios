@@ -10,6 +10,8 @@
 #import <SSToolkit/SSToolkit.h>
 #import <RestKit/RestKit.h>
 #import "UIImageView+AFNetworking.h"
+#import <Twitter/Twitter.h>
+#import <Accounts/Accounts.h>
 
 @class olgotItem;
 
@@ -17,6 +19,8 @@
 {
     IBOutlet SSLineView *line1;
     IBOutlet SSLineView *line2;
+    
+    NSArray* accountsArray;
 }
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
