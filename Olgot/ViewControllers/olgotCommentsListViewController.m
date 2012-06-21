@@ -34,15 +34,27 @@
 {
     if (_itemID != itemID) {
         _itemID = itemID;
+        
+        _comments = [[NSMutableArray alloc] init];
+        _currentPage = 1;
+        _pageSize = 10;
+        loadingNew = NO;
+        
         [self loadComments];
     }
 }
 
 - (void)loadComments {
+    loadingNew = YES;
+    
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
 
-    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _itemID, @"item", nil];
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+                              _itemID, @"item", 
+                              [NSNumber numberWithInt:_currentPage], @"page",
+                              [NSNumber numberWithInt:_pageSize], @"pagesize",
+                              nil];
     NSString* resourcePath = @"/comments/";
     [objectManager loadObjectsAtResourcePath:[resourcePath stringByAppendingQueryParameters:myParams] delegate:self];
 }
@@ -82,7 +94,8 @@
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     NSLog(@"Loaded comments: %@", objects);
-    _comments = objects;
+    loadingNew = NO;
+    [_comments addObjectsFromArray:objects];
     [self.collectionView reloadData];
     
 }
@@ -197,12 +210,19 @@
     
 }
 
+-(void)collectionView:(SSCollectionView *)aCollectionView willDisplayItem:(SSCollectionViewItem *)item atIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"I want more");
+    if (indexPath.row == ([_comments count] - 1) && loadingNew == NO && indexPath.section == 1 && ([_comments count] > 3)) {
+        _currentPage++;
+        NSLog(@"loading page %d",_currentPage);
+        [self loadComments];
+    }
+}
+
 
 - (CGFloat)collectionView:(SSCollectionView *)aCollectionView heightForHeaderInSection:(NSUInteger)section {
 	return 0.0f;
 }
-
-
-
 
 @end

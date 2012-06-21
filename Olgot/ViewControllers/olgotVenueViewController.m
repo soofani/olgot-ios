@@ -35,6 +35,12 @@
 {
     if (_venueId != venueId) {
         _venueId = venueId;
+        
+        _items = [[NSMutableArray alloc] init];
+        _currentPage = 1;
+        _pageSize = 10;
+        loadingNew = NO;
+        
         [self loadItems];
         [self loadVenue];
     }
@@ -43,15 +49,22 @@
 -(void)loadVenue
 {
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _venueId, @"venue", nil];
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+                              _venueId, @"venue", nil];
     NSString* resourcePath = [@"/venue/" appendQueryParams:myParams];
     [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
 }
 
 - (void)loadItems {
+    loadingNew = YES;
+    
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _venueId, @"venue", nil];
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+                              _venueId, @"venue", 
+                              [NSNumber numberWithInt:_currentPage], @"page",
+                              [NSNumber numberWithInt:_pageSize], @"pagesize",
+                              nil];
     NSString* resourcePath = [@"/venueitems/" appendQueryParams:myParams];
     [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
 }
@@ -69,7 +82,8 @@
         _venue = [objects objectAtIndex:0];
         [self.collectionView reloadData];
     }else {
-        _items = objects;
+        loadingNew = NO;
+        [_items addObjectsFromArray:objects];
         [self.collectionView reloadData];
     }
     
@@ -237,6 +251,16 @@
         return 0.0f;
     }
 	
+}
+
+-(void)collectionView:(SSCollectionView *)aCollectionView willDisplayItem:(SSCollectionViewItem *)item atIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"I want more");
+    if (indexPath.row == ([_items count] - 1) && loadingNew == NO && indexPath.section == 1) {
+        _currentPage++;
+        NSLog(@"loading page %d",_currentPage);
+        [self loadItems];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

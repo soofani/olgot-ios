@@ -29,30 +29,55 @@
 {
     if (_categoryID != categoryID) {
         _categoryID = categoryID;
+        
+        _items = [[NSMutableArray alloc] init];
+        _currentPage = 1;
+        _pageSize = 10;
+        loadingNew = NO;
+        
         [self loadItems];
     }
 }
 
 - (void)loadItems {
+    loadingNew = YES;
+    
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
     if(_boardName == @"Feed"){
-        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: @"1", @"id", nil];
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+                                  @"1", @"id",
+                                  [NSNumber numberWithInt:_currentPage], @"page",
+                                  [NSNumber numberWithInt:_pageSize], @"pagesize",
+                                  nil];
         NSString* resourcePath = [@"/feeditems/" appendQueryParams:myParams];
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
         
     }else if (_boardName == @"Nearby") {
-        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: @"0", @"lat", @"0" , @"long", nil];
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+                                  @"0", @"lat", 
+                                  @"0" , @"long", 
+                                  [NSNumber numberWithInt:_currentPage], @"page",
+                                  [NSNumber numberWithInt:_pageSize], @"pagesize",
+                                  nil];
         NSString* resourcePath = [@"/nearbyitems/" appendQueryParams:myParams];
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
         
     }else if (_boardName == @"My Wants") {
-        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: @"1", @"user", nil];
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+                                  @"1", @"user",
+                                  [NSNumber numberWithInt:_currentPage], @"page",
+                                  [NSNumber numberWithInt:_pageSize], @"pagesize",
+                                  nil];
         NSString* resourcePath = [@"/userwants/" appendQueryParams:myParams];
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
         
     }else {
-        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _categoryID, @"category", nil];
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+                                  _categoryID, @"category", 
+                                  [NSNumber numberWithInt:_currentPage], @"page",
+                                  [NSNumber numberWithInt:_pageSize], @"pagesize",
+                                  nil];
         NSString* resourcePath = [@"/categoryitems/" appendQueryParams:myParams];
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
     }
@@ -83,6 +108,12 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:mapBtn];
     
     [self.navigationItem setTitle:_boardName];
+    
+    _items = [[NSMutableArray alloc] init];
+    _currentPage = 1;
+    _pageSize = 10;
+    loadingNew = NO;
+    
     [self loadItems];
 }
 
@@ -111,7 +142,8 @@
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     NSLog(@"Loaded items: %@", objects);
     if([objectLoader.response isOK]){
-        _items = objects;
+        loadingNew = NO;
+        [_items addObjectsFromArray:objects];
         [self.collectionView reloadData];
     }
     
@@ -201,6 +233,16 @@
 
 - (CGFloat)collectionView:(SSCollectionView *)aCollectionView heightForHeaderInSection:(NSUInteger)section {
 	return 0.0f;
+}
+
+-(void)collectionView:(SSCollectionView *)aCollectionView willDisplayItem:(SSCollectionViewItem *)item atIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"I want more");
+    if (indexPath.row == ([_items count] - 1) && loadingNew == NO) {
+        _currentPage++;
+        NSLog(@"loading page %d",_currentPage);
+        [self loadItems];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

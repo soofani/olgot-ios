@@ -13,8 +13,12 @@
 #import <RestKit/RestKit.h>
 
 @interface olgotPeopleListViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
-    NSArray* _userActions;
+    NSMutableArray* _userActions;
     NSIndexPath* _selectedRowIndexPath;
+    
+    int _pageSize;
+    int _currentPage;
+    BOOL loadingNew;
 }
 
 @property (strong, nonatomic) NSNumber *itemID;

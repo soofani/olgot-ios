@@ -11,8 +11,12 @@
 #import <RestKit/RestKit.h>
 
 @interface olgotLovelyViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
-    NSArray* _items;
+    NSMutableArray* _items;
     NSIndexPath* _selectedRowIndexPath;
+    
+    int _pageSize;
+    int _currentPage;
+    BOOL loadingNew;
 }
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *itemTile;

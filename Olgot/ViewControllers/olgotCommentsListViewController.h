@@ -11,8 +11,12 @@
 #import <RestKit/RestKit.h>
 
 @interface olgotCommentsListViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
-    NSArray* _comments;
+    NSMutableArray* _comments;
     NSIndexPath* _selectedRowIndexPath;
+    
+    int _pageSize;
+    int _currentPage;
+    BOOL loadingNew;
 }
 
 @property (strong, nonatomic) NSNumber *itemID;

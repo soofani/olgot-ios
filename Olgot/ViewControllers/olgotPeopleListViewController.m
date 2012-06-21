@@ -36,6 +36,12 @@
 {
     if (_itemID != itemID) {
         _itemID = itemID;
+        
+        _userActions = [[NSMutableArray alloc] init];
+        _currentPage = 1;
+        _pageSize = 10;
+        loadingNew = NO;
+        
         self.navigationItem.title = _actionName;
         [self loadActions];
     }
@@ -45,37 +51,66 @@
 {
     if (_userID != userID) {
         _userID = userID;
+        
+        _userActions = [[NSMutableArray alloc] init];
+        _currentPage = 1;
+        _pageSize = 10;
+        loadingNew = NO;
+        
         self.navigationItem.title = _actionName;
         [self loadActions];
     }
 }
 
 - (void)loadActions {
+    loadingNew = YES;
+    
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
     if(_actionName == @"Likes"){
-        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _itemID, @"item", nil];
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+                                  _itemID, @"item", 
+                                  [NSNumber numberWithInt:_currentPage], @"page",
+                                  [NSNumber numberWithInt:_pageSize], @"pagesize",
+                                  nil];
         NSString* resourcePath = [@"/itemlikes/" appendQueryParams:myParams];
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
         
     }else if (_actionName == @"Wants") {
-        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _itemID, @"item", @"0" , @"long", nil];
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+                                  _itemID, @"item", 
+                                  @"0" , @"long", 
+                                  [NSNumber numberWithInt:_currentPage], @"page",
+                                  [NSNumber numberWithInt:_pageSize], @"pagesize",
+                                  nil];
         NSString* resourcePath = [@"/itemwants/" appendQueryParams:myParams];
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
         
     }else if (_actionName == @"Gots") {
-        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _itemID, @"item", nil];
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+                                  _itemID, @"item", 
+                                  [NSNumber numberWithInt:_currentPage], @"page",
+                                  [NSNumber numberWithInt:_pageSize], @"pagesize",
+                                  nil];
         NSString* resourcePath = [@"/itemgots/" appendQueryParams:myParams];
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
         
     }else if (_actionName == @"Followers") {
-        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _userID, @"user", nil];
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+                                  _userID, @"user", 
+                                  [NSNumber numberWithInt:_currentPage], @"page",
+                                  [NSNumber numberWithInt:_pageSize], @"pagesize",
+                                  nil];
         NSString* resourcePath = [@"/followers/" appendQueryParams:myParams];
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
         
     }
     else if (_actionName == @"Following") {
-        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _userID, @"user", nil];
+        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+                                  _userID, @"user", 
+                                  [NSNumber numberWithInt:_currentPage], @"page",
+                                  [NSNumber numberWithInt:_pageSize], @"pagesize",
+                                  nil];
         NSString* resourcePath = [@"/followers/" appendQueryParams:myParams];
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
     }
@@ -90,7 +125,8 @@
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     NSLog(@"Loaded actions: %@", objects);
     if([objectLoader.response isOK]){
-        _userActions = objects;
+        loadingNew = NO;
+        [_userActions addObjectsFromArray:objects];
         [self.collectionView reloadData];
     }
     
@@ -235,6 +271,16 @@
 
 - (CGFloat)collectionView:(SSCollectionView *)aCollectionView heightForHeaderInSection:(NSUInteger)section {
 	return 0.0f;
+}
+
+-(void)collectionView:(SSCollectionView *)aCollectionView willDisplayItem:(SSCollectionViewItem *)item atIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"I want more");
+    if (indexPath.row == ([_userActions count] - 1) && loadingNew == NO && indexPath.section == 1 && ([_userActions count] > 8)) {
+        _currentPage++;
+        NSLog(@"loading page %d",_currentPage);
+        [self loadActions];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

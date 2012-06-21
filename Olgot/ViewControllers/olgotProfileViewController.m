@@ -38,6 +38,12 @@
 {
     if (_userID != userID) {
         _userID = userID;
+        
+        _items = [[NSMutableArray alloc] init];
+        _currentPage = 1;
+        _pageSize = 10;
+        loadingNew = NO;
+
         [self loadItems];
         [self loadUser];
     }
@@ -53,9 +59,15 @@
 }
 
 - (void)loadItems {
+    loadingNew = YES;
+    
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _userID, @"user", nil];
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+                              _userID, @"user", 
+                              [NSNumber numberWithInt:_currentPage], @"page",
+                              [NSNumber numberWithInt:_pageSize], @"pagesize",
+                              nil];
     NSString* resourcePath = [@"/useritems/" appendQueryParams:myParams];
     [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
 }
@@ -71,7 +83,8 @@
         _user = [objects objectAtIndex:0];
         [self.collectionView reloadData];
     } else {
-        _items = objects;
+        loadingNew = NO;
+        [_items addObjectsFromArray:objects];
         [self.collectionView reloadData];
     }
     
@@ -101,6 +114,10 @@
     defaults = [NSUserDefaults standardUserDefaults];
     if(_userID == nil){
         _userID = [defaults objectForKey:@"userid"];
+        _items = [[NSMutableArray alloc] init];
+        _currentPage = 1;
+        _pageSize = 10;
+        loadingNew = NO;
         [self loadItems];
         [self loadUser];
     }
@@ -284,6 +301,16 @@
         return 0.0f;
     }
 	
+}
+
+-(void)collectionView:(SSCollectionView *)aCollectionView willDisplayItem:(SSCollectionViewItem *)item atIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"I want more");
+    if (indexPath.row == ([_items count] - 1) && loadingNew == NO && indexPath.section == 1) {
+        _currentPage++;
+        NSLog(@"loading page %d",_currentPage);
+        [self loadItems];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

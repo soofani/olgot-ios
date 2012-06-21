@@ -12,10 +12,14 @@
 #import "olgotUser.h"
 
 @interface olgotProfileViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
-    NSArray* _items;
+    NSMutableArray* _items;
     olgotUser* _user;
     NSIndexPath* _selectedRowIndexPath;
     NSUserDefaults* defaults;
+    
+    int _pageSize;
+    int _currentPage;
+    BOOL loadingNew;
 }
 
 @property (strong, nonatomic) NSNumber *userID;

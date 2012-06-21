@@ -169,7 +169,6 @@
 		FF919A42157CD230000978A5 /* msg-action-want.png in Resources */ = {isa = PBXBuildFile; fileRef = FF919A3C157CD230000978A5 /* msg-action-want.png */; };
 		FF919A43157CD230000978A5 /* msg-action-want@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF919A3D157CD230000978A5 /* msg-action-want@2x.png */; };
 		FF919A45157D04B3000978A5 /* itemViewWriteCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF919A44157D04B3000978A5 /* itemViewWriteCommentView.xib */; };
-		FFA14F34158DFB3F00470720 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FFBE4873156E5EEA00DF3716 /* Icon.png */; };
 		FFA4ED93155D12D8008CB4CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED92155D12D8008CB4CA /* UIKit.framework */; };
 		FFA4ED95155D12D8008CB4CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED94155D12D8008CB4CA /* Foundation.framework */; };
 		FFA4ED97155D12D8008CB4CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED96155D12D8008CB4CA /* CoreGraphics.framework */; };
@@ -194,7 +193,6 @@
 		FFA85436156D3FE20009134C /* itemViewCommentsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA85435156D3FE20009134C /* itemViewCommentsHeader.xib */; };
 		FFA85454156D44270009134C /* itemViewCommentsFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA85453156D44270009134C /* itemViewCommentsFooter.xib */; };
 		FFA85456156D47FC0009134C /* peopleListHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA85455156D47FC0009134C /* peopleListHeaderCell.xib */; };
-		FFBE4876156E5EEA00DF3716 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFBE4874156E5EEA00DF3716 /* Icon@2x.png */; };
 		FFBE4878156E5EF700DF3716 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FFBE4877156E5EF700DF3716 /* Icon.png */; };
 		FFBE487A156E5F0600DF3716 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFBE4879156E5F0500DF3716 /* Icon@2x.png */; };
 		FFBE48C3156E664D00DF3716 /* dummy1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FFBE48B5156E664D00DF3716 /* dummy1.jpg */; };
@@ -530,8 +528,6 @@
 		FFA85435156D3FE20009134C /* itemViewCommentsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = itemViewCommentsHeader.xib; sourceTree = "<group>"; };
 		FFA85453156D44270009134C /* itemViewCommentsFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = itemViewCommentsFooter.xib; sourceTree = "<group>"; };
 		FFA85455156D47FC0009134C /* peopleListHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = peopleListHeaderCell.xib; sourceTree = "<group>"; };
-		FFBE4873156E5EEA00DF3716 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		FFBE4874156E5EEA00DF3716 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		FFBE4877156E5EF700DF3716 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		FFBE4879156E5F0500DF3716 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		FFBE48B5156E664D00DF3716 /* dummy1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dummy1.jpg; sourceTree = "<group>"; };
@@ -647,8 +643,6 @@
 				FF7A00021575106E00BB5A65 /* box-stats.png */,
 				FF7A00031575106E00BB5A65 /* box-stats@2x.png */,
 				FFBE487B156E611800DF3716 /* dummy */,
-				FFBE4873156E5EEA00DF3716 /* Icon.png */,
-				FFBE4874156E5EEA00DF3716 /* Icon@2x.png */,
 				FFA8541A156D29B40009134C /* arrow-orange.png */,
 				FFA8541B156D29B40009134C /* arrow-orange@2x.png */,
 				FF57DA45156A6CAE00DFAB3E /* icon-cat-dummy.png */,
@@ -1251,7 +1245,6 @@
 				FFA85436156D3FE20009134C /* itemViewCommentsHeader.xib in Resources */,
 				FFA85454156D44270009134C /* itemViewCommentsFooter.xib in Resources */,
 				FFA85456156D47FC0009134C /* peopleListHeaderCell.xib in Resources */,
-				FFBE4876156E5EEA00DF3716 /* Icon@2x.png in Resources */,
 				FFBE4878156E5EF700DF3716 /* Icon.png in Resources */,
 				FFBE487A156E5F0600DF3716 /* Icon@2x.png in Resources */,
 				FFBE48C3156E664D00DF3716 /* dummy1.jpg in Resources */,
@@ -1289,7 +1282,6 @@
 				FF919A43157CD230000978A5 /* msg-action-want@2x.png in Resources */,
 				FF919A45157D04B3000978A5 /* itemViewWriteCommentView.xib in Resources */,
 				FF6AFF821580E9DD000A24BA /* nearbyViewPlaceRow.xib in Resources */,
-				FFA14F34158DFB3F00470720 /* Icon.png in Resources */,
 				FF1FAB7E1591CF39003AA50A /* btn-cam-flash-on.png in Resources */,
 				FF1FAB7F1591CF39003AA50A /* btn-cam-flash-on@2x.png in Resources */,
 				FF1FAB821591CF4B003AA50A /* btn-cam-pretty-on.png in Resources */,
