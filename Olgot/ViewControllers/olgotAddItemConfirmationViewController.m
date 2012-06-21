@@ -213,7 +213,7 @@
                 // Create a request, which in this example, posts a tweet to the user's timeline.
                 // This example uses version 1 of the Twitter API.
                 // This may need to be changed to whichever version is currently appropriate.
-                TWRequest *postRequest = [[TWRequest alloc] initWithURL:[NSURL URLWithString:@"http://api.twitter.com/1/statuses/update.json"] parameters:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"I just posted an item at %@ using Olgot %@", [_item venueName_En], @"www.olgot.com"] forKey:@"status"] requestMethod:TWRequestMethodPOST];
+                TWRequest *postRequest = [[TWRequest alloc] initWithURL:[NSURL URLWithString:@"http://api.twitter.com/1/statuses/update.json"] parameters:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"I just posted an item at %@ using Olgot %@", [_item venueName_En], [_item itemUrl]] forKey:@"status"] requestMethod:TWRequestMethodPOST];
                 
                 // Set the account used to post the tweet.
                 [postRequest setAccount:twitterAccount];

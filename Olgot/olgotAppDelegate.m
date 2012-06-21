@@ -176,6 +176,7 @@
      @"itemDiscount",@"itemDiscount",
      @"itemDate",@"itemDate",
      @"itemKey",@"itemKey",
+     @"itemUrl",@"itemUrl",
      @"itemPublished",@"itemPublished",
      @"userId",@"userID",
      @"userName",@"userName",
