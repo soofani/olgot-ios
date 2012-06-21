@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSToolkit.h>
 #import <RestKit/RestKit.h>
+#import "SSPullToRefresh.h"
 
-@interface olgotCommentsListViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
+@interface olgotCommentsListViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate>{
     NSMutableArray* _comments;
     NSIndexPath* _selectedRowIndexPath;
     
@@ -23,6 +24,7 @@
 @property (strong, nonatomic) NSNumber *commentsNumber;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *commentsListHeader;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *commentCell;
+@property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
 
 
 @end

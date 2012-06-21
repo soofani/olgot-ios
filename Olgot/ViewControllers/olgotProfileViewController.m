@@ -25,6 +25,8 @@
 
 @synthesize userID = _userID;
 
+@synthesize pullToRefreshView = _pullToRefreshView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -111,6 +113,8 @@
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
     
+    self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionView.scrollView delegate:self];
+    
     defaults = [NSUserDefaults standardUserDefaults];
     if(_userID == nil){
         _userID = [defaults objectForKey:@"userid"];
@@ -128,9 +132,11 @@
 
 - (void)viewDidUnload
 {
-    self.userID = nil;
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    self.userID = nil;
+    self.pullToRefreshView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -344,5 +350,25 @@
 
 - (IBAction)showFollowingAction:(id)sender {
     [self performSegueWithIdentifier:@"ShowFollowers" sender:self];
+}
+
+#pragma mark SSPullToRefreshViewDelegate
+-(void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view{
+    [self refresh];
+}
+
+-(void)refresh{
+    [self.pullToRefreshView startLoading];
+    
+    _items = [[NSMutableArray alloc] init];
+    [self.collectionView reloadData];
+    _currentPage = 1;
+    _pageSize = 10;
+    loadingNew = NO;
+    
+    [self loadItems];
+    
+    [self.pullToRefreshView finishLoading];
+    
 }
 @end

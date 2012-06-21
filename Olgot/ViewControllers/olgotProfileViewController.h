@@ -10,8 +10,9 @@
 #import <SSToolkit/SSToolkit.h>
 #import <RestKit/RestKit.h>
 #import "olgotUser.h"
+#import "SSPullToRefresh.h"
 
-@interface olgotProfileViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
+@interface olgotProfileViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate>{
     NSMutableArray* _items;
     olgotUser* _user;
     NSIndexPath* _selectedRowIndexPath;
@@ -27,5 +28,6 @@
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *profileItemTile;
 - (IBAction)showFollowersAction:(id)sender;
 - (IBAction)showFollowingAction:(id)sender;
+@property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
 
 @end

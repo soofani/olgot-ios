@@ -21,6 +21,8 @@
 
 @synthesize itemTile = _itemTile;
 
+@synthesize pullToRefreshView = _pullToRefreshView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -60,6 +62,8 @@
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
     
+    self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionView.scrollView delegate:self];
+    
     _items = [[NSMutableArray alloc] init];
     _currentPage = 1;
     _pageSize = 10;
@@ -72,6 +76,8 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    
+    self.pullToRefreshView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -200,6 +206,26 @@
         itemViewController.itemKey = [[_items objectAtIndex:_selectedRowIndexPath.row] itemKey];
     
     }
+}
+
+#pragma mark SSPullToRefreshViewDelegate
+-(void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view{
+    [self refresh];
+}
+
+-(void)refresh{
+    [self.pullToRefreshView startLoading];
+    
+    _items = [[NSMutableArray alloc] init];
+    [self.collectionView reloadData];
+    _currentPage = 1;
+    _pageSize = 10;
+    loadingNew = NO;
+    
+    [self loadItems];
+    
+    [self.pullToRefreshView finishLoading];
+    
 }
 
 @end

@@ -10,8 +10,9 @@
 #import <SSToolkit/SSToolkit.h>
 #import <RestKit/RestKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "SSPullToRefresh.h"
 
-@interface olgotExploreViewController : SSCollectionViewController <RKObjectLoaderDelegate, CLLocationManagerDelegate>{
+@interface olgotExploreViewController : SSCollectionViewController <RKObjectLoaderDelegate, CLLocationManagerDelegate,SSPullToRefreshViewDelegate>{
     NSString *firstRun;
     NSArray* _categories;
     NSIndexPath* _selectedRowIndexPath;
@@ -21,6 +22,6 @@
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *boardBigTile;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *boardNormalTile;
-
+@property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
 
 @end

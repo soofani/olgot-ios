@@ -22,6 +22,8 @@
 
 @synthesize venueId = _venueId;
 
+@synthesize pullToRefreshView = _pullToRefreshView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -118,6 +120,8 @@
     [addBtn addTarget:self action:@selector(showAddItemView) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:addBtn];
+    
+    self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionView.scrollView delegate:self];
 }
 
 - (void)showAddItemView
@@ -129,6 +133,7 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    self.pullToRefreshView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -271,6 +276,26 @@
         itemViewController.itemID = [[_items objectAtIndex:_selectedRowIndexPath.row] itemID];
         itemViewController.itemKey = [[_items objectAtIndex:_selectedRowIndexPath.row] itemKey];
     }
+}
+
+#pragma mark SSPullToRefreshViewDelegate
+-(void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view{
+    [self refresh];
+}
+
+-(void)refresh{
+    [self.pullToRefreshView startLoading];
+    
+    _items = [[NSMutableArray alloc] init];
+    [self.collectionView reloadData];
+    _currentPage = 1;
+    _pageSize = 10;
+    loadingNew = NO;
+    
+    [self loadItems];
+    
+    [self.pullToRefreshView finishLoading];
+    
 }
 
 

@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSToolkit.h>
 #import <RestKit/RestKit.h>
+#import "SSPullToRefresh.h"
 
-@interface olgotLovelyViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
+@interface olgotLovelyViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate>{
     NSMutableArray* _items;
     NSIndexPath* _selectedRowIndexPath;
     
@@ -20,5 +21,6 @@
 }
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *itemTile;
+@property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
 
 @end

@@ -21,6 +21,8 @@
 
 @synthesize itemID = _itemID, commentsNumber = _commentsNumber;
 
+@synthesize pullToRefreshView = _pullToRefreshView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -73,12 +75,15 @@
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
     
+    self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionView.scrollView delegate:self];
+    
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    self.pullToRefreshView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -223,6 +228,26 @@
 
 - (CGFloat)collectionView:(SSCollectionView *)aCollectionView heightForHeaderInSection:(NSUInteger)section {
 	return 0.0f;
+}
+
+#pragma mark SSPullToRefreshViewDelegate
+-(void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view{
+    [self refresh];
+}
+
+-(void)refresh{
+    [self.pullToRefreshView startLoading];
+    
+    _comments = [[NSMutableArray alloc] init];
+    [self.collectionView reloadData];
+    _currentPage = 1;
+    _pageSize = 10;
+    loadingNew = NO;
+    
+    [self loadComments];
+    
+    [self.pullToRefreshView finishLoading];
+    
 }
 
 @end

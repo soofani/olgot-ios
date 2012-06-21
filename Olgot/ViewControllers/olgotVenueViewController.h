@@ -10,8 +10,9 @@
 #import <SSToolkit/SSToolkit.h>
 #import <RestKit/RestKit.h>
 #import "olgotVenue.h"
+#import "SSPullToRefresh.h"
 
-@interface olgotVenueViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
+@interface olgotVenueViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate>{
     olgotVenue* _venue;
     NSMutableArray* _items;
     NSIndexPath* _selectedRowIndexPath;
@@ -24,5 +25,6 @@
 @property (nonatomic, strong) NSNumber *venueId;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *venueCardTile;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *venueItemTile;
+@property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
 
 @end

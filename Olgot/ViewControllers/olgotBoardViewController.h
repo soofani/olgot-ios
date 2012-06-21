@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSToolkit.h>
 #import <RestKit/RestKit.h>
+#import "SSPullToRefresh.h"
 
-@interface olgotBoardViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
+@interface olgotBoardViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate>{
     NSMutableArray* _items;
     NSIndexPath* _selectedRowIndexPath;
     
@@ -22,5 +23,6 @@
 @property (strong, nonatomic) NSNumber *categoryID;
 @property (strong, nonatomic) NSString *boardName;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *itemCell;
+@property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
 
 @end

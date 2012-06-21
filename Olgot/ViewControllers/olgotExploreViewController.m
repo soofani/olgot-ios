@@ -22,6 +22,8 @@
 
 @synthesize boardBigTile = _boardBigTile, boardNormalTile = _boardNormalTile;
 
+@synthesize pullToRefreshView = _pullToRefreshView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -90,6 +92,8 @@
     UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
     [self.navigationController.navigationBar.topItem setTitleView:titleImageView];
     
+    self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionView.scrollView delegate:self];
+    
     [self loadCategories];
 }
 
@@ -105,6 +109,7 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    self.pullToRefreshView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -327,10 +332,16 @@
     // else skip the event and process the next one.
 }
 
-//+(CLLocation*)getLatestLocation
-//{
-//    return 
-//}
+#pragma mark SSPullToRefreshViewDelegate
+-(void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view{
+    [self refresh];
+}
+
+-(void)refresh{
+    [self.pullToRefreshView startLoading];
+    [self loadCategories];
+    [self.pullToRefreshView finishLoading];
+}
 
 @end
 
