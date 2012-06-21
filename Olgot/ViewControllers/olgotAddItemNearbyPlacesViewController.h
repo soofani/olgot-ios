@@ -14,10 +14,13 @@
 
 @interface olgotAddItemNearbyPlacesViewController : SSCollectionViewController <RKObjectLoaderDelegate,CLLocationManagerDelegate>
 {
-    NSArray* _places;
+    NSMutableArray* _places;
     NSIndexPath* _selectedRowIndexPath;
     CLLocationManager* locationManager;
     
+    int _pageSize;
+    int _currentPage;
+    BOOL loadingNew;
 }
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *placeCell;

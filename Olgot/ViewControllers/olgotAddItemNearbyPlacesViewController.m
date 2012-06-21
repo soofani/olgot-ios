@@ -29,13 +29,19 @@
 }
 
 - (void)loadVenues {
+    loadingNew = YES;
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
     
     NSNumber* lat = [NSNumber numberWithDouble:locationManager.location.coordinate.latitude];
     NSNumber* lng = [NSNumber numberWithDouble:locationManager.location.coordinate.longitude];
     
-    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: lat, @"lat", lng,@"long", nil];
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+                              lat, @"lat", 
+                              lng,@"long", 
+                              [NSNumber numberWithInt:_currentPage], @"page",
+                              [NSNumber numberWithInt:_pageSize], @"pagesize",
+                              nil];
 
     NSString* resourcePath = [@"/nearbyvenues/" appendQueryParams:myParams];
     NSLog(@"requesting nearby place %@", resourcePath);
@@ -57,6 +63,12 @@
     self.collectionView.scrollView.contentInset = UIEdgeInsetsMake(10.0,0.0,0.0,0.0);
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
+    
+    
+    _places = [[NSMutableArray alloc] init];
+    _currentPage = 1;
+    _pageSize = 10;
+    loadingNew = NO;
     
     // Create the location manager if this object does not
     // already have one.
@@ -100,7 +112,8 @@
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     NSLog(@"Loaded actions: %@", objects);
     if([objectLoader.response isOK]){
-        _places = objects;
+        loadingNew = NO;
+        [_places addObjectsFromArray:objects];
         [self.collectionView reloadData];
     }
     
@@ -197,6 +210,16 @@
 	return 0.0f;
 }
 
+-(void)collectionView:(SSCollectionView *)aCollectionView willDisplayItem:(SSCollectionViewItem *)item atIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"I want more");
+    if (indexPath.row == ([_places count] - 1) && loadingNew == NO && indexPath.section == 0 && ([_places count] > 5)) {
+        _currentPage++;
+        NSLog(@"loading page %d",_currentPage);
+        [self loadVenues];
+    }
+}
+
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
@@ -216,5 +239,7 @@
     }
     // else skip the event and process the next one.
 }
+
+
 
 @end
