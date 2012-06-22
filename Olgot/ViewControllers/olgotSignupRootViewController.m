@@ -114,25 +114,13 @@
                 [self.activityIndicator stopAnimating];
                 
                 UIActionSheet* twitterActionSheet;
-                NSMutableArray* actionSheetButtons = [[NSMutableArray alloc] init];
+                twitterActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Twitter account" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+                
                 for (ACAccount* ac in twitterAccounts) {
-                    [actionSheetButtons addObject:[ac accountDescription]];
+                    [twitterActionSheet addButtonWithTitle:[ac accountDescription]];
                 }
-                
-                NSLog(@"buttons: %@",actionSheetButtons);
-                
-                if ([actionSheetButtons count] == 1) {
-                    twitterActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Twitter account" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:[actionSheetButtons objectAtIndex:0], nil];
-                } else {
-                     twitterActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Twitter account" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:[actionSheetButtons componentsJoinedByString:@","], nil];       
-                }
-                
                 
                 [twitterActionSheet showInView:self.view];
-//                [UIView beginAnimations:nil context:nil];
-//                [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-//                accountsPicker.frame = CGRectMake(0, 244, 320, 216);
-//                [UIView commitAnimations];
             } 
             
             else {
@@ -229,6 +217,13 @@
                 
                 // Make sure to perform our operation back on the main thread
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    // Store the data
+                    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                    
+                    [defaults setObject:[NSNumber numberWithInt:accountNumber] forKey:@"twitterAccountIndex"];
+                    
+                    [defaults synchronize];
+                    
                     // Do something with the fetched data
                     [self.twitterSigninButton setEnabled:YES];
                     [self performSelectorOnMainThread:@selector(checkTwitterName:) withObject:screenName waitUntilDone:NO];
@@ -245,8 +240,8 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSLog(@"selected index %d",buttonIndex);
-    if (buttonIndex < ([actionSheet numberOfButtons] - 1)) {
-        [self chooseTwitterAccount:buttonIndex];
+    if (buttonIndex > 0) {
+        [self chooseTwitterAccount:(buttonIndex - 1)];
     }else {
         [self.twitterSigninButton setEnabled:YES];
     }

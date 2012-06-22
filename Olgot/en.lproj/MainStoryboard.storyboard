@@ -288,7 +288,7 @@
                                         <rect key="frame" x="20" y="211" width="280" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                         <connections>
                                             <action selector="addedDescription:" destination="Hte-Zn-Pmt" eventType="editingDidEndOnExit" id="bA4-jh-1P0"/>
                                             <action selector="editDescription:" destination="Hte-Zn-Pmt" eventType="editingDidBegin" id="D5u-lZ-vkc"/>

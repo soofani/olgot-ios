@@ -192,6 +192,9 @@
 }
 
 -(void)tweetItem{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber* twitterAccountIndex = [defaults objectForKey:@"twitterAccountIndex"];
+    
     // Create an account store object.
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
     
@@ -208,7 +211,7 @@
             // You would ideally ask the user which account they want to tweet from, if there is more than one Twitter account present.
             if ([accountsArray count] > 0) {
                 // Grab the initial Twitter account to tweet from.
-                ACAccount *twitterAccount = [accountsArray objectAtIndex:0];
+                ACAccount *twitterAccount = [accountsArray objectAtIndex:[twitterAccountIndex intValue]];
                 
                 // Create a request, which in this example, posts a tweet to the user's timeline.
                 // This example uses version 1 of the Twitter API.

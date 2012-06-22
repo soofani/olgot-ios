@@ -100,6 +100,7 @@
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
     
+//    Map view button
     UIImage *mapImage30 = [UIImage imageNamed:@"btn-nav-map"];
     
     UIButton *mapBtn = [[UIButton alloc] init];

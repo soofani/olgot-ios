@@ -16,6 +16,7 @@
 #import "olgotItem.h"
 #import "olgotActionUser.h"
 #import "olgotComment.h"
+#import "DejalActivityView.h"
 
 
 @interface olgotItemViewController ()
@@ -82,6 +83,16 @@
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
     
+//    Share button
+    UIImage *shareImage30 = [UIImage imageNamed:@"btn-share"];
+    
+    UIButton *shareBtn = [[UIButton alloc] init];
+    shareBtn.frame=CGRectMake(0,0,35,30);
+    [shareBtn setBackgroundImage:shareImage30 forState:UIControlStateNormal];
+    [shareBtn addTarget:self action:@selector(tweetItem) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:shareBtn];
+    
     myCommentView = [[[NSBundle mainBundle] loadNibNamed:@"itemViewWriteCommentView" owner:self options:nil] objectAtIndex:0];
     
     myCommentView.frame = CGRectMake(0, 378, 320, 40);
@@ -95,6 +106,59 @@
     [self.view addGestureRecognizer:tap];
     
     [self loadItemData];
+}
+
+-(void)tweetItem
+{
+    [DejalBezelActivityView activityViewForView:self.view withLabel:@"Tweeting..."];
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber* twitterAccountIndex = [defaults objectForKey:@"twitterAccountIndex"];
+    
+    // Create an account store object.
+    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+    
+    // Create an account type that ensures Twitter accounts are retrieved.
+    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    
+    // Request access from the user to use their Twitter accounts.
+    [accountStore requestAccessToAccountsWithType:accountType withCompletionHandler:^(BOOL granted, NSError *error) {
+        if(granted) {
+            // Get the list of Twitter accounts.
+            accountsArray = [accountStore accountsWithAccountType:accountType];
+            
+            // For the sake of brevity, we'll assume there is only one Twitter account present.
+            // You would ideally ask the user which account they want to tweet from, if there is more than one Twitter account present.
+            if ([accountsArray count] > 0) {
+                // Grab the initial Twitter account to tweet from.
+                ACAccount *twitterAccount = [accountsArray objectAtIndex:[twitterAccountIndex intValue]];
+                
+                // Create a request, which in this example, posts a tweet to the user's timeline.
+                // This example uses version 1 of the Twitter API.
+                // This may need to be changed to whichever version is currently appropriate.
+                TWRequest *postRequest = [[TWRequest alloc] initWithURL:[NSURL URLWithString:@"http://api.twitter.com/1/statuses/update.json"] parameters:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"I just found this item at %@ using Olgot %@", [_item venueName_En], [_item itemUrl]] forKey:@"status"] requestMethod:TWRequestMethodPOST];
+                
+                // Set the account used to post the tweet.
+                [postRequest setAccount:twitterAccount];
+                
+                // Perform the request created above and create a handler block to handle the response.
+                [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+                    NSString *output = [NSString stringWithFormat:@"HTTP response status: %i", [urlResponse statusCode]];
+                    NSLog(@"twitter response %@",output);
+                    [DejalBezelActivityView removeViewAnimated:YES];
+                    
+                    if ([urlResponse statusCode] == 200) {
+                        UIAlertView *twitterAlert = [[UIAlertView alloc] initWithTitle:nil message:@"Item posted to Twitter" delegate:nil cancelButtonTitle:@"Great!" otherButtonTitles: nil];
+                        [twitterAlert show];
+                    }else {
+                        UIAlertView *twitterAlert = [[UIAlertView alloc] initWithTitle:nil message:@"There was an error posting to Twitter..." delegate:nil cancelButtonTitle:@":(" otherButtonTitles:nil];
+                        [twitterAlert show];
+                    }
+                    
+                }];
+            }
+        }
+    }];   
 }
 
 -(void)dismissKeyboard {

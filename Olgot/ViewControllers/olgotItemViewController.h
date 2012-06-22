@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <SSToolkit/SSToolkit.h>
 #import <RestKit/RestKit.h>
+#import <Twitter/Twitter.h>
+#import <Accounts/Accounts.h>
 
 @class olgotItem;
 
@@ -21,6 +23,8 @@
     NSIndexPath* _selectedRowIndexPath;
     
     UIView* myCommentView;
+    
+    NSArray* accountsArray;
 }
 - (IBAction)showProfile:(id)sender;
 
