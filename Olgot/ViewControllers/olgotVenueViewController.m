@@ -23,6 +23,10 @@
 @synthesize venueId = _venueId;
 
 @synthesize pullToRefreshView = _pullToRefreshView;
+@synthesize venueLocationBtn = _venueLocationBtn;
+@synthesize venueMapButton = _venueMapButton;
+@synthesize venueAddressLabel = _venueAddressLabel;
+@synthesize venueIconImageView = _venueIconImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -131,6 +135,10 @@
 
 - (void)viewDidUnload
 {
+    [self setVenueLocationBtn:nil];
+    [self setVenueMapButton:nil];
+    [self setVenueAddressLabel:nil];
+    [self setVenueIconImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     self.pullToRefreshView = nil;
@@ -299,4 +307,7 @@
 }
 
 
+- (IBAction)showVenueMap:(id)sender {
+    [self performSegueWithIdentifier:@"ShowVenueMap" sender:self];
+}
 @end

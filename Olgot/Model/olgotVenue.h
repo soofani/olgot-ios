@@ -17,5 +17,6 @@
 @property (nonatomic, retain) NSNumber* geoLong;
 @property (nonatomic, retain) NSNumber* items;
 @property (nonatomic, retain) NSString* venueIcon;
+@property (nonatomic, retain) NSString* foursquareAddress;
 
 @end

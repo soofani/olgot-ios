@@ -218,6 +218,7 @@
 		FFD62D1F1594C8570068B04A /* icon-tab-bar-lovely-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD62D1B1594C8570068B04A /* icon-tab-bar-lovely-active@2x.png */; };
 		FFD62D201594C8570068B04A /* icon-tab-bar-lovely.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD62D1C1594C8570068B04A /* icon-tab-bar-lovely.png */; };
 		FFD62D211594C8570068B04A /* icon-tab-bar-lovely@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD62D1D1594C8570068B04A /* icon-tab-bar-lovely@2x.png */; };
+		FFD62D241594CB920068B04A /* olgotVenueMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD62D231594CB920068B04A /* olgotVenueMapViewController.m */; };
 		FFDAE0B715849FFC00859B3A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDAE0B615849FFC00859B3A /* CoreLocation.framework */; };
 		FFDC6334156E814C008CCA28 /* olgotCommentsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDC6333156E814C008CCA28 /* olgotCommentsListViewController.m */; };
 		FFDC6336156E8232008CCA28 /* commentsListHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFDC6335156E8232008CCA28 /* commentsListHeaderCell.xib */; };
@@ -567,6 +568,8 @@
 		FFD62D1B1594C8570068B04A /* icon-tab-bar-lovely-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tab-bar-lovely-active@2x.png"; sourceTree = "<group>"; };
 		FFD62D1C1594C8570068B04A /* icon-tab-bar-lovely.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tab-bar-lovely.png"; sourceTree = "<group>"; };
 		FFD62D1D1594C8570068B04A /* icon-tab-bar-lovely@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tab-bar-lovely@2x.png"; sourceTree = "<group>"; };
+		FFD62D221594CB920068B04A /* olgotVenueMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotVenueMapViewController.h; path = ViewControllers/olgotVenueMapViewController.h; sourceTree = "<group>"; };
+		FFD62D231594CB920068B04A /* olgotVenueMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotVenueMapViewController.m; path = ViewControllers/olgotVenueMapViewController.m; sourceTree = "<group>"; };
 		FFDAE0B615849FFC00859B3A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FFDC6332156E814C008CCA28 /* olgotCommentsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotCommentsListViewController.h; path = ViewControllers/olgotCommentsListViewController.h; sourceTree = "<group>"; };
 		FFDC6333156E814C008CCA28 /* olgotCommentsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotCommentsListViewController.m; path = ViewControllers/olgotCommentsListViewController.m; sourceTree = "<group>"; };
@@ -646,6 +649,8 @@
 				FF27736815625DAB0062EBA9 /* olgotMapViewController.m */,
 				FF26E26A1562807E00BECF4C /* olgotVenueViewController.h */,
 				FF26E26B1562807E00BECF4C /* olgotVenueViewController.m */,
+				FFD62D221594CB920068B04A /* olgotVenueMapViewController.h */,
+				FFD62D231594CB920068B04A /* olgotVenueMapViewController.m */,
 				FF6F63E515878B7D00877C3E /* olgotFeedbackViewController.h */,
 				FF6F63E615878B7E00877C3E /* olgotFeedbackViewController.m */,
 			);
@@ -1395,6 +1400,7 @@
 				FFB66B4915934AD6003AA01F /* SSPullToRefreshSimpleContentView.m in Sources */,
 				FFB66B4A15934AD6003AA01F /* SSPullToRefreshView.m in Sources */,
 				FFD62D191594C0810068B04A /* DejalActivityView.m in Sources */,
+				FFD62D241594CB920068B04A /* olgotVenueMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

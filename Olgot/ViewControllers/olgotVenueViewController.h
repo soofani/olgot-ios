@@ -26,5 +26,12 @@
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *venueCardTile;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *venueItemTile;
 @property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
+@property (strong, nonatomic) IBOutlet UIButton *venueLocationBtn;
+@property (strong, nonatomic) IBOutlet UIButton *venueMapButton;
+@property (strong, nonatomic) IBOutlet UILabel *venueAddressLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *venueIconImageView;
+
+
+- (IBAction)showVenueMap:(id)sender;
 
 @end

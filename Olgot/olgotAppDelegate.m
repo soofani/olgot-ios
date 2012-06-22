@@ -275,6 +275,7 @@
      @"geoLong",@"geoLong",
      @"items",@"items",
      @"iconUrl",@"venueIcon",
+     @"foursqaureAddress",@"foursqaureAddress",
      nil];
     
     RKObjectMapping* commentMapping = [RKObjectMapping mappingForClass:[olgotComment class]];
