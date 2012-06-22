@@ -126,6 +126,7 @@
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     NSLog(@"Loaded categories: %@", objects);
     _categories = objects;
+    [self.pullToRefreshView finishLoading];
     [self.collectionView reloadData];
 }
 
@@ -340,7 +341,7 @@
 -(void)refresh{
     [self.pullToRefreshView startLoading];
     [self loadCategories];
-    [self.pullToRefreshView finishLoading];
+//    [self.pullToRefreshView finishLoading];
 }
 
 @end

@@ -89,8 +89,15 @@
         [self.collectionView reloadData];
     }else {
         loadingNew = NO;
-        [_items addObjectsFromArray:objects];
+        
+        if (self.pullToRefreshView.isExpanded) {
+            _items = [[NSMutableArray alloc] initWithArray:objects];
+        } else {
+            [_items addObjectsFromArray:objects];    
+        }
+        [self.pullToRefreshView finishLoading];
         [self.collectionView reloadData];
+
     }
     
 }
@@ -293,16 +300,13 @@
 
 -(void)refresh{
     [self.pullToRefreshView startLoading];
-    
-    _items = [[NSMutableArray alloc] init];
-    [self.collectionView reloadData];
+
     _currentPage = 1;
     _pageSize = 10;
     loadingNew = NO;
     
     [self loadItems];
-    
-    [self.pullToRefreshView finishLoading];
+
     
 }
 
