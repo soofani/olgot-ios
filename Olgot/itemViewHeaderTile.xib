@@ -43,6 +43,7 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{10, 293}, {280, 27}}</string>
 						<reference key="NSSuperview" ref="928796783"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -81,6 +82,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{10, 10}, {280, 280}}</string>
 						<reference key="NSSuperview" ref="928796783"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="393008429"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<int key="IBUITag">1</int>
@@ -90,8 +92,9 @@
 					<object class="IBUIButton" id="393008429">
 						<reference key="NSNextResponder" ref="928796783"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{154, 16}, {35, 35}}</string>
+						<string key="NSFrame">{{185, 16}, {35, 35}}</string>
 						<reference key="NSSuperview" ref="928796783"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="674161417"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -124,8 +127,9 @@
 					<object class="IBUIButton" id="674161417">
 						<reference key="NSNextResponder" ref="928796783"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{186, 16}, {35, 35}}</string>
+						<string key="NSFrame">{{217, 16}, {35, 35}}</string>
 						<reference key="NSSuperview" ref="928796783"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="131619413"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -148,9 +152,10 @@
 					<object class="IBUIButton" id="131619413">
 						<reference key="NSNextResponder" ref="928796783"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{218, 16}, {35, 35}}</string>
+						<string key="NSFrame">{{249, 16}, {35, 35}}</string>
 						<reference key="NSSuperview" ref="928796783"/>
-						<reference key="NSNextKeyView" ref="946314912"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -169,33 +174,10 @@
 						<reference key="IBUIFontDescription" ref="827637901"/>
 						<reference key="IBUIFont" ref="602066193"/>
 					</object>
-					<object class="IBUIButton" id="946314912">
-						<reference key="NSNextResponder" ref="928796783"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{250, 16}, {35, 35}}</string>
-						<reference key="NSSuperview" ref="928796783"/>
-						<reference key="NSNextKeyView" ref="1066932606"/>
-						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<bool key="IBUIOpaque">NO</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<int key="IBUIContentHorizontalAlignment">0</int>
-						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIHighlightedTitleColor" ref="213006283"/>
-						<object class="NSColor" key="IBUINormalTitleColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-						</object>
-						<reference key="IBUINormalTitleShadowColor" ref="659669486"/>
-						<object class="NSCustomResource" key="IBUINormalImage">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">icon-item-action-comment.png</string>
-						</object>
-						<reference key="IBUIFontDescription" ref="827637901"/>
-						<reference key="IBUIFont" ref="602066193"/>
-					</object>
 				</array>
 				<string key="NSFrameSize">{300, 320}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="835645824"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
@@ -241,14 +223,6 @@
 						<reference key="destination" ref="131619413"/>
 					</object>
 					<int key="connectionID">16</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">commentButton</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="946314912"/>
-					</object>
-					<int key="connectionID">17</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -302,7 +276,6 @@
 						<reference key="object" ref="928796783"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="835645824"/>
-							<reference ref="946314912"/>
 							<reference ref="131619413"/>
 							<reference ref="674161417"/>
 							<reference ref="393008429"/>
@@ -335,11 +308,6 @@
 						<reference key="object" ref="131619413"/>
 						<reference key="parent" ref="928796783"/>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">13</int>
-						<reference key="object" ref="946314912"/>
-						<reference key="parent" ref="928796783"/>
-					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -350,7 +318,6 @@
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="12.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="13.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.CustomClassName">SSCollectionViewItem</string>
 				<object class="NSMutableDictionary" key="3.IBAttributePlaceholdersKey">
 					<string key="NS.key.0">IBUserDefinedRuntimeAttributesPlaceholderName</string>
@@ -378,7 +345,137 @@
 			<nil key="sourceID"/>
 			<int key="maxID">24</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">SSCollectionViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SSCollectionViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SSCollectionViewItem</string>
+					<string key="superclassName">UIView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SSCollectionViewItem.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">olgotItemViewController</string>
+					<string key="superclassName">SSCollectionViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="finishedComment:">id</string>
+						<string key="gotAction:">id</string>
+						<string key="likeAction:">id</string>
+						<string key="showProfile:">id</string>
+						<string key="showVenue:">id</string>
+						<string key="touchedWriteComment:">id</string>
+						<string key="wantAction:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="finishedComment:">
+							<string key="name">finishedComment:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="gotAction:">
+							<string key="name">gotAction:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="likeAction:">
+							<string key="name">likeAction:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showProfile:">
+							<string key="name">showProfile:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showVenue:">
+							<string key="name">showVenue:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="touchedWriteComment:">
+							<string key="name">touchedWriteComment:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="wantAction:">
+							<string key="name">wantAction:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="commentButton">UIButton</string>
+						<string key="commentCell">SSCollectionViewItem</string>
+						<string key="commentsFooter">SSCollectionViewItem</string>
+						<string key="commentsHeader">SSCollectionViewItem</string>
+						<string key="finderCell">SSCollectionViewItem</string>
+						<string key="gotButton">UIButton</string>
+						<string key="itemCell">SSCollectionViewItem</string>
+						<string key="likeButton">UIButton</string>
+						<string key="myCommentTF">UITextField</string>
+						<string key="mySmallImage">UIImageView</string>
+						<string key="peopleRowCell">SSCollectionViewItem</string>
+						<string key="wantButton">UIButton</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="commentButton">
+							<string key="name">commentButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="commentCell">
+							<string key="name">commentCell</string>
+							<string key="candidateClassName">SSCollectionViewItem</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="commentsFooter">
+							<string key="name">commentsFooter</string>
+							<string key="candidateClassName">SSCollectionViewItem</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="commentsHeader">
+							<string key="name">commentsHeader</string>
+							<string key="candidateClassName">SSCollectionViewItem</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="finderCell">
+							<string key="name">finderCell</string>
+							<string key="candidateClassName">SSCollectionViewItem</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="gotButton">
+							<string key="name">gotButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="itemCell">
+							<string key="name">itemCell</string>
+							<string key="candidateClassName">SSCollectionViewItem</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="likeButton">
+							<string key="name">likeButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="myCommentTF">
+							<string key="name">myCommentTF</string>
+							<string key="candidateClassName">UITextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="mySmallImage">
+							<string key="name">mySmallImage</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="peopleRowCell">
+							<string key="name">peopleRowCell</string>
+							<string key="candidateClassName">SSCollectionViewItem</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="wantButton">
+							<string key="name">wantButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/olgotItemViewController.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
@@ -388,7 +485,6 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="icon-item-action-comment.png">{30, 30}</string>
 			<string key="icon-item-action-got.png">{30, 30}</string>
 			<string key="icon-item-action-like.png">{30, 30}</string>
 			<string key="icon-item-action-want.png">{30, 30}</string>

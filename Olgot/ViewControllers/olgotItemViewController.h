@@ -40,7 +40,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *likeButton;
 @property (strong, nonatomic) IBOutlet UIButton *wantButton;
 @property (strong, nonatomic) IBOutlet UIButton *gotButton;
-@property (strong, nonatomic) IBOutlet UIButton *commentButton;
 
 @property (strong, nonatomic) IBOutlet UIImageView *mySmallImage;
 @property (strong, nonatomic) IBOutlet UITextField *myCommentTF;

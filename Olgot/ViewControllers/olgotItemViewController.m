@@ -27,7 +27,6 @@
 @synthesize wantButton = _wantButton;
 @synthesize likeButton = _likeButton;
 @synthesize gotButton = _gotButton;
-@synthesize commentButton = _commentButton;
 @synthesize mySmallImage = _mySmallImage;
 @synthesize myCommentTF = _myCommentTF;
 
@@ -174,7 +173,6 @@
     [self setLikeButton:nil];
     [self setWantButton:nil];
     [self setGotButton:nil];
-    [self setCommentButton:nil];
     [self setMySmallImage:nil];
     [self setMyCommentTF:nil];
     [super viewDidUnload];
@@ -681,23 +679,31 @@
     
     if ([sender isEqualToString:@"like"]) {
         if ([[_item iLike] isEqual:[NSNumber numberWithInt:1]]) {
+             [_item setILike:[NSNumber numberWithInt:0]];
             [[[RKClient sharedClient] delete:[@"/likeitem/" stringByAppendingQueryParameters:params] delegate:self] setUserData:@"unlike"];
         }else {
+             [_item setILike:[NSNumber numberWithInt:1]];
             [[RKClient sharedClient] post:@"/likeitem/" params:params delegate:self];
         }
-        
+        [self.collectionView reloadData];
     } else if([sender isEqualToString:@"want"]){
         if ([[_item iWant] isEqual:[NSNumber numberWithInt:1]]) {
+             [_item setIWant:[NSNumber numberWithInt:0]];
             [[[RKClient sharedClient] delete:[@"/wantitem/" stringByAppendingQueryParameters:params] delegate:self]  setUserData:@"unwant"];
         }else {
+            [_item setIWant:[NSNumber numberWithInt:1]];
             [[RKClient sharedClient] post:@"/wantitem/" params:params delegate:self];
         }
+        [self.collectionView reloadData];
     } else if([sender isEqualToString:@"got"]){
         if ([[_item iGot] isEqual:[NSNumber numberWithInt:1]]) {
+            [_item setIGot:[NSNumber numberWithInt:0]];
             [[[RKClient sharedClient] delete:[@"/gotitem/" stringByAppendingQueryParameters:params] delegate:self]  setUserData:@"ungot"];
         }else {
+            [_item setIGot:[NSNumber numberWithInt:1]];
             [[RKClient sharedClient] post:@"/gotitem/" params:params delegate:self];
         }
+        [self.collectionView reloadData];
     }else {
         return;
     }

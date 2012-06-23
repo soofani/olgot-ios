@@ -7,6 +7,7 @@
 //
 
 #import "olgotFeedbackViewController.h"
+#import "DejalActivityView.h"
 
 @interface olgotFeedbackViewController ()
 
@@ -65,6 +66,7 @@
 }
 
 -(void)sendFeedback{
+    [DejalBezelActivityView activityViewForView:self.view withLabel:@"Sending..."];
     NSString* feedbackText = self.feedbackTextView.text;
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -92,6 +94,7 @@
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
     NSLog(@"resource path: %@",[request resourcePath]);
     NSLog(@"Loaded payload: %@", [response bodyAsString]);
+    [DejalBezelActivityView removeViewAnimated:YES];
     if ([request isPOST]) {  
         
         if ([response isJSON]) {
@@ -104,6 +107,7 @@
                     id _feedbackJsonResponse = [NSJSONSerialization JSONObjectWithData:[response body]
                                                                            options:0
                                                                              error:&jsonError];
+                    
                     
                     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:[_feedbackJsonResponse objectForKey:@"message"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [alert show];

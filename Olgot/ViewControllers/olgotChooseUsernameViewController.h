@@ -19,6 +19,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *usernameTF;
 @property (strong, nonatomic) IBOutlet UITextField *userEmail;
 @property (strong, nonatomic) IBOutlet UIButton *createAccountBtn;
+- (IBAction)pressedNext:(id)sender;
+- (IBAction)pressedDone:(id)sender;
 
 - (IBAction)createAccount:(id)sender;
 

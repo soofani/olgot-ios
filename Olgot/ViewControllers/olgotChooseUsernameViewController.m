@@ -10,6 +10,7 @@
 #import "olgotChooseFriends.h"
 #import <QuartzCore/QuartzCore.h>
 #import <RestKit/JSONKit.h>
+#import "DejalActivityView.h"
 
 @interface olgotChooseUsernameViewController ()
 
@@ -75,8 +76,16 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)pressedNext:(id)sender {
+    [self.userEmail becomeFirstResponder];
+}
+
+- (IBAction)pressedDone:(id)sender {
+}
+
 - (IBAction)createAccount:(id)sender {
 
+    [DejalBezelActivityView activityViewForView:self.view withLabel:@""];
     NSString* completeResponse = [[NSString alloc] initWithData:_twitterResponseData encoding:NSUTF8StringEncoding];
     
         NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -103,7 +112,7 @@
         }  
         
     } else if ([request isPOST]) {  
-        
+        [DejalBezelActivityView removeViewAnimated:YES];
         if ([response isJSON]) {
             id resp = [NSJSONSerialization JSONObjectWithData:[response body]
                                                       options:0
