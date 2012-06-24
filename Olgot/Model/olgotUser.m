@@ -19,6 +19,9 @@ followers = _followers,
 following = _following,
 items = _items,
 iFollow = _iFollow,
-followsMe = _followsMe;
+followsMe = _followsMe,
+email = _email,
+twitterId = _twitterId,
+twitterName = _twitterName;
 
 @end

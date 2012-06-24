@@ -9,7 +9,7 @@
 #import "olgotSignupRootViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "olgotChooseUsernameViewController.h"
-
+#import "olgotUser.h"
 
 @interface olgotSignupRootViewController ()
 
@@ -17,7 +17,7 @@
 
 @implementation olgotSignupRootViewController
 @synthesize activityIndicator;
-@synthesize twitterSigninButton,accountsPicker;
+@synthesize twitterSigninButton;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -68,16 +68,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-//-(void)hideAccountPicker{
-//    [self.twitterSigninButton setEnabled:YES];
-//    [UIView animateWithDuration:0.5 animations:^{
-//        accountsPicker.frame = CGRectMake(0, 460, 320, 216);
-//    }completion:^(BOOL finished){
-//        [accountsPicker removeFromSuperview];    
-//    }];
-//    
-//}
-
 - (IBAction)hideSignup:(id)sender {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@"no" forKey:@"firstRun"];
@@ -99,17 +89,6 @@
                 // Get the list of Twitter accounts.
                 
                 NSLog(@"accounts: %@",twitterAccounts);
-                
-                
-//                accountsPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 460, 320, 216)];
-//                
-//                accountsPicker.delegate = self;
-//                accountsPicker.dataSource = self;
-//                
-//                accountsPicker.showsSelectionIndicator = YES;
-//                [accountsPicker selectRow:-1 inComponent:0 animated:NO];
-                
-//                [self.view addSubview:accountsPicker];
                 
                 [self.activityIndicator stopAnimating];
                 
@@ -140,7 +119,11 @@
 {
     //TEMP: add check available method;
     _twitterName = text;
-    [self performSegueWithIdentifier:@"ShowChooseUsername" sender:self];
+    // Load the object model via RestKit
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _twitterName, @"twittername", nil];
+    NSString* resourcePath = [@"/userid/" appendQueryParams:myParams];
+    [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -247,5 +230,63 @@
     }
     
 }
+
+
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {  
+    NSLog(@"Loaded payload: %@", [response bodyAsString]);  
+}
+
+-(void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects{
+    NSLog(@"Loaded user: %@",[objects objectAtIndex:0]);
+    olgotUser* myUser = [objects objectAtIndex:0];
+    
+    // Store the data
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:@"no" forKey:@"firstRun"];
+    [defaults setObject:myUser.userId forKey:@"userid"];
+    [defaults setObject:myUser.username forKey:@"username"];
+    [defaults setObject:myUser.email forKey:@"email"];
+    [defaults setObject:[NSString stringWithFormat:@"%@ %@", myUser.firstName, myUser.lastName] forKey:@"fullname"];
+    [defaults setObject:myUser.twitterId forKey:@"twitterid"];
+    [defaults setObject:myUser.twitterName forKey:@"twittername"];
+    [defaults setObject:myUser.userProfileImageUrl forKey:@"userProfileImageUrl"];
+    
+    [defaults synchronize];
+    
+    NSLog(@"Data saved: %@", defaults);
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                    message:[NSString stringWithFormat:@"Welcome back %@",myUser.username]
+                                                   delegate:nil
+                                          cancelButtonTitle:@":)"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+-(void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    id resp = [NSJSONSerialization JSONObjectWithData:[[objectLoader response] body]
+                                              options:0
+                                                error:nil];
+    
+    if ([[objectLoader response] statusCode] == 404) {
+        //New User
+        NSLog(@"server message %@", [resp objectForKey:@"message"]);
+        [self performSegueWithIdentifier:@"ShowChooseUsername" sender:self];
+    }else if ([[objectLoader response] statusCode] == 406) {
+        //User needs invitation
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:[resp objectForKey:@"message"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+    else {
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        NSLog(@"Hit error: %@", error);
+    }
+}
+
 
 @end

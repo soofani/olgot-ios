@@ -121,6 +121,14 @@
     
     self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionView.scrollView delegate:self];
     
+    
+    
+    
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
     defaults = [NSUserDefaults standardUserDefaults];
     if(_userID == nil){
         _userID = [defaults objectForKey:@"userid"];
@@ -131,9 +139,11 @@
         [self loadItems];
         [self loadUser];
     }
-    
-    
-    
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
 }
 
 - (void)viewDidUnload

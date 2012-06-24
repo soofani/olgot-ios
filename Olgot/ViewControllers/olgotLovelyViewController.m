@@ -23,6 +23,8 @@
 
 @synthesize pullToRefreshView = _pullToRefreshView;
 
+@synthesize loadingMoreView = _loadingMoreView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -69,6 +71,12 @@
     _pageSize = 10;
     loadingNew = NO;
     
+    
+    _loadingMoreView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [_loadingMoreView setColor:[UIColor colorWithRed:232.0 green:78.0 blue:32.0 alpha:1.0]];
+    [_loadingMoreView setHidesWhenStopped:YES];
+    [_loadingMoreView startAnimating];
+    
     [self loadItems];
 }
 
@@ -78,6 +86,11 @@
     // Release any retained subviews of the main view.
     
     self.pullToRefreshView = nil;
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -123,6 +136,7 @@
 - (NSUInteger)collectionView:(SSCollectionView *)aCollectionView numberOfItemsInSection:(NSUInteger)section {
 	return [_items count];
 }
+
 
 
 - (SSCollectionViewItem *)collectionView:(SSCollectionView *)aCollectionView itemForIndexPath:(NSIndexPath *)indexPath {
@@ -172,7 +186,6 @@
 	header.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.8f];
 	return header;
 }
-
 
 #pragma mark - SSCollectionViewDelegate
 

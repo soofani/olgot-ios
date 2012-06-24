@@ -22,5 +22,6 @@
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *itemTile;
 @property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
+@property (nonatomic, strong) UIActivityIndicatorView* loadingMoreView;
 
 @end

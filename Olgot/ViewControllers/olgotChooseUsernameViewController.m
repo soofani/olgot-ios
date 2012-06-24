@@ -108,7 +108,7 @@
     if ([request isGET]) {   
         if ([response isOK]) {  
             // Success! Let's take a look at the data  
-            NSLog(@"Retrieved XML: %@", [response bodyAsString]);  
+            NSLog(@"Retrieved: %@", [response bodyAsString]);  
         }  
         
     } else if ([request isPOST]) {  
@@ -120,7 +120,7 @@
             if([response isOK]){
                 NSLog(@"Got a JSON response back from our POST! %@", [response bodyAsString]);
                 _userID = [resp objectForKey:@"id"];
-                
+                NSString* userProfileImageUrl = [resp objectForKey:@"profileImgUrl"];
                 // Store the data
                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                 
@@ -128,6 +128,7 @@
                 [defaults setObject:_userID forKey:@"userid"];
                 [defaults setObject:self.usernameTF.text forKey:@"username"];
                 [defaults setObject:self.userEmail.text forKey:@"email"];
+                [defaults setObject:userProfileImageUrl forKey:@"userProfileImageUrl"];
                 [defaults setObject:[_twitterJson objectForKey:@"name"] forKey:@"fullname"];
                 [defaults setObject:[_twitterJson objectForKey:@"id"] forKey:@"twitterid"];
                 [defaults setObject:[_twitterJson objectForKey:@"screen_name"] forKey:@"twittername"];

@@ -40,6 +40,11 @@
     [self.view addGestureRecognizer:tap];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
+}
+
 -(void)dismissKeyboard {
     [self.scrollView setContentOffset:CGPointMake(0.0, 0.0) animated:YES];
     [self.feedbackTextView resignFirstResponder];

@@ -86,6 +86,11 @@
     self.pullToRefreshView = nil;
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

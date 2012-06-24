@@ -216,6 +216,9 @@
      @"items",@"items",
      @"iFollow",@"iFollow",
      @"followsMe",@"followsMe",
+     @"email", @"email",
+     @"twitterId", @"twitterId",
+     @"twitterName", @"twitterName",
      nil];
     
     RKObjectMapping* actionUserMapping = [RKObjectMapping mappingForClass:[olgotActionUser class]];
@@ -340,6 +343,7 @@
     [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/hotitems/"];
     
     [objectManager.mappingProvider setObjectMapping:userMapping forResourcePathPattern:@"/user/"];
+    [objectManager.mappingProvider setObjectMapping:userMapping forResourcePathPattern:@"/userid/"];
     
     [objectManager.mappingProvider setObjectMapping:venueMapping forResourcePathPattern:@"/nearbyvenues/"];
     

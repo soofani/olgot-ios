@@ -59,6 +59,7 @@
 						<string key="NSFrame">{{186, 7}, {108, 21}}</string>
 						<reference key="NSSuperview" ref="486167693"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -250,7 +251,7 @@
 							<object class="IBUserDefinedRuntimeAttribute">
 								<string key="typeIdentifier">com.apple.InterfaceBuilder.userDefinedRuntimeAttributeType.string</string>
 								<string key="keyPath">reuseIdentifier</string>
-								<string key="value">itemViewCommentRowID</string>
+								<string key="value">innerCommentRow</string>
 							</object>
 						</array>
 					</object>
@@ -324,7 +325,6 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="commentButton">UIButton</string>
 						<string key="commentCell">SSCollectionViewItem</string>
 						<string key="commentsFooter">SSCollectionViewItem</string>
 						<string key="commentsHeader">SSCollectionViewItem</string>
@@ -338,10 +338,6 @@
 						<string key="wantButton">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="commentButton">
-							<string key="name">commentButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="commentCell">
 							<string key="name">commentCell</string>
 							<string key="candidateClassName">SSCollectionViewItem</string>

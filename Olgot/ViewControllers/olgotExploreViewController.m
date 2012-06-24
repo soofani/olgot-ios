@@ -105,6 +105,11 @@
     }
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];

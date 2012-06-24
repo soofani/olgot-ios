@@ -11,7 +11,7 @@
 #import <Accounts/Accounts.h>
 #import <RestKit/RestKit.h>
 
-@interface olgotSignupRootViewController : UIViewController<RKRequestDelegate, UIActionSheetDelegate>
+@interface olgotSignupRootViewController : UIViewController<RKRequestDelegate, UIActionSheetDelegate, RKObjectLoaderDelegate>
 {
     NSString* _twitterName;
     NSData* _twitterResponse;
@@ -20,7 +20,6 @@
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *twitterSigninButton;
-@property (nonatomic, strong) IBOutlet UIPickerView* accountsPicker;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 - (IBAction)hideSignup:(id)sender;

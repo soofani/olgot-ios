@@ -92,9 +92,13 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:shareBtn];
     
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    
     myCommentView = [[[NSBundle mainBundle] loadNibNamed:@"itemViewWriteCommentView" owner:self options:nil] objectAtIndex:0];
     
     myCommentView.frame = CGRectMake(0, 378, 320, 40);
+    
+    [self.mySmallImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"userProfileImageUrl"]]];
     [self.view addSubview:myCommentView];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] 
@@ -179,6 +183,11 @@
     // Release any retained subviews of the main view.
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -246,7 +255,6 @@
     _likes = [_item likes];
     _wants = [_item wants];
     _gots = [_item gots];
-    [self.mySmallImage setImageWithURL:[NSURL URLWithString:[_item userProfileImgUrl]]];
     NSLog(@"user actions: %@ %@ %@",[_item iLike],[_item iWant],[_item iGot]);
     
     [self.collectionView reloadData];

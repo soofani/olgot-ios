@@ -20,8 +20,8 @@
 @property (nonatomic, retain) NSNumber* items;
 @property (nonatomic, retain) NSNumber* iFollow;
 @property (nonatomic, retain) NSNumber* followsMe;
-
-
-
+@property (nonatomic, retain) NSString* email;
+@property (nonatomic, retain) NSString* twitterId;
+@property (nonatomic, retain) NSString* twitterName;
 
 @end

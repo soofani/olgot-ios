@@ -122,6 +122,11 @@
     [self loadItems];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
+}
+
 - (void)showMapView
 {
     [self performSegueWithIdentifier:@"ShowMapView" sender:self];

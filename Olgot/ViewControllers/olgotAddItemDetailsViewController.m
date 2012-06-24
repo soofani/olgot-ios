@@ -218,7 +218,7 @@
     [params setValue:_itemID forParam:@"item"];
     
 //    NSData* imageData = UIImagePNGRepresentation(_itemImage);
-    NSData* imageData = UIImageJPEGRepresentation([_itemImage fixOrientation], 0.5);
+    NSData* imageData = UIImageJPEGRepresentation([_itemImage fixOrientation], 0.2);
 //    [params setData:imageData MIMEType:@"image/jpeg" forParam:@"file"];
     [params setData:imageData MIMEType:@"image/jpeg" fileName:@"myimage.jpg" forParam:@"file"];
     
