@@ -1,4 +1,3 @@
-//
 //  olgotExploreViewController.m
 //  Olgot
 //
@@ -65,7 +64,7 @@
     
     // Get the stored data before the view loads
     defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:[NSNumber numberWithInt:1] forKey:@"userid"];
+//    [defaults setObject:[NSNumber numberWithInt:1] forKey:@"userid"];
     
     if ([defaults objectForKey:@"userid"] == nil) {
         [defaults setObject:nil forKey:@"firstRun"];
@@ -100,7 +99,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     if([defaults objectForKey:@"firstRun"] == nil){
-        [defaults setObject:@"1" forKey:@"userid"];
+//        [defaults setObject:@"1" forKey:@"userid"];
         [self performSegueWithIdentifier:@"ShowSignupFlow" sender:self];
     }
 }
@@ -334,6 +333,8 @@
         [defaults setObject:[NSNumber numberWithFloat:newLocation.coordinate.longitude] forKey:@"lastestLongitude"];
         
         [defaults synchronize];
+        
+        [locationManager stopUpdatingLocation];
     }
     // else skip the event and process the next one.
 }
