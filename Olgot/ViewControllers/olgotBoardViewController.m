@@ -44,11 +44,13 @@
 - (void)loadItems {
     loadingNew = YES;
     
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
     if(_boardName == @"Feed"){
         NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
-                                  @"1", @"id",
+                                  [defaults objectForKey:@"userid"], @"id",
                                   [NSNumber numberWithInt:_currentPage], @"page",
                                   [NSNumber numberWithInt:_pageSize], @"pagesize",
                                   nil];
@@ -67,7 +69,7 @@
         
     }else if (_boardName == @"My Wants") {
         NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
-                                  @"1", @"user",
+                                  [defaults objectForKey:@"userid"], @"user",
                                   [NSNumber numberWithInt:_currentPage], @"page",
                                   [NSNumber numberWithInt:_pageSize], @"pagesize",
                                   nil];
