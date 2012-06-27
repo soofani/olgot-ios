@@ -30,7 +30,6 @@ cancelButton, imagePickerController, openLibraryButton,flashButton;
 {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
     {
-        
         self.imagePickerController = [[UIImagePickerController alloc] init];
         self.imagePickerController.delegate = self;
     }
@@ -43,6 +42,7 @@ cancelButton, imagePickerController, openLibraryButton,flashButton;
     self.cancelButton = nil;
     self.openLibraryButton = nil;
     self.flashButton = nil;
+    self.imagePickerController = nil;
     [super viewDidUnload];
 }
 
@@ -85,12 +85,8 @@ cancelButton, imagePickerController, openLibraryButton,flashButton;
 //
 - (void)finishAndUpdate
 {
+    NSLog(@"finish and update");
     [self.delegate didFinishWithCamera];  // tell our delegate we are done with the camera
-    
-    // restore the state of our overlay toolbar buttons
-    self.cancelButton.enabled = YES;
-    self.takePictureButton.enabled = YES;
-    self.openLibraryButton.enabled = YES;
 }
 
 #pragma mark -
@@ -98,14 +94,14 @@ cancelButton, imagePickerController, openLibraryButton,flashButton;
 
 - (IBAction)done:(id)sender
 {
+    NSLog(@"pressed done/cancel button");
     // dismiss the camera
-    //
-    // but not if it's still taking timed pictures
     [self finishAndUpdate];
 }
 
 - (IBAction)takePhoto:(id)sender
 {
+    NSLog(@"Pressed camera button");
     [self.imagePickerController takePicture];
 }
 
@@ -127,12 +123,15 @@ cancelButton, imagePickerController, openLibraryButton,flashButton;
         
         [self.flashButton setImage:[UIImage imageNamed:@"btn-cam-flash-on"] forState:UIControlStateNormal];
         [self.flashButton setImage:[UIImage imageNamed:@"btn-cam-flash-off"] forState:UIControlStateSelected];
+        
+
     }else if (self.imagePickerController.cameraFlashMode == UIImagePickerControllerCameraFlashModeOn) {
         
         [self.imagePickerController setCameraFlashMode:UIImagePickerControllerCameraFlashModeOff];
         
         [self.flashButton setImage:[UIImage imageNamed:@"btn-cam-flash-off"] forState:UIControlStateNormal];
         [self.flashButton setImage:[UIImage imageNamed:@"btn-cam-flash-on"] forState:UIControlStateSelected];
+        
     }
 }
 
@@ -144,6 +143,7 @@ cancelButton, imagePickerController, openLibraryButton,flashButton;
 //
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    NSLog(@"finished picking media with info %@",info);
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     
     // give the taken picture to our delegate
@@ -156,6 +156,7 @@ cancelButton, imagePickerController, openLibraryButton,flashButton;
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
+    NSLog(@"image picker controller did cancel");
     [self dismissViewControllerAnimated:YES completion:^(void){
 //            [self.delegate didFinishWithCamera];    // tell our delegate we are finished with the picker
         NSLog(@"cancelled library option");
