@@ -72,7 +72,6 @@
 - (void)viewDidUnload
 {
     self.imageView = nil;
-    
     self.mOverlayViewController = nil;
     self.capturedImages = nil;
 }
@@ -82,9 +81,6 @@
 
 - (void)showImagePicker:(UIImagePickerControllerSourceType)sourceType
 {
-//    if (self.imageView.isAnimating)
-//        self.imageView.stopAnimating;
-    
     if (self.capturedImages.count > 0)
         [self.capturedImages removeAllObjects];
     
