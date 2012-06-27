@@ -396,4 +396,9 @@
     [[LocalyticsSession sharedLocalyticsSession] upload];
 }
 
+-(void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    NSLog(@"Memory warning");
+}
+
 @end
