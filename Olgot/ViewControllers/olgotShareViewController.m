@@ -114,6 +114,7 @@
 {
     showCam = NO;
     
+    NSLog(@"%d images in array", [self.capturedImages count]);
     
     if ([self.capturedImages count] > 0)
     {
@@ -128,16 +129,7 @@
         }
         else
         {
-            // we took multiple shots, use the list of images for animation
-            self.imageView.animationImages = self.capturedImages;
-            
-            if (self.capturedImages.count > 0)
-                // we are done with the image list until next time
-                [self.capturedImages removeAllObjects];  
-            
-            self.imageView.animationDuration = 5.0;    // show each captured photo for 5 seconds
-            self.imageView.animationRepeatCount = 0;   // animate forever (show all photos)
-//            self.imageView.startAnimating;
+            NSLog(@"warning! %d images in array", [self.capturedImages count]);
         }
     }else {
         [self dismissViewControllerAnimated:NO completion:^(void){
@@ -152,6 +144,7 @@
         olgotAddItemNearbyPlacesViewController* nearbyController = [segue destinationViewController];
         
         nearbyController.capturedImage = [self.capturedImages objectAtIndex:0];
+        [self.capturedImages removeAllObjects];
         
     }
 }
