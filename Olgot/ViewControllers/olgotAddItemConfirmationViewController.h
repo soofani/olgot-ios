@@ -24,6 +24,7 @@
 }
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UIProgressView *progressView;
 
 @property (strong, nonatomic) NSString *itemID;
 @property (strong, nonatomic) NSString *itemKey;

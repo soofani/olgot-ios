@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/ViewControllers/olgotExploreViewController.m"
-         timestampString = "362247460.298045"
+         timestampString = "362318264.686512"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "273"
-         endingLineNumber = "273"
+         startingLineNumber = "272"
+         endingLineNumber = "272"
          landmarkName = "-collectionView:didSelectItemAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -27,19 +27,6 @@
          startingLineNumber = "42"
          endingLineNumber = "42"
          landmarkName = "-setUserID:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Olgot/ViewControllers/olgotItemViewController.m"
-         timestampString = "362247460.298045"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "200"
-         endingLineNumber = "200"
-         landmarkName = "-request:didLoadResponse:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -66,6 +53,32 @@
          startingLineNumber = "98"
          endingLineNumber = "98"
          landmarkName = "-twitterSignin:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Olgot/ViewControllers/olgotBoardViewController.m"
+         timestampString = "362845098.123977"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "270"
+         endingLineNumber = "270"
+         landmarkName = "-collectionView:willDisplayItem:atIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Olgot/ViewControllers/olgotBoardViewController.m"
+         timestampString = "362845098.123977"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "296"
+         endingLineNumber = "296"
+         landmarkName = "-refresh"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

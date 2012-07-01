@@ -11,6 +11,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "UIImage+fixOrientation.h"
 #import "olgotAddItemConfirmationViewController.h"
+#import "olgotItem.h"
 
 @interface olgotAddItemDetailsViewController ()
 
@@ -71,8 +72,8 @@
                     _itemKey = [_itemJsonResponse objectForKey:@"key"];
                     [_progressView setProgress:0.0];
                     [_progressView setHidden:NO];
-                    [self performSelector:@selector(postPhoto)];
-                    
+//                    [self performSelector:@selector(postPhoto)];
+                    [self performSegueWithIdentifier:@"ShowAddItemConfirmation" sender:self];
                 }else if ([[request userData] isEqual:@"uploadPhoto"]) {
                     NSLog(@"posted photo");
                     [self performSegueWithIdentifier:@"ShowAddItemConfirmation" sender:self];
@@ -98,19 +99,19 @@
 //    }
 }
 
-- (void)request:(RKRequest *)request didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
-    NSLog(@"user data: %@",[request userData]);
-    NSNumber* uploaded = [NSNumber numberWithInteger:totalBytesWritten];
-    NSNumber* total = [NSNumber numberWithInteger:totalBytesExpectedToWrite];
-    float progress = ([uploaded floatValue] / [total floatValue] );
-    NSLog(@"progress: %f", progress);
-    [_progressView setProgress:progress animated:YES];
-    NSLog(@"sent bytes: %d of %d",totalBytesWritten,totalBytesExpectedToWrite);
-}
+//- (void)request:(RKRequest *)request didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
+//    NSLog(@"user data: %@",[request userData]);
+//    NSNumber* uploaded = [NSNumber numberWithInteger:totalBytesWritten];
+//    NSNumber* total = [NSNumber numberWithInteger:totalBytesExpectedToWrite];
+//    float progress = ([uploaded floatValue] / [total floatValue] );
+//    NSLog(@"progress: %f", progress);
+//    [_progressView setProgress:progress animated:YES];
+//    NSLog(@"sent bytes: %d of %d",totalBytesWritten,totalBytesExpectedToWrite);
+//}
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
+//    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//    [alert show];
     NSLog(@"Hit error: %@", error);
 }
 
@@ -211,22 +212,22 @@
     [[[RKClient sharedClient] post:@"/item/" params:params delegate:self] setUserData:@"postItem"];
 }
 
--(void)postPhoto
-{
-    NSLog(@"Got image: %@", [_itemImageView image]);
-    RKParams* params = [RKParams params];
-    [params setValue:_itemID forParam:@"item"];
-    
-//    NSData* imageData = UIImagePNGRepresentation(_itemImage);
-    NSData* imageData = UIImageJPEGRepresentation([_itemImage fixOrientation], 0.2);
-//    [params setData:imageData MIMEType:@"image/jpeg" forParam:@"file"];
-    [params setData:imageData MIMEType:@"image/jpeg" fileName:@"myimage.jpg" forParam:@"file"];
-    
-    NSLog(@"RKParams HTTPHeaderValueForContentType = %@", [params HTTPHeaderValueForContentType]);
-    NSLog(@"RKParams HTTPHeaderValueForContentLength = %d", [params HTTPHeaderValueForContentLength]);
-    
-    [[[RKClient sharedClient] post:@"/photo/" params:params delegate:self] setUserData:@"uploadPhoto"];
-}
+//-(void)postPhoto
+//{
+//    NSLog(@"Got image: %@", [_itemImageView image]);
+//    RKParams* params = [RKParams params];
+//    [params setValue:_itemID forParam:@"item"];
+//    
+////    NSData* imageData = UIImagePNGRepresentation(_itemImage);
+//    NSData* imageData = UIImageJPEGRepresentation([_itemImage fixOrientation], 0.2);
+////    [params setData:imageData MIMEType:@"image/jpeg" forParam:@"file"];
+//    [params setData:imageData MIMEType:@"image/jpeg" fileName:@"myimage.jpg" forParam:@"file"];
+//    
+//    NSLog(@"RKParams HTTPHeaderValueForContentType = %@", [params HTTPHeaderValueForContentType]);
+//    NSLog(@"RKParams HTTPHeaderValueForContentLength = %d", [params HTTPHeaderValueForContentLength]);
+//    
+//    [[[RKClient sharedClient] post:@"/photo/" params:params delegate:self] setUserData:@"uploadPhoto"];
+//}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -238,6 +239,22 @@
         confirmationController.venueID = [_venue venueId];
         confirmationController.venueItemCount = [_venue items];
         
+//        fire photo uploading
+        NSLog(@"Got image: %@", [_itemImageView image]);
+        RKParams* params = [RKParams params];
+        [params setValue:_itemID forParam:@"item"];
+        
+        //    NSData* imageData = UIImagePNGRepresentation(_itemImage);
+        NSData* imageData = UIImageJPEGRepresentation([_itemImage fixOrientation], 0.2);
+        //    [params setData:imageData MIMEType:@"image/jpeg" forParam:@"file"];
+        [params setData:imageData MIMEType:@"image/jpeg" fileName:@"myimage.jpg" forParam:@"file"];
+        
+        NSLog(@"RKParams HTTPHeaderValueForContentType = %@", [params HTTPHeaderValueForContentType]);
+        NSLog(@"RKParams HTTPHeaderValueForContentLength = %d", [params HTTPHeaderValueForContentLength]);
+        
+        [[[RKClient sharedClient] post:@"/photo/" params:params delegate:confirmationController] setUserData:@"uploadPhoto"];
+        
+        [[[RKClient sharedClient] requestWithResourcePath:@"/photo/"] setDelegate:nil];
     }
 }
 

@@ -15,6 +15,7 @@
 
 @implementation olgotAddItemConfirmationViewController
 @synthesize scrollView;
+@synthesize progressView = _progressView;
 @synthesize itemImage;
 @synthesize venueNameBtn;
 @synthesize itemPriceLabel;
@@ -25,7 +26,6 @@
 @synthesize placeItemCountLabel;
 
 @synthesize itemID = _itemID, itemKey = _itemKey, item = _item, venueID = _venueID, venueItemCount = _venueItemCount;
-
 
 
 - (void)viewDidLoad
@@ -46,6 +46,10 @@
     [finishBtn addTarget:self action:@selector(finishUpload) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:finishBtn];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+
+    
+    self.navigationItem.hidesBackButton = YES;
     
     [self.scrollView setHidden:YES];
     [self loadItemData];
@@ -95,7 +99,8 @@
 
 -(void)finishUpload
 {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    self.tabBarController.selectedIndex = 0;
+   [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)viewDidUnload
@@ -109,6 +114,7 @@
     [self setPlaceBigLabel:nil];
     [self setPlaceItemCountLabel:nil];
     [self setScrollView:nil];
+    [self setProgressView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -138,6 +144,10 @@
                 }else if ([[request resourcePath] isEqual:@"/gotitem/"]) {
                     NSLog(@"succesful got");
                     [_item setIGot:[NSNumber numberWithInt:1]];
+                }
+                
+                if ([[request userData] isEqual:@"uploadPhoto"]) {
+                    self.navigationItem.rightBarButtonItem.enabled = YES;
                 }
                 NSLog(@"Got a JSON response back from our POST! %@", [response bodyAsString]);
                 
@@ -186,9 +196,20 @@
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
+//    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//    [alert show];
     NSLog(@"Hit error: %@", error);
+}
+
+- (void)request:(RKRequest *)request didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
+     
+    NSLog(@"user data: %@",[request userData]);
+    NSNumber* uploaded = [NSNumber numberWithInteger:totalBytesWritten];
+    NSNumber* total = [NSNumber numberWithInteger:totalBytesExpectedToWrite];
+    float progress = ([uploaded floatValue] / [total floatValue] );
+    NSLog(@"progress: %f", progress);
+    [_progressView setProgress:progress animated:YES];
+    NSLog(@"sent bytes: %d of %d",totalBytesWritten,totalBytesExpectedToWrite);
 }
 
 -(void)tweetItem{

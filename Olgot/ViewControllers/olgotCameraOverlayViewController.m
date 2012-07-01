@@ -55,6 +55,8 @@ cancelButton, imagePickerController, openLibraryButton,flashButton;
         // user wants to use the camera interface
         //
         self.imagePickerController.showsCameraControls = NO;
+        self.imagePickerController.allowsEditing = YES;
+
         self.imagePickerController.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
         
         if ([[self.imagePickerController.cameraOverlayView subviews] count] == 0)

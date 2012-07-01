@@ -35,7 +35,6 @@
 - (void)loadCategories {
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
-//    objectManager.client.baseURL = [RKURL URLWithString:@"http://www.twitter.com"];
     [objectManager loadObjectsAtResourcePath:@"/categories" delegate:self];
 }
 
@@ -114,6 +113,8 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     self.pullToRefreshView = nil;
+    self.boardBigTile = nil;
+    self.boardNormalTile = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -135,8 +136,8 @@
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
+//    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//    [alert show];
     NSLog(@"Hit error: %@", error);
 }
 

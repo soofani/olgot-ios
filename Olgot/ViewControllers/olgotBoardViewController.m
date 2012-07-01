@@ -33,6 +33,7 @@
         _categoryID = categoryID;
         
         _items = [[NSMutableArray alloc] init];
+        [_items removeAllObjects];
         _currentPage = 1;
         _pageSize = 10;
         loadingNew = NO;
@@ -115,13 +116,17 @@
     [self.navigationItem setTitle:_boardName];
     
     _items = [[NSMutableArray alloc] init];
+    [_items removeAllObjects];
     _currentPage = 1;
     _pageSize = 10;
     loadingNew = NO;
     
     self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionView.scrollView delegate:self];
     
-    [self loadItems];
+    if(!_categoryID){
+        [self loadItems];
+    }
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -170,8 +175,8 @@
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
+//    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//    [alert show];
     NSLog(@"Hit error: %@", error);
 }
 
@@ -258,9 +263,9 @@
 -(void)collectionView:(SSCollectionView *)aCollectionView willDisplayItem:(SSCollectionViewItem *)item atIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"I want more");
-    if (indexPath.row == ([_items count] - 1) && loadingNew == NO) {
+    if (indexPath.row == ([_items count] - 1) && loadingNew == NO && [_items count] > 4) {
         _currentPage++;
-        NSLog(@"loading page %d",_currentPage);
+        NSLog(@"loading page %d with item count %d",_currentPage,[_items count]);
         [self loadItems];
     }
 }
