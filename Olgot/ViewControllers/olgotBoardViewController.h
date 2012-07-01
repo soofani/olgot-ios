@@ -24,5 +24,7 @@
 @property (strong, nonatomic) NSString *boardName;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *itemCell;
 @property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
+@property (nonatomic, strong) NSNumber *latitude;
+@property (nonatomic, strong) NSNumber *longitude;
 
 @end

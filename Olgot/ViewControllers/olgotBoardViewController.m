@@ -16,6 +16,8 @@
 
 @synthesize itemCell = _itemCell, categoryID = _categoryID, boardName = _boardName;
 
+@synthesize latitude = _latitude, longitude = _longitude;
+
 @synthesize pullToRefreshView = _pullToRefreshView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -60,8 +62,8 @@
         
     }else if (_boardName == @"Nearby") {
         NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
-                                  @"0", @"lat", 
-                                  @"0" , @"long", 
+                                  _latitude, @"lat", 
+                                  _longitude , @"long", 
                                   [NSNumber numberWithInt:_currentPage], @"page",
                                   [NSNumber numberWithInt:_pageSize], @"pagesize",
                                   nil];
@@ -155,6 +157,7 @@
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
     NSLog(@"Loaded payload: %@", [response bodyAsString]);
+    NSLog(@"From request %@",[request resourcePath]);
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
