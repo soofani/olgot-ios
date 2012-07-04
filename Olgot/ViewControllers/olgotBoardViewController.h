@@ -10,10 +10,13 @@
 #import <SSToolkit/SSToolkit.h>
 #import <RestKit/RestKit.h>
 #import "SSPullToRefresh.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface olgotBoardViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate>{
+@interface olgotBoardViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate,CLLocationManagerDelegate>{
     NSMutableArray* _items;
     NSIndexPath* _selectedRowIndexPath;
+    
+    CLLocationManager* locationManager;
     
     int _pageSize;
     int _currentPage;
@@ -24,7 +27,5 @@
 @property (strong, nonatomic) NSString *boardName;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *itemCell;
 @property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
-@property (nonatomic, strong) NSNumber *latitude;
-@property (nonatomic, strong) NSNumber *longitude;
 
 @end

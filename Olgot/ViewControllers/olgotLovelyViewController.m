@@ -40,8 +40,8 @@
     
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
     NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
-                              @"0", @"lat", 
-                              @"0", @"long",
+                              [NSNumber numberWithDouble:locationManager.location.coordinate.latitude], @"lat", 
+                              [NSNumber numberWithDouble:locationManager.location.coordinate.longitude], @"long",
                               [NSNumber numberWithInt:_currentPage], @"page",
                               [NSNumber numberWithInt:_pageSize], @"pagesize",
                               nil];
@@ -77,7 +77,15 @@
     [_loadingMoreView setHidesWhenStopped:YES];
     [_loadingMoreView startAnimating];
     
-    [self loadItems];
+    if (nil == locationManager)
+        locationManager = [[CLLocationManager alloc] init];
+    
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    // Set a movement threshold for new events.
+    locationManager.distanceFilter = 10;
+    
 }
 
 - (void)viewDidUnload
@@ -91,6 +99,11 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [locationManager startUpdatingLocation];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -240,6 +253,27 @@
     
     [self loadItems];
     
+}
+
+#pragma mark CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"latitude %+.6f, longitude %+.6f\n",
+          newLocation.coordinate.latitude,
+          newLocation.coordinate.longitude);
+    
+    // If it's a relatively recent event, turn off updates to save power
+    NSDate* eventDate = newLocation.timestamp;
+    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
+    if (abs(howRecent) < 15.0)
+    {
+        [manager stopUpdatingLocation];
+        [self loadItems];
+    }
+    // else skip the event and process the next one.
 }
 
 @end

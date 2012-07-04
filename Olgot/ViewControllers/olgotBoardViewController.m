@@ -16,8 +16,6 @@
 
 @synthesize itemCell = _itemCell, categoryID = _categoryID, boardName = _boardName;
 
-@synthesize latitude = _latitude, longitude = _longitude;
-
 @synthesize pullToRefreshView = _pullToRefreshView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -61,14 +59,19 @@
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
         
     }else if (_boardName == @"Nearby") {
-        NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
-                                  _latitude, @"lat", 
-                                  _longitude , @"long", 
-                                  [NSNumber numberWithInt:_currentPage], @"page",
-                                  [NSNumber numberWithInt:_pageSize], @"pagesize",
-                                  nil];
-        NSString* resourcePath = [@"/nearbyitems/" appendQueryParams:myParams];
-        [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+        if (nil == locationManager)
+            locationManager = [[CLLocationManager alloc] init];
+        
+        locationManager.delegate = self;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        
+        // Set a movement threshold for new events.
+        locationManager.distanceFilter = 10;
+        
+        [locationManager startUpdatingLocation];
+        
+        
+
         
     }else if (_boardName == @"My Wants") {
         NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
@@ -89,6 +92,23 @@
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
     }
     
+}
+
+-(void)loadNearbyItems
+{
+    loadingNew = YES;
+    
+    // Load the object model via RestKit
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+                [NSNumber numberWithDouble:locationManager.location.coordinate.latitude], @"lat", 
+                [NSNumber numberWithDouble:locationManager.location.coordinate.longitude] , @"long",
+                [NSNumber numberWithInt:_currentPage], @"page",
+                [NSNumber numberWithInt:_pageSize], @"pagesize",
+                                      nil];
+            NSString* resourcePath = [@"/nearbyitems/" appendQueryParams:myParams];
+            [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];           
 }
 
 - (void)viewDidLoad
@@ -297,6 +317,28 @@
     
     [self loadItems];
     
+}
+
+
+#pragma mark CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"latitude %+.6f, longitude %+.6f\n",
+          newLocation.coordinate.latitude,
+          newLocation.coordinate.longitude);
+    
+    // If it's a relatively recent event, turn off updates to save power
+    NSDate* eventDate = newLocation.timestamp;
+    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
+    if (abs(howRecent) < 15.0)
+    {
+        [manager stopUpdatingLocation];
+        [self loadNearbyItems];
+    }
+    // else skip the event and process the next one.
 }
 
 

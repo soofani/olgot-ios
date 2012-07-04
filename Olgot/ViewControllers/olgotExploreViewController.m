@@ -299,9 +299,6 @@
         }else if (_selectedRowIndexPath.section == 1) {
             if (_selectedRowIndexPath.row == 0) {
                 boardViewController.categoryID = 0;
-                
-                boardViewController.latitude = [NSNumber numberWithDouble:locationManager.location.coordinate.latitude];
-                boardViewController.longitude = [NSNumber numberWithDouble:locationManager.location.coordinate.longitude];
                 boardViewController.boardName = @"Nearby";
             } else if(_selectedRowIndexPath.row == 1) {
                 boardViewController.categoryID = 0;

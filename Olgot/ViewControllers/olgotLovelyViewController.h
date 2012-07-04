@@ -10,10 +10,13 @@
 #import <SSToolkit/SSToolkit.h>
 #import <RestKit/RestKit.h>
 #import "SSPullToRefresh.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface olgotLovelyViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate>{
+@interface olgotLovelyViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate, CLLocationManagerDelegate>{
     NSMutableArray* _items;
     NSIndexPath* _selectedRowIndexPath;
+    
+    CLLocationManager* locationManager;
     
     int _pageSize;
     int _currentPage;
