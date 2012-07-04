@@ -21,7 +21,6 @@
 
 @synthesize itemImageView = _itemImageView;
 @synthesize itemImage = _itemImage;
-@synthesize progressView = _progressView;
 @synthesize scrollView = _scrollView;
 @synthesize venueImageIV = _venueImageIV;
 @synthesize venueNameLabel = _venueNameLabel;
@@ -70,8 +69,6 @@
                     
                     _itemID = [_itemJsonResponse objectForKey:@"id"];
                     _itemKey = [_itemJsonResponse objectForKey:@"key"];
-                    [_progressView setProgress:0.0];
-                    [_progressView setHidden:NO];
 //                    [self performSelector:@selector(postPhoto)];
                     [self performSegueWithIdentifier:@"ShowAddItemConfirmation" sender:self];
                 }else if ([[request userData] isEqual:@"uploadPhoto"]) {
@@ -127,8 +124,6 @@
     
     [self.itemImageView setImage:_itemImage];
     [self configureView];
-    _progressView.progress = 0.0f;
-    [_progressView setHidden:YES];
 }
 
 -(void)configureView
@@ -146,8 +141,8 @@
     [self setItemPriceTF:nil];
     [self setDescriptionTF:nil];
     [self setPostButton:nil];
-    [self setProgressView:nil];
     [self setScrollView:nil];
+    [self setItemImage:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -236,7 +231,10 @@
         
         confirmationController.itemID = _itemID;
         confirmationController.itemKey = _itemKey;
+        confirmationController.capturedImage = _itemImage;
+        confirmationController.itemPrice = [NSNumber numberWithFloat:[self.itemPriceTF.text floatValue]];
         confirmationController.venueID = [_venue venueId];
+        confirmationController.venueName = [_venue name_En];
         confirmationController.venueItemCount = [_venue items];
         
 //        fire photo uploading

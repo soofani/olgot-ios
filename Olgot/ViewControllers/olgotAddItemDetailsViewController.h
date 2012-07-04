@@ -13,7 +13,7 @@
 @interface olgotAddItemDetailsViewController : UIViewController<RKObjectLoaderDelegate, UITextFieldDelegate>
 {
     UIImageView *itemImageView;
-    NSString* _itemID;
+    NSNumber* _itemID;
     NSString* _itemKey;
 }
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -28,7 +28,6 @@
 @property (nonatomic, retain) olgotVenue* venue;
 @property (nonatomic, strong) IBOutlet UIImageView *itemImageView;
 @property (nonatomic,strong) UIImage *itemImage;
-@property (strong, nonatomic) IBOutlet UIProgressView *progressView;
            
 - (IBAction)addedPrice:(id)sender;
 - (IBAction)addedDescription:(id)sender;

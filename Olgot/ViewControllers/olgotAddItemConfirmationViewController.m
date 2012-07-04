@@ -24,8 +24,10 @@
 @synthesize likeButton;
 @synthesize placeBigLabel;
 @synthesize placeItemCountLabel;
+@synthesize capturedImage = _capturedImage;
 
-@synthesize itemID = _itemID, itemKey = _itemKey, item = _item, venueID = _venueID, venueItemCount = _venueItemCount;
+@synthesize itemID = _itemID, itemKey = _itemKey, venueID = _venueID, venueItemCount = _venueItemCount, venueName = _venueName;
+@synthesize itemPrice = _itemPrice;
 
 
 - (void)viewDidLoad
@@ -51,26 +53,28 @@
     
     self.navigationItem.hidesBackButton = YES;
     
-    [self.scrollView setHidden:YES];
-    [self loadItemData];
+    [self configureItem];
+    [self configureView];
 }
 
--(void)loadItemData
+-(void)configureItem
 {
-    RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    //    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: [_item itemID], @"item", [_item itemKey], @"key", nil];
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _itemID, @"item", _itemKey, @"key", [defaults objectForKey:@"userid"], @"id", nil];
-    
-    //likes
-    NSString* resourcePath = @"/item/";
-    [objectManager loadObjectsAtResourcePath:[resourcePath stringByAppendingQueryParameters:myParams] delegate:self];
+    _item = [[olgotItem alloc] init];
+    [_item setItemID:_itemID];
+    [_item setVenueId:_venueID];
+    [_item setVenueName_En:_venueName];
+    [_item setItemPrice:_itemPrice];
+    [_item setILike:[NSNumber numberWithInt:0]];
+    [_item setIWant:[NSNumber numberWithInt:0]];
+    [_item setIGot:[NSNumber numberWithInt:0]];
+    [_item setItemUrl:@"www.olgot.com"];
 }
 
 -(void)configureView
 {
     [self.venueNameBtn setTitle:[_item venueName_En] forState:UIControlStateNormal];
-    [self.itemPriceLabel setText:[NSString stringWithFormat:@"%@ %@",[_item itemPrice],[_item countryCurrencyShortName]]];
+    [self.itemPriceLabel setText:[NSString stringWithFormat:@"%@ %@",[_item itemPrice],@"JOD"]];
+    [self.itemImage setImage:_capturedImage];
     
     if ([[_item iLike] isEqual:[NSNumber numberWithInt:1]]) {
         NSLog(@"user likes this");
@@ -115,6 +119,7 @@
     [self setPlaceItemCountLabel:nil];
     [self setScrollView:nil];
     [self setProgressView:nil];
+    [self setCapturedImage:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -126,74 +131,6 @@
 }
 
 #pragma mark RKObjectLoaderDelegate methods
-
-- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
-    NSLog(@"resource path: %@",[request resourcePath]);
-    NSLog(@"Loaded payload: %@", [response bodyAsString]);
-    if ([request isPOST]) {  
-        
-        if ([response isJSON]) {
-            
-            if([response isOK]){
-                if ([[request resourcePath] isEqual:@"/likeitem/"]) {
-                    NSLog(@"succesful like");
-                    [_item setILike:[NSNumber numberWithInt:1]];
-                }else if ([[request resourcePath] isEqual:@"/wantitem/"]) {
-                    NSLog(@"succesful want");
-                    [_item setIWant:[NSNumber numberWithInt:1]];
-                }else if ([[request resourcePath] isEqual:@"/gotitem/"]) {
-                    NSLog(@"succesful got");
-                    [_item setIGot:[NSNumber numberWithInt:1]];
-                }
-                
-                if ([[request userData] isEqual:@"uploadPhoto"]) {
-                    self.navigationItem.rightBarButtonItem.enabled = YES;
-                }
-                NSLog(@"Got a JSON response back from our POST! %@", [response bodyAsString]);
-                
-                [self configureView];
-            }else {
-                
-            }
-        }  
-        
-    }else if ([request isDELETE]) {
-        if ([response isJSON]) {
-            
-            if([response isOK]){
-                id userData = [request userData];
-                
-                if ([userData isEqual:@"unlike"]) {
-                    NSLog(@"succesful unlike");
-                    [_item setILike:[NSNumber numberWithInt:0]];
-                }else if ([userData isEqual:@"unwant"]) {
-                    NSLog(@"succesful unwant");
-                    [_item setIWant:[NSNumber numberWithInt:0]];
-                }else if ([userData isEqual:@"ungot"]) {
-                    NSLog(@"succesful ungot");
-                    [_item setIGot:[NSNumber numberWithInt:0]];
-                }
-                NSLog(@"Got a JSON response back from our DELETE! %@", [response bodyAsString]);
-                
-                [self configureView];
-                
-            }else {
-                
-            }
-        }
-    }
-    
-}
-
-- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-    NSLog(@"loaded item %@", objects);
-    _item = [objects objectAtIndex:0];
-    [self.itemImage setImageWithURL:[NSURL URLWithString:[_item itemPhotoUrl]]];
-    NSLog(@"user actions: %@ %@ %@",[_item iLike],[_item iWant],[_item iGot]);
-    [self tweetItem];
-    [self configureView];
-    [self.scrollView setHidden:NO];
-}
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
 //    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -209,6 +146,9 @@
     float progress = ([uploaded floatValue] / [total floatValue] );
     NSLog(@"progress: %f", progress);
     [_progressView setProgress:progress animated:YES];
+    if (progress == 1.0) {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }
     NSLog(@"sent bytes: %d of %d",totalBytesWritten,totalBytesExpectedToWrite);
 }
 
@@ -307,26 +247,34 @@
     
     if ([sender isEqualToString:@"like"]) {
         if ([[_item iLike] isEqual:[NSNumber numberWithInt:1]]) {
-            [[[RKClient sharedClient] delete:[@"/likeitem/" stringByAppendingQueryParameters:params] delegate:self] setUserData:@"unlike"];
+            [_item setILike:[NSNumber numberWithInt:0]];
+            [[[RKClient sharedClient] delete:[@"/likeitem/" stringByAppendingQueryParameters:params] delegate:nil] setUserData:@"unlike"];
         }else {
-            [[RKClient sharedClient] post:@"/likeitem/" params:params delegate:self];
+            [_item setILike:[NSNumber numberWithInt:1]];
+            [[RKClient sharedClient] post:@"/likeitem/" params:params delegate:nil];
         }
         
     } else if([sender isEqualToString:@"want"]){
         if ([[_item iWant] isEqual:[NSNumber numberWithInt:1]]) {
-            [[[RKClient sharedClient] delete:[@"/wantitem/" stringByAppendingQueryParameters:params] delegate:self]  setUserData:@"unwant"];
+            [_item setIWant:[NSNumber numberWithInt:0]];
+            [[[RKClient sharedClient] delete:[@"/wantitem/" stringByAppendingQueryParameters:params] delegate:nil]  setUserData:@"unwant"];
         }else {
-            [[RKClient sharedClient] post:@"/wantitem/" params:params delegate:self];
+            [_item setIWant:[NSNumber numberWithInt:1]];
+            [[RKClient sharedClient] post:@"/wantitem/" params:params delegate:nil];
         }
     } else if([sender isEqualToString:@"got"]){
         if ([[_item iGot] isEqual:[NSNumber numberWithInt:1]]) {
-            [[[RKClient sharedClient] delete:[@"/gotitem/" stringByAppendingQueryParameters:params] delegate:self]  setUserData:@"ungot"];
+            [_item setIGot:[NSNumber numberWithInt:0]];
+            [[[RKClient sharedClient] delete:[@"/gotitem/" stringByAppendingQueryParameters:params] delegate:nil]  setUserData:@"ungot"];
         }else {
-            [[RKClient sharedClient] post:@"/gotitem/" params:params delegate:self];
+            [_item setIGot:[NSNumber numberWithInt:1]];
+            [[RKClient sharedClient] post:@"/gotitem/" params:params delegate:nil];
         }
     }else {
         return;
     }
+    
+    [self configureView];
     
 }
 

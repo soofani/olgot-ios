@@ -381,11 +381,6 @@
                                             <outlet property="delegate" destination="Hte-Zn-Pmt" id="Ym9-bf-ecQ"/>
                                         </connections>
                                     </textField>
-                                    <progressView opaque="NO" contentMode="scaleToFill" progress="0.5" id="woi-CJ-SDr">
-                                        <rect key="frame" x="9" y="302" width="300" height="9"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="progressTintColor" red="0.90980392160000001" green="0.30588235289999999" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </progressView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
@@ -398,7 +393,6 @@
                         <outlet property="itemImageView" destination="TkN-cv-J33" id="sIl-97-rx0"/>
                         <outlet property="itemPriceTF" destination="afr-X7-Hyy" id="JDe-Qy-4u5"/>
                         <outlet property="postButton" destination="3Un-t5-RhE" id="Shc-7D-baq"/>
-                        <outlet property="progressView" destination="woi-CJ-SDr" id="mDt-7U-Pyh"/>
                         <outlet property="scrollView" destination="Cj3-Wu-qDk" id="E9L-Cf-khT"/>
                         <outlet property="venueImageIV" destination="0Jo-hE-JeD" id="hdf-JK-51A"/>
                         <outlet property="venueLocationLabel" destination="vOU-TL-4gO" id="0rH-1R-YrI"/>

@@ -20,17 +20,23 @@
     IBOutlet SSLineView *line1;
     IBOutlet SSLineView *line2;
     
+    olgotItem* _item;
+    
     NSArray* accountsArray;
 }
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIProgressView *progressView;
 
-@property (strong, nonatomic) NSString *itemID;
+@property (strong, nonatomic) UIImage *capturedImage;
+
+@property (strong, nonatomic) NSNumber *itemID;
 @property (strong, nonatomic) NSString *itemKey;
+@property (strong, nonatomic) NSNumber *itemPrice;
 @property (strong, nonatomic) NSNumber *venueID;
+@property (strong, nonatomic) NSString *venueName;
 @property (strong, nonatomic) NSNumber *venueItemCount;
-@property (nonatomic, strong) olgotItem *item;
+
 
 @property (strong, nonatomic) IBOutlet UIImageView *itemImage;
 @property (strong, nonatomic) IBOutlet UIButton *venueNameBtn;

@@ -93,6 +93,7 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    self.capturedImage = nil;
     
 }
 
