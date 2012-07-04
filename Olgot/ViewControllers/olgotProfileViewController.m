@@ -361,11 +361,11 @@
 
 
 - (IBAction)showFollowersAction:(id)sender {
-    [self performSegueWithIdentifier:@"ShowFollowing" sender:self];
+    [self performSegueWithIdentifier:@"ShowFollowers" sender:self];
 }
 
 - (IBAction)showFollowingAction:(id)sender {
-    [self performSegueWithIdentifier:@"ShowFollowers" sender:self];
+    [self performSegueWithIdentifier:@"ShowFollowing" sender:self];
 }
 
 #pragma mark SSPullToRefreshViewDelegate
