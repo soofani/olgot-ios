@@ -202,8 +202,6 @@
 		FFB66B4A15934AD6003AA01F /* SSPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB66B4415934AD6003AA01F /* SSPullToRefreshView.m */; };
 		FFBE4878156E5EF700DF3716 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FFBE4877156E5EF700DF3716 /* Icon.png */; };
 		FFBE487A156E5F0600DF3716 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFBE4879156E5F0500DF3716 /* Icon@2x.png */; };
-		FFBE48C3156E664D00DF3716 /* dummy1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FFBE48B5156E664D00DF3716 /* dummy1.jpg */; };
-		FFBE48C4156E664D00DF3716 /* dummy2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FFBE48B6156E664D00DF3716 /* dummy2.jpg */; };
 		FFD62D191594C0810068B04A /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD62D181594C0810068B04A /* DejalActivityView.m */; };
 		FFD62D241594CB920068B04A /* olgotVenueMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD62D231594CB920068B04A /* olgotVenueMapViewController.m */; };
 		FFDAE0B715849FFC00859B3A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDAE0B615849FFC00859B3A /* CoreLocation.framework */; };
@@ -543,8 +541,6 @@
 		FFB66B4415934AD6003AA01F /* SSPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshView.m; sourceTree = "<group>"; };
 		FFBE4877156E5EF700DF3716 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		FFBE4879156E5F0500DF3716 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		FFBE48B5156E664D00DF3716 /* dummy1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dummy1.jpg; sourceTree = "<group>"; };
-		FFBE48B6156E664D00DF3716 /* dummy2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dummy2.jpg; sourceTree = "<group>"; };
 		FFD62D171594C0810068B04A /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
 		FFD62D181594C0810068B04A /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
 		FFD62D221594CB920068B04A /* olgotVenueMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotVenueMapViewController.h; path = ViewControllers/olgotVenueMapViewController.h; sourceTree = "<group>"; };
@@ -1012,8 +1008,6 @@
 		FFBE487B156E611800DF3716 /* dummy */ = {
 			isa = PBXGroup;
 			children = (
-				FFBE48B5156E664D00DF3716 /* dummy1.jpg */,
-				FFBE48B6156E664D00DF3716 /* dummy2.jpg */,
 			);
 			name = dummy;
 			sourceTree = "<group>";
@@ -1273,8 +1267,6 @@
 				FFA85456156D47FC0009134C /* peopleListHeaderCell.xib in Resources */,
 				FFBE4878156E5EF700DF3716 /* Icon.png in Resources */,
 				FFBE487A156E5F0600DF3716 /* Icon@2x.png in Resources */,
-				FFBE48C3156E664D00DF3716 /* dummy1.jpg in Resources */,
-				FFBE48C4156E664D00DF3716 /* dummy2.jpg in Resources */,
 				FFDC6336156E8232008CCA28 /* commentsListHeaderCell.xib in Resources */,
 				FFDC6338156E839D008CCA28 /* commentsViewCommentRow.xib in Resources */,
 				FFE9A06C157279D000509B09 /* categories.json in Resources */,
@@ -1470,7 +1462,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "ShareKit/**";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1491,7 +1483,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "ShareKit/**";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

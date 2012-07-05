@@ -107,6 +107,7 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
+    [self.pullToRefreshView finishLoading];
 }
 
 - (void)viewDidUnload
