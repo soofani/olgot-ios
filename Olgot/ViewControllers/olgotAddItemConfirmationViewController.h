@@ -10,8 +10,7 @@
 #import <SSToolkit/SSToolkit.h>
 #import <RestKit/RestKit.h>
 #import "UIImageView+AFNetworking.h"
-#import <Twitter/Twitter.h>
-#import <Accounts/Accounts.h>
+
 
 @class olgotItem;
 
@@ -22,7 +21,7 @@
     
     olgotItem* _item;
     
-    NSArray* accountsArray;
+    
 }
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;

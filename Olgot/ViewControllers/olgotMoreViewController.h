@@ -10,4 +10,10 @@
 
 @interface olgotMoreViewController : UITableViewController
 
+@property (strong, nonatomic) IBOutlet UISwitch *savePhotosSwitch;
+
+@property (strong, nonatomic) IBOutlet UISwitch *autoTweetSwitch;
+- (IBAction)changeSavePhotos:(id)sender;
+- (IBAction)changeAutoTweet:(id)sender;
+
 @end

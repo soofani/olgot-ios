@@ -117,6 +117,11 @@
         if ([self.capturedImages count] == 1)
         {
             // we took a single shot
+            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+            if ([[defaults objectForKey:@"autoSavePhotos"] isEqual:@"yes"]) {
+                UIImageWriteToSavedPhotosAlbum([self.capturedImages objectAtIndex:0], nil, nil, nil);
+            }
+            
             [self.imageView setImage:[self.capturedImages objectAtIndex:0]];
             [self dismissViewControllerAnimated:NO completion:^(void){
                         [self performSegueWithIdentifier:@"ShowNearbyPlaces" sender:self];

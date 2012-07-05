@@ -688,28 +688,28 @@
     if ([sender isEqualToString:@"like"]) {
         if ([[_item iLike] isEqual:[NSNumber numberWithInt:1]]) {
              [_item setILike:[NSNumber numberWithInt:0]];
-            [[[RKClient sharedClient] delete:[@"/likeitem/" stringByAppendingQueryParameters:params] delegate:self] setUserData:@"unlike"];
+            [[[RKClient sharedClient] delete:[@"/likeitem/" stringByAppendingQueryParameters:params] delegate:nil] setUserData:@"unlike"];
         }else {
              [_item setILike:[NSNumber numberWithInt:1]];
-            [[RKClient sharedClient] post:@"/likeitem/" params:params delegate:self];
+            [[RKClient sharedClient] post:@"/likeitem/" params:params delegate:nil];
         }
         [self.collectionView reloadData];
     } else if([sender isEqualToString:@"want"]){
         if ([[_item iWant] isEqual:[NSNumber numberWithInt:1]]) {
              [_item setIWant:[NSNumber numberWithInt:0]];
-            [[[RKClient sharedClient] delete:[@"/wantitem/" stringByAppendingQueryParameters:params] delegate:self]  setUserData:@"unwant"];
+            [[[RKClient sharedClient] delete:[@"/wantitem/" stringByAppendingQueryParameters:params] delegate:nil]  setUserData:@"unwant"];
         }else {
             [_item setIWant:[NSNumber numberWithInt:1]];
-            [[RKClient sharedClient] post:@"/wantitem/" params:params delegate:self];
+            [[RKClient sharedClient] post:@"/wantitem/" params:params delegate:nil];
         }
         [self.collectionView reloadData];
     } else if([sender isEqualToString:@"got"]){
         if ([[_item iGot] isEqual:[NSNumber numberWithInt:1]]) {
             [_item setIGot:[NSNumber numberWithInt:0]];
-            [[[RKClient sharedClient] delete:[@"/gotitem/" stringByAppendingQueryParameters:params] delegate:self]  setUserData:@"ungot"];
+            [[[RKClient sharedClient] delete:[@"/gotitem/" stringByAppendingQueryParameters:params] delegate:nil]  setUserData:@"ungot"];
         }else {
             [_item setIGot:[NSNumber numberWithInt:1]];
-            [[RKClient sharedClient] post:@"/gotitem/" params:params delegate:self];
+            [[RKClient sharedClient] post:@"/gotitem/" params:params delegate:nil];
         }
         [self.collectionView reloadData];
     }else {

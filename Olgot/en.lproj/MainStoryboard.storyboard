@@ -258,7 +258,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Nju-DV-AiX"/>
                     <navigationItem key="navigationItem" title="Share" id="NOE-uH-0Xs">
-                        <barButtonItem key="backBarButtonItem" title="Share" id="QXK-Jl-bou"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="QXK-Jl-bou"/>
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="JVG-3v-Hve" id="FsX-kt-CNw"/>
@@ -268,12 +268,14 @@
             </objects>
             <point key="canvasLocation" x="1116" y="180"/>
         </scene>
-        <!--Olgot Add Item Nearby Places View Controller - Nearby Places-->
+        <!--Olgot Add Item Nearby Places View Controller - Where is this at?-->
         <scene sceneID="g95-LZ-nCS">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gp-Xt-1FY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController hidesBottomBarWhenPushed="YES" id="W0F-bq-L6J" customClass="olgotAddItemNearbyPlacesViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Nearby Places" id="gah-HF-rCu"/>
+                    <navigationItem key="navigationItem" title="Where is this at?" id="gah-HF-rCu">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="OWD-W6-CLJ"/>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="Hte-Zn-Pmt" kind="push" identifier="ShowAddItemDetails" id="kFC-1d-6jx"/>
@@ -919,14 +921,14 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Egq-RR-Q1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="CVZ-O8-kBz" customClass="olgotMoreViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="F0B-1Q-DrB">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="F0B-1Q-DrB">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection id="Dvn-LH-hoX">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ucv-qn-CbC">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ucv-qn-CbC">
                                         <rect key="frame" x="0.0" y="10" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -944,12 +946,15 @@
                                                     <rect key="frame" x="215" y="8" width="79" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="onTintColor" red="0.90980392160000001" green="0.30588235289999999" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="changeSavePhotos:" destination="CVZ-O8-kBz" eventType="valueChanged" id="i47-fc-SPK"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="NzU-Bg-4ML">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="NzU-Bg-4ML">
                                         <rect key="frame" x="0.0" y="55" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -967,6 +972,9 @@
                                                     <rect key="frame" x="214" y="11" width="79" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="onTintColor" red="0.90980392160000001" green="0.30588235289999999" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="changeAutoTweet:" destination="CVZ-O8-kBz" eventType="valueChanged" id="Qwu-4n-Hn5"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1069,6 +1077,10 @@
                     <navigationItem key="navigationItem" title="More" id="GIT-h3-Aao">
                         <barButtonItem key="backBarButtonItem" title="Back" id="j9l-6B-h99"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="autoTweetSwitch" destination="8O1-Kw-ivE" id="xZU-RF-Tc2"/>
+                        <outlet property="savePhotosSwitch" destination="DxL-5K-12j" id="uhh-cu-Ws3"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1116" y="1360"/>
@@ -1628,6 +1640,12 @@
         </class>
         <class className="olgotMoreViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotMoreViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changeAutoTweet:"/>
+                <relationship kind="action" name="changeSavePhotos:"/>
+                <relationship kind="outlet" name="autoTweetSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="savePhotosSwitch" candidateClass="UISwitch"/>
+            </relationships>
         </class>
         <class className="olgotPeopleListViewController" superclassName="SSCollectionViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotPeopleListViewController.h"/>
@@ -1639,8 +1657,10 @@
         <class className="olgotProfileViewController" superclassName="SSCollectionViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotProfileViewController.h"/>
             <relationships>
+                <relationship kind="action" name="followButtonPressed:"/>
                 <relationship kind="action" name="showFollowersAction:"/>
                 <relationship kind="action" name="showFollowingAction:"/>
+                <relationship kind="outlet" name="followButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="profileCardTile" candidateClass="SSCollectionViewItem"/>
                 <relationship kind="outlet" name="profileItemTile" candidateClass="SSCollectionViewItem"/>
             </relationships>

@@ -13,6 +13,8 @@
 @end
 
 @implementation olgotMoreViewController
+@synthesize savePhotosSwitch;
+@synthesize autoTweetSwitch;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,10 +36,26 @@
     
     self.tableView.backgroundView = tempImageView;
     self.tableView.contentInset = UIEdgeInsetsMake(10.0,0.0,0.0,0.0);
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([[defaults objectForKey:@"autoSavePhotos"] isEqual:@"yes"]) {
+        [self.savePhotosSwitch setOn:YES];
+    }else {
+        [self.savePhotosSwitch setOn:NO];
+    }
+    
+    if ([[defaults objectForKey:@"autoTweetItems"] isEqual:@"yes"]) {
+        [self.autoTweetSwitch setOn:YES];
+    }else {
+        [self.autoTweetSwitch setOn:NO];
+    }
 }
 
 - (void)viewDidUnload
 {
+    [self setSavePhotosSwitch:nil];
+    [self setAutoTweetSwitch:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -75,4 +93,37 @@
     }
 }
 
+- (IBAction)changeSavePhotos:(id)sender {
+    NSLog(@"user changing auto save photos");
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    UISwitch* photosSwitch = (UISwitch*)sender;
+    if (photosSwitch.isOn) {
+        NSLog(@"switched on");
+        [defaults setObject:@"yes" forKey:@"autoSavePhotos"];
+    }else {
+        NSLog(@"switched off");
+        [defaults setObject:@"no" forKey:@"autoSavePhotos"];
+    }
+    
+    [defaults synchronize];
+}
+
+- (IBAction)changeAutoTweet:(id)sender {
+    NSLog(@"user changing auto tweet items");
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    UISwitch* tweetSwitch = (UISwitch*)sender;
+    if (tweetSwitch.isOn) {
+        NSLog(@"switched on");
+        [defaults setObject:@"yes" forKey:@"autoTweetItems"];
+    }else {
+        NSLog(@"switched off");
+        [defaults setObject:@"no" forKey:@"autoTweetItems"];
+    }
+    
+    [defaults synchronize];
+}
 @end

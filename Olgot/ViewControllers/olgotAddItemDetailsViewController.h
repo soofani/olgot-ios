@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "olgotVenue.h"
 #import <RestKit/RestKit.h>
+#import <Twitter/Twitter.h>
+#import <Accounts/Accounts.h>
 
 @interface olgotAddItemDetailsViewController : UIViewController<RKObjectLoaderDelegate, UITextFieldDelegate>
 {
     UIImageView *itemImageView;
     NSNumber* _itemID;
     NSString* _itemKey;
+    
+    NSArray* accountsArray;
 }
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 

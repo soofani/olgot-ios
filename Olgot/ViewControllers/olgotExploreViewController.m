@@ -180,6 +180,7 @@
         tileLabel = (UILabel *)[cell1 viewWithTag:2];
         
         [tileImage setImageWithURL:[NSURL URLWithString:feedImage]];
+        
         tileLabel.text = @"Feed";
         
         

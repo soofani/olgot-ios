@@ -252,6 +252,9 @@
     [defaults setObject:myUser.twitterName forKey:@"twittername"];
     [defaults setObject:myUser.userProfileImageUrl forKey:@"userProfileImageUrl"];
     
+    [defaults setObject:@"yes" forKey:@"autoSavePhotos"];
+    [defaults setObject:@"yes" forKey:@"autoTweetItems"];
+    
     [defaults synchronize];
     
     NSLog(@"Data saved: %@", defaults);

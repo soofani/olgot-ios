@@ -133,6 +133,9 @@
                 [defaults setObject:[_twitterJson objectForKey:@"id"] forKey:@"twitterid"];
                 [defaults setObject:[_twitterJson objectForKey:@"screen_name"] forKey:@"twittername"];
                 
+                [defaults setObject:@"yes" forKey:@"autoSavePhotos"];
+                [defaults setObject:@"yes" forKey:@"autoTweetItems"];
+                
                 [defaults synchronize];
                 
                 NSLog(@"Data saved");
