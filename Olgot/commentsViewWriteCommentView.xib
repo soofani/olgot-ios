@@ -106,28 +106,19 @@
 			<array class="NSMutableArray" key="connectionRecords">
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">mySmallImage</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="354784183"/>
-					</object>
-					<int key="connectionID">6</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">myCommentTF</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="130551034"/>
 					</object>
-					<int key="connectionID">7</int>
+					<int key="connectionID">12</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">touchedWriteComment:</string>
-						<reference key="source" ref="130551034"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">17</int>
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">mySmallImage</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="354784183"/>
 					</object>
-					<int key="connectionID">9</int>
+					<int key="connectionID">13</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -136,15 +127,16 @@
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">20</int>
 					</object>
-					<int key="connectionID">10</int>
+					<int key="connectionID">14</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">delegate</string>
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">touchedWriteComment:</string>
 						<reference key="source" ref="130551034"/>
 						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">17</int>
 					</object>
-					<int key="connectionID">11</int>
+					<int key="connectionID">15</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -188,7 +180,7 @@
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
-				<string key="-1.CustomClassName">olgotItemViewController</string>
+				<string key="-1.CustomClassName">olgotCommentsListViewController</string>
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -200,7 +192,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">11</int>
+			<int key="maxID">15</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -221,88 +213,36 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">olgotItemViewController</string>
+					<string key="className">olgotCommentsListViewController</string>
 					<string key="superclassName">SSCollectionViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="finishedComment:">id</string>
-						<string key="gotAction:">id</string>
-						<string key="likeAction:">id</string>
-						<string key="showProfile:">id</string>
-						<string key="showVenue:">id</string>
 						<string key="touchedWriteComment:">id</string>
-						<string key="wantAction:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="finishedComment:">
 							<string key="name">finishedComment:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="gotAction:">
-							<string key="name">gotAction:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="likeAction:">
-							<string key="name">likeAction:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showProfile:">
-							<string key="name">showProfile:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showVenue:">
-							<string key="name">showVenue:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="touchedWriteComment:">
 							<string key="name">touchedWriteComment:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="wantAction:">
-							<string key="name">wantAction:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="commentCell">SSCollectionViewItem</string>
-						<string key="commentsFooter">SSCollectionViewItem</string>
-						<string key="commentsHeader">SSCollectionViewItem</string>
-						<string key="finderCell">SSCollectionViewItem</string>
-						<string key="gotButton">UIButton</string>
-						<string key="itemCell">SSCollectionViewItem</string>
-						<string key="likeButton">UIButton</string>
+						<string key="commentsListHeader">SSCollectionViewItem</string>
 						<string key="myCommentTF">UITextField</string>
 						<string key="mySmallImage">UIImageView</string>
-						<string key="peopleRowCell">SSCollectionViewItem</string>
-						<string key="wantButton">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="commentCell">
 							<string key="name">commentCell</string>
 							<string key="candidateClassName">SSCollectionViewItem</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="commentsFooter">
-							<string key="name">commentsFooter</string>
+						<object class="IBToOneOutletInfo" key="commentsListHeader">
+							<string key="name">commentsListHeader</string>
 							<string key="candidateClassName">SSCollectionViewItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="commentsHeader">
-							<string key="name">commentsHeader</string>
-							<string key="candidateClassName">SSCollectionViewItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="finderCell">
-							<string key="name">finderCell</string>
-							<string key="candidateClassName">SSCollectionViewItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="gotButton">
-							<string key="name">gotButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="itemCell">
-							<string key="name">itemCell</string>
-							<string key="candidateClassName">SSCollectionViewItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="likeButton">
-							<string key="name">likeButton</string>
-							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="myCommentTF">
 							<string key="name">myCommentTF</string>
@@ -312,18 +252,10 @@
 							<string key="name">mySmallImage</string>
 							<string key="candidateClassName">UIImageView</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="peopleRowCell">
-							<string key="name">peopleRowCell</string>
-							<string key="candidateClassName">SSCollectionViewItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="wantButton">
-							<string key="name">wantButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/olgotItemViewController.h</string>
+						<string key="minorKey">./Classes/olgotCommentsListViewController.h</string>
 					</object>
 				</object>
 			</array>

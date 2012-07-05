@@ -1036,6 +1036,7 @@
 				PRODUCT_NAME = SSToolkit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -1081,6 +1082,7 @@
 				PRODUCT_NAME = SSToolkit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};

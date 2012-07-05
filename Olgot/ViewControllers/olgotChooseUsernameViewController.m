@@ -81,13 +81,31 @@
 }
 
 - (IBAction)pressedDone:(id)sender {
+    [self dismissKeyboard];
+}
+
+-(BOOL)verifyFields{
+    if(self.usernameTF.text.length == 0){
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please choose a Username." delegate:nil cancelButtonTitle:@"OK.." otherButtonTitles:nil, nil];
+        [alert show];
+        return NO;
+    }
+    
+    if(self.usernameTF.text.length == 0){
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please type in your Email address." delegate:nil cancelButtonTitle:@"OK.." otherButtonTitles:nil, nil];
+        [alert show];
+        return NO;
+    }
+
+    return YES;
 }
 
 - (IBAction)createAccount:(id)sender {
 
-    [DejalBezelActivityView activityViewForView:self.view withLabel:@""];
-    NSString* completeResponse = [[NSString alloc] initWithData:_twitterResponseData encoding:NSUTF8StringEncoding];
-    
+    if ([self verifyFields]) {
+        [DejalBezelActivityView activityViewForView:self.view withLabel:@""];
+        NSString* completeResponse = [[NSString alloc] initWithData:_twitterResponseData encoding:NSUTF8StringEncoding];
+        
         NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
                                 self.usernameTF.text,@"username",
                                 @"nopass",@"password",
@@ -99,8 +117,8 @@
                                 nil];
         
         [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-        [[RKClient sharedClient] post:@"/user/" params:params delegate:self];  
-
+        [[RKClient sharedClient] post:@"/user/" params:params delegate:self];
+    }
     
 }
 

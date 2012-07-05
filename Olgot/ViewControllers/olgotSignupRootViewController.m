@@ -19,7 +19,6 @@
 @synthesize activityIndicator;
 @synthesize twitterSigninButton;
 
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

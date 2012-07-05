@@ -13,6 +13,7 @@
 
 @interface olgotSignupRootViewController : UIViewController<RKRequestDelegate, UIActionSheetDelegate, RKObjectLoaderDelegate>
 {
+    
     NSString* _twitterName;
     NSData* _twitterResponse;
     NSArray* twitterAccounts;

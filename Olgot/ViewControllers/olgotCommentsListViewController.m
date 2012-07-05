@@ -21,6 +21,9 @@
 
 @synthesize itemID = _itemID, commentsNumber = _commentsNumber;
 
+@synthesize mySmallImage = _mySmallImage;
+@synthesize myCommentTF = _myCommentTF;
+
 @synthesize pullToRefreshView = _pullToRefreshView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -61,6 +64,14 @@
     [objectManager loadObjectsAtResourcePath:[resourcePath stringByAppendingQueryParameters:myParams] delegate:self];
 }
 
+-(void)dismissKeyboard {
+    [self.myCommentTF resignFirstResponder];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    myCommentView.frame = CGRectMake(0, 378, 320, 40);
+    [UIView commitAnimations];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -77,6 +88,22 @@
     
     self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionView.scrollView delegate:self];
     
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    
+    myCommentView = [[[NSBundle mainBundle] loadNibNamed:@"commentsViewWriteCommentView" owner:self options:nil] objectAtIndex:0];
+    
+    myCommentView.frame = CGRectMake(0, 378, 320, 40);
+    
+    [self.mySmallImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"userProfileImageUrl"]]];
+    [self.view addSubview:myCommentView];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] 
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [tap setCancelsTouchesInView:NO];
+    [self.view addGestureRecognizer:tap];
+    
 }
 
 - (void)viewDidUnload
@@ -84,6 +111,8 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     self.pullToRefreshView = nil;
+    [self setMySmallImage:nil];
+    [self setMyCommentTF:nil];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -254,6 +283,43 @@
     loadingNew = NO;
     
     [self loadComments];
+    
+}
+
+- (IBAction)touchedWriteComment:(id)sender {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    //    [UIView setAnimationDelay:0.1];
+    myCommentView.frame = CGRectMake(0, 160, 320, 40);
+    [UIView commitAnimations];
+}
+
+- (IBAction)finishedComment:(id)sender {
+    [self performSelector:@selector(dismissKeyboard)];
+    NSLog(@"user finished commenting: %@", self.myCommentTF.text);
+    
+    NSString* commentBody = self.myCommentTF.text;
+    NSString *trimmedBody = [commentBody stringByTrimmingCharactersInSet:
+                             [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    if (![trimmedBody isEqualToString:@""]) {
+        NSLog(@"sending comment");
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        
+        NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
+                                _itemID, @"item",
+                                [defaults objectForKey:@"userid"], @"id",
+                                commentBody, @"body",
+                                nil];
+        
+        [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        
+        [[RKClient sharedClient] post:@"/comment/" params:params delegate:self];
+    }else {
+        NSLog(@"empty comment, not sending");
+    }
+    
+    self.myCommentTF.text = nil;
     
 }
 

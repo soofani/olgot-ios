@@ -165,8 +165,11 @@
 		FF919A42157CD230000978A5 /* msg-action-want.png in Resources */ = {isa = PBXBuildFile; fileRef = FF919A3C157CD230000978A5 /* msg-action-want.png */; };
 		FF919A43157CD230000978A5 /* msg-action-want@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF919A3D157CD230000978A5 /* msg-action-want@2x.png */; };
 		FF919A45157D04B3000978A5 /* itemViewWriteCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF919A44157D04B3000978A5 /* itemViewWriteCommentView.xib */; };
-		FF980BE515A5E47200001259 /* btn-share-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF980BE315A5E47200001259 /* btn-share-@2x.png */; };
 		FF980BE615A5E47200001259 /* btn-share.png in Resources */ = {isa = PBXBuildFile; fileRef = FF980BE415A5E47200001259 /* btn-share.png */; };
+		FF980BE815A5E5AA00001259 /* btn-share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF980BE715A5E5AA00001259 /* btn-share@2x.png */; };
+		FF980BEA15A5E65F00001259 /* commentsViewWriteCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF980BE915A5E65F00001259 /* commentsViewWriteCommentView.xib */; };
+		FF980C0515A5EDDF00001259 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF980C0415A5EDDF00001259 /* MessageUI.framework */; };
+		FF980C0715A5EE1200001259 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF980C0615A5EE1200001259 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FFA4ED93155D12D8008CB4CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED92155D12D8008CB4CA /* UIKit.framework */; };
 		FFA4ED95155D12D8008CB4CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED94155D12D8008CB4CA /* Foundation.framework */; };
 		FFA4ED97155D12D8008CB4CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED96155D12D8008CB4CA /* CoreGraphics.framework */; };
@@ -493,8 +496,11 @@
 		FF919A3C157CD230000978A5 /* msg-action-want.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "msg-action-want.png"; sourceTree = "<group>"; };
 		FF919A3D157CD230000978A5 /* msg-action-want@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "msg-action-want@2x.png"; sourceTree = "<group>"; };
 		FF919A44157D04B3000978A5 /* itemViewWriteCommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = itemViewWriteCommentView.xib; sourceTree = "<group>"; };
-		FF980BE315A5E47200001259 /* btn-share-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-share-@2x.png"; sourceTree = "<group>"; };
 		FF980BE415A5E47200001259 /* btn-share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-share.png"; sourceTree = "<group>"; };
+		FF980BE715A5E5AA00001259 /* btn-share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-share@2x.png"; sourceTree = "<group>"; };
+		FF980BE915A5E65F00001259 /* commentsViewWriteCommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = commentsViewWriteCommentView.xib; sourceTree = "<group>"; };
+		FF980C0415A5EDDF00001259 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		FF980C0615A5EE1200001259 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		FFA4ED8E155D12D8008CB4CA /* Olgot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Olgot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFA4ED92155D12D8008CB4CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FFA4ED94155D12D8008CB4CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -577,7 +583,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF980C0715A5EE1200001259 /* CoreFoundation.framework in Frameworks */,
 				FFDAE0B715849FFC00859B3A /* CoreLocation.framework in Frameworks */,
+				FF7AAEFF157237940073EAA3 /* CFNetwork.framework in Frameworks */,
+				FF980C0515A5EDDF00001259 /* MessageUI.framework in Frameworks */,
 				FF6AFF9B15814637000A24BA /* libsqlite3.dylib in Frameworks */,
 				FF6AFF9915814626000A24BA /* libz.dylib in Frameworks */,
 				FF20E760157525F5004EC879 /* Accounts.framework in Frameworks */,
@@ -587,7 +596,6 @@
 				FF7AAF05157237BA0073EAA3 /* SystemConfiguration.framework in Frameworks */,
 				FF7AAF03157237AD0073EAA3 /* Security.framework in Frameworks */,
 				FF7AAF011572379E0073EAA3 /* CoreData.framework in Frameworks */,
-				FF7AAEFF157237940073EAA3 /* CFNetwork.framework in Frameworks */,
 				FFDCBDF91562622800FB8009 /* MapKit.framework in Frameworks */,
 				FFDCBDF71562621900FB8009 /* MobileCoreServices.framework in Frameworks */,
 				FF10F2FD155D206600F4EC2E /* QuartzCore.framework in Frameworks */,
@@ -751,8 +759,8 @@
 				FF916C241561419B004C6A86 /* bg-nav-bar@2x.png */,
 				FF57DA19156A5A9900DFAB3E /* btn-share-130x116.png */,
 				FF57DA1A156A5A9900DFAB3E /* btn-share-130x116@2x.png */,
-				FF980BE315A5E47200001259 /* btn-share-@2x.png */,
 				FF980BE415A5E47200001259 /* btn-share.png */,
+				FF980BE715A5E5AA00001259 /* btn-share@2x.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -783,6 +791,7 @@
 				FFA85429156D32980009134C /* peopleListPersonCell.xib */,
 				FFA85455156D47FC0009134C /* peopleListHeaderCell.xib */,
 				FFDC6335156E8232008CCA28 /* commentsListHeaderCell.xib */,
+				FF980BE915A5E65F00001259 /* commentsViewWriteCommentView.xib */,
 				FFA85427156D31590009134C /* itemViewHeaderTile.xib */,
 				FFA8542F156D37AA0009134C /* itemViewFinderTile.xib */,
 				FFA85431156D38460009134C /* itemViewPeopleRow.xib */,
@@ -855,6 +864,8 @@
 		FFA4ED83155D12D8008CB4CA = {
 			isa = PBXGroup;
 			children = (
+				FF980C0615A5EE1200001259 /* CoreFoundation.framework */,
+				FF980C0415A5EDDF00001259 /* MessageUI.framework */,
 				FFDAE0B615849FFC00859B3A /* CoreLocation.framework */,
 				FF6AFF9A15814636000A24BA /* libsqlite3.dylib */,
 				FF6AFF9815814626000A24BA /* libz.dylib */,
@@ -1296,8 +1307,9 @@
 				FFF580B015A08B5300662E8D /* icon-tab-bar-lovely-active@2x.png in Resources */,
 				FFF580B115A08B5300662E8D /* icon-tab-bar-lovely.png in Resources */,
 				FFF580B215A08B5300662E8D /* icon-tab-bar-lovely@2x.png in Resources */,
-				FF980BE515A5E47200001259 /* btn-share-@2x.png in Resources */,
 				FF980BE615A5E47200001259 /* btn-share.png in Resources */,
+				FF980BE815A5E5AA00001259 /* btn-share@2x.png in Resources */,
+				FF980BEA15A5E65F00001259 /* commentsViewWriteCommentView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1458,6 +1470,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "ShareKit/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1478,6 +1491,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "ShareKit/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

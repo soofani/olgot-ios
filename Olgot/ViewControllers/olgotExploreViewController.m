@@ -13,6 +13,7 @@
 #import "olgotCategory.h"
 #import "olgotItem.h"
 
+
 @interface olgotExploreViewController ()
 
 @end
@@ -302,6 +303,7 @@
     }
 }
 
+
 // Delegate method from the CLLocationManagerDelegate protocol.
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
@@ -339,12 +341,14 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-//        NSLog(@"Name: %@ %@", [JSON valueForKeyPath:@"first_name"], [JSON valueForKeyPath:@"last_name"]);
-        NSLog(@"got: %@",[[[[JSON valueForKeyPath:@"feed"] valueForKeyPath:@"items"] valueForKeyPath:@"itemPhotoUrl"] objectAtIndex:0]);
         
-        feedImage = [[[[JSON valueForKeyPath:@"feed"] valueForKeyPath:@"items"] valueForKeyPath:@"itemPhotoUrl"] objectAtIndex:0];
+        if ([[[[JSON valueForKeyPath:@"feed"] valueForKeyPath:@"items"] valueForKeyPath:@"itemPhotoUrl"] count] > 0) {
+            feedImage = [[[[JSON valueForKeyPath:@"feed"] valueForKeyPath:@"items"] valueForKeyPath:@"itemPhotoUrl"] objectAtIndex:0];
+        }
         
-        nearbyImage = [[[[JSON valueForKeyPath:@"nearby"] valueForKeyPath:@"items"] valueForKeyPath:@"itemPhotoUrl"] objectAtIndex:0];
+        if ([[[[JSON valueForKeyPath:@"nearby"] valueForKeyPath:@"items"] valueForKeyPath:@"itemPhotoUrl"] count] > 0) {
+            nearbyImage = [[[[JSON valueForKeyPath:@"nearby"] valueForKeyPath:@"items"] valueForKeyPath:@"itemPhotoUrl"] objectAtIndex:0];
+        }
         
         if ([[[[JSON valueForKeyPath:@"wants"] valueForKeyPath:@"items"] valueForKeyPath:@"itemPhotoUrl"] count] > 0) {
                 wantsImage = [[[[JSON valueForKeyPath:@"wants"] valueForKeyPath:@"items"] valueForKeyPath:@"itemPhotoUrl"] objectAtIndex:0];
@@ -368,7 +372,7 @@
 -(void)refresh{
     [self.pullToRefreshView startLoading];
     [self loadCategories];
-//    [self.pullToRefreshView finishLoading];
+    [self loadFixedCategories];
 }
 
 @end
