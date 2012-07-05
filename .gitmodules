@@ -4,3 +4,6 @@
 [submodule "Vendor/SSPullToRefresh"]
 	path = Vendor/SSPullToRefresh
 	url = https://github.com/samsoffes/sspulltorefresh.git
+[submodule "ShareKit"]
+	path = ShareKit
+	url = git://github.com/ShareKit/ShareKit.git
