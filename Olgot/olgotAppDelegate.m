@@ -347,6 +347,7 @@
     
     [objectManager.mappingProvider setObjectMapping:venueMapping forResourcePathPattern:@"/venue/"];
     [objectManager.mappingProvider setObjectMapping:venueMapping forResourcePathPattern:@"/nearbyvenues/"];
+    [objectManager.mappingProvider setObjectMapping:venueMapping forResourcePathPattern:@"/findvenues/"];
     
     [objectManager.mappingProvider setObjectMapping:actionUserMapping forResourcePathPattern:@"/itemlikes/"];
     [objectManager.mappingProvider setObjectMapping:actionUserMapping forResourcePathPattern:@"/itemwants/"];

@@ -18,6 +18,7 @@
 @implementation olgotAddItemNearbyPlacesViewController
 
 @synthesize capturedImage = _capturedImage, placeCell = _placeCell;
+@synthesize searchBar = _searchBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,7 +29,7 @@
     return self;
 }
 
-- (void)loadVenues {
+- (void)loadVenues:(NSString*)query {
     loadingNew = YES;
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
@@ -36,15 +37,25 @@
     NSNumber* lat = [NSNumber numberWithDouble:locationManager.location.coordinate.latitude];
     NSNumber* lng = [NSNumber numberWithDouble:locationManager.location.coordinate.longitude];
     
-    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+    NSMutableDictionary* myParams = [NSMutableDictionary dictionaryWithObjectsAndKeys: 
                               lat, @"lat", 
                               lng,@"long", 
                               [NSNumber numberWithInt:_currentPage], @"page",
                               [NSNumber numberWithInt:_pageSize], @"pagesize",
                               nil];
-
-    NSString* resourcePath = [@"/nearbyvenues/" appendQueryParams:myParams];
-    NSLog(@"requesting nearby place %@", resourcePath);
+    
+    
+    NSString* resourcePath;
+    NSLog(@"query is %@",query);
+    if (query) {
+        NSLog(@"loading items with query");
+        [myParams setValue:query forKey:@"query"];
+        resourcePath = [@"/findvenues/" appendQueryParams:myParams];
+    }else{
+        resourcePath = [@"/nearbyvenues/" appendQueryParams:myParams];
+        NSLog(@"requesting nearby place %@", resourcePath);
+    }
+    
     [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
 }
 
@@ -54,17 +65,23 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320.0, 44.0)];
+    _searchBar.delegate = self;
+    _searchBar.showsCancelButton = YES;
+    
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
     [tempImageView setFrame:self.collectionView.frame]; 
     
     self.collectionView.backgroundView = tempImageView;
     self.collectionView.rowSpacing = 0.0f;
     
+//    self.collectionView.scrollView.bounds = CGRectMake(0, 70.0, 320.0, 410.0);
+    [self.collectionView.scrollView setFrame:CGRectMake(0.0, 44.0, 320.0, 430.0)];
     self.collectionView.scrollView.contentInset = UIEdgeInsetsMake(10.0,0.0,0.0,0.0);
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
     
-    
+    [self.view addSubview:_searchBar];
     _places = [[NSMutableArray alloc] init];
     _currentPage = 1;
     _pageSize = 10;
@@ -91,6 +108,7 @@
 
 - (void)viewDidUnload
 {
+    [self setSearchBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     self.capturedImage = nil;
@@ -173,7 +191,7 @@
     placeLabel.text = [[_places objectAtIndex:indexPath.row] name_En];
     
     placeLabel = (UILabel*)[cell viewWithTag:3];    //place name
-    placeLabel.text = [[_places objectAtIndex:indexPath.row] name_En];
+    placeLabel.text = [[_places objectAtIndex:indexPath.row] foursquareAddress];
         
     return cell;
 }
@@ -220,7 +238,8 @@
     if (indexPath.row == ([_places count] - 1) && loadingNew == NO && indexPath.section == 0 && ([_places count] > 5)) {
         _currentPage++;
         NSLog(@"loading page %d",_currentPage);
-        [self loadVenues];
+        
+        [self loadVenues:self.searchBar.text];
     }
 }
 
@@ -238,12 +257,37 @@
     if (abs(howRecent) < 15.0)
     {
         [manager stopUpdatingLocation];
-        [self loadVenues];
+        [self loadVenues:nil];
 
     }
     // else skip the event and process the next one.
 }
 
+#pragma mark uisearchbardelegate
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    if (searchBar.text.length == 0) {
+        _places = [[NSMutableArray alloc] init];
+        [self.collectionView reloadData];
+        _currentPage = 1;
+        _pageSize = 10;
+        loadingNew = NO;
+        [self loadVenues:nil];
+    }
+    
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    _places = [[NSMutableArray alloc] init];
+    [self.collectionView reloadData];
+    _currentPage = 1;
+    _pageSize = 10;
+    loadingNew = NO;
+    [self loadVenues:searchBar.text];
+}
 
 @end

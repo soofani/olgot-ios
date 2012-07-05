@@ -7,11 +7,11 @@
 
 #import "olgotExploreViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 #import "olgotBoardViewController.h"
 #import "olgotCategory.h"
 #import "olgotItem.h"
-
 
 @interface olgotExploreViewController ()
 
@@ -126,6 +126,7 @@
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
     NSLog(@"Loaded payload: %@", [response bodyAsString]);
+    
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
@@ -178,13 +179,9 @@
         tileImage = (UIImageView *)[cell1 viewWithTag:1];
         tileLabel = (UILabel *)[cell1 viewWithTag:2];
         
-//        tileImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"dummy%d%@", 14,@".jpg"]];
-        tileImage.image = [UIImage imageNamed:@"thumb-feed.jpg"];
+        [tileImage setImageWithURL:[NSURL URLWithString:feedImage]];
         tileLabel.text = @"Feed";
         
-//        cell1.layer.shadowOpacity = 0.5;
-//        cell1.layer.shadowColor = [[UIColor blackColor] CGColor];
-//        cell1.layer.shadowOffset = CGSizeMake(1.0, 1.0);
         
         return cell1;
     }
@@ -204,16 +201,12 @@
         tileLabel = (UILabel *)[cell2 viewWithTag:2];
         
         if (indexPath.row == 0) {
-            tileImage.image = [UIImage imageNamed:@"dummy1.jpg"];
+            [tileImage setImageWithURL:[NSURL URLWithString:nearbyImage]];
             tileLabel.text = @"Nearby";
         }else if (indexPath.row == 1) {
-            tileImage.image = [UIImage imageNamed:@"dummy2.jpg"];
+            [tileImage setImageWithURL:[NSURL URLWithString:wantsImage]];
             tileLabel.text = @"My Wants";
         }
-        
-//        cell2.layer.shadowOpacity = 0.5;
-//        cell2.layer.shadowColor = [[UIColor blackColor] CGColor];
-//        cell2.layer.shadowOffset = CGSizeMake(1.0, 1.0);
         
         return cell2;
     }
@@ -234,10 +227,6 @@
         
         [tileImage setImageWithURL:[NSURL URLWithString:[[[_categories objectAtIndex:indexPath.row] lastItem] itemPhotoUrl]]];
         tileLabel.text = [[_categories objectAtIndex:indexPath.row] name_En];
-        
-//        cell3.layer.shadowOpacity = 0.5;
-//        cell3.layer.shadowColor = [[UIColor blackColor] CGColor];
-//        cell3.layer.shadowOffset = CGSizeMake(1.0, 1.0);
         
         return cell3;
     }
@@ -283,8 +272,6 @@
     }
 	
 }
-
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
@@ -332,10 +319,44 @@
         [defaults setObject:[NSNumber numberWithFloat:newLocation.coordinate.longitude] forKey:@"lastestLongitude"];
         
         [defaults synchronize];
-        
+    
+        [self loadFixedCategories];
         [locationManager stopUpdatingLocation];
     }
     // else skip the event and process the next one.
+}
+
+-(void)loadFixedCategories
+{
+    NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:
+                            [defaults objectForKey:@"userid"], @"id",
+                            [NSNumber numberWithDouble:locationManager.location.coordinate.latitude],@"lat",
+                            [NSNumber numberWithDouble:locationManager.location.coordinate.longitude],@"long",
+                            nil];
+    
+    NSURL *url = [NSURL URLWithString:[@"http://www.olgot.com/olgot/index.php/api/fixedcategories/" stringByAppendingQueryParameters:params]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+//        NSLog(@"Name: %@ %@", [JSON valueForKeyPath:@"first_name"], [JSON valueForKeyPath:@"last_name"]);
+        NSLog(@"got: %@",[[[[JSON valueForKeyPath:@"feed"] valueForKeyPath:@"items"] valueForKeyPath:@"itemPhotoUrl"] objectAtIndex:0]);
+        
+        feedImage = [[[[JSON valueForKeyPath:@"feed"] valueForKeyPath:@"items"] valueForKeyPath:@"itemPhotoUrl"] objectAtIndex:0];
+        
+        nearbyImage = [[[[JSON valueForKeyPath:@"nearby"] valueForKeyPath:@"items"] valueForKeyPath:@"itemPhotoUrl"] objectAtIndex:0];
+        
+        if ([[[[JSON valueForKeyPath:@"wants"] valueForKeyPath:@"items"] valueForKeyPath:@"itemPhotoUrl"] count] > 0) {
+                wantsImage = [[[[JSON valueForKeyPath:@"wants"] valueForKeyPath:@"items"] valueForKeyPath:@"itemPhotoUrl"] objectAtIndex:0];
+        }
+        
+        [self.collectionView reloadData];
+        
+        
+    } failure:^(NSURLRequest *request , NSHTTPURLResponse *response , NSError *error , id JSON){
+        NSLog(@"AFNetowkring failed from %@", [request URL]);
+    }];
+    
+    [operation start];
 }
 
 #pragma mark SSPullToRefreshViewDelegate

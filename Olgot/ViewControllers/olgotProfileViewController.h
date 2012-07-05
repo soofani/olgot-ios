@@ -29,5 +29,7 @@
 - (IBAction)showFollowersAction:(id)sender;
 - (IBAction)showFollowingAction:(id)sender;
 @property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
+@property (strong, nonatomic) IBOutlet UIButton *followButton;
+- (IBAction)followButtonPressed:(id)sender;
 
 @end

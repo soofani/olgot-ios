@@ -399,12 +399,13 @@
 					</object>
 					<object class="IBUIButton" id="74477817">
 						<reference key="NSNextResponder" ref="601108487"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">294</int>
 						<string key="NSFrame">{{5, 99}, {130, 34}}</string>
 						<reference key="NSSuperview" ref="601108487"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
+						<int key="IBUIContentMode">1</int>
 						<int key="IBUITag">7</int>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -457,6 +458,14 @@
 					<int key="connectionID">40</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">followButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="74477817"/>
+					</object>
+					<int key="connectionID">43</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">showFollowersAction:</string>
 						<reference key="source" ref="871365970"/>
@@ -473,6 +482,15 @@
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">42</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">followButtonPressed:</string>
+						<reference key="source" ref="74477817"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">44</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -658,7 +676,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">42</int>
+			<int key="maxID">44</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -690,10 +708,15 @@
 					<string key="className">olgotProfileViewController</string>
 					<string key="superclassName">SSCollectionViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="followButtonPressed:">id</string>
 						<string key="showFollowersAction:">id</string>
 						<string key="showFollowingAction:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="followButtonPressed:">
+							<string key="name">followButtonPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="showFollowersAction:">
 							<string key="name">showFollowersAction:</string>
 							<string key="candidateClassName">id</string>
@@ -704,10 +727,15 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="followButton">UIButton</string>
 						<string key="profileCardTile">SSCollectionViewItem</string>
 						<string key="profileItemTile">SSCollectionViewItem</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="followButton">
+							<string key="name">followButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="profileCardTile">
 							<string key="name">profileCardTile</string>
 							<string key="candidateClassName">SSCollectionViewItem</string>

@@ -12,7 +12,7 @@
 #import <RestKit/RestKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface olgotAddItemNearbyPlacesViewController : SSCollectionViewController <RKObjectLoaderDelegate,CLLocationManagerDelegate>
+@interface olgotAddItemNearbyPlacesViewController : SSCollectionViewController <RKObjectLoaderDelegate,CLLocationManagerDelegate, UISearchBarDelegate>
 {
     NSMutableArray* _places;
     NSIndexPath* _selectedRowIndexPath;
@@ -25,5 +25,6 @@
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *placeCell;
 @property (strong, nonatomic) UIImage *capturedImage;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

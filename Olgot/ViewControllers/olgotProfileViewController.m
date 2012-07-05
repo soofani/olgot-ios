@@ -26,6 +26,7 @@
 @synthesize userID = _userID;
 
 @synthesize pullToRefreshView = _pullToRefreshView;
+@synthesize followButton = _followButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -149,6 +150,7 @@
 - (void)viewDidUnload
 {
     
+    [self setFollowButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     self.userID = nil;
@@ -233,11 +235,6 @@
         userLabel = (UILabel*)[cell1 viewWithTag:6];    //following
         userLabel.text = [[_user following] stringValue];
         
-//        cell1.layer.shadowOpacity = 0.3;
-//        cell1.layer.shadowColor = [[UIColor blackColor] CGColor];
-//        cell1.layer.shadowOffset = CGSizeMake(0.0, 1.0);
-//        cell1.layer.shouldRasterize = YES;
-        
         return cell1;
     }
     else {
@@ -262,15 +259,10 @@
         [itemLabel setText:[[_items objectAtIndex:indexPath.row] venueName_En]];
         
         itemLabel = (UILabel *)[cell2 viewWithTag:4]; //price
-        [itemLabel setText:[NSString stringWithFormat:@"%d %@",
-                            [[[_items objectAtIndex:indexPath.row] itemPrice] integerValue],
+        [itemLabel setText:[NSString stringWithFormat:@"%g %@",
+                            [[[_items objectAtIndex:indexPath.row] itemPrice] floatValue],
                             [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]                  
                             ]];
-        
-//        cell2.layer.shadowOpacity = 0.5;
-//        cell2.layer.shadowColor = [[UIColor blackColor] CGColor];
-//        cell2.layer.shadowOffset = CGSizeMake(1.0, 1.0);
-//        cell2.layer.shouldRasterize = YES;
         
         return cell2;
     }
@@ -382,5 +374,26 @@
     
     [self loadItems];
     
+}
+- (IBAction)followButtonPressed:(id)sender {
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            [_user userId], @"user",
+                            [defaults objectForKey:@"userid"], @"id",
+                            nil];
+    
+    [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    if ([[_user iFollow] isEqualToNumber:[NSNumber numberWithInt:1]]) {
+//        unfollow user
+        [_user setIFollow:[NSNumber numberWithInt:0]];
+        [self.collectionView reloadData];
+        [[RKClient sharedClient] delete:[@"/follower/" stringByAppendingQueryParameters:params] delegate:self];
+        
+    } else {
+//        follow user
+        [_user setIFollow:[NSNumber numberWithInt:1]];
+        [self.collectionView reloadData];
+        [[RKClient sharedClient] post:@"/follower/" params:params delegate:self];
+        
+    }
 }
 @end

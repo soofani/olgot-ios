@@ -406,7 +406,7 @@
         [finderButton setTitle:[_item venueName_En] forState:UIControlStateNormal];
         
         finderLabel = (UILabel*)[cell viewWithTag:4]; //price
-        [finderLabel setText:[NSString stringWithFormat:@"%@ %d",[_item countryCurrencyShortName],[[_item itemPrice] intValue]]];
+        [finderLabel setText:[NSString stringWithFormat:@"%@ %g",[_item countryCurrencyShortName],[[_item itemPrice] floatValue]]];
         
         return cell;
     }

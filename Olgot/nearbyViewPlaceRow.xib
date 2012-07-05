@@ -51,7 +51,7 @@
 					<object class="IBUIView" id="407547105">
 						<reference key="NSNextResponder" ref="393182015"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 80}, {300, 1}}</string>
+						<string key="NSFrame">{{0, 79}, {300, 1}}</string>
 						<reference key="NSSuperview" ref="393182015"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -296,17 +296,20 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">olgotAddItemNearbyPlacesViewController</string>
 					<string key="superclassName">SSCollectionViewController</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">placeCell</string>
-						<string key="NS.object.0">SSCollectionViewItem</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">placeCell</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="placeCell">SSCollectionViewItem</string>
+						<string key="searchBar">UISearchBar</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="placeCell">
 							<string key="name">placeCell</string>
 							<string key="candidateClassName">SSCollectionViewItem</string>
 						</object>
-					</object>
+						<object class="IBToOneOutletInfo" key="searchBar">
+							<string key="name">searchBar</string>
+							<string key="candidateClassName">UISearchBar</string>
+						</object>
+					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/olgotAddItemNearbyPlacesViewController.h</string>

@@ -18,6 +18,9 @@
     NSIndexPath* _selectedRowIndexPath;
     NSUserDefaults* defaults;
     CLLocationManager* locationManager;
+    NSString* feedImage;
+    NSString* nearbyImage;
+    NSString* wantsImage;
 }
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *boardBigTile;

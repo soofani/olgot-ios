@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/ViewControllers/olgotExploreViewController.m"
-         timestampString = "362845686.539447"
+         timestampString = "363186901.449116"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "274"
-         endingLineNumber = "274"
+         startingLineNumber = "263"
+         endingLineNumber = "263"
          landmarkName = "-collectionView:didSelectItemAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/ViewControllers/olgotProfileViewController.m"
-         timestampString = "361975735.960322"
+         timestampString = "363183359.345144"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "42"
-         endingLineNumber = "42"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
          landmarkName = "-setUserID:"
          landmarkType = "5">
       </FileBreakpoint>

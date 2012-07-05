@@ -1483,6 +1483,204 @@
         <image name="logo-380x200.png" width="190" height="100"/>
         <image name="slogan-390x50.png" width="195" height="25"/>
     </resources>
+    <classes>
+        <class className="SSCollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSCollectionViewController.h"/>
+        </class>
+        <class className="SSCollectionViewItem" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSCollectionViewItem.h"/>
+        </class>
+        <class className="SSLineView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSLineView.h"/>
+        </class>
+        <class className="olgotAccountSettingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotAccountSettingsViewController.h"/>
+        </class>
+        <class className="olgotAddItemConfirmationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotAddItemConfirmationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="gotPressed:"/>
+                <relationship kind="action" name="likePressed:"/>
+                <relationship kind="action" name="venueNamePressed:"/>
+                <relationship kind="action" name="wantPressed:"/>
+                <relationship kind="outlet" name="gotButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="itemImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="itemPriceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="likeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="line1" candidateClass="SSLineView"/>
+                <relationship kind="outlet" name="line2" candidateClass="SSLineView"/>
+                <relationship kind="outlet" name="placeBigLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="placeItemCountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="progressView" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="venueNameBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="wantButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="olgotAddItemDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotAddItemDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addedDescription:"/>
+                <relationship kind="action" name="addedPrice:"/>
+                <relationship kind="action" name="editDescription:"/>
+                <relationship kind="action" name="editPrice:"/>
+                <relationship kind="action" name="postButtonPressed:"/>
+                <relationship kind="outlet" name="descriptionTF" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="itemImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="itemPriceTF" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="postButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="venueImageIV" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="venueLocationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="olgotAddItemNearbyPlacesViewController" superclassName="SSCollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotAddItemNearbyPlacesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="placeCell" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+        <class className="olgotBoardViewController" superclassName="SSCollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotBoardViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="itemCell" candidateClass="SSCollectionViewItem"/>
+            </relationships>
+        </class>
+        <class className="olgotChooseFriends" superclassName="SSCollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotChooseFriends.h"/>
+            <relationships>
+                <relationship kind="outlet" name="footerCell" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="headerCell" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="personCell" candidateClass="SSCollectionViewItem"/>
+            </relationships>
+        </class>
+        <class className="olgotChooseUsernameViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotChooseUsernameViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="createAccount:"/>
+                <relationship kind="action" name="pressedDone:"/>
+                <relationship kind="action" name="pressedNext:"/>
+                <relationship kind="outlet" name="createAccountBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="userEmail" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="usernameTF" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="olgotCommentsListViewController" superclassName="SSCollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotCommentsListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="commentCell" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="commentsListHeader" candidateClass="SSCollectionViewItem"/>
+            </relationships>
+        </class>
+        <class className="olgotExploreViewController" superclassName="SSCollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotExploreViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="boardBigTile" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="boardNormalTile" candidateClass="SSCollectionViewItem"/>
+            </relationships>
+        </class>
+        <class className="olgotFeedbackViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotFeedbackViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="postFeedbackButtonPressed:"/>
+                <relationship kind="outlet" name="feedbackTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="postFeedbackButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="olgotItemViewController" superclassName="SSCollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotItemViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="finishedComment:"/>
+                <relationship kind="action" name="gotAction:"/>
+                <relationship kind="action" name="likeAction:"/>
+                <relationship kind="action" name="showProfile:"/>
+                <relationship kind="action" name="showVenue:"/>
+                <relationship kind="action" name="touchedWriteComment:"/>
+                <relationship kind="action" name="wantAction:"/>
+                <relationship kind="outlet" name="commentCell" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="commentsFooter" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="commentsHeader" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="finderCell" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="gotButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="itemCell" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="likeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="myCommentTF" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mySmallImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="peopleRowCell" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="wantButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="olgotLovelyViewController" superclassName="SSCollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotLovelyViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="itemTile" candidateClass="SSCollectionViewItem"/>
+            </relationships>
+        </class>
+        <class className="olgotMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotMapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissMap:"/>
+                <relationship kind="outlet" name="myNavItem" candidateClass="UINavigationItem"/>
+            </relationships>
+        </class>
+        <class className="olgotMoreViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotMoreViewController.h"/>
+        </class>
+        <class className="olgotPeopleListViewController" superclassName="SSCollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotPeopleListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="personCell" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="personListHeader" candidateClass="SSCollectionViewItem"/>
+            </relationships>
+        </class>
+        <class className="olgotProfileViewController" superclassName="SSCollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotProfileViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showFollowersAction:"/>
+                <relationship kind="action" name="showFollowingAction:"/>
+                <relationship kind="outlet" name="profileCardTile" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="profileItemTile" candidateClass="SSCollectionViewItem"/>
+            </relationships>
+        </class>
+        <class className="olgotShareViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotShareViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cameraAction:"/>
+                <relationship kind="action" name="photoLibraryAction:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="olgotSignupRootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotSignupRootViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="hideSignup:"/>
+                <relationship kind="action" name="twitterSignin:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="twitterSigninButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="olgotVenueMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotVenueMapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="olgotVenueViewController" superclassName="SSCollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotVenueViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showVenueMap:"/>
+                <relationship kind="outlet" name="venueAddressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueCardTile" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="venueIconImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="venueItemTile" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="venueLocationBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="venueMapButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

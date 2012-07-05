@@ -176,8 +176,8 @@
     [itemLabel setText:[[_items objectAtIndex:indexPath.row] venueName_En]];
     
     itemLabel = (UILabel *)[cell viewWithTag:4]; //price
-    [itemLabel setText:[NSString stringWithFormat:@"%d %@",
-                        [[[_items objectAtIndex:indexPath.row] itemPrice] integerValue],
+    [itemLabel setText:[NSString stringWithFormat:@"%g %@",
+                        [[[_items objectAtIndex:indexPath.row] itemPrice] floatValue],
                         [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]                  
                         ]];
     
