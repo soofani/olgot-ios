@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "olgotVenue.h"
 
-@interface olgotVenueMapViewController : UIViewController
+#define METERS_PER_MILE 1609.344
+
+@class olgotVenue;
+
+@interface olgotVenueMapViewController : UIViewController<MKMapViewDelegate>
+{
+    
+}
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) olgotVenue* venue;
 
 @end

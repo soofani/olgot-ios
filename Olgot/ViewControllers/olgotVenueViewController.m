@@ -11,6 +11,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "olgotItem.h"
 #import "olgotItemViewController.h"
+#import "olgotVenueMapViewController.h"
 
 @interface olgotVenueViewController ()
 
@@ -78,13 +79,13 @@
 #pragma mark RKObjectLoaderDelegate methods
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
-    NSLog(@"Loaded payload: %@", [response bodyAsString]);
+    NSLog(@"Loaded payload: %@ from resource path: %@", [response bodyAsString], [request resourcePath]);
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     NSLog(@"Loaded items: %@", objects);
     
-    if ([[objects objectAtIndex:0] class] == [olgotVenue class]) {
+    if ([[objects objectAtIndex:0] isKindOfClass:[olgotVenue class]]) {
         _venue = [objects objectAtIndex:0];
         [self.collectionView reloadData];
     }else {
@@ -295,6 +296,10 @@
         
         itemViewController.itemID = [[_items objectAtIndex:_selectedRowIndexPath.row] itemID];
         itemViewController.itemKey = [[_items objectAtIndex:_selectedRowIndexPath.row] itemKey];
+    }else if ([[segue identifier] isEqual:@"ShowVenueMap"]) {
+        olgotVenueMapViewController *mapViewController = [segue destinationViewController];
+        
+        mapViewController.venue = _venue;
     }
 }
 

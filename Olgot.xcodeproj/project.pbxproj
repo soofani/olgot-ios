@@ -222,6 +222,7 @@
 		FFF580B015A08B5300662E8D /* icon-tab-bar-lovely-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF580AC15A08B5300662E8D /* icon-tab-bar-lovely-active@2x.png */; };
 		FFF580B115A08B5300662E8D /* icon-tab-bar-lovely.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF580AD15A08B5300662E8D /* icon-tab-bar-lovely.png */; };
 		FFF580B215A08B5300662E8D /* icon-tab-bar-lovely@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF580AE15A08B5300662E8D /* icon-tab-bar-lovely@2x.png */; };
+		FFFA2AA515A4B18C004146E3 /* olgotPlaceLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA2AA415A4B18C004146E3 /* olgotPlaceLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -567,6 +568,8 @@
 		FFF580AC15A08B5300662E8D /* icon-tab-bar-lovely-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tab-bar-lovely-active@2x.png"; sourceTree = "<group>"; };
 		FFF580AD15A08B5300662E8D /* icon-tab-bar-lovely.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tab-bar-lovely.png"; sourceTree = "<group>"; };
 		FFF580AE15A08B5300662E8D /* icon-tab-bar-lovely@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tab-bar-lovely@2x.png"; sourceTree = "<group>"; };
+		FFFA2AA315A4B18C004146E3 /* olgotPlaceLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotPlaceLocation.h; path = Model/olgotPlaceLocation.h; sourceTree = "<group>"; };
+		FFFA2AA415A4B18C004146E3 /* olgotPlaceLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotPlaceLocation.m; path = Model/olgotPlaceLocation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -627,6 +630,8 @@
 				FF26E26B1562807E00BECF4C /* olgotVenueViewController.m */,
 				FFD62D221594CB920068B04A /* olgotVenueMapViewController.h */,
 				FFD62D231594CB920068B04A /* olgotVenueMapViewController.m */,
+				FFFA2AA315A4B18C004146E3 /* olgotPlaceLocation.h */,
+				FFFA2AA415A4B18C004146E3 /* olgotPlaceLocation.m */,
 				FF6F63E515878B7D00877C3E /* olgotFeedbackViewController.h */,
 				FF6F63E615878B7E00877C3E /* olgotFeedbackViewController.m */,
 			);
@@ -1353,6 +1358,7 @@
 				FFB66B4A15934AD6003AA01F /* SSPullToRefreshView.m in Sources */,
 				FFD62D191594C0810068B04A /* DejalActivityView.m in Sources */,
 				FFD62D241594CB920068B04A /* olgotVenueMapViewController.m in Sources */,
+				FFFA2AA515A4B18C004146E3 /* olgotPlaceLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

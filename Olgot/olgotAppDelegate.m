@@ -345,6 +345,7 @@
     [objectManager.mappingProvider setObjectMapping:userMapping forResourcePathPattern:@"/user/"];
     [objectManager.mappingProvider setObjectMapping:userMapping forResourcePathPattern:@"/userid/"];
     
+    [objectManager.mappingProvider setObjectMapping:venueMapping forResourcePathPattern:@"/venue/"];
     [objectManager.mappingProvider setObjectMapping:venueMapping forResourcePathPattern:@"/nearbyvenues/"];
     
     [objectManager.mappingProvider setObjectMapping:actionUserMapping forResourcePathPattern:@"/itemlikes/"];
