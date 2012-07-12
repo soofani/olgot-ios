@@ -131,7 +131,7 @@
     [addBtn setBackgroundImage:addImage30 forState:UIControlStateNormal];
     [addBtn addTarget:self action:@selector(showAddItemView) forControlEvents:UIControlEventTouchUpInside];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:addBtn];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:addBtn];
     
     self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionView.scrollView delegate:self];
 }
@@ -194,7 +194,7 @@
         UILabel *venueLabel;
         venueLabel = (UILabel *)[cell1 viewWithTag:2];
         
-        [venueLabel setText:[_venue name_En]];
+        [venueLabel setText:[_venue foursquareAddress]];
         
 //        cell1.layer.shadowOpacity = 0.5;
 //        cell1.layer.shadowColor = [[UIColor blackColor] CGColor];

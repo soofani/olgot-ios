@@ -140,6 +140,12 @@
 		FF7AFF981574C7DB00BB5A65 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7AFF8C1574C7DB00BB5A65 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF7AFF991574C7DB00BB5A65 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7AFF8E1574C7DB00BB5A65 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF7AFF9A1574C7DB00BB5A65 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7AFF901574C7DB00BB5A65 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF88813C15AEBFC100B18BA6 /* logo-210x155.png in Resources */ = {isa = PBXBuildFile; fileRef = FF88813A15AEBFC100B18BA6 /* logo-210x155.png */; };
+		FF88813D15AEBFC100B18BA6 /* logo-210x155@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF88813B15AEBFC100B18BA6 /* logo-210x155@2x.png */; };
+		FF88814015AEC08900B18BA6 /* logo-70x55.png in Resources */ = {isa = PBXBuildFile; fileRef = FF88813E15AEC08900B18BA6 /* logo-70x55.png */; };
+		FF88814115AEC08900B18BA6 /* logo-70x55@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF88813F15AEC08900B18BA6 /* logo-70x55@2x.png */; };
+		FF88814415AED7F500B18BA6 /* olgotItemLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF88814315AED7F500B18BA6 /* olgotItemLocation.m */; };
+		FF88814715AEFA9A00B18BA6 /* olgotCustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF88814615AEFA9A00B18BA6 /* olgotCustomAnnotationView.m */; };
 		FF916C131560FD0B004C6A86 /* raed-nav-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C121560FD0B004C6A86 /* raed-nav-bg.png */; };
 		FF916C1515610D22004C6A86 /* UserProfileHeaderTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF916C1415610D22004C6A86 /* UserProfileHeaderTile.xib */; };
 		FF916C1C1561363F004C6A86 /* olgotItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF916C1B1561363F004C6A86 /* olgotItemViewController.m */; };
@@ -466,6 +472,14 @@
 		FF7AFF8E1574C7DB00BB5A65 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		FF7AFF8F1574C7DB00BB5A65 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		FF7AFF901574C7DB00BB5A65 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		FF88813A15AEBFC100B18BA6 /* logo-210x155.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-210x155.png"; sourceTree = "<group>"; };
+		FF88813B15AEBFC100B18BA6 /* logo-210x155@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-210x155@2x.png"; sourceTree = "<group>"; };
+		FF88813E15AEC08900B18BA6 /* logo-70x55.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-70x55.png"; sourceTree = "<group>"; };
+		FF88813F15AEC08900B18BA6 /* logo-70x55@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-70x55@2x.png"; sourceTree = "<group>"; };
+		FF88814215AED7F500B18BA6 /* olgotItemLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = olgotItemLocation.h; sourceTree = "<group>"; };
+		FF88814315AED7F500B18BA6 /* olgotItemLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = olgotItemLocation.m; sourceTree = "<group>"; };
+		FF88814515AEFA9A00B18BA6 /* olgotCustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = olgotCustomAnnotationView.h; sourceTree = "<group>"; };
+		FF88814615AEFA9A00B18BA6 /* olgotCustomAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = olgotCustomAnnotationView.m; sourceTree = "<group>"; };
 		FF916C121560FD0B004C6A86 /* raed-nav-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "raed-nav-bg.png"; sourceTree = "<group>"; };
 		FF916C1415610D22004C6A86 /* UserProfileHeaderTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileHeaderTile.xib; sourceTree = "<group>"; };
 		FF916C1A1561363F004C6A86 /* olgotItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotItemViewController.h; path = ViewControllers/olgotItemViewController.h; sourceTree = "<group>"; };
@@ -636,6 +650,10 @@
 				FFD62D231594CB920068B04A /* olgotVenueMapViewController.m */,
 				FFFA2AA315A4B18C004146E3 /* olgotPlaceLocation.h */,
 				FFFA2AA415A4B18C004146E3 /* olgotPlaceLocation.m */,
+				FF88814215AED7F500B18BA6 /* olgotItemLocation.h */,
+				FF88814315AED7F500B18BA6 /* olgotItemLocation.m */,
+				FF88814515AEFA9A00B18BA6 /* olgotCustomAnnotationView.h */,
+				FF88814615AEFA9A00B18BA6 /* olgotCustomAnnotationView.m */,
 				FF6F63E515878B7D00877C3E /* olgotFeedbackViewController.h */,
 				FF6F63E615878B7E00877C3E /* olgotFeedbackViewController.m */,
 			);
@@ -715,6 +733,10 @@
 				FF10F2CB155D173800F4EC2E /* logo-140x74@2x.png */,
 				FF69BB9F156CEA14008A5D52 /* logo-140x74-temp.png */,
 				FF69BBA0156CEA14008A5D52 /* logo-140x74-temp@2x.png */,
+				FF88813A15AEBFC100B18BA6 /* logo-210x155.png */,
+				FF88813B15AEBFC100B18BA6 /* logo-210x155@2x.png */,
+				FF88813E15AEC08900B18BA6 /* logo-70x55.png */,
+				FF88813F15AEC08900B18BA6 /* logo-70x55@2x.png */,
 				FF57DA15156A5A5900DFAB3E /* bg.png */,
 				FF57DA16156A5A5900DFAB3E /* bg@2x.png */,
 				FF57DA1D156A5D1400DFAB3E /* icon-item-action-comment-active.png */,
@@ -1302,6 +1324,10 @@
 				FF980BE615A5E47200001259 /* btn-share.png in Resources */,
 				FF980BE815A5E5AA00001259 /* btn-share@2x.png in Resources */,
 				FF980BEA15A5E65F00001259 /* commentsViewWriteCommentView.xib in Resources */,
+				FF88813C15AEBFC100B18BA6 /* logo-210x155.png in Resources */,
+				FF88813D15AEBFC100B18BA6 /* logo-210x155@2x.png in Resources */,
+				FF88814015AEC08900B18BA6 /* logo-70x55.png in Resources */,
+				FF88814115AEC08900B18BA6 /* logo-70x55@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1363,6 +1389,8 @@
 				FFD62D191594C0810068B04A /* DejalActivityView.m in Sources */,
 				FFD62D241594CB920068B04A /* olgotVenueMapViewController.m in Sources */,
 				FFFA2AA515A4B18C004146E3 /* olgotPlaceLocation.m in Sources */,
+				FF88814415AED7F500B18BA6 /* olgotItemLocation.m in Sources */,
+				FF88814715AEFA9A00B18BA6 /* olgotCustomAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

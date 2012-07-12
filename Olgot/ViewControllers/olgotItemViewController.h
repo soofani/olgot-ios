@@ -11,6 +11,7 @@
 #import <RestKit/RestKit.h>
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
+#import <QuartzCore/QuartzCore.h>
 
 @class olgotItem;
 

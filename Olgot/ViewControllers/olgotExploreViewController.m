@@ -87,9 +87,14 @@
     [self startStandardUpdates];
     
     //title logo
-    UIImage *titleImage = [UIImage imageNamed:@"logo-140x74"];
-    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
-    [self.navigationController.navigationBar.topItem setTitleView:titleImageView];
+    UIImage *titleImage = [UIImage imageNamed:@"logo-70x55"];
+//    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
+    UIImageView *titleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
+    [titleImageView setImage:titleImage];
+    titleImageView.contentMode = UIViewContentModeBottom;
+    
+    [self.navigationController.navigationBar.topItem setTitleView:titleImageView];    
+
     
     self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionView.scrollView delegate:self];
     
@@ -108,6 +113,11 @@
 {
     [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
     [self.pullToRefreshView finishLoading];
+//    [[[self.navigationController.navigationBar subviews] objectAtIndex:1] setHidden:YES];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+//    [[[self.navigationController.navigationBar subviews] objectAtIndex:1] setHidden:NO];
 }
 
 - (void)viewDidUnload

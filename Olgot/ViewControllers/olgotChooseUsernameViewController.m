@@ -8,7 +8,6 @@
 
 #import "olgotChooseUsernameViewController.h"
 #import "olgotChooseFriends.h"
-#import <RestKit/JSONKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "DejalActivityView.h"
 

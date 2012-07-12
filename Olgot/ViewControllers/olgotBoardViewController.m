@@ -11,6 +11,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "olgotItem.h"
 #import "olgotItemViewController.h"
+#import "olgotMapViewController.h"
 
 @implementation olgotBoardViewController
 
@@ -300,6 +301,12 @@
         
         itemViewController.itemID = [[_items objectAtIndex:_selectedRowIndexPath.row] itemID];
         itemViewController.itemKey = [[_items objectAtIndex:_selectedRowIndexPath.row] itemKey];
+    }else if ([[segue identifier] isEqualToString:@"ShowMapView"]) {
+        UINavigationController *navViewController = [segue destinationViewController];
+        olgotMapViewController *mapViewController = [navViewController.childViewControllers objectAtIndex:0];
+        
+        mapViewController.categoryID = _categoryID;
+        mapViewController.boardName = _boardName;
     }
 }
 

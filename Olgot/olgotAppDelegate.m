@@ -278,7 +278,7 @@
      @"geoLong",@"geoLong",
      @"items",@"items",
      @"iconUrl",@"venueIcon",
-     @"foursqaureAddress",@"foursqaureAddress",
+     @"foursquareAddress",@"foursquareAddress",
      nil];
     
     RKObjectMapping* commentMapping = [RKObjectMapping mappingForClass:[olgotComment class]];
@@ -341,6 +341,15 @@
     [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/userlikes/"];
     [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/venueitems/"];
     [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/hotitems/"];
+    
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/mapfeeditems/"];
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/mapnearbyitems/"];
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/mapcategoryitems/"];
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/mapuseritems/"];
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/mapuserwants/"];
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/mapuserlikes/"];
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/mapvenueitems/"];
+    [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/maphotitems/"];
     
     [objectManager.mappingProvider setObjectMapping:userMapping forResourcePathPattern:@"/user/"];
     [objectManager.mappingProvider setObjectMapping:userMapping forResourcePathPattern:@"/userid/"];

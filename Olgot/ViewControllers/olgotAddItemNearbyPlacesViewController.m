@@ -67,7 +67,7 @@
     
     _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320.0, 44.0)];
     _searchBar.delegate = self;
-    _searchBar.showsCancelButton = YES;
+    [_searchBar setShowsCancelButton:NO];
     
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
     [tempImageView setFrame:self.collectionView.frame]; 
@@ -86,6 +86,12 @@
     _currentPage = 1;
     _pageSize = 10;
     loadingNew = NO;
+    
+    
+    UIColor *barColor = [UIColor colorWithRed:213.0/255.0 green:213.0/255.0 blue:213.0/255.0 alpha:1.0]; 
+    self.searchBar.tintColor = barColor;
+    
+
     
     // Create the location manager if this object does not
     // already have one.
@@ -289,5 +295,15 @@
     loadingNew = NO;
     [self loadVenues:searchBar.text];
 }
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {  
+    [searchBar setShowsCancelButton:YES animated:YES];
+    return YES;  
+}  
+
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {  
+    [searchBar setShowsCancelButton:NO animated:YES];
+    return YES; 
+} 
 
 @end

@@ -60,68 +60,61 @@
                     </navigationItem>
                     <connections>
                         <segue destination="Fmr-fE-SC3" kind="push" identifier="ShowItemView" id="bZT-pi-WSc"/>
-                        <segue destination="lYn-Ft-tZA" kind="modal" identifier="ShowMapView" modalTransitionStyle="flipHorizontal" id="V3k-mD-4K2"/>
+                        <segue destination="WYe-AX-etf" kind="modal" identifier="ShowMapView" modalTransitionStyle="flipHorizontal" id="V3k-mD-4K2"/>
                     </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1588" y="-1004"/>
         </scene>
-        <!--Olgot Map View Controller - Board Name-->
+        <!--Olgot Map View Controller-->
         <scene sceneID="am4-Y8-NMl">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0VX-2r-3hC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="lYn-Ft-tZA" customClass="olgotMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="48m-jf-MAV">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="qjX-z9-RYF">
-                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="qjX-z9-RYF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.30000000000000016" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="B8s-QX-UTu">
-                                <rect key="frame" x="0.0" y="44" width="320" height="30"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="X,XX Items" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="aR2-wQ-mwL">
-                                <rect key="frame" x="20" y="49" width="86" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="aR2-wQ-mwL">
+                                <rect key="frame" x="20" y="5" width="219" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pan or zoom out to see more items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="yHe-Ti-Hda">
-                                <rect key="frame" x="0.0" y="439" width="320" height="21"/>
+                                <rect key="frame" x="0.0" y="395" width="320" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.87843143940000001" green="0.8980392814" blue="0.90588241820000004" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" id="677-2C-Nru">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Map View" id="naH-OU-8fG"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Board Name" id="iF7-0R-NBJ"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" id="iF7-0R-NBJ"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="myNavItem" destination="naH-OU-8fG" id="Omf-gL-n2J"/>
-                        <segue destination="gYY-SF-9fN" kind="push" identifier="ShowVenue" id="Uzc-ys-Bnq"/>
+                        <outlet property="itemCountLabel" destination="aR2-wQ-mwL" id="P60-p1-EzP"/>
+                        <outlet property="mapView" destination="qjX-z9-RYF" id="STC-Ah-wjb"/>
+                        <segue destination="Fmr-fE-SC3" kind="push" identifier="ShowItemFromMap" id="2IH-Ik-b9l"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2541" y="-1499"/>
+            <point key="canvasLocation" x="3067" y="-1499"/>
         </scene>
         <!--Olgot Item View Controller-->
         <scene sceneID="2iW-DK-6if">
@@ -149,7 +142,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ipx-qk-eQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="XiP-jZ-yvg" customClass="olgotPeopleListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7f1-hg-2ux">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -167,7 +160,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSt-x6-VLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="gYY-SF-9fN" customClass="olgotVenueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dV0-qV-LCI">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -179,7 +172,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3126" y="-1342"/>
+            <point key="canvasLocation" x="3652" y="-1342"/>
         </scene>
         <!--Olgot Venue Map View Controller-->
         <scene sceneID="zXN-C1-VSN">
@@ -187,11 +180,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gks-Qd-1ij" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="87U-8D-FOE" customClass="olgotVenueMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AxW-Ju-4Wz">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="Pz3-17-uJm">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                         </subviews>
@@ -203,7 +196,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3610" y="-1338"/>
+            <point key="canvasLocation" x="4136" y="-1338"/>
         </scene>
         <!--Olgot Lovely View Controller - Hot-->
         <scene sceneID="45u-xx-Xjr">
@@ -231,11 +224,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pxs-2g-ciK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="fsi-nE-oPn" customClass="olgotShareViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yvX-Mo-9yC">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="JVG-3v-Hve">
-                                <rect key="frame" x="38" y="51" width="244" height="300"/>
+                                <rect key="frame" x="38" y="51" width="244" height="256"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TNM-sz-gcH">
@@ -290,15 +283,15 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7z0-fM-xgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Hte-Zn-Pmt" customClass="olgotAddItemDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v6c-Cb-I40">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="wNy-dX-QSg">
-                                <rect key="frame" x="0.0" y="-22" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="-22" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="Cj3-Wu-qDk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="GEw-0L-3nP">
@@ -608,7 +601,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhJ-b2-O2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="qgL-I9-Ymt" customClass="olgotCommentsListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uUV-e7-4t0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -626,7 +619,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hk5-4P-7cX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="HAn-Se-f9H" customClass="olgotProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fbN-fm-WR5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -690,12 +683,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="logo-380x200.png" id="ORG-0G-HY6">
-                                <rect key="frame" x="40" y="20" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="logo-210x155.png" id="ORG-0G-HY6">
+                                <rect key="frame" x="40" y="20" width="240" height="151"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" image="slogan-390x50.png" id="tm1-l0-M0x">
-                                <rect key="frame" x="40" y="145" width="240" height="54"/>
+                                <rect key="frame" x="40" y="166" width="240" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7CT-oO-27O">
@@ -1483,6 +1476,24 @@
             </objects>
             <point key="canvasLocation" x="640" y="-1706"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ah4-St-UdI">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Msw-2r-hLu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="WYe-AX-etf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="GPL-ss-jQA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lYn-Ft-tZA" kind="relationship" relationship="rootViewController" id="UHR-z2-ABn"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="2541" y="-1499"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bg.png" width="320" height="480"/>
@@ -1492,7 +1503,7 @@
         <image name="icon-item-action-got.png" width="30" height="30"/>
         <image name="icon-item-action-like.png" width="30" height="30"/>
         <image name="icon-item-action-want.png" width="30" height="30"/>
-        <image name="logo-380x200.png" width="190" height="100"/>
+        <image name="logo-210x155.png" width="210" height="155"/>
         <image name="slogan-390x50.png" width="195" height="25"/>
     </resources>
     <classes>
@@ -1582,8 +1593,12 @@
         <class className="olgotCommentsListViewController" superclassName="SSCollectionViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotCommentsListViewController.h"/>
             <relationships>
+                <relationship kind="action" name="finishedComment:"/>
+                <relationship kind="action" name="touchedWriteComment:"/>
                 <relationship kind="outlet" name="commentCell" candidateClass="SSCollectionViewItem"/>
                 <relationship kind="outlet" name="commentsListHeader" candidateClass="SSCollectionViewItem"/>
+                <relationship kind="outlet" name="myCommentTF" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mySmallImage" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="olgotExploreViewController" superclassName="SSCollectionViewController">
@@ -1635,7 +1650,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotMapViewController.h"/>
             <relationships>
                 <relationship kind="action" name="dismissMap:"/>
-                <relationship kind="outlet" name="myNavItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="itemCountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
             </relationships>
         </class>
         <class className="olgotMoreViewController" superclassName="UITableViewController">
@@ -1707,7 +1723,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Uzc-ys-Bnq"/>
+        <segue reference="2IH-Ik-b9l"/>
+        <segue reference="tAB-hG-qL1"/>
+        <segue reference="jD9-Wv-5GK"/>
         <segue reference="aDs-8U-WhC"/>
     </inferredMetricsTieBreakers>
 </document>

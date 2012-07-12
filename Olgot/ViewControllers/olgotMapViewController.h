@@ -7,13 +7,31 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <RestKit/RestKit.h>
+#import "olgotItem.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface olgotMapViewController : UIViewController
+#define METERS_PER_MILE 1609.344
+
+@class olgotItem;
+
+@interface olgotMapViewController : UIViewController<MKMapViewDelegate,RKObjectLoaderDelegate,CLLocationManagerDelegate>
 {
-    IBOutlet UINavigationItem *myNavItem;
+//    IBOutlet UINavigationItem *myNavItem;
+    NSArray* _items;
+    
+    CLLocationManager* locationManager;
+    
+    NSNumber* _selectedItemID;
+    NSNumber* _selectedItemKey;
 }
 
+@property (strong, nonatomic) NSNumber *categoryID;
+@property (strong, nonatomic) NSString *boardName;
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
 - (IBAction)dismissMap:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *itemCountLabel;
 
 
 @end
