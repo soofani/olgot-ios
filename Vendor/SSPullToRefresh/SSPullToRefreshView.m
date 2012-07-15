@@ -137,7 +137,7 @@
 #pragma mark - Initializer
 
 - (id)initWithScrollView:(UIScrollView *)scrollView delegate:(id<SSPullToRefreshViewDelegate>)delegate {
-	CGRect frame = CGRectMake(0.0f, 0.0f - scrollView.bounds.size.height, scrollView.bounds.size.width,
+	CGRect frame = CGRectMake(0.0f, 0.0f - scrollView.bounds.size.height - 10.0, scrollView.bounds.size.width,
 							  scrollView.bounds.size.height);
 	if ((self = [self initWithFrame:frame])) {
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
