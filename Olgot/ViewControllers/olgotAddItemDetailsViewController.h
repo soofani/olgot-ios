@@ -17,6 +17,7 @@
     UIImageView *itemImageView;
     NSNumber* _itemID;
     NSString* _itemKey;
+    NSString* _itemUrl;
     
     NSArray* accountsArray;
 }

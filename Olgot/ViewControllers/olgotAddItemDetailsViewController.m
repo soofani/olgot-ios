@@ -69,6 +69,7 @@
                     
                     _itemID = [_itemJsonResponse objectForKey:@"id"];
                     _itemKey = [_itemJsonResponse objectForKey:@"key"];
+                    _itemUrl = [_itemJsonResponse objectForKey:@"itemUrl"];
 //                    [self performSelector:@selector(postPhoto)];
                     [self performSegueWithIdentifier:@"ShowAddItemConfirmation" sender:self];
                 }else if ([[request userData] isEqual:@"uploadPhoto"]) {
@@ -178,7 +179,7 @@
                 // Create a request, which in this example, posts a tweet to the user's timeline.
                 // This example uses version 1 of the Twitter API.
                 // This may need to be changed to whichever version is currently appropriate.
-                TWRequest *postRequest = [[TWRequest alloc] initWithURL:[NSURL URLWithString:@"http://api.twitter.com/1/statuses/update.json"] parameters:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"I just posted an item at %@ using Olgot %@", [_venue name_En], @"www.olgot.com"] forKey:@"status"] requestMethod:TWRequestMethodPOST];
+                TWRequest *postRequest = [[TWRequest alloc] initWithURL:[NSURL URLWithString:@"http://api.twitter.com/1/statuses/update.json"] parameters:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"I just posted an item at %@ using Olgot %@", [_venue name_En], _itemUrl] forKey:@"status"] requestMethod:TWRequestMethodPOST];
                 
                 // Set the account used to post the tweet.
                 [postRequest setAccount:twitterAccount];
