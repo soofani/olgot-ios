@@ -117,12 +117,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-//    whyCoolTF.layer.borderColor = [[UIColor colorWithRed:232.0/255.0 green:78.0/255.0 blue:32.0/255.0 alpha:1.0] CGColor];
-//    whyCoolTF.layer.borderWidth = 1.0f;
-//    
-//    whyCoolTF.layer.cornerRadius = 5;
-//    whyCoolTF.clipsToBounds = YES;
-    
+
     [self.itemImageView setImage:_itemImage];
     [self configureView];
 }
@@ -146,6 +141,11 @@
     [self setItemImage:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [[[RKClient sharedClient] requestQueue] cancelRequestsWithDelegate:self];
 }
 
 -(void)dismissKeyboard {
@@ -215,6 +215,8 @@
 
 - (IBAction)postButtonPressed:(id)sender {
     [self.postButton setEnabled:NO];
+    [self.itemPriceTF setEnabled:NO];
+    [self.descriptionTF setEnabled:NO];
     [self performSelector:@selector(dismissKeyboard)];
     [self performSelector:@selector(postItem)];
 }
@@ -246,24 +248,8 @@
     [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
     [[[RKClient sharedClient] post:@"/item/" params:params delegate:self] setUserData:@"postItem"];
-}
 
-//-(void)postPhoto
-//{
-//    NSLog(@"Got image: %@", [_itemImageView image]);
-//    RKParams* params = [RKParams params];
-//    [params setValue:_itemID forParam:@"item"];
-//    
-////    NSData* imageData = UIImagePNGRepresentation(_itemImage);
-//    NSData* imageData = UIImageJPEGRepresentation([_itemImage fixOrientation], 0.2);
-////    [params setData:imageData MIMEType:@"image/jpeg" forParam:@"file"];
-//    [params setData:imageData MIMEType:@"image/jpeg" fileName:@"myimage.jpg" forParam:@"file"];
-//    
-//    NSLog(@"RKParams HTTPHeaderValueForContentType = %@", [params HTTPHeaderValueForContentType]);
-//    NSLog(@"RKParams HTTPHeaderValueForContentLength = %d", [params HTTPHeaderValueForContentLength]);
-//    
-//    [[[RKClient sharedClient] post:@"/photo/" params:params delegate:self] setUserData:@"uploadPhoto"];
-//}
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
