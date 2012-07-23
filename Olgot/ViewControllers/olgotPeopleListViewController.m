@@ -111,7 +111,7 @@
                                   [NSNumber numberWithInt:_currentPage], @"page",
                                   [NSNumber numberWithInt:_pageSize], @"pagesize",
                                   nil];
-        NSString* resourcePath = [@"/followers/" appendQueryParams:myParams];
+        NSString* resourcePath = [@"/following/" appendQueryParams:myParams];
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
     }
 }

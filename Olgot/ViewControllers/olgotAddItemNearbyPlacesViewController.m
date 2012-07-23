@@ -67,6 +67,7 @@
     
     _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320.0, 44.0)];
     _searchBar.delegate = self;
+    [_searchBar setPlaceholder:@"Search..."];
     [_searchBar setShowsCancelButton:NO];
     
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];

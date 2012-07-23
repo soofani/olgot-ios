@@ -123,10 +123,6 @@
     
     self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionView.scrollView delegate:self];
     
-    
-    
-    
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -208,7 +204,7 @@
         
         if ([[_user iFollow] isEqualToNumber:[NSNumber numberWithInt:1]]) {
             [followButton setBackgroundImage:[UIImage imageNamed:@"btn-user-list-following"] forState:UIControlStateNormal];
-            [followButton setTitle:@"" forState:UIControlStateNormal];
+            [followButton setTitle:@"Following" forState:UIControlStateNormal];
         }else {
             
             [followButton setBackgroundImage:[UIImage imageNamed:@"btn-select-username"] forState:UIControlStateNormal];
