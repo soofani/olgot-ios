@@ -112,7 +112,6 @@
 		FF621A55155D4800004D059F /* LovelyItemTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF621A54155D4800004D059F /* LovelyItemTile.xib */; };
 		FF69BBA1156CEA14008A5D52 /* logo-140x74-temp.png in Resources */ = {isa = PBXBuildFile; fileRef = FF69BB9F156CEA14008A5D52 /* logo-140x74-temp.png */; };
 		FF69BBA2156CEA14008A5D52 /* logo-140x74-temp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF69BBA0156CEA14008A5D52 /* logo-140x74-temp@2x.png */; };
-		FF69BBA5156CF539008A5D52 /* DTCustomColoredAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = FF69BBA4156CF539008A5D52 /* DTCustomColoredAccessory.m */; };
 		FF6AFF821580E9DD000A24BA /* nearbyViewPlaceRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF6AFF811580E9DD000A24BA /* nearbyViewPlaceRow.xib */; };
 		FF6AFF95158144DF000A24BA /* LocalyticsDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6AFF8F158144DF000A24BA /* LocalyticsDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF6AFF96158144DF000A24BA /* LocalyticsSession.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6AFF91158144DF000A24BA /* LocalyticsSession.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -221,7 +220,6 @@
 		FFE9A01E15725C3700509B09 /* olgotCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE9A01D15725C3700509B09 /* olgotCategory.m */; };
 		FFE9A02115726B1E00509B09 /* olgotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE9A02015726B1E00509B09 /* olgotItem.m */; };
 		FFE9A02415726DCF00509B09 /* OlgotModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFE9A02215726DCF00509B09 /* OlgotModel.xcdatamodeld */; };
-		FFE9A06C157279D000509B09 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = FFE9A06B157279D000509B09 /* categories.json */; };
 		FFEF1F931577B1B300CE9AE9 /* olgotMyFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEF1F921577B1B300CE9AE9 /* olgotMyFriend.m */; };
 		FFEF1F961577C9DC00CE9AE9 /* cam-bg-strip.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEF1F941577C9DB00CE9AE9 /* cam-bg-strip.png */; };
 		FFEF1F971577C9DC00CE9AE9 /* cam-bg-strip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEF1F951577C9DB00CE9AE9 /* cam-bg-strip@2x.png */; };
@@ -426,8 +424,6 @@
 		FF621A54155D4800004D059F /* LovelyItemTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LovelyItemTile.xib; sourceTree = "<group>"; };
 		FF69BB9F156CEA14008A5D52 /* logo-140x74-temp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-140x74-temp.png"; sourceTree = "<group>"; };
 		FF69BBA0156CEA14008A5D52 /* logo-140x74-temp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-140x74-temp@2x.png"; sourceTree = "<group>"; };
-		FF69BBA3156CF539008A5D52 /* DTCustomColoredAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCustomColoredAccessory.h; sourceTree = "<group>"; };
-		FF69BBA4156CF539008A5D52 /* DTCustomColoredAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCustomColoredAccessory.m; sourceTree = "<group>"; };
 		FF6AFF811580E9DD000A24BA /* nearbyViewPlaceRow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = nearbyViewPlaceRow.xib; sourceTree = "<group>"; };
 		FF6AFF8E158144DF000A24BA /* LocalyticsDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalyticsDatabase.h; sourceTree = "<group>"; };
 		FF6AFF8F158144DF000A24BA /* LocalyticsDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalyticsDatabase.m; sourceTree = "<group>"; };
@@ -575,7 +571,6 @@
 		FFE9A01F15726B1E00509B09 /* olgotItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotItem.h; path = Model/olgotItem.h; sourceTree = "<group>"; };
 		FFE9A02015726B1E00509B09 /* olgotItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotItem.m; path = Model/olgotItem.m; sourceTree = "<group>"; };
 		FFE9A02315726DCF00509B09 /* OlgotModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OlgotModel.xcdatamodel; sourceTree = "<group>"; };
-		FFE9A06B157279D000509B09 /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 		FFEF1F911577B1B300CE9AE9 /* olgotMyFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotMyFriend.h; path = Model/olgotMyFriend.h; sourceTree = "<group>"; };
 		FFEF1F921577B1B300CE9AE9 /* olgotMyFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotMyFriend.m; path = Model/olgotMyFriend.m; sourceTree = "<group>"; };
 		FFEF1F941577C9DB00CE9AE9 /* cam-bg-strip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam-bg-strip.png"; sourceTree = "<group>"; };
@@ -622,40 +617,21 @@
 		FF10F2A8155D16DA00F4EC2E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FFA8542E156D338A0009134C /* Settings */,
-				FFA8542D156D33640009134C /* Share */,
-				FFA8542C156D33500009134C /* Add Item */,
 				FFA8542B156D33130009134C /* Signup */,
+				FF76C42D15BEB8490045B4EA /* Main */,
+				FFA8542C156D33500009134C /* Add Item */,
+				FF76C42F15BEB8BA0045B4EA /* Maps */,
+				FFA8542E156D338A0009134C /* Settings */,
 				FFA85422156D30CA0009134C /* olgotPeopleListViewController.h */,
 				FFA85423156D30CA0009134C /* olgotPeopleListViewController.m */,
 				FFDC6332156E814C008CCA28 /* olgotCommentsListViewController.h */,
 				FFDC6333156E814C008CCA28 /* olgotCommentsListViewController.m */,
-				FF10F298155D167400F4EC2E /* olgotExploreViewController.h */,
-				FF10F299155D167400F4EC2E /* olgotExploreViewController.m */,
-				FF10F29C155D169600F4EC2E /* olgotLovelyViewController.h */,
-				FF10F29D155D169600F4EC2E /* olgotLovelyViewController.m */,
-				FF10F2A2155D16C000F4EC2E /* olgotProfileViewController.h */,
-				FF10F2A3155D16C000F4EC2E /* olgotProfileViewController.m */,
-				FF10F2A5155D16D400F4EC2E /* olgotMoreViewController.h */,
-				FF10F2A6155D16D400F4EC2E /* olgotMoreViewController.m */,
 				FF263F0D155D5AC4005285DE /* olgotBoardViewController.h */,
 				FF263F0E155D5AC4005285DE /* olgotBoardViewController.m */,
 				FF916C1A1561363F004C6A86 /* olgotItemViewController.h */,
 				FF916C1B1561363F004C6A86 /* olgotItemViewController.m */,
-				FF27736715625DAB0062EBA9 /* olgotMapViewController.h */,
-				FF27736815625DAB0062EBA9 /* olgotMapViewController.m */,
 				FF26E26A1562807E00BECF4C /* olgotVenueViewController.h */,
 				FF26E26B1562807E00BECF4C /* olgotVenueViewController.m */,
-				FFD62D221594CB920068B04A /* olgotVenueMapViewController.h */,
-				FFD62D231594CB920068B04A /* olgotVenueMapViewController.m */,
-				FFFA2AA315A4B18C004146E3 /* olgotPlaceLocation.h */,
-				FFFA2AA415A4B18C004146E3 /* olgotPlaceLocation.m */,
-				FF88814215AED7F500B18BA6 /* olgotItemLocation.h */,
-				FF88814315AED7F500B18BA6 /* olgotItemLocation.m */,
-				FF88814515AEFA9A00B18BA6 /* olgotCustomAnnotationView.h */,
-				FF88814615AEFA9A00B18BA6 /* olgotCustomAnnotationView.m */,
-				FF6F63E515878B7D00877C3E /* olgotFeedbackViewController.h */,
-				FF6F63E615878B7E00877C3E /* olgotFeedbackViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -839,6 +815,49 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		FF76C42D15BEB8490045B4EA /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FF10F298155D167400F4EC2E /* olgotExploreViewController.h */,
+				FF10F299155D167400F4EC2E /* olgotExploreViewController.m */,
+				FF10F29C155D169600F4EC2E /* olgotLovelyViewController.h */,
+				FF10F29D155D169600F4EC2E /* olgotLovelyViewController.m */,
+				FF10F2A2155D16C000F4EC2E /* olgotProfileViewController.h */,
+				FF10F2A3155D16C000F4EC2E /* olgotProfileViewController.m */,
+				FF10F2A5155D16D400F4EC2E /* olgotMoreViewController.h */,
+				FF10F2A6155D16D400F4EC2E /* olgotMoreViewController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		FF76C42E15BEB86A0045B4EA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FFD62D171594C0810068B04A /* DejalActivityView.h */,
+				FFD62D181594C0810068B04A /* DejalActivityView.m */,
+				FF6F63E2158785E400877C3E /* UIImage+fixOrientation.h */,
+				FF6F63E3158785E400877C3E /* UIImage+fixOrientation.m */,
+				FFFA2AA315A4B18C004146E3 /* olgotPlaceLocation.h */,
+				FFFA2AA415A4B18C004146E3 /* olgotPlaceLocation.m */,
+				FF88814215AED7F500B18BA6 /* olgotItemLocation.h */,
+				FF88814315AED7F500B18BA6 /* olgotItemLocation.m */,
+				FF88814515AEFA9A00B18BA6 /* olgotCustomAnnotationView.h */,
+				FF88814615AEFA9A00B18BA6 /* olgotCustomAnnotationView.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		FF76C42F15BEB8BA0045B4EA /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				FF27736715625DAB0062EBA9 /* olgotMapViewController.h */,
+				FF27736815625DAB0062EBA9 /* olgotMapViewController.m */,
+				FFD62D221594CB920068B04A /* olgotVenueMapViewController.h */,
+				FFD62D231594CB920068B04A /* olgotVenueMapViewController.m */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
 		FF7AFF7B1574C7DB00BB5A65 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -949,23 +968,17 @@
 		FFA4ED98155D12D8008CB4CA /* Olgot */ = {
 			isa = PBXGroup;
 			children = (
-				FFD62D171594C0810068B04A /* DejalActivityView.h */,
-				FFD62D181594C0810068B04A /* DejalActivityView.m */,
 				FFA4EDA1155D12D8008CB4CA /* olgotAppDelegate.h */,
 				FFA4EDA2155D12D8008CB4CA /* olgotAppDelegate.m */,
 				FFA4EDA4155D12D8008CB4CA /* MainStoryboard.storyboard */,
 				FF916C321561563C004C6A86 /* SignupStoryboard.storyboard */,
+				FF76C42E15BEB86A0045B4EA /* Classes */,
 				FF98030015B2DC36004B96E7 /* SSPullToRefresh */,
 				FFE9A01B15725BB500509B09 /* Model */,
 				FF10F2FF155D22B200F4EC2E /* Views */,
 				FF10F2A9155D16F500F4EC2E /* Assets */,
 				FF10F2A8155D16DA00F4EC2E /* View Controllers */,
 				FFA4ED99155D12D8008CB4CA /* Supporting Files */,
-				FF69BBA3156CF539008A5D52 /* DTCustomColoredAccessory.h */,
-				FF69BBA4156CF539008A5D52 /* DTCustomColoredAccessory.m */,
-				FFE9A06B157279D000509B09 /* categories.json */,
-				FF6F63E2158785E400877C3E /* UIImage+fixOrientation.h */,
-				FF6F63E3158785E400877C3E /* UIImage+fixOrientation.m */,
 			);
 			path = Olgot;
 			sourceTree = "<group>";
@@ -1012,16 +1025,11 @@
 			name = "Add Item";
 			sourceTree = "<group>";
 		};
-		FFA8542D156D33640009134C /* Share */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Share;
-			sourceTree = "<group>";
-		};
 		FFA8542E156D338A0009134C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				FF6F63E515878B7D00877C3E /* olgotFeedbackViewController.h */,
+				FF6F63E615878B7E00877C3E /* olgotFeedbackViewController.m */,
 				FF57D9FC156A2D7800DFAB3E /* olgotAccountSettingsViewController.h */,
 				FF57D9FD156A2D7800DFAB3E /* olgotAccountSettingsViewController.m */,
 			);
@@ -1292,7 +1300,6 @@
 				FFBE487A156E5F0600DF3716 /* Icon@2x.png in Resources */,
 				FFDC6336156E8232008CCA28 /* commentsListHeaderCell.xib in Resources */,
 				FFDC6338156E839D008CCA28 /* commentsViewCommentRow.xib in Resources */,
-				FFE9A06C157279D000509B09 /* categories.json in Resources */,
 				FF7A000115750F0500BB5A65 /* profileViewPersonCard.xib in Resources */,
 				FF7A00041575106E00BB5A65 /* box-stats.png in Resources */,
 				FF7A00051575106E00BB5A65 /* box-stats@2x.png in Resources */,
@@ -1357,7 +1364,6 @@
 				FF33102D156502F50083602B /* olgotAddItemDetailsViewController.m in Sources */,
 				FF331035156527060083602B /* olgotCameraOverlayViewController.m in Sources */,
 				FF57D9FE156A2D7800DFAB3E /* olgotAccountSettingsViewController.m in Sources */,
-				FF69BBA5156CF539008A5D52 /* DTCustomColoredAccessory.m in Sources */,
 				FFA85413156D20BB0009134C /* olgotChooseFriends.m in Sources */,
 				FFA85425156D30CA0009134C /* olgotPeopleListViewController.m in Sources */,
 				FFDC6334156E814C008CCA28 /* olgotCommentsListViewController.m in Sources */,
