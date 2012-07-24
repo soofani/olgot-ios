@@ -104,6 +104,8 @@
     [tap setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:tap];
     
+    addedComment = NO;
+    
 }
 
 - (void)viewDidUnload
@@ -129,13 +131,32 @@
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
     NSLog(@"Loaded payload: %@", [response bodyAsString]);
+    if ([request isPOST]) {  
+        
+        if ([response isJSON]) {
+            
+            if([response isOK]){
+                if ([[request resourcePath] isEqual:@"/comment/"]) {
+                    addedComment = YES;
+                    [self loadComments];
+                }
+                NSLog(@"Got a JSON response back from our POST! %@", [response bodyAsString]);
+                
+                [self.collectionView reloadData];
+            }else {
+                
+            }
+        }  
+        
+    }
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     NSLog(@"Loaded comments: %@", objects);
     loadingNew = NO;
     
-    if (self.pullToRefreshView.isExpanded) {
+    if (self.pullToRefreshView.isExpanded || addedComment == YES) {
+        addedComment = NO;
         _comments = [[NSMutableArray alloc] initWithArray:objects];
     } else {
         [_comments addObjectsFromArray:objects];    

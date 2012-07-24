@@ -18,6 +18,7 @@
     int _pageSize;
     int _currentPage;
     BOOL loadingNew;
+    BOOL addedComment;
     
     UIView* myCommentView;
 }

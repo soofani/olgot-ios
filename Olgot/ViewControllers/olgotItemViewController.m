@@ -213,6 +213,10 @@
                     NSLog(@"succesful got");
                     [_item setIGot:[NSNumber numberWithInt:1]];
                 }
+                else if ([[request resourcePath] isEqual:@"/comment/"]) {
+                    NSLog(@"succesful got");
+                    [self loadItemData];
+                }
                 NSLog(@"Got a JSON response back from our POST! %@", [response bodyAsString]);
                 
                 [self.collectionView reloadData];
