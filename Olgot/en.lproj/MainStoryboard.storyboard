@@ -40,6 +40,8 @@
                     <connections>
                         <segue destination="onH-ec-kNX" kind="push" identifier="ShowBoardView" id="fbn-lq-Vkq"/>
                         <segue destination="1Tv-LN-MnF" kind="modal" identifier="ShowSignupFlow" id="RCd-9y-Ngg"/>
+                        <segue destination="2d6-B9-oGp" kind="modal" identifier="ShowFriendsList" id="uXO-7U-gLZ"/>
+                        <segue destination="dbc-jH-RBX" kind="modal" identifier="ShowInfoView" modalTransitionStyle="partialCurl" id="rEQ-gX-7dc"/>
                     </connections>
                 </viewController>
             </objects>
@@ -65,6 +67,59 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1588" y="-1004"/>
+        </scene>
+        <!--Olgot Friends View Controller-->
+        <scene sceneID="4Nl-UY-dXm">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9jA-9S-0dn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="2d6-B9-oGp" customClass="olgotFriendsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PCT-mO-2a1">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1663" y="-659"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="n4j-ZO-RUI">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h6k-YB-wbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="dbc-jH-RBX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0X8-em-8on">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="nKu-T4-def">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="dNz-nl-PGV">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="gAX-Vz-hc8">
+                                        <rect key="frame" x="10" y="30" width="300" height="400"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="d38-nU-Q8M">
+                                        <rect key="frame" x="20" y="51" width="280" height="193"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <string key="text">Lorem ipsum lorem ipsum. Lorem ipsum lorem ipsum. Lorem ipsum lorem ipsum. Lorem ipsum lorem ipsum. Lorem ipsum lorem ipsum. Lorem ipsum lorem ipsum. Lorem ipsum lorem ipsum. Lorem ipsum lorem ipsum. Lorem ipsum lorem ipsum. Lorem ipsum lorem ipsum. Lorem ipsum lorem ipsum. </string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1663" y="-443"/>
         </scene>
         <!--Olgot Map View Controller-->
         <scene sceneID="am4-Y8-NMl">
@@ -1506,217 +1561,6 @@
         <image name="logo-210x155.png" width="210" height="155"/>
         <image name="slogan-390x50.png" width="195" height="25"/>
     </resources>
-    <classes>
-        <class className="SSCollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSCollectionViewController.h"/>
-        </class>
-        <class className="SSCollectionViewItem" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSCollectionViewItem.h"/>
-        </class>
-        <class className="SSLineView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSLineView.h"/>
-        </class>
-        <class className="olgotAccountSettingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotAccountSettingsViewController.h"/>
-        </class>
-        <class className="olgotAddItemConfirmationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotAddItemConfirmationViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="gotPressed:"/>
-                <relationship kind="action" name="likePressed:"/>
-                <relationship kind="action" name="venueNamePressed:"/>
-                <relationship kind="action" name="wantPressed:"/>
-                <relationship kind="outlet" name="gotButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="itemImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="itemPriceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="likeButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="line1" candidateClass="SSLineView"/>
-                <relationship kind="outlet" name="line2" candidateClass="SSLineView"/>
-                <relationship kind="outlet" name="placeBigLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="placeItemCountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="progressView" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="venueNameBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="wantButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="olgotAddItemDetailsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotAddItemDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addedDescription:"/>
-                <relationship kind="action" name="addedPrice:"/>
-                <relationship kind="action" name="editDescription:"/>
-                <relationship kind="action" name="editPrice:"/>
-                <relationship kind="action" name="postButtonPressed:"/>
-                <relationship kind="outlet" name="descriptionTF" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="itemImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="itemPriceTF" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="postButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="venueImageIV" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="venueLocationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="venueNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="olgotAddItemNearbyPlacesViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotAddItemNearbyPlacesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="placeCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-        <class className="olgotBoardViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotBoardViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemCell" candidateClass="SSCollectionViewItem"/>
-            </relationships>
-        </class>
-        <class className="olgotChooseFriends" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotChooseFriends.h"/>
-            <relationships>
-                <relationship kind="outlet" name="footerCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="headerCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="personCell" candidateClass="SSCollectionViewItem"/>
-            </relationships>
-        </class>
-        <class className="olgotChooseUsernameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotChooseUsernameViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="createAccount:"/>
-                <relationship kind="action" name="pressedDone:"/>
-                <relationship kind="action" name="pressedNext:"/>
-                <relationship kind="outlet" name="createAccountBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="userEmail" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="usernameTF" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="olgotCommentsListViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotCommentsListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="finishedComment:"/>
-                <relationship kind="action" name="touchedWriteComment:"/>
-                <relationship kind="outlet" name="commentCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="commentsListHeader" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="myCommentTF" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="mySmallImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="olgotExploreViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotExploreViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="boardBigTile" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="boardNormalTile" candidateClass="SSCollectionViewItem"/>
-            </relationships>
-        </class>
-        <class className="olgotFeedbackViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotFeedbackViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="postFeedbackButtonPressed:"/>
-                <relationship kind="outlet" name="feedbackTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="postFeedbackButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="olgotItemViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotItemViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="finishedComment:"/>
-                <relationship kind="action" name="gotAction:"/>
-                <relationship kind="action" name="likeAction:"/>
-                <relationship kind="action" name="showProfile:"/>
-                <relationship kind="action" name="showVenue:"/>
-                <relationship kind="action" name="touchedWriteComment:"/>
-                <relationship kind="action" name="wantAction:"/>
-                <relationship kind="outlet" name="commentCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="commentsFooter" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="commentsHeader" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="finderCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="gotButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="itemCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="likeButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="myCommentTF" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="mySmallImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="peopleRowCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="wantButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="olgotLovelyViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotLovelyViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemTile" candidateClass="SSCollectionViewItem"/>
-            </relationships>
-        </class>
-        <class className="olgotMapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotMapViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="dismissMap:"/>
-                <relationship kind="outlet" name="itemCountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="olgotMoreViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotMoreViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeAutoTweet:"/>
-                <relationship kind="action" name="changeSavePhotos:"/>
-                <relationship kind="outlet" name="autoTweetSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="savePhotosSwitch" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-        <class className="olgotPeopleListViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotPeopleListViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="personCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="personListHeader" candidateClass="SSCollectionViewItem"/>
-            </relationships>
-        </class>
-        <class className="olgotProfileViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotProfileViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="followButtonPressed:"/>
-                <relationship kind="action" name="showFollowersAction:"/>
-                <relationship kind="action" name="showFollowingAction:"/>
-                <relationship kind="outlet" name="followButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="profileCardTile" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="profileItemTile" candidateClass="SSCollectionViewItem"/>
-            </relationships>
-        </class>
-        <class className="olgotShareViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotShareViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cameraAction:"/>
-                <relationship kind="action" name="photoLibraryAction:"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="olgotSignupRootViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotSignupRootViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="hideSignup:"/>
-                <relationship kind="action" name="twitterSignin:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="twitterSigninButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="olgotVenueMapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotVenueMapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="olgotVenueViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotVenueViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showVenueMap:"/>
-                <relationship kind="outlet" name="venueAddressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="venueCardTile" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="venueIconImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="venueItemTile" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="venueLocationBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="venueMapButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

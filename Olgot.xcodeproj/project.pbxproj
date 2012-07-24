@@ -120,6 +120,10 @@
 		FF6AFF9B15814637000A24BA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6AFF9A15814636000A24BA /* libsqlite3.dylib */; };
 		FF6F63E4158785E400877C3E /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6F63E3158785E400877C3E /* UIImage+fixOrientation.m */; };
 		FF6F63E715878B7E00877C3E /* olgotFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6F63E615878B7E00877C3E /* olgotFeedbackViewController.m */; };
+		FF76C45A15BEBF5A0045B4EA /* olgotFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF76C45915BEBF5A0045B4EA /* olgotFriendsViewController.m */; };
+		FF76C45C15BEC0C40045B4EA /* friendsHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF76C45B15BEC0C40045B4EA /* friendsHeaderCell.xib */; };
+		FF76C45E15BEC0D20045B4EA /* friendsFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF76C45D15BEC0D20045B4EA /* friendsFooterCell.xib */; };
+		FF76C46015BEC0DF0045B4EA /* friendsPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF76C45F15BEC0DF0045B4EA /* friendsPersonCell.xib */; };
 		FF7A000115750F0500BB5A65 /* profileViewPersonCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7A000015750F0500BB5A65 /* profileViewPersonCard.xib */; };
 		FF7A00041575106E00BB5A65 /* box-stats.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7A00021575106E00BB5A65 /* box-stats.png */; };
 		FF7A00051575106E00BB5A65 /* box-stats@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7A00031575106E00BB5A65 /* box-stats@2x.png */; };
@@ -438,6 +442,11 @@
 		FF6F63E3158785E400877C3E /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+fixOrientation.m"; sourceTree = "<group>"; };
 		FF6F63E515878B7D00877C3E /* olgotFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotFeedbackViewController.h; path = ViewControllers/olgotFeedbackViewController.h; sourceTree = "<group>"; };
 		FF6F63E615878B7E00877C3E /* olgotFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotFeedbackViewController.m; path = ViewControllers/olgotFeedbackViewController.m; sourceTree = "<group>"; };
+		FF76C45815BEBF5A0045B4EA /* olgotFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = olgotFriendsViewController.h; sourceTree = "<group>"; };
+		FF76C45915BEBF5A0045B4EA /* olgotFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = olgotFriendsViewController.m; sourceTree = "<group>"; };
+		FF76C45B15BEC0C40045B4EA /* friendsHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = friendsHeaderCell.xib; sourceTree = "<group>"; };
+		FF76C45D15BEC0D20045B4EA /* friendsFooterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = friendsFooterCell.xib; sourceTree = "<group>"; };
+		FF76C45F15BEC0DF0045B4EA /* friendsPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = friendsPersonCell.xib; sourceTree = "<group>"; };
 		FF7A000015750F0500BB5A65 /* profileViewPersonCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = profileViewPersonCard.xib; sourceTree = "<group>"; };
 		FF7A00021575106E00BB5A65 /* box-stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box-stats.png"; sourceTree = "<group>"; };
 		FF7A00031575106E00BB5A65 /* box-stats@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box-stats@2x.png"; sourceTree = "<group>"; };
@@ -624,6 +633,8 @@
 				FFA8542E156D338A0009134C /* Settings */,
 				FFA85422156D30CA0009134C /* olgotPeopleListViewController.h */,
 				FFA85423156D30CA0009134C /* olgotPeopleListViewController.m */,
+				FF76C45815BEBF5A0045B4EA /* olgotFriendsViewController.h */,
+				FF76C45915BEBF5A0045B4EA /* olgotFriendsViewController.m */,
 				FFDC6332156E814C008CCA28 /* olgotCommentsListViewController.h */,
 				FFDC6333156E814C008CCA28 /* olgotCommentsListViewController.m */,
 				FF263F0D155D5AC4005285DE /* olgotBoardViewController.h */,
@@ -782,6 +793,9 @@
 				FFA85414156D23B20009134C /* signupFriendsHeaderCell.xib */,
 				FFA85416156D24480009134C /* signupFriendsFooterCell.xib */,
 				FFA85418156D24750009134C /* signupFriendsPersonCell.xib */,
+				FF76C45B15BEC0C40045B4EA /* friendsHeaderCell.xib */,
+				FF76C45D15BEC0D20045B4EA /* friendsFooterCell.xib */,
+				FF76C45F15BEC0DF0045B4EA /* friendsPersonCell.xib */,
 				FFA85429156D32980009134C /* peopleListPersonCell.xib */,
 				FFA85455156D47FC0009134C /* peopleListHeaderCell.xib */,
 				FFDC6335156E8232008CCA28 /* commentsListHeaderCell.xib */,
@@ -1336,6 +1350,9 @@
 				FF98030B15B2DC36004B96E7 /* LICENSE in Resources */,
 				FF98030C15B2DC36004B96E7 /* Readme.markdown in Resources */,
 				FF98030D15B2DC36004B96E7 /* SSPullToRefresh.podspec in Resources */,
+				FF76C45C15BEC0C40045B4EA /* friendsHeaderCell.xib in Resources */,
+				FF76C45E15BEC0D20045B4EA /* friendsFooterCell.xib in Resources */,
+				FF76C46015BEC0DF0045B4EA /* friendsPersonCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1398,6 +1415,7 @@
 				FF98030E15B2DC36004B96E7 /* SSPullToRefreshDefaultContentView.m in Sources */,
 				FF98030F15B2DC36004B96E7 /* SSPullToRefreshSimpleContentView.m in Sources */,
 				FF98031015B2DC36004B96E7 /* SSPullToRefreshView.m in Sources */,
+				FF76C45A15BEBF5A0045B4EA /* olgotFriendsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

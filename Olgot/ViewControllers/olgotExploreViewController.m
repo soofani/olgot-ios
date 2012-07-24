@@ -12,6 +12,7 @@
 #import "olgotBoardViewController.h"
 #import "olgotCategory.h"
 #import "olgotItem.h"
+#import "olgotFriendsViewController.h"
 
 
 @interface olgotExploreViewController ()
@@ -60,18 +61,14 @@
 {
     [super viewDidLoad];
     
-    
-    
     // Get the stored data before the view loads
     defaults = [NSUserDefaults standardUserDefaults];
-//    [defaults setObject:[NSNumber numberWithInt:1] forKey:@"userid"];
     
     if ([defaults objectForKey:@"userid"] == nil) {
         [defaults setObject:nil forKey:@"firstRun"];
     }
     
     NSLog(@"session user id = %@", [defaults objectForKey:@"userid"]);
-//    firstRun = [defaults objectForKey:@"firstRun"];
     
     // background
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
@@ -88,7 +85,6 @@
     
     //title logo
     UIImage *titleImage = [UIImage imageNamed:@"logo-70x55"];
-//    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
     UIImageView *titleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
     [titleImageView setImage:titleImage];
     titleImageView.contentMode = UIViewContentModeBottom;
@@ -98,7 +94,37 @@
     
     self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionView.scrollView delegate:self];
     
+    //    friends list button
+    UIImage *friendsImage30 = [UIImage imageNamed:@"btn-nav-map"];
+    
+    UIButton *friendsBtn = [[UIButton alloc] init];
+    friendsBtn.frame=CGRectMake(0,0,35,30);
+    [friendsBtn setBackgroundImage:friendsImage30 forState:UIControlStateNormal];
+    [friendsBtn addTarget:self action:@selector(showFriendsList) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:friendsBtn];
+    
+    //    info button
+    UIImage *infoImage30 = [UIImage imageNamed:@"btn-nav-map"];
+    
+    UIButton *infoBtn = [[UIButton alloc] init];
+    infoBtn.frame=CGRectMake(0,0,35,30);
+    [infoBtn setBackgroundImage:infoImage30 forState:UIControlStateNormal];
+    [infoBtn addTarget:self action:@selector(showInfoView) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:infoBtn];
+    
     [self loadCategories];
+}
+
+-(void)showFriendsList
+{
+    [self performSegueWithIdentifier:@"ShowFriendsList" sender:self];
+}
+
+-(void)showInfoView
+{
+    [self performSegueWithIdentifier:@"ShowInfoView" sender:self];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -311,6 +337,9 @@
             boardViewController.boardName = [[_categories objectAtIndex:_selectedRowIndexPath.row] name_En];
         }
    
+    }else if ([[segue identifier] isEqual:@"ShowFriendsList"]) {
+        olgotFriendsViewController *friendsViewController = [segue destinationViewController];
+        [friendsViewController setUserID:[defaults objectForKey:@"userid"]];
     }
 }
 
