@@ -19,5 +19,6 @@
 @property (nonatomic, strong) NSNumber* foursqaureFriend;
 @property (nonatomic, strong) NSString* userProfileImgUrl;
 @property (nonatomic, strong) NSNumber* iFollow;
+@property (nonatomic, strong) NSNumber* followsMe;
 
 @end

@@ -18,7 +18,8 @@ facebookFriend = _facebookFriend,
 twitterFriend = _twitterFriend,
 foursqaureFriend = _foursqaureFriend,
 userProfileImgUrl = _userProfileImgUrl,
-iFollow = _iFollow;
+iFollow = _iFollow,
+followsMe = _followsMe;
 
 -(void)setUserId:(NSNumber *)userId
 {

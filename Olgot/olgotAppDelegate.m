@@ -321,6 +321,8 @@
      @"twitterFriend",@"twitterFriend",
      @"foursqaureFriend",@"foursqaureFriend",
      @"userProfileImgUrl",@"userProfileImgUrl",
+     @"iFollow", @"iFollow",
+     @"followsMe",@"followsMe",
      nil];
     
     // Register our mappings with the provider
