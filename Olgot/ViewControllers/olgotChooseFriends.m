@@ -46,19 +46,36 @@
 {
     SSCollectionViewItem* cell = (SSCollectionViewItem*)[sender superview];
     
-//    [sender setHidden:YES];
-    NSLog(@"follow %@ with id %@", [[_myFriends objectAtIndex:cell.tag] username], [[_myFriends objectAtIndex:cell.tag] userId]);
-    
-    [[_myFriends objectAtIndex:cell.tag] setIFollow:[NSNumber numberWithInt:1]];
-    
     NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
                             _userID, @"id",
                             [[_myFriends objectAtIndex:cell.tag] userId], @"user",
                             nil];
     
-    [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [[RKClient sharedClient] post:@"/follower/" params:params delegate:self];
-  
+    if ([[_myFriends objectAtIndex:cell.tag] iFollow] == [NSNumber numberWithInt:0] || [[_myFriends objectAtIndex:cell.tag] iFollow] == 0) {
+        //follow user
+        NSLog(@"follow %@ with id %@", [[_myFriends objectAtIndex:cell.tag] username], [[_myFriends objectAtIndex:cell.tag] userId]);
+        
+        [[_myFriends objectAtIndex:cell.tag] setIFollow:[NSNumber numberWithInt:1]];
+        
+        [self.collectionView reloadData];
+        
+        NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
+                                _userID, @"id",
+                                [[_myFriends objectAtIndex:cell.tag] userId], @"user",
+                                nil];
+        
+        [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [[RKClient sharedClient] post:@"/follower/" params:params delegate:nil];    
+        
+    } else if ([[_myFriends objectAtIndex:cell.tag] iFollow] == [NSNumber numberWithInt:1]){
+        //unfollow user
+        NSLog(@"unfollow %@ with id %@", [[_myFriends objectAtIndex:cell.tag] username], [[_myFriends objectAtIndex:cell.tag] userId]);
+        [[_myFriends objectAtIndex:cell.tag] setIFollow:[NSNumber numberWithInt:0]];
+        
+        [self.collectionView reloadData];        
+        
+        [[RKClient sharedClient] delete:[@"/follower/" stringByAppendingQueryParameters:params] delegate:nil];  
+    }
 }
 
 #pragma mark RKObjectLoaderDelegate methods
@@ -222,13 +239,12 @@
         followButton = (UIButton*)[cell viewWithTag:4]; //follow
         [followButton addTarget:self action:@selector(followFriend:) forControlEvents:UIControlEventTouchUpInside];
         
-        if([[_myFriends objectAtIndex:indexPath.row] iFollow] == 0){
-            [followButton addTarget:self action:@selector(followFriend:) forControlEvents:UIControlEventTouchUpInside];
+        if([[_myFriends objectAtIndex:indexPath.row] iFollow] == 0 || [[_myFriends objectAtIndex:indexPath.row] iFollow] == [NSNumber numberWithInt:0]){
             [followButton setImage:[UIImage imageNamed:@"btn-user-list-follow"] forState:UIControlStateNormal];
-        }else {
-            [followButton removeTarget:self action:@selector(followFriend:) forControlEvents:UIControlEventTouchUpInside];
+        }else if([[_myFriends objectAtIndex:indexPath.row] iFollow] == [NSNumber numberWithInt:1]) {
             [followButton setImage:[UIImage imageNamed:@"btn-user-list-following"] forState:UIControlStateNormal];
         }
+
         
         [cell setTag:indexPath.row];
         return cell;

@@ -141,7 +141,7 @@
                 // Store the data
                 NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                 
-                [defaults setObject:@"no" forKey:@"firstRun"];
+                [defaults setObject:@"yes" forKey:@"firstRun"];
                 [defaults setObject:_userID forKey:@"userid"];
                 [defaults setObject:self.usernameTF.text forKey:@"username"];
                 [defaults setObject:self.userEmail.text forKey:@"email"];

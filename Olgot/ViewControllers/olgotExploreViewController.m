@@ -130,8 +130,11 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     if([defaults objectForKey:@"firstRun"] == nil){
-//        [defaults setObject:@"1" forKey:@"userid"];
         [self performSegueWithIdentifier:@"ShowSignupFlow" sender:self];
+    }else if ([[defaults objectForKey:@"firstRun"] isEqual:@"yes"]) {
+        [defaults setObject:@"no" forKey:@"firstRun"];
+        [self loadCategories]; 
+        [locationManager startUpdatingLocation];
     }
 }
 
@@ -139,11 +142,6 @@
 {
     [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
     [self.pullToRefreshView finishLoading];
-//    [[[self.navigationController.navigationBar subviews] objectAtIndex:1] setHidden:YES];
-}
-
--(void)viewWillAppear:(BOOL)animated{
-//    [[[self.navigationController.navigationBar subviews] objectAtIndex:1] setHidden:NO];
 }
 
 - (void)viewDidUnload
@@ -365,6 +363,8 @@
     
         [self loadFixedCategories];
         [locationManager stopUpdatingLocation];
+    }else{
+        [self loadFixedCategories];
     }
     // else skip the event and process the next one.
 }
