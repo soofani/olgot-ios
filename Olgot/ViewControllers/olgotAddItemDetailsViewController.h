@@ -20,6 +20,8 @@
     NSString* _itemUrl;
     
     NSArray* accountsArray;
+    
+    BOOL twitterShare;
 }
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -40,5 +42,7 @@
 
 - (IBAction)editPrice:(id)sender;
 - (IBAction)editDescription:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *twitterShareBtn;
+- (IBAction)twitterSharePressed:(id)sender;
 
 @end

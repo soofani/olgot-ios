@@ -18,6 +18,7 @@
 @end
 
 @implementation olgotAddItemDetailsViewController
+@synthesize twitterShareBtn = _twitterShareBtn;
 
 @synthesize itemImageView = _itemImageView;
 @synthesize itemImage = _itemImage;
@@ -118,6 +119,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([[defaults objectForKey:@"autoTweetItems"] isEqual:@"yes"]) {
+        twitterShare = YES;
+    }else {
+        twitterShare = NO;
+    }
+    
     [self.itemImageView setImage:_itemImage];
     [self configureView];
 }
@@ -127,6 +136,16 @@
     [self.venueImageIV setImageWithURL:[NSURL URLWithString:[_venue venueIcon]]];
     [self.venueNameLabel setText:[_venue name_En]];
     [self.venueLocationLabel setText:[_venue name_En]];
+    [self configureSharingBtns];
+}
+
+-(void)configureSharingBtns
+{
+    if (twitterShare) {
+        [_twitterShareBtn setImage:[UIImage imageNamed:@"btn-share-twitter-on"] forState:UIControlStateNormal];
+    } else {
+        [_twitterShareBtn setImage:[UIImage imageNamed:@"btn-share-twitter"] forState:UIControlStateNormal];
+    }
 }
 
 - (void)viewDidUnload
@@ -139,6 +158,7 @@
     [self setPostButton:nil];
     [self setScrollView:nil];
     [self setItemImage:nil];
+    [self setTwitterShareBtn:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -281,12 +301,16 @@
         
         [[[RKClient sharedClient] requestWithResourcePath:@"/photo/"] setDelegate:nil];
         
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        
-        if ([[defaults objectForKey:@"autoTweetItems"] isEqual:@"yes"]) {
+        if (twitterShare) {
             [self tweetItem];
         }
+        
     }
+}
+
+- (IBAction)twitterSharePressed:(id)sender {
+    twitterShare = !twitterShare;
+    [self configureSharingBtns];
 }
 
 @end

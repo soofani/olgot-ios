@@ -148,6 +148,10 @@
 		FF88814115AEC08900B18BA6 /* logo-70x55@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF88813F15AEC08900B18BA6 /* logo-70x55@2x.png */; };
 		FF88814415AED7F500B18BA6 /* olgotItemLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF88814315AED7F500B18BA6 /* olgotItemLocation.m */; };
 		FF88814715AEFA9A00B18BA6 /* olgotCustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF88814615AEFA9A00B18BA6 /* olgotCustomAnnotationView.m */; };
+		FF8BB18F15C16DDF003E27E2 /* btn-share-twitter-on.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8BB18B15C16DDF003E27E2 /* btn-share-twitter-on.png */; };
+		FF8BB19015C16DDF003E27E2 /* btn-share-twitter-on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8BB18C15C16DDF003E27E2 /* btn-share-twitter-on@2x.png */; };
+		FF8BB19115C16DDF003E27E2 /* btn-share-twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8BB18D15C16DDF003E27E2 /* btn-share-twitter.png */; };
+		FF8BB19215C16DDF003E27E2 /* btn-share-twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8BB18E15C16DDF003E27E2 /* btn-share-twitter@2x.png */; };
 		FF916C131560FD0B004C6A86 /* raed-nav-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C121560FD0B004C6A86 /* raed-nav-bg.png */; };
 		FF916C1515610D22004C6A86 /* UserProfileHeaderTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF916C1415610D22004C6A86 /* UserProfileHeaderTile.xib */; };
 		FF916C1C1561363F004C6A86 /* olgotItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF916C1B1561363F004C6A86 /* olgotItemViewController.m */; };
@@ -484,6 +488,10 @@
 		FF88814315AED7F500B18BA6 /* olgotItemLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = olgotItemLocation.m; sourceTree = "<group>"; };
 		FF88814515AEFA9A00B18BA6 /* olgotCustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = olgotCustomAnnotationView.h; sourceTree = "<group>"; };
 		FF88814615AEFA9A00B18BA6 /* olgotCustomAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = olgotCustomAnnotationView.m; sourceTree = "<group>"; };
+		FF8BB18B15C16DDF003E27E2 /* btn-share-twitter-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-share-twitter-on.png"; sourceTree = "<group>"; };
+		FF8BB18C15C16DDF003E27E2 /* btn-share-twitter-on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-share-twitter-on@2x.png"; sourceTree = "<group>"; };
+		FF8BB18D15C16DDF003E27E2 /* btn-share-twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-share-twitter.png"; sourceTree = "<group>"; };
+		FF8BB18E15C16DDF003E27E2 /* btn-share-twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-share-twitter@2x.png"; sourceTree = "<group>"; };
 		FF916C121560FD0B004C6A86 /* raed-nav-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "raed-nav-bg.png"; sourceTree = "<group>"; };
 		FF916C1415610D22004C6A86 /* UserProfileHeaderTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileHeaderTile.xib; sourceTree = "<group>"; };
 		FF916C1A1561363F004C6A86 /* olgotItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotItemViewController.h; path = ViewControllers/olgotItemViewController.h; sourceTree = "<group>"; };
@@ -766,6 +774,10 @@
 				FF57DA1A156A5A9900DFAB3E /* btn-share-130x116@2x.png */,
 				FF980BE415A5E47200001259 /* btn-share.png */,
 				FF980BE715A5E5AA00001259 /* btn-share@2x.png */,
+				FF8BB18B15C16DDF003E27E2 /* btn-share-twitter-on.png */,
+				FF8BB18C15C16DDF003E27E2 /* btn-share-twitter-on@2x.png */,
+				FF8BB18D15C16DDF003E27E2 /* btn-share-twitter.png */,
+				FF8BB18E15C16DDF003E27E2 /* btn-share-twitter@2x.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -1353,6 +1365,10 @@
 				FF76C45C15BEC0C40045B4EA /* friendsHeaderCell.xib in Resources */,
 				FF76C45E15BEC0D20045B4EA /* friendsFooterCell.xib in Resources */,
 				FF76C46015BEC0DF0045B4EA /* friendsPersonCell.xib in Resources */,
+				FF8BB18F15C16DDF003E27E2 /* btn-share-twitter-on.png in Resources */,
+				FF8BB19015C16DDF003E27E2 /* btn-share-twitter-on@2x.png in Resources */,
+				FF8BB19115C16DDF003E27E2 /* btn-share-twitter.png in Resources */,
+				FF8BB19215C16DDF003E27E2 /* btn-share-twitter@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
