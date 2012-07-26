@@ -42,7 +42,7 @@
                         <segue destination="1Tv-LN-MnF" kind="modal" identifier="ShowSignupFlow" id="RCd-9y-Ngg"/>
                         <segue destination="2d6-B9-oGp" kind="modal" identifier="ShowFriendsList" id="uXO-7U-gLZ"/>
                         <segue destination="dbc-jH-RBX" kind="modal" identifier="ShowInfoView" modalTransitionStyle="partialCurl" id="rEQ-gX-7dc"/>
-                        <segue destination="bHT-Pn-EkF" kind="modal" identifier="ShowNotifications" id="ErZ-1s-Tjc"/>
+                        <segue destination="5En-Ad-4ak" kind="modal" identifier="ShowNotifications" id="ErZ-1s-Tjc"/>
                     </connections>
                 </viewController>
             </objects>
@@ -764,17 +764,17 @@
             </objects>
             <point key="canvasLocation" x="640" y="-417"/>
         </scene>
-        <!--Olgot Notifications View Controller-->
+        <!--Olgot Notifications View Controller - Notifications-->
         <scene sceneID="3R3-Hb-Rka">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLW-bB-AMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="bHT-Pn-EkF" customClass="olgotNotificationsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gcX-eC-n5v">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" id="aEr-df-ZgU">
-                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -807,6 +807,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="Fmr-fE-SC3" kind="push" id="7BR-Ub-gCU"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noteUserCell" rowHeight="61" id="Kbr-5k-eAG">
                                         <rect key="frame" x="0.0" y="83" width="320" height="61"/>
@@ -844,31 +847,24 @@
                                     <outlet property="delegate" destination="bHT-Pn-EkF" id="1ZU-m1-SlF"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" id="WJd-Ou-tdd">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Notifications" id="Vzi-b2-Sop">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="g4j-Mv-Ce5">
-                                            <color key="tintColor" red="0.90980392160000001" green="0.30588235289999999" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <connections>
-                                                <action selector="doneBtnPressed:" destination="bHT-Pn-EkF" id="Rkj-DN-x39"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Notifications" id="XSg-xa-bL9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="tQC-90-GY3">
+                            <color key="tintColor" red="0.90980392160000001" green="0.30588235289999999" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="doneBtnPressed:" destination="bHT-Pn-EkF" id="F8s-k1-Cg5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="doneBtn" destination="g4j-Mv-Ce5" id="cGS-K8-Fhq"/>
-                        <outlet property="navigationBar" destination="WJd-Ou-tdd" id="Bdv-IM-rgc"/>
+                        <outlet property="doneBtn" destination="tQC-90-GY3" id="HEe-eS-ADt"/>
                         <outlet property="tableView" destination="aEr-df-ZgU" id="BFc-d4-Bsb"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1172" y="-2345"/>
+            <point key="canvasLocation" x="1744" y="-2345"/>
         </scene>
         <!--Olgot Signup Root View Controller-->
         <scene sceneID="EKJ-IJ-68I">
@@ -1694,6 +1690,24 @@
             </objects>
             <point key="canvasLocation" x="2541" y="-1499"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fVV-HM-6eT">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CW4-e2-SUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="5En-Ad-4ak" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="tIN-C5-hgZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bHT-Pn-EkF" kind="relationship" relationship="rootViewController" id="p9g-7g-5zC"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1172" y="-2345"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bg.png" width="320" height="480"/>
@@ -1879,7 +1893,6 @@
             <relationships>
                 <relationship kind="action" name="doneBtnPressed:"/>
                 <relationship kind="outlet" name="doneBtn" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
@@ -1943,9 +1956,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="2IH-Ik-b9l"/>
-        <segue reference="tAB-hG-qL1"/>
+        <segue reference="7BR-Ub-gCU"/>
         <segue reference="jD9-Wv-5GK"/>
+        <segue reference="tAB-hG-qL1"/>
         <segue reference="aDs-8U-WhC"/>
     </inferredMetricsTieBreakers>
 </document>

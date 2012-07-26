@@ -16,7 +16,6 @@
 @end
 
 @implementation olgotNotificationsViewController
-@synthesize navigationBar;
 @synthesize tableView;
 @synthesize doneBtn;
 @synthesize pullToRefreshView = _pullToRefreshView;
@@ -35,10 +34,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.navigationBar.layer.shadowColor = [[UIColor blackColor] CGColor];
-    self.navigationBar.layer.shadowOffset = CGSizeMake(0.0, 1.0);
-    self.navigationBar.layer.shadowOpacity = 0.5;
-    self.navigationBar.layer.masksToBounds = NO;
+    self.navigationController.navigationBar.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.navigationController.navigationBar.layer.shadowOffset = CGSizeMake(0.0, 1.0);
+    self.navigationController.navigationBar.layer.shadowOpacity = 0.5;
+    self.navigationController.navigationBar.layer.masksToBounds = NO;
     
     UIView* footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
     [footerView setBackgroundColor:[UIColor clearColor]];
@@ -54,7 +53,6 @@
     self.pullToRefreshView = nil;
     [self setTableView:nil];
     [self setDoneBtn:nil];
-    [self setNavigationBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

@@ -15,7 +15,7 @@
     
     NSArray* _notifications;
 }
-@property (strong, nonatomic) IBOutlet UINavigationBar *navigationBar;
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneBtn;
 @property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
