@@ -17,6 +17,8 @@
 #import "olgotVenue.h"
 #import "olgotComment.h"
 #import "olgotMyFriend.h"
+#import "olgotNotification.h"
+#import "olgotNotificationUser.h"
 #import "LocalyticsSession.h"
 
 @implementation olgotAppDelegate
@@ -325,6 +327,19 @@
      @"followsMe",@"followsMe",
      nil];
     
+    RKObjectMapping* notificationMapping = [RKObjectMapping mappingForClass:[olgotNotification class]];
+    [notificationMapping mapKeyPathsToAttributes:
+     @"id", @"noteID",
+     @"actionType", @"actionType",
+     @"date", @"noteDate",
+     @"viewed", @"noteStatus",
+     nil
+     ];
+    
+    RKObjectMapping* notificationUserMapping = [RKObjectMapping mappingForClass:[olgotNotificationUser class]];
+    
+    [notificationUserMapping mapAttributes:@"userId",@"firstName",@"lastName",@"username",@"twitterName",@"profileImgUrl",@"itemId",@"itemImgUrl",@"itemVenueId",@"itemVenueName", nil];
+    
     // Register our mappings with the provider
     [categoryMapping mapKeyPath:@"lastItem" toRelationship:@"lastItem" withMapping: itemMapping];
     [objectManager.mappingProvider setObjectMapping:categoryMapping forResourcePathPattern:@"/categories"];
@@ -334,6 +349,9 @@
     [itemMapping mapKeyPath:@"wants" toRelationship:@"wants" withMapping:innerActionUserMapping];
     [itemMapping mapKeyPath:@"gots" toRelationship:@"gots" withMapping:innerActionUserMapping];
     [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/item/"];
+    
+    [notificationMapping mapKeyPath:@"comment" toRelationship:@"actionUser" withMapping:notificationUserMapping];
+    [objectManager.mappingProvider setObjectMapping:notificationMapping forResourcePathPattern:@"/notifications/"];
     
     [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/feeditems/"];
     [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/nearbyitems/"];

@@ -102,7 +102,18 @@
     [friendsBtn setBackgroundImage:friendsImage30 forState:UIControlStateNormal];
     [friendsBtn addTarget:self action:@selector(showFriendsList) forControlEvents:UIControlEventTouchUpInside];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:friendsBtn];
+    UIImage *noteImage30 = [UIImage imageNamed:@"icon-notifications-on"];
+    noteButton = [[UIButton alloc] initWithFrame:CGRectMake(195, 11, 32, 21)];
+    [noteButton setBackgroundImage:noteImage30 forState:UIControlStateNormal];
+    [noteButton addTarget:self 
+                   action:@selector(showNotifications)
+         forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *friendsBarBtn = [[UIBarButtonItem alloc] initWithCustomView:friendsBtn];
+    
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:friendsBarBtn, nil];
+    
+    [self.navigationController.navigationBar addSubview:noteButton];
     
     //    info button
     UIImage *infoImage30 = [UIImage imageNamed:@"btn-nav-map"];
@@ -114,7 +125,13 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:infoBtn];
     
+//    [self.navigationItem.titleView insertSubview:noteButton atIndex:1];
     [self loadCategories];
+}
+
+-(void)showNotifications
+{
+    [self performSegueWithIdentifier:@"ShowNotifications" sender:self];
 }
 
 -(void)showFriendsList
@@ -129,6 +146,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     if([defaults objectForKey:@"firstRun"] == nil){
         [self performSegueWithIdentifier:@"ShowSignupFlow" sender:self];
     }else if ([[defaults objectForKey:@"firstRun"] isEqual:@"yes"]) {
@@ -136,12 +154,21 @@
         [self loadCategories]; 
         [locationManager startUpdatingLocation];
     }
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        [noteButton setHidden:NO];
+    }];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
     [self.pullToRefreshView finishLoading];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        [noteButton setHidden:YES];
+    }];
 }
 
 - (void)viewDidUnload

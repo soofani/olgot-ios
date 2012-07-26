@@ -21,6 +21,8 @@
     NSString* feedImage;
     NSString* nearbyImage;
     NSString* wantsImage;
+    
+    UIButton* noteButton;
 }
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *boardBigTile;
