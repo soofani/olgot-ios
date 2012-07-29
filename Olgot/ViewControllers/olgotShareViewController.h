@@ -7,34 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "olgotCameraOverlayViewController.h"
 
-@interface olgotShareViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, olgotCameraOverlayViewControllerDelegate>
+@interface olgotShareViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
-    UIImageView *imageView;
-//    UIToolbar *myToolbar;
-    
-    NSMutableArray *capturedImages; // the list of images captures from the camera (either 1 or multiple)
-    
-    BOOL newMedia;
-    BOOL showCam;
-    olgotCameraOverlayViewController *mOverlayController;
-    
-//    UIImagePickerController* imgPicker;
+    UIImage *image;
 }
 
-@property (nonatomic, retain) UIImagePickerController* imgPicker;
-@property (nonatomic, retain) IBOutlet UIImageView *imageView;
-//@property (nonatomic, retain) IBOutlet UIToolbar *myToolbar;
+- (IBAction)takePicture:(id)sender;
 
-@property (nonatomic, retain) NSMutableArray *capturedImages;
 
-@property (nonatomic, retain) olgotCameraOverlayViewController *mOverlayViewController;
-
--(void)useCamera;
-
-// toolbar buttons
-- (IBAction)photoLibraryAction:(id)sender;
-- (IBAction)cameraAction:(id)sender;
 
 @end
