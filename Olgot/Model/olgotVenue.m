@@ -17,6 +17,12 @@ geoLat = _geoLat,
 geoLong = _geoLong,
 items = _items,
 venueIcon = _venueIcon,
-foursquareAddress = _foursquareAddress;
+foursquareAddress = _foursquareAddress,
+iconUrl = _iconUrl,
+topUserId = _topUserId,
+topUserFirstName = _topUserFirstName,
+topUserLastName = _topUserLastName,
+topUserItems = _topUserItems,
+topUserProfileImgUrl = _topUserProfileImgUrl;
 
 @end

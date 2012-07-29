@@ -18,5 +18,11 @@
 @property (nonatomic, retain) NSNumber* items;
 @property (nonatomic, retain) NSString* venueIcon;
 @property (nonatomic, retain) NSString* foursquareAddress;
+@property (nonatomic, retain) NSString* iconUrl;
+@property (nonatomic, retain) NSNumber* topUserId;
+@property (nonatomic, retain) NSString* topUserFirstName;
+@property (nonatomic, retain) NSString* topUserLastName;
+@property (nonatomic, retain) NSNumber* topUserItems;
+@property (nonatomic, retain) NSString* topUserProfileImgUrl;
 
 @end

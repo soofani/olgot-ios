@@ -281,6 +281,12 @@
      @"items",@"items",
      @"iconUrl",@"venueIcon",
      @"foursquareAddress",@"foursquareAddress",
+     @"iconUrl",@"iconUrl",
+     @"topUser.userId",@"topUserId",
+     @"topUser.firstName",@"topUserFirstName",
+     @"topUser.lastName",@"topUserLastName",
+     @"topUser.items",@"topUserItems",
+     @"topUser.profileImgUrl",@"topUserProfileImgUrl",
      nil];
     
     RKObjectMapping* commentMapping = [RKObjectMapping mappingForClass:[olgotComment class]];

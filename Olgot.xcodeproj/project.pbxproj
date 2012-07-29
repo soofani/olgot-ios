@@ -77,6 +77,7 @@
 		FF3310461565409B0083602B /* btn-cam-flash-off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF3310441565409B0083602B /* btn-cam-flash-off@2x.png */; };
 		FF331049156542150083602B /* icon-cam-80x60.png in Resources */ = {isa = PBXBuildFile; fileRef = FF331047156542150083602B /* icon-cam-80x60.png */; };
 		FF33104A156542150083602B /* icon-cam-80x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF331048156542150083602B /* icon-cam-80x60@2x.png */; };
+		FF34C8DC15C5895D00D8770F /* btn-following.png in Resources */ = {isa = PBXBuildFile; fileRef = FF34C8DB15C5895D00D8770F /* btn-following.png */; };
 		FF423CE81578DD3100A3B970 /* btn-user-list-following.png in Resources */ = {isa = PBXBuildFile; fileRef = FF423CE61578DD3100A3B970 /* btn-user-list-following.png */; };
 		FF423CE91578DD3100A3B970 /* btn-user-list-following@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF423CE71578DD3100A3B970 /* btn-user-list-following@2x.png */; };
 		FF423CEC157991B600A3B970 /* olgotUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FF423CEB157991B600A3B970 /* olgotUser.m */; };
@@ -407,6 +408,8 @@
 		FF3310441565409B0083602B /* btn-cam-flash-off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-cam-flash-off@2x.png"; sourceTree = "<group>"; };
 		FF331047156542150083602B /* icon-cam-80x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cam-80x60.png"; sourceTree = "<group>"; };
 		FF331048156542150083602B /* icon-cam-80x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cam-80x60@2x.png"; sourceTree = "<group>"; };
+		FF34C8DA15C588AE00D8770F /* btn-following@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-following@2x.png"; sourceTree = "<group>"; };
+		FF34C8DB15C5895D00D8770F /* btn-following.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-following.png"; sourceTree = "<group>"; };
 		FF423CE61578DD3100A3B970 /* btn-user-list-following.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-user-list-following.png"; sourceTree = "<group>"; };
 		FF423CE71578DD3100A3B970 /* btn-user-list-following@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-user-list-following@2x.png"; sourceTree = "<group>"; };
 		FF423CEA157991B600A3B970 /* olgotUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotUser.h; path = Model/olgotUser.h; sourceTree = "<group>"; };
@@ -818,6 +821,8 @@
 				FF8BB1C415C19510003E27E2 /* icon-notifications-off@2x.png */,
 				FF8BB1C515C19510003E27E2 /* icon-notifications-on.png */,
 				FF8BB1C615C19510003E27E2 /* icon-notifications-on@2x.png */,
+				FF34C8DB15C5895D00D8770F /* btn-following.png */,
+				FF34C8DA15C588AE00D8770F /* btn-following@2x.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -1421,6 +1426,7 @@
 				FF25124715C56D720047C87B /* btn-nav-friends@2x.png in Resources */,
 				FF25124815C56D720047C87B /* icon-help.png in Resources */,
 				FF25124915C56D720047C87B /* icon-help@2x.png in Resources */,
+				FF34C8DC15C5895D00D8770F /* btn-following.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@
 #import "olgotItem.h"
 #import "olgotItemViewController.h"
 #import "olgotVenueMapViewController.h"
+#import "olgotProfileViewController.h"
 
 @interface olgotVenueViewController ()
 
@@ -28,6 +29,10 @@
 @synthesize venueMapButton = _venueMapButton;
 @synthesize venueAddressLabel = _venueAddressLabel;
 @synthesize venueIconImageView = _venueIconImageView;
+@synthesize topUserImage = _topUserImage;
+@synthesize topUserName = _topUserName;
+@synthesize topUserItems = _topUserItems;
+@synthesize topUserLabel = _topUserLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -87,6 +92,14 @@
     
     if ([[objects objectAtIndex:0] isKindOfClass:[olgotVenue class]]) {
         _venue = [objects objectAtIndex:0];
+        
+        if ([_venue topUserId] == NULL || [_venue topUserId] == 0) {
+            hasTopUser = NO;
+        }else {
+            hasTopUser = YES;
+        }
+        
+        
         [self.collectionView reloadData];
     }else {
         loadingNew = NO;
@@ -147,6 +160,10 @@
     [self setVenueMapButton:nil];
     [self setVenueAddressLabel:nil];
     [self setVenueIconImageView:nil];
+    [self setTopUserImage:nil];
+    [self setTopUserName:nil];
+    [self setTopUserItems:nil];
+    [self setTopUserLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     self.pullToRefreshView = nil;
@@ -192,14 +209,27 @@
         }
         
         UILabel *venueLabel;
-        venueLabel = (UILabel *)[cell1 viewWithTag:2];
+        UIImageView *userImage;
+        UIButton *userBtn;
         
+        venueLabel = (UILabel *)[cell1 viewWithTag:2];
         [venueLabel setText:[_venue foursquareAddress]];
         
-//        cell1.layer.shadowOpacity = 0.5;
-//        cell1.layer.shadowColor = [[UIColor blackColor] CGColor];
-//        cell1.layer.shadowOffset = CGSizeMake(1.0, 1.0);
+        venueLabel = (UILabel*)[cell1 viewWithTag:3];
+        [venueLabel setHidden:!hasTopUser];
         
+        userImage = (UIImageView*)[cell1 viewWithTag:4];
+        [userImage setImageWithURL:[NSURL URLWithString:[_venue topUserProfileImgUrl]]];
+        [userImage setHidden:!hasTopUser];
+        
+        userBtn = (UIButton*)[cell1 viewWithTag:5];
+        [userBtn setTitle:[NSString stringWithFormat:@"%@ %@",[_venue topUserFirstName],[_venue topUserLastName]] forState:UIControlStateNormal];
+        [userBtn setHidden:!hasTopUser];
+        
+        venueLabel = (UILabel*)[cell1 viewWithTag:6];
+        [venueLabel setText:[NSString stringWithFormat:@"Posted %@ items", [_venue topUserItems]]];
+        [venueLabel setHidden:!hasTopUser];
+
         return cell1;
     }
     else {
@@ -229,9 +259,6 @@
                             [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]                  
                             ]];
         
-//        cell2.layer.shadowOpacity = 0.5;
-//        cell2.layer.shadowColor = [[UIColor blackColor] CGColor];
-//        cell2.layer.shadowOffset = CGSizeMake(1.0, 1.0);
         
         return cell2;
     }
@@ -255,7 +282,12 @@
 
 - (CGSize)collectionView:(SSCollectionView *)aCollectionView itemSizeForSection:(NSUInteger)section {
     if (section == 0) {
-        return CGSizeMake(300.0f, 150.0f);
+        if(hasTopUser){
+            return CGSizeMake(300.0f, 150.0f);    
+        }else {
+            return CGSizeMake(300.0f, 90.0f);
+        }
+        
     }else{
         return CGSizeMake(145.0f, 184.0f);
     }
@@ -300,6 +332,9 @@
         olgotVenueMapViewController *mapViewController = [segue destinationViewController];
         
         mapViewController.venue = _venue;
+    }else if ([[segue identifier] isEqual:@"ShowTopUserProfile"]) {
+        olgotProfileViewController *profileViewController = [segue destinationViewController];
+        profileViewController.userID = [_venue topUserId];
     }
 }
 
@@ -323,5 +358,9 @@
 
 - (IBAction)showVenueMap:(id)sender {
     [self performSegueWithIdentifier:@"ShowVenueMap" sender:self];
+}
+
+- (IBAction)userPressed:(id)sender {
+    [self performSegueWithIdentifier:@"ShowTopUserProfile" sender:self];
 }
 @end

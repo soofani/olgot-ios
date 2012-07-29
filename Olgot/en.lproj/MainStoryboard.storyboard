@@ -226,11 +226,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Venue" id="hqz-Zy-udU"/>
+                    <navigationItem key="navigationItem" title="Venue" id="hqz-Zy-udU">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="HL9-Jb-vhd"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="Fmr-fE-SC3" kind="push" identifier="ShowItemView" id="nXf-sN-KN0"/>
                         <segue destination="fsi-nE-oPn" kind="push" identifier="ShowAddItem" id="aDs-8U-WhC"/>
                         <segue destination="87U-8D-FOE" kind="push" identifier="ShowVenueMap" id="fn3-Zg-NCW"/>
+                        <segue destination="HAn-Se-f9H" kind="push" identifier="ShowTopUserProfile" id="O6E-bc-QPS"/>
                     </connections>
                 </viewController>
             </objects>
@@ -1914,6 +1917,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotNotificationsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="doneBtnPressed:"/>
+                <relationship kind="outlet" name="activityView" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="doneBtn" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
@@ -1963,6 +1967,11 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotVenueViewController.h"/>
             <relationships>
                 <relationship kind="action" name="showVenueMap:"/>
+                <relationship kind="action" name="userPressed:"/>
+                <relationship kind="outlet" name="topUserImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="topUserItems" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="topUserLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="topUserName" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="venueAddressLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="venueCardTile" candidateClass="SSCollectionViewItem"/>
                 <relationship kind="outlet" name="venueIconImageView" candidateClass="UIImageView"/>
@@ -1977,10 +1986,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="7BR-Ub-gCU"/>
-        <segue reference="jD9-Wv-5GK"/>
-        <segue reference="tAB-hG-qL1"/>
-        <segue reference="aDs-8U-WhC"/>
-    </inferredMetricsTieBreakers>
 </document>
