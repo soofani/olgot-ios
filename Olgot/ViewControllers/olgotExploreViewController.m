@@ -95,10 +95,10 @@
     self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionView.scrollView delegate:self];
     
     //    friends list button
-    UIImage *friendsImage30 = [UIImage imageNamed:@"btn-nav-map"];
+    UIImage *friendsImage30 = [UIImage imageNamed:@"btn-nav-friends"];
     
     UIButton *friendsBtn = [[UIButton alloc] init];
-    friendsBtn.frame=CGRectMake(0,0,35,30);
+    friendsBtn.frame=CGRectMake(0,0,35,29);
     [friendsBtn setBackgroundImage:friendsImage30 forState:UIControlStateNormal];
     [friendsBtn addTarget:self action:@selector(showFriendsList) forControlEvents:UIControlEventTouchUpInside];
     
@@ -116,10 +116,10 @@
     [self.navigationController.navigationBar addSubview:noteButton];
     
     //    info button
-    UIImage *infoImage30 = [UIImage imageNamed:@"btn-nav-map"];
+    UIImage *infoImage30 = [UIImage imageNamed:@"icon-help"];
     
     UIButton *infoBtn = [[UIButton alloc] init];
-    infoBtn.frame=CGRectMake(0,0,35,30);
+    infoBtn.frame=CGRectMake(0,0,27,27);
     [infoBtn setBackgroundImage:infoImage30 forState:UIControlStateNormal];
     [infoBtn addTarget:self action:@selector(showInfoView) forControlEvents:UIControlEventTouchUpInside];
     

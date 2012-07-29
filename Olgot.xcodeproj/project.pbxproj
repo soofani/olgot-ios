@@ -40,6 +40,11 @@
 		FF20E75C1575175A004EC879 /* profileViewItemTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF20E75B1575175A004EC879 /* profileViewItemTile.xib */; };
 		FF20E75E157525EE004EC879 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF20E75D157525EE004EC879 /* Twitter.framework */; };
 		FF20E760157525F5004EC879 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF20E75F157525F5004EC879 /* Accounts.framework */; };
+		FF25124615C56D720047C87B /* btn-nav-friends.png in Resources */ = {isa = PBXBuildFile; fileRef = FF25124215C56D720047C87B /* btn-nav-friends.png */; };
+		FF25124715C56D720047C87B /* btn-nav-friends@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF25124315C56D720047C87B /* btn-nav-friends@2x.png */; };
+		FF25124815C56D720047C87B /* icon-help.png in Resources */ = {isa = PBXBuildFile; fileRef = FF25124415C56D720047C87B /* icon-help.png */; };
+		FF25124915C56D720047C87B /* icon-help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF25124515C56D720047C87B /* icon-help@2x.png */; };
+		FF25124C15C56F2F0047C87B /* olgotHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF25124B15C56F2F0047C87B /* olgotHelpViewController.m */; };
 		FF2571D7156942AE00D544F8 /* btn-user-list-follow.png in Resources */ = {isa = PBXBuildFile; fileRef = FF2571D5156942AE00D544F8 /* btn-user-list-follow.png */; };
 		FF2571D8156942AE00D544F8 /* btn-user-list-follow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF2571D6156942AE00D544F8 /* btn-user-list-follow@2x.png */; };
 		FF263F0F155D5AC4005285DE /* olgotBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF263F0E155D5AC4005285DE /* olgotBoardViewController.m */; };
@@ -357,6 +362,12 @@
 		FF20E75B1575175A004EC879 /* profileViewItemTile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = profileViewItemTile.xib; sourceTree = "<group>"; };
 		FF20E75D157525EE004EC879 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		FF20E75F157525F5004EC879 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		FF25124215C56D720047C87B /* btn-nav-friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-nav-friends.png"; sourceTree = "<group>"; };
+		FF25124315C56D720047C87B /* btn-nav-friends@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-nav-friends@2x.png"; sourceTree = "<group>"; };
+		FF25124415C56D720047C87B /* icon-help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-help.png"; sourceTree = "<group>"; };
+		FF25124515C56D720047C87B /* icon-help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-help@2x.png"; sourceTree = "<group>"; };
+		FF25124A15C56F2F0047C87B /* olgotHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = olgotHelpViewController.h; sourceTree = "<group>"; };
+		FF25124B15C56F2F0047C87B /* olgotHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = olgotHelpViewController.m; sourceTree = "<group>"; };
 		FF2571D5156942AE00D544F8 /* btn-user-list-follow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-user-list-follow.png"; sourceTree = "<group>"; };
 		FF2571D6156942AE00D544F8 /* btn-user-list-follow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-user-list-follow@2x.png"; sourceTree = "<group>"; };
 		FF263F0D155D5AC4005285DE /* olgotBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotBoardViewController.h; path = ViewControllers/olgotBoardViewController.h; sourceTree = "<group>"; };
@@ -670,6 +681,8 @@
 				FF26E26B1562807E00BECF4C /* olgotVenueViewController.m */,
 				FF8BB1BB15C186F9003E27E2 /* olgotNotificationsViewController.h */,
 				FF8BB1BC15C186F9003E27E2 /* olgotNotificationsViewController.m */,
+				FF25124A15C56F2F0047C87B /* olgotHelpViewController.h */,
+				FF25124B15C56F2F0047C87B /* olgotHelpViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -677,6 +690,10 @@
 		FF10F2A9155D16F500F4EC2E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				FF25124215C56D720047C87B /* btn-nav-friends.png */,
+				FF25124315C56D720047C87B /* btn-nav-friends@2x.png */,
+				FF25124415C56D720047C87B /* icon-help.png */,
+				FF25124515C56D720047C87B /* icon-help@2x.png */,
 				FF919A38157CD230000978A5 /* msg-action-got.png */,
 				FF919A39157CD230000978A5 /* msg-action-got@2x.png */,
 				FF919A3A157CD230000978A5 /* msg-action-like.png */,
@@ -1400,6 +1417,10 @@
 				FF8BB1C815C19510003E27E2 /* icon-notifications-off@2x.png in Resources */,
 				FF8BB1C915C19510003E27E2 /* icon-notifications-on.png in Resources */,
 				FF8BB1CA15C19510003E27E2 /* icon-notifications-on@2x.png in Resources */,
+				FF25124615C56D720047C87B /* btn-nav-friends.png in Resources */,
+				FF25124715C56D720047C87B /* btn-nav-friends@2x.png in Resources */,
+				FF25124815C56D720047C87B /* icon-help.png in Resources */,
+				FF25124915C56D720047C87B /* icon-help@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1466,6 +1487,7 @@
 				FF8BB1BD15C186F9003E27E2 /* olgotNotificationsViewController.m in Sources */,
 				FF8BB1CD15C19678003E27E2 /* olgotNotification.m in Sources */,
 				FF8BB1D015C198F5003E27E2 /* olgotNotificationUser.m in Sources */,
+				FF25124C15C56F2F0047C87B /* olgotHelpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
