@@ -10,12 +10,14 @@
 #import "UIImageView+AFNetworking.h"
 #import "olgotNotification.h"
 #import "olgotNotificationUser.h"
+#import "olgotItemViewController.h"
 
 @interface olgotNotificationsViewController ()
 
 @end
 
 @implementation olgotNotificationsViewController
+@synthesize activityView;
 @synthesize tableView;
 @synthesize doneBtn;
 @synthesize pullToRefreshView = _pullToRefreshView;
@@ -43,6 +45,7 @@
     [footerView setBackgroundColor:[UIColor clearColor]];
     [self.tableView setTableFooterView:footerView];
     
+    
     self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.tableView delegate:self];
     
     [self loadNotifications];
@@ -53,8 +56,14 @@
     self.pullToRefreshView = nil;
     [self setTableView:nil];
     [self setDoneBtn:nil];
+    [self setActivityView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:animated];
+    [super viewWillAppear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -83,9 +92,14 @@
 
 #pragma mark RKObjectLoaderDelegate methods
 
+-(void)requestDidStartLoad:(RKRequest *)request
+{
+    [activityView startAnimating];
+}
+
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
     NSLog(@"Loaded payload: %@", [response bodyAsString]);
-   
+   [activityView stopAnimating];
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
@@ -162,6 +176,17 @@
         return dummyCell;
     }
     
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqual:@"ShowItem"]) {
+        olgotItemViewController *itemViewController = [segue destinationViewController];
+        olgotNotification *mNote = [_notifications objectAtIndex:[tableView indexPathForSelectedRow].row];
+        itemViewController.itemID = [[mNote actionUser] itemId];
+        itemViewController.itemKey = [[mNote actionUser] itemKey];
+        
+    }
 }
 
 #pragma mark SSPullToRefreshViewDelegate

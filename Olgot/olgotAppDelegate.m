@@ -338,7 +338,7 @@
     
     RKObjectMapping* notificationUserMapping = [RKObjectMapping mappingForClass:[olgotNotificationUser class]];
     
-    [notificationUserMapping mapAttributes:@"userId",@"firstName",@"lastName",@"username",@"twitterName",@"profileImgUrl",@"itemId",@"itemImgUrl",@"itemVenueId",@"itemVenueName", nil];
+    [notificationUserMapping mapAttributes:@"userId",@"firstName",@"lastName",@"username",@"twitterName",@"profileImgUrl",@"itemId",@"itemKey",@"itemImgUrl",@"itemVenueId",@"itemVenueName", nil];
     
     // Register our mappings with the provider
     [categoryMapping mapKeyPath:@"lastItem" toRelationship:@"lastItem" withMapping: itemMapping];
