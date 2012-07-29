@@ -18,6 +18,7 @@ username = _username,
 twitterName = _twitterName,
 profileImgUrl = _profileImgUrl,
 itemId = _itemId,
+itemKey = _itemKey,
 itemImgUrl = _itemImgUrl,
 itemVenueId = _itemVenueId,
 itemVenueName = _itemVenueName;

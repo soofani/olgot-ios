@@ -808,7 +808,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="Fmr-fE-SC3" kind="push" id="7BR-Ub-gCU"/>
+                                            <segue destination="Fmr-fE-SC3" kind="push" identifier="ShowItem" id="7BR-Ub-gCU"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noteUserCell" rowHeight="61" id="Kbr-5k-eAG">
@@ -847,11 +847,17 @@
                                     <outlet property="delegate" destination="bHT-Pn-EkF" id="1ZU-m1-SlF"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="FGb-Et-4Ow">
+                                <rect key="frame" x="150" y="198" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.90980392160000001" green="0.30588235289999999" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Notifications" id="XSg-xa-bL9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="tQC-90-GY3">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="DyC-qq-o7N"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="tQC-90-GY3">
                             <color key="tintColor" red="0.90980392160000001" green="0.30588235289999999" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="doneBtnPressed:" destination="bHT-Pn-EkF" id="F8s-k1-Cg5"/>
@@ -859,6 +865,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityView" destination="FGb-Et-4Ow" id="p0f-Ah-vhy"/>
                         <outlet property="doneBtn" destination="tQC-90-GY3" id="HEe-eS-ADt"/>
                         <outlet property="tableView" destination="aEr-df-ZgU" id="BFc-d4-Bsb"/>
                     </connections>

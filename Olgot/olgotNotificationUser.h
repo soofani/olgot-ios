@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString* twitterName;
 @property (nonatomic, retain) NSString* profileImgUrl;
 @property (nonatomic, retain) NSNumber* itemId;
+@property (nonatomic, retain) NSNumber* itemKey;
 @property (nonatomic, retain) NSString* itemImgUrl;
 @property (nonatomic, retain) NSNumber* itemVenueId;
 @property (nonatomic, retain) NSString* itemVenueName;
