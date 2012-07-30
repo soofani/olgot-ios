@@ -356,7 +356,7 @@
     [itemMapping mapKeyPath:@"gots" toRelationship:@"gots" withMapping:innerActionUserMapping];
     [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/item/"];
     
-    [notificationMapping mapKeyPath:@"comment" toRelationship:@"actionUser" withMapping:notificationUserMapping];
+    [notificationMapping mapKeyPath:@"data" toRelationship:@"noteData" withMapping:notificationUserMapping];
     [objectManager.mappingProvider setObjectMapping:notificationMapping forResourcePathPattern:@"/notifications/"];
     
     [objectManager.mappingProvider setObjectMapping:itemMapping forResourcePathPattern:@"/feeditems/"];

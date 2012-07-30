@@ -159,8 +159,6 @@
 		FF8BB19115C16DDF003E27E2 /* btn-share-twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8BB18D15C16DDF003E27E2 /* btn-share-twitter.png */; };
 		FF8BB19215C16DDF003E27E2 /* btn-share-twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8BB18E15C16DDF003E27E2 /* btn-share-twitter@2x.png */; };
 		FF8BB1BD15C186F9003E27E2 /* olgotNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8BB1BC15C186F9003E27E2 /* olgotNotificationsViewController.m */; };
-		FF8BB1C715C19510003E27E2 /* icon-notifications-off.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8BB1C315C19510003E27E2 /* icon-notifications-off.png */; };
-		FF8BB1C815C19510003E27E2 /* icon-notifications-off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8BB1C415C19510003E27E2 /* icon-notifications-off@2x.png */; };
 		FF8BB1C915C19510003E27E2 /* icon-notifications-on.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8BB1C515C19510003E27E2 /* icon-notifications-on.png */; };
 		FF8BB1CA15C19510003E27E2 /* icon-notifications-on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8BB1C615C19510003E27E2 /* icon-notifications-on@2x.png */; };
 		FF8BB1CD15C19678003E27E2 /* olgotNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8BB1CC15C19678003E27E2 /* olgotNotification.m */; };
@@ -190,6 +188,8 @@
 		FF919A42157CD230000978A5 /* msg-action-want.png in Resources */ = {isa = PBXBuildFile; fileRef = FF919A3C157CD230000978A5 /* msg-action-want.png */; };
 		FF919A43157CD230000978A5 /* msg-action-want@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF919A3D157CD230000978A5 /* msg-action-want@2x.png */; };
 		FF919A45157D04B3000978A5 /* itemViewWriteCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF919A44157D04B3000978A5 /* itemViewWriteCommentView.xib */; };
+		FF9551DA15C6DF0F0016FD44 /* icon-notifications-off.png in Resources */ = {isa = PBXBuildFile; fileRef = FF9551D815C6DF0F0016FD44 /* icon-notifications-off.png */; };
+		FF9551DB15C6DF0F0016FD44 /* icon-notifications-off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF9551D915C6DF0F0016FD44 /* icon-notifications-off@2x.png */; };
 		FF98030B15B2DC36004B96E7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FF98030115B2DC36004B96E7 /* LICENSE */; };
 		FF98030C15B2DC36004B96E7 /* Readme.markdown in Resources */ = {isa = PBXBuildFile; fileRef = FF98030215B2DC36004B96E7 /* Readme.markdown */; };
 		FF98030D15B2DC36004B96E7 /* SSPullToRefresh.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FF98030415B2DC36004B96E7 /* SSPullToRefresh.podspec */; };
@@ -515,8 +515,6 @@
 		FF8BB18E15C16DDF003E27E2 /* btn-share-twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-share-twitter@2x.png"; sourceTree = "<group>"; };
 		FF8BB1BB15C186F9003E27E2 /* olgotNotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotNotificationsViewController.h; path = ViewControllers/olgotNotificationsViewController.h; sourceTree = "<group>"; };
 		FF8BB1BC15C186F9003E27E2 /* olgotNotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotNotificationsViewController.m; path = ViewControllers/olgotNotificationsViewController.m; sourceTree = "<group>"; };
-		FF8BB1C315C19510003E27E2 /* icon-notifications-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-notifications-off.png"; sourceTree = "<group>"; };
-		FF8BB1C415C19510003E27E2 /* icon-notifications-off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-notifications-off@2x.png"; sourceTree = "<group>"; };
 		FF8BB1C515C19510003E27E2 /* icon-notifications-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-notifications-on.png"; sourceTree = "<group>"; };
 		FF8BB1C615C19510003E27E2 /* icon-notifications-on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-notifications-on@2x.png"; sourceTree = "<group>"; };
 		FF8BB1CB15C19678003E27E2 /* olgotNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = olgotNotification.h; sourceTree = "<group>"; };
@@ -551,6 +549,8 @@
 		FF919A3C157CD230000978A5 /* msg-action-want.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "msg-action-want.png"; sourceTree = "<group>"; };
 		FF919A3D157CD230000978A5 /* msg-action-want@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "msg-action-want@2x.png"; sourceTree = "<group>"; };
 		FF919A44157D04B3000978A5 /* itemViewWriteCommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = itemViewWriteCommentView.xib; sourceTree = "<group>"; };
+		FF9551D815C6DF0F0016FD44 /* icon-notifications-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-notifications-off.png"; sourceTree = "<group>"; };
+		FF9551D915C6DF0F0016FD44 /* icon-notifications-off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-notifications-off@2x.png"; sourceTree = "<group>"; };
 		FF98030115B2DC36004B96E7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		FF98030215B2DC36004B96E7 /* Readme.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.markdown; sourceTree = "<group>"; };
 		FF98030315B2DC36004B96E7 /* SSPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefresh.h; sourceTree = "<group>"; };
@@ -817,10 +817,10 @@
 				FF8BB18C15C16DDF003E27E2 /* btn-share-twitter-on@2x.png */,
 				FF8BB18D15C16DDF003E27E2 /* btn-share-twitter.png */,
 				FF8BB18E15C16DDF003E27E2 /* btn-share-twitter@2x.png */,
-				FF8BB1C315C19510003E27E2 /* icon-notifications-off.png */,
-				FF8BB1C415C19510003E27E2 /* icon-notifications-off@2x.png */,
 				FF8BB1C515C19510003E27E2 /* icon-notifications-on.png */,
 				FF8BB1C615C19510003E27E2 /* icon-notifications-on@2x.png */,
+				FF9551D815C6DF0F0016FD44 /* icon-notifications-off.png */,
+				FF9551D915C6DF0F0016FD44 /* icon-notifications-off@2x.png */,
 				FF34C8DB15C5895D00D8770F /* btn-following.png */,
 				FF34C8DA15C588AE00D8770F /* btn-following@2x.png */,
 			);
@@ -1418,8 +1418,6 @@
 				FF8BB19015C16DDF003E27E2 /* btn-share-twitter-on@2x.png in Resources */,
 				FF8BB19115C16DDF003E27E2 /* btn-share-twitter.png in Resources */,
 				FF8BB19215C16DDF003E27E2 /* btn-share-twitter@2x.png in Resources */,
-				FF8BB1C715C19510003E27E2 /* icon-notifications-off.png in Resources */,
-				FF8BB1C815C19510003E27E2 /* icon-notifications-off@2x.png in Resources */,
 				FF8BB1C915C19510003E27E2 /* icon-notifications-on.png in Resources */,
 				FF8BB1CA15C19510003E27E2 /* icon-notifications-on@2x.png in Resources */,
 				FF25124615C56D720047C87B /* btn-nav-friends.png in Resources */,
@@ -1427,6 +1425,8 @@
 				FF25124815C56D720047C87B /* icon-help.png in Resources */,
 				FF25124915C56D720047C87B /* icon-help@2x.png in Resources */,
 				FF34C8DC15C5895D00D8770F /* btn-following.png in Resources */,
+				FF9551DA15C6DF0F0016FD44 /* icon-notifications-off.png in Resources */,
+				FF9551DB15C6DF0F0016FD44 /* icon-notifications-off@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

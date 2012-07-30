@@ -14,6 +14,6 @@
 actionType = _actionType,
 noteDate = _noteDate,
 noteStatus = _noteStatus,
-actionUser = _actionUser;
+noteData = _noteData;
 
 @end

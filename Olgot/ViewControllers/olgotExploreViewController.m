@@ -101,10 +101,9 @@
     friendsBtn.frame=CGRectMake(0,0,35,29);
     [friendsBtn setBackgroundImage:friendsImage30 forState:UIControlStateNormal];
     [friendsBtn addTarget:self action:@selector(showFriendsList) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIImage *noteImage30 = [UIImage imageNamed:@"icon-notifications-on"];
+
     noteButton = [[UIButton alloc] initWithFrame:CGRectMake(195, 11, 32, 21)];
-    [noteButton setBackgroundImage:noteImage30 forState:UIControlStateNormal];
+    [noteButton setBackgroundImage:[UIImage imageNamed:@"icon-notifications-off"] forState:UIControlStateNormal];
     [noteButton addTarget:self 
                    action:@selector(showNotifications)
          forControlEvents:UIControlEventTouchUpInside];
@@ -158,6 +157,10 @@
     [UIView animateWithDuration:0.5 animations:^{
         [noteButton setHidden:NO];
     }];
+    
+    [self updateNotificationButton];
+    [self checkNotifications];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -431,6 +434,47 @@
     [operation start];
 }
 
+-(void)checkNotifications
+{
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    
+    NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:
+                            [defaults objectForKey:@"userid"], @"id",
+                            [defaults objectForKey:@"lastNotification"],@"notid",
+                            nil];
+    
+    NSURL *url = [NSURL URLWithString:[@"http://www.olgot.com/olgot/index.php/api/checknotifications/" stringByAppendingQueryParameters:params]];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+
+        if ([[JSON valueForKeyPath:@"count"] isEqual:@"0"]) {
+            [defaults setObject:@"no" forKey:@"hasNotifications"];           
+        }else {
+            [defaults setObject:@"yes" forKey:@"hasNotifications"];
+        }
+        
+        [defaults synchronize];
+        NSLog(@"check notifications from %@", [request URL]);
+        [self updateNotificationButton];
+    } failure:^(NSURLRequest *request , NSHTTPURLResponse *response , NSError *error , id JSON){
+        NSLog(@"AFNetowkring failed from %@", [request URL]);
+    }];
+    
+    [operation start];
+}
+
+-(void)updateNotificationButton
+{
+    if ([[defaults objectForKey:@"hasNotifications"] isEqual:@"yes"]) {
+        [noteButton setBackgroundImage:[UIImage imageNamed:@"icon-notifications-on"] forState:UIControlStateNormal];
+    }else {
+        [noteButton setBackgroundImage:[UIImage imageNamed:@"icon-notifications-off"] forState:UIControlStateNormal];
+    }
+}
+
 #pragma mark SSPullToRefreshViewDelegate
 -(void)pullToRefreshViewDidStartLoading:(SSPullToRefreshView *)view{
     [self refresh];
@@ -440,6 +484,7 @@
     [self.pullToRefreshView startLoading];
     [self loadCategories];
     [self loadFixedCategories];
+    [self checkNotifications];
 }
 
 @end

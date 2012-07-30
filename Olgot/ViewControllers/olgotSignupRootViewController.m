@@ -254,6 +254,9 @@
     [defaults setObject:@"yes" forKey:@"autoSavePhotos"];
     [defaults setObject:@"yes" forKey:@"autoTweetItems"];
     
+    [defaults setObject:@"no" forKey:@"hasNotifications"];
+    [defaults setObject:0 forKey:@"lastNotification"];
+    
     [defaults synchronize];
     
     NSLog(@"Data saved: %@", defaults);
