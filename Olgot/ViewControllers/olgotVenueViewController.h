@@ -12,10 +12,12 @@
 #import "olgotVenue.h"
 #import "SSPullToRefresh.h"
 
-@interface olgotVenueViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate>{
+@interface olgotVenueViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
     olgotVenue* _venue;
     NSMutableArray* _items;
     NSIndexPath* _selectedRowIndexPath;
+    
+    UIImage *image;
     
     int _pageSize;
     int _currentPage;

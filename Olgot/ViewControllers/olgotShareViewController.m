@@ -25,21 +25,22 @@
     return self;
 }
 
--(void) viewWillAppear:(BOOL)animated{
+//-(void) viewWillAppear:(BOOL)animated{
+//    
+//    [super viewWillAppear:animated];
+//
+//    
+//}
 
-    
-}
-
--(void)viewDidAppear:(BOOL)animated
+-(void)loadView
 {
-    [super viewDidAppear:animated];
     [self takePicture:self];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+        
 }
 
 - (void)viewDidUnload
@@ -68,7 +69,7 @@
     
     [imagePicker setDelegate:self];
     
-    [self presentModalViewController:imagePicker animated:YES];
+    [self presentModalViewController:imagePicker animated:NO];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -92,7 +93,6 @@
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    
     [self.tabBarController setSelectedIndex:0];
     [self dismissModalViewControllerAnimated:NO];
 }

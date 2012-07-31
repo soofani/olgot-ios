@@ -13,6 +13,7 @@
 #import "olgotItemViewController.h"
 #import "olgotVenueMapViewController.h"
 #import "olgotProfileViewController.h"
+#import "olgotAddItemDetailsViewController.h"
 
 @interface olgotVenueViewController ()
 
@@ -144,14 +145,32 @@
     [addBtn setBackgroundImage:addImage30 forState:UIControlStateNormal];
     [addBtn addTarget:self action:@selector(showAddItemView) forControlEvents:UIControlEventTouchUpInside];
     
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:addBtn];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:addBtn];
     
     self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionView.scrollView delegate:self];
 }
 
 - (void)showAddItemView
 {
-    [self performSegueWithIdentifier:@"ShowAddItem" sender:self];
+    [self takePicture:self];
+}
+
+- (IBAction)takePicture:(id)sender {
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) 
+    {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+        [imagePicker setAllowsEditing:YES];
+    }
+    else 
+    {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+    [imagePicker setDelegate:self];
+    
+    [self presentModalViewController:imagePicker animated:NO];
 }
 
 - (void)viewDidUnload
@@ -335,6 +354,11 @@
     }else if ([[segue identifier] isEqual:@"ShowTopUserProfile"]) {
         olgotProfileViewController *profileViewController = [segue destinationViewController];
         profileViewController.userID = [_venue topUserId];
+    }else if ([[segue identifier] isEqual:@"ShowItemDetails"]) {
+        olgotAddItemDetailsViewController *itemDetailsController = [segue destinationViewController];
+        
+        itemDetailsController.venue = _venue;
+        itemDetailsController.itemImage = image;
     }
 }
 
@@ -363,4 +387,21 @@
 - (IBAction)userPressed:(id)sender {
     [self performSegueWithIdentifier:@"ShowTopUserProfile" sender:self];
 }
+
+#pragma mark UIImagePickerDelegate
+
+-(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    image = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    [self dismissModalViewControllerAnimated:NO];
+    [self performSegueWithIdentifier:@"ShowItemDetails" sender:self];
+    
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissModalViewControllerAnimated:NO];
+}
+
 @end
