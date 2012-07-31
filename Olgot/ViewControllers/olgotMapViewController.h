@@ -25,6 +25,8 @@
     
     NSNumber* _selectedItemID;
     NSNumber* _selectedItemKey;
+    
+    NSUserDefaults *defaults;
 }
 
 @property (strong, nonatomic) NSNumber *categoryID;

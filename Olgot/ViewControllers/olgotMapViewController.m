@@ -71,6 +71,8 @@
     self.title = _boardName;
 //    myNavItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:boardBtn];
     
+    defaults = [NSUserDefaults standardUserDefaults];
+    
     self.mapView.delegate = self;
     
     if (nil == locationManager)
@@ -99,6 +101,11 @@
     // Release any retained subviews of the main view.
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -109,8 +116,6 @@
 }
 
 - (void)loadItems {    
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
     if(_boardName == @"Feed"){
@@ -121,20 +126,7 @@
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
         
     }else if (_boardName == @"Nearby") {
-//        if (nil == locationManager)
-//            locationManager = [[CLLocationManager alloc] init];
-//        
-//        locationManager.delegate = self;
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-//        
-//        // Set a movement threshold for new events.
-//        locationManager.distanceFilter = 10;
-//        
-//        [locationManager startUpdatingLocation];
-        
-        
-        
-        
+        [locationManager startUpdatingLocation];
     }else if (_boardName == @"My Wants") {
         NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
                                   [defaults objectForKey:@"userid"], @"user",
@@ -142,7 +134,11 @@
         NSString* resourcePath = [@"/mapuserwants/" appendQueryParams:myParams];
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
         
-    }else {
+    }
+    else if (_boardName == @"Hot") {
+        [locationManager startUpdatingLocation];
+    }
+    else {
         NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
                                   _categoryID, @"category", 
                                   nil];
@@ -150,6 +146,24 @@
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
     }
     
+}
+
+-(void)loadLocationRelatedItems
+{
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys:
+                              [defaults objectForKey:@"userid"], @"id",
+                              [NSNumber numberWithDouble:locationManager.location.coordinate.latitude], @"lat", 
+                              [NSNumber numberWithDouble:locationManager.location.coordinate.longitude], @"long",
+                              nil];
+    
+    if (_boardName == @"Nearby") {
+        NSString* resourcePath = [@"/mapnearbyitems/" appendQueryParams:myParams];
+        [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+    }else if (_boardName == @"Hot") {
+        NSString* resourcePath = [@"/maphotitems/" appendQueryParams:myParams];
+        [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+    }
 }
 
 -(void)plotItems
@@ -280,8 +294,11 @@ calloutAccessoryControlTapped:(UIControl *)control{
         // 4
         [_mapView setRegion:adjustedRegion animated:YES];
         
+        [self loadLocationRelatedItems];
+        
+    }else {
+        [self loadLocationRelatedItems];
     }
-    // else skip the event and process the next one.
 }
 
 @end

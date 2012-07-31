@@ -11,6 +11,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "olgotItem.h"
 #import "olgotItemViewController.h"
+#import "olgotMapViewController.h"
 
 @interface olgotLovelyViewController ()
 
@@ -71,6 +72,16 @@
     _pageSize = 10;
     loadingNew = NO;
     
+    //    Map view button
+    UIImage *mapImage30 = [UIImage imageNamed:@"btn-nav-map"];
+    
+    UIButton *mapBtn = [[UIButton alloc] init];
+    mapBtn.frame=CGRectMake(0,0,35,30);
+    [mapBtn setBackgroundImage:mapImage30 forState:UIControlStateNormal];
+    [mapBtn addTarget:self action:@selector(showMapView) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:mapBtn];
+    
     
     _loadingMoreView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [_loadingMoreView setColor:[UIColor colorWithRed:232.0 green:78.0 blue:32.0 alpha:1.0]];
@@ -86,6 +97,11 @@
     // Set a movement threshold for new events.
     locationManager.distanceFilter = 10;
     
+}
+
+- (void)showMapView
+{
+    [self performSegueWithIdentifier:@"ShowMapView" sender:self];
 }
 
 - (void)viewDidUnload
@@ -236,6 +252,11 @@
         itemViewController.itemID = [[_items objectAtIndex:_selectedRowIndexPath.row] itemID];
         itemViewController.itemKey = [[_items objectAtIndex:_selectedRowIndexPath.row] itemKey];
     
+    }else if ([[segue identifier] isEqualToString:@"ShowMapView"]) {
+        UINavigationController *navViewController = [segue destinationViewController];
+        olgotMapViewController *mapViewController = [navViewController.childViewControllers objectAtIndex:0];
+        
+        mapViewController.boardName = @"Hot";
     }
 }
 
