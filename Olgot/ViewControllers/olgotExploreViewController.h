@@ -23,6 +23,8 @@
     NSString* wantsImage;
     
     UIButton* noteButton;
+    
+    BOOL loadingCategories;
 }
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *boardBigTile;

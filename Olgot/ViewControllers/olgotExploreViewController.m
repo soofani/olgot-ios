@@ -37,6 +37,7 @@
 - (void)loadCategories {
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    loadingCategories = YES;
     [objectManager loadObjectsAtResourcePath:@"/categories" delegate:self];
 }
 
@@ -161,6 +162,10 @@
     [self updateNotificationButton];
     [self checkNotifications];
     
+    if (([_categories count] == 0) && !loadingCategories) {
+        [self loadCategories];
+    }
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -172,6 +177,8 @@
     [UIView animateWithDuration:0.5 animations:^{
         [noteButton setHidden:YES];
     }];
+    
+    loadingCategories = NO;
 }
 
 - (void)viewDidUnload
@@ -198,6 +205,7 @@
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     NSLog(@"Loaded categories: %@", objects);
     _categories = objects;
+    loadingCategories = NO;
     [self.pullToRefreshView finishLoading];
     [self.collectionView reloadData];
 }

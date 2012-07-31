@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/ViewControllers/olgotExploreViewController.m"
-         timestampString = "365355806.842437"
+         timestampString = "365439934.196247"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "330"
-         endingLineNumber = "330"
+         startingLineNumber = "338"
+         endingLineNumber = "338"
          landmarkName = "-collectionView:didSelectItemAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -125,11 +125,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/ViewControllers/olgotExploreViewController.m"
-         timestampString = "365355806.842437"
+         timestampString = "365439709.785867"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "133"
-         endingLineNumber = "133"
+         startingLineNumber = "134"
+         endingLineNumber = "134"
          landmarkName = "-showNotifications"
          landmarkType = "5">
       </FileBreakpoint>
@@ -216,11 +216,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/ViewControllers/olgotExploreViewController.m"
-         timestampString = "365357355.1062"
+         timestampString = "365439934.196247"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "454"
-         endingLineNumber = "454"
+         startingLineNumber = "462"
+         endingLineNumber = "462"
          landmarkName = "-checkNotifications"
          landmarkType = "5">
       </FileBreakpoint>
@@ -229,11 +229,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/ViewControllers/olgotExploreViewController.m"
-         timestampString = "365357355.1062"
+         timestampString = "365439934.196247"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "457"
-         endingLineNumber = "457"
+         startingLineNumber = "465"
+         endingLineNumber = "465"
          landmarkName = "-checkNotifications"
          landmarkType = "5">
       </FileBreakpoint>
@@ -242,12 +242,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/ViewControllers/olgotExploreViewController.m"
-         timestampString = "365355806.842437"
+         timestampString = "365439934.196247"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "439"
-         endingLineNumber = "439"
+         startingLineNumber = "447"
+         endingLineNumber = "447"
          landmarkName = "-checkNotifications"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Olgot/ViewControllers/olgotExploreViewController.m"
+         timestampString = "365439830.453526"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "165"
+         endingLineNumber = "165"
+         landmarkName = "-viewDidAppear:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
