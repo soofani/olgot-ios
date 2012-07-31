@@ -286,7 +286,11 @@
         
 //        fire photo uploading
         NSLog(@"Got image: %@", [_itemImageView image]);
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
         RKParams* params = [RKParams params];
+        [params setValue:[defaults objectForKey:@"userid"] forParam:@"id"];
         [params setValue:_itemID forParam:@"item"];
         
         //    NSData* imageData = UIImagePNGRepresentation(_itemImage);
