@@ -54,7 +54,10 @@
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC45MDk4MDM5MjE2IDAuMzA1ODgyMzUyOSAwLjEyNTQ5MDE5NjEAA</bytes>
 						</object>
-						<nil key="IBUIHighlightedColor"/>
+						<object class="NSColor" key="IBUIHighlightedColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC45MDk4MDM5MjE2IDAuMzA1ODgyMzUyOSAwLjEyNTQ5MDE5NjEAA</bytes>
+						</object>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<float key="IBUIMinimumFontSize">10</float>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
@@ -231,24 +234,57 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">olgotItemViewController</string>
 					<string key="superclassName">SSCollectionViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">showVenue:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">showVenue:</string>
-						<object class="IBActionInfo" key="NS.object.0">
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="finishedComment:">id</string>
+						<string key="gotAction:">id</string>
+						<string key="likeAction:">id</string>
+						<string key="showProfile:">id</string>
+						<string key="showVenue:">id</string>
+						<string key="touchedWriteComment:">id</string>
+						<string key="wantAction:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="finishedComment:">
+							<string key="name">finishedComment:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="gotAction:">
+							<string key="name">gotAction:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="likeAction:">
+							<string key="name">likeAction:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showProfile:">
+							<string key="name">showProfile:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showVenue:">
 							<string key="name">showVenue:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</object>
+						<object class="IBActionInfo" key="touchedWriteComment:">
+							<string key="name">touchedWriteComment:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="wantAction:">
+							<string key="name">wantAction:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="commentCell">SSCollectionViewItem</string>
 						<string key="commentsFooter">SSCollectionViewItem</string>
 						<string key="commentsHeader">SSCollectionViewItem</string>
 						<string key="finderCell">SSCollectionViewItem</string>
+						<string key="gotButton">UIButton</string>
 						<string key="itemCell">SSCollectionViewItem</string>
+						<string key="likeButton">UIButton</string>
+						<string key="myCommentTF">UITextField</string>
+						<string key="mySmallImage">UIImageView</string>
 						<string key="peopleRowCell">SSCollectionViewItem</string>
+						<string key="wantButton">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="commentCell">
@@ -267,13 +303,33 @@
 							<string key="name">finderCell</string>
 							<string key="candidateClassName">SSCollectionViewItem</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="gotButton">
+							<string key="name">gotButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="itemCell">
 							<string key="name">itemCell</string>
 							<string key="candidateClassName">SSCollectionViewItem</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="likeButton">
+							<string key="name">likeButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="myCommentTF">
+							<string key="name">myCommentTF</string>
+							<string key="candidateClassName">UITextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="mySmallImage">
+							<string key="name">mySmallImage</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="peopleRowCell">
 							<string key="name">peopleRowCell</string>
 							<string key="candidateClassName">SSCollectionViewItem</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="wantButton">
+							<string key="name">wantButton</string>
+							<string key="candidateClassName">UIButton</string>
 						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

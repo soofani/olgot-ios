@@ -383,8 +383,6 @@
         [itemImage setImageWithURL:[NSURL URLWithString:[_item itemPhotoUrl]]];
         [itemDescription setText:[_item itemDescription]];
         
-        
-        
         return cell;
     }
     else if (indexPath.section == 1) {
