@@ -25,6 +25,8 @@
     UIButton* noteButton;
     
     BOOL loadingCategories;
+    
+    NSDate *updateTime;
 }
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *boardBigTile;

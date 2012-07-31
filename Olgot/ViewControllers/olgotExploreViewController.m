@@ -162,8 +162,17 @@
     [self updateNotificationButton];
     [self checkNotifications];
     
+    //reload categories if previous load was cancelled
     if (([_categories count] == 0) && !loadingCategories) {
         [self loadCategories];
+    }
+    
+    //reload view if certain interval has passed
+    NSDate *nowTime = [NSDate date];
+    if ([nowTime compare:updateTime] == NSOrderedDescending) {
+        [self loadCategories];
+        [locationManager startUpdatingLocation];
+        [self checkNotifications];
     }
     
 }
@@ -206,6 +215,7 @@
     NSLog(@"Loaded categories: %@", objects);
     _categories = objects;
     loadingCategories = NO;
+    updateTime = [NSDate dateWithTimeIntervalSinceNow:60];
     [self.pullToRefreshView finishLoading];
     [self.collectionView reloadData];
 }
