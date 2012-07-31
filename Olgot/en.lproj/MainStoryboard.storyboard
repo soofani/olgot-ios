@@ -204,7 +204,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ipx-qk-eQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="XiP-jZ-yvg" customClass="olgotPeopleListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7f1-hg-2ux">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -222,7 +222,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSt-x6-VLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="gYY-SF-9fN" customClass="olgotVenueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dV0-qV-LCI">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -245,7 +245,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gks-Qd-1ij" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="87U-8D-FOE" customClass="olgotVenueMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AxW-Ju-4Wz">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="Pz3-17-uJm">
@@ -289,37 +289,15 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pxs-2g-ciK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="fsi-nE-oPn" customClass="olgotShareViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yvX-Mo-9yC">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="JVG-3v-Hve">
-                                <rect key="frame" x="38" y="51" width="244" height="256"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TNM-sz-gcH">
-                                <rect key="frame" x="124" y="292" width="72" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="cam">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cameraAction:" destination="fsi-nE-oPn" eventType="touchUpInside" id="7kA-EE-93s"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Nju-DV-AiX"/>
                     <navigationItem key="navigationItem" title="Share" id="NOE-uH-0Xs">
                         <barButtonItem key="backBarButtonItem" title="Back" id="QXK-Jl-bou"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageView" destination="JVG-3v-Hve" id="FsX-kt-CNw"/>
                         <segue destination="W0F-bq-L6J" kind="push" identifier="ShowNearbyPlaces" id="mDe-EP-u9J"/>
                     </connections>
                 </viewController>
@@ -348,7 +326,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7z0-fM-xgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Hte-Zn-Pmt" customClass="olgotAddItemDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v6c-Cb-I40">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="wNy-dX-QSg">
@@ -510,7 +488,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zwj-lH-pPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="AmF-Fo-vjg" customClass="olgotAddItemConfirmationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sR6-nh-WIA">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="yzm-QS-IkH">
@@ -704,7 +682,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhJ-b2-O2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="qgL-I9-Ymt" customClass="olgotCommentsListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uUV-e7-4t0">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -722,7 +700,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hk5-4P-7cX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="HAn-Se-f9H" customClass="olgotProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fbN-fm-WR5">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1950,9 +1928,7 @@
         <class className="olgotShareViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotShareViewController.h"/>
             <relationships>
-                <relationship kind="action" name="cameraAction:"/>
-                <relationship kind="action" name="photoLibraryAction:"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="action" name="takePicture:"/>
             </relationships>
         </class>
         <class className="olgotSignupRootViewController" superclassName="UIViewController">

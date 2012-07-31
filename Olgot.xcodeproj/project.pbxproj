@@ -65,8 +65,6 @@
 		FF27736C156260010062EBA9 /* btn-nav-map.png in Resources */ = {isa = PBXBuildFile; fileRef = FF27736A156260010062EBA9 /* btn-nav-map.png */; };
 		FF27736D156260010062EBA9 /* btn-nav-map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF27736B156260010062EBA9 /* btn-nav-map@2x.png */; };
 		FF33102D156502F50083602B /* olgotAddItemDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF33102C156502F50083602B /* olgotAddItemDetailsViewController.m */; };
-		FF331035156527060083602B /* olgotCameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF331033156527050083602B /* olgotCameraOverlayViewController.m */; };
-		FF331036156527060083602B /* olgotCameraOverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF331034156527060083602B /* olgotCameraOverlayViewController.xib */; };
 		FF33103915653F6E0083602B /* btn-cam-close.png in Resources */ = {isa = PBXBuildFile; fileRef = FF33103715653F6E0083602B /* btn-cam-close.png */; };
 		FF33103A15653F6E0083602B /* btn-cam-close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF33103815653F6E0083602B /* btn-cam-close@2x.png */; };
 		FF33103D15653F7C0083602B /* btn-cam-library.png in Resources */ = {isa = PBXBuildFile; fileRef = FF33103B15653F7C0083602B /* btn-cam-library.png */; };
@@ -170,7 +168,6 @@
 		FF916C2215613E78004C6A86 /* btn-nav-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C2015613E78004C6A86 /* btn-nav-back@2x.png */; };
 		FF916C251561419B004C6A86 /* bg-nav-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C231561419B004C6A86 /* bg-nav-bar.png */; };
 		FF916C261561419B004C6A86 /* bg-nav-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C241561419B004C6A86 /* bg-nav-bar@2x.png */; };
-		FF916C331561563D004C6A86 /* SignupStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF916C321561563C004C6A86 /* SignupStoryboard.storyboard */; };
 		FF916C36156157FF004C6A86 /* btn-join-twitter-420x80.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C34156157FF004C6A86 /* btn-join-twitter-420x80.png */; };
 		FF916C37156157FF004C6A86 /* btn-join-twitter-420x80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C35156157FF004C6A86 /* btn-join-twitter-420x80@2x.png */; };
 		FF916C3C15615824004C6A86 /* logo-380x200.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C3815615823004C6A86 /* logo-380x200.png */; };
@@ -395,9 +392,6 @@
 		FF27736B156260010062EBA9 /* btn-nav-map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-nav-map@2x.png"; sourceTree = "<group>"; };
 		FF33102B156502F50083602B /* olgotAddItemDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotAddItemDetailsViewController.h; path = ViewControllers/olgotAddItemDetailsViewController.h; sourceTree = "<group>"; };
 		FF33102C156502F50083602B /* olgotAddItemDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotAddItemDetailsViewController.m; path = ViewControllers/olgotAddItemDetailsViewController.m; sourceTree = "<group>"; };
-		FF331032156527050083602B /* olgotCameraOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotCameraOverlayViewController.h; path = ViewControllers/olgotCameraOverlayViewController.h; sourceTree = "<group>"; };
-		FF331033156527050083602B /* olgotCameraOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotCameraOverlayViewController.m; path = ViewControllers/olgotCameraOverlayViewController.m; sourceTree = "<group>"; };
-		FF331034156527060083602B /* olgotCameraOverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = olgotCameraOverlayViewController.xib; path = ViewControllers/olgotCameraOverlayViewController.xib; sourceTree = "<group>"; };
 		FF33103715653F6E0083602B /* btn-cam-close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-cam-close.png"; sourceTree = "<group>"; };
 		FF33103815653F6E0083602B /* btn-cam-close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-cam-close@2x.png"; sourceTree = "<group>"; };
 		FF33103B15653F7C0083602B /* btn-cam-library.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-cam-library.png"; sourceTree = "<group>"; };
@@ -529,7 +523,6 @@
 		FF916C2015613E78004C6A86 /* btn-nav-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-nav-back@2x.png"; sourceTree = "<group>"; };
 		FF916C231561419B004C6A86 /* bg-nav-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-nav-bar.png"; sourceTree = "<group>"; };
 		FF916C241561419B004C6A86 /* bg-nav-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-nav-bar@2x.png"; sourceTree = "<group>"; };
-		FF916C321561563C004C6A86 /* SignupStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignupStoryboard.storyboard; sourceTree = "<group>"; };
 		FF916C34156157FF004C6A86 /* btn-join-twitter-420x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-join-twitter-420x80.png"; sourceTree = "<group>"; };
 		FF916C35156157FF004C6A86 /* btn-join-twitter-420x80@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-join-twitter-420x80@2x.png"; sourceTree = "<group>"; };
 		FF916C3815615823004C6A86 /* logo-380x200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-380x200.png"; sourceTree = "<group>"; };
@@ -1042,7 +1035,6 @@
 				FFA4EDA1155D12D8008CB4CA /* olgotAppDelegate.h */,
 				FFA4EDA2155D12D8008CB4CA /* olgotAppDelegate.m */,
 				FFA4EDA4155D12D8008CB4CA /* MainStoryboard.storyboard */,
-				FF916C321561563C004C6A86 /* SignupStoryboard.storyboard */,
 				FF76C42E15BEB86A0045B4EA /* Classes */,
 				FF98030015B2DC36004B96E7 /* SSPullToRefresh */,
 				FFE9A01B15725BB500509B09 /* Model */,
@@ -1083,9 +1075,6 @@
 			children = (
 				FF10F29F155D16B000F4EC2E /* olgotShareViewController.h */,
 				FF10F2A0155D16B000F4EC2E /* olgotShareViewController.m */,
-				FF331032156527050083602B /* olgotCameraOverlayViewController.h */,
-				FF331033156527050083602B /* olgotCameraOverlayViewController.m */,
-				FF331034156527060083602B /* olgotCameraOverlayViewController.xib */,
 				FF26E275156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.h */,
 				FF26E276156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.m */,
 				FF33102B156502F50083602B /* olgotAddItemDetailsViewController.h */,
@@ -1290,7 +1279,6 @@
 				FF916C2215613E78004C6A86 /* btn-nav-back@2x.png in Resources */,
 				FF916C251561419B004C6A86 /* bg-nav-bar.png in Resources */,
 				FF916C261561419B004C6A86 /* bg-nav-bar@2x.png in Resources */,
-				FF916C331561563D004C6A86 /* SignupStoryboard.storyboard in Resources */,
 				FF916C36156157FF004C6A86 /* btn-join-twitter-420x80.png in Resources */,
 				FF916C37156157FF004C6A86 /* btn-join-twitter-420x80@2x.png in Resources */,
 				FF916C3C15615824004C6A86 /* logo-380x200.png in Resources */,
@@ -1311,7 +1299,6 @@
 				FF26E2821562A84F00BECF4C /* icon-cat-cart@2x.png in Resources */,
 				FF26E2881562B62500BECF4C /* btn-nav-board.png in Resources */,
 				FF26E2891562B62500BECF4C /* btn-nav-board@2x.png in Resources */,
-				FF331036156527060083602B /* olgotCameraOverlayViewController.xib in Resources */,
 				FF33103915653F6E0083602B /* btn-cam-close.png in Resources */,
 				FF33103A15653F6E0083602B /* btn-cam-close@2x.png in Resources */,
 				FF33103D15653F7C0083602B /* btn-cam-library.png in Resources */,
@@ -1453,7 +1440,6 @@
 				FF26E277156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.m in Sources */,
 				FF26E2851562A90600BECF4C /* olgotAddItemConfirmationViewController.m in Sources */,
 				FF33102D156502F50083602B /* olgotAddItemDetailsViewController.m in Sources */,
-				FF331035156527060083602B /* olgotCameraOverlayViewController.m in Sources */,
 				FF57D9FE156A2D7800DFAB3E /* olgotAccountSettingsViewController.m in Sources */,
 				FFA85413156D20BB0009134C /* olgotChooseFriends.m in Sources */,
 				FFA85425156D30CA0009134C /* olgotPeopleListViewController.m in Sources */,
