@@ -170,7 +170,6 @@
 		FF916C2215613E78004C6A86 /* btn-nav-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C2015613E78004C6A86 /* btn-nav-back@2x.png */; };
 		FF916C251561419B004C6A86 /* bg-nav-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C231561419B004C6A86 /* bg-nav-bar.png */; };
 		FF916C261561419B004C6A86 /* bg-nav-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C241561419B004C6A86 /* bg-nav-bar@2x.png */; };
-		FF916C331561563D004C6A86 /* SignupStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF916C321561563C004C6A86 /* SignupStoryboard.storyboard */; };
 		FF916C36156157FF004C6A86 /* btn-join-twitter-420x80.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C34156157FF004C6A86 /* btn-join-twitter-420x80.png */; };
 		FF916C37156157FF004C6A86 /* btn-join-twitter-420x80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C35156157FF004C6A86 /* btn-join-twitter-420x80@2x.png */; };
 		FF916C3C15615824004C6A86 /* logo-380x200.png in Resources */ = {isa = PBXBuildFile; fileRef = FF916C3815615823004C6A86 /* logo-380x200.png */; };
@@ -526,7 +525,6 @@
 		FF916C2015613E78004C6A86 /* btn-nav-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-nav-back@2x.png"; sourceTree = "<group>"; };
 		FF916C231561419B004C6A86 /* bg-nav-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-nav-bar.png"; sourceTree = "<group>"; };
 		FF916C241561419B004C6A86 /* bg-nav-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-nav-bar@2x.png"; sourceTree = "<group>"; };
-		FF916C321561563C004C6A86 /* SignupStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignupStoryboard.storyboard; sourceTree = "<group>"; };
 		FF916C34156157FF004C6A86 /* btn-join-twitter-420x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-join-twitter-420x80.png"; sourceTree = "<group>"; };
 		FF916C35156157FF004C6A86 /* btn-join-twitter-420x80@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-join-twitter-420x80@2x.png"; sourceTree = "<group>"; };
 		FF916C3815615823004C6A86 /* logo-380x200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-380x200.png"; sourceTree = "<group>"; };
@@ -1037,7 +1035,6 @@
 				FFA4EDA1155D12D8008CB4CA /* olgotAppDelegate.h */,
 				FFA4EDA2155D12D8008CB4CA /* olgotAppDelegate.m */,
 				FFA4EDA4155D12D8008CB4CA /* MainStoryboard.storyboard */,
-				FF916C321561563C004C6A86 /* SignupStoryboard.storyboard */,
 				FF76C42E15BEB86A0045B4EA /* Classes */,
 				FF98030015B2DC36004B96E7 /* SSPullToRefresh */,
 				FFE9A01B15725BB500509B09 /* Model */,
@@ -1282,7 +1279,6 @@
 				FF916C2215613E78004C6A86 /* btn-nav-back@2x.png in Resources */,
 				FF916C251561419B004C6A86 /* bg-nav-bar.png in Resources */,
 				FF916C261561419B004C6A86 /* bg-nav-bar@2x.png in Resources */,
-				FF916C331561563D004C6A86 /* SignupStoryboard.storyboard in Resources */,
 				FF916C36156157FF004C6A86 /* btn-join-twitter-420x80.png in Resources */,
 				FF916C37156157FF004C6A86 /* btn-join-twitter-420x80@2x.png in Resources */,
 				FF916C3C15615824004C6A86 /* logo-380x200.png in Resources */,
