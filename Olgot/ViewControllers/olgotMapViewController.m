@@ -41,6 +41,14 @@
     }
 }
 
+-(void)setBoardName:(NSString *)boardName
+{
+    if (![_boardName isEqual:boardName]) {
+        _boardName = boardName;
+        [self loadItems];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
