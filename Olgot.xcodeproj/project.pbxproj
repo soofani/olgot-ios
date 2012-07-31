@@ -198,6 +198,7 @@
 		FF980BEA15A5E65F00001259 /* commentsViewWriteCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF980BE915A5E65F00001259 /* commentsViewWriteCommentView.xib */; };
 		FF980C0515A5EDDF00001259 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF980C0415A5EDDF00001259 /* MessageUI.framework */; };
 		FF980C0715A5EE1200001259 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF980C0615A5EE1200001259 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FF98330215C84AF600DC02C4 /* profileViewNoItems.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF98330115C84AF600DC02C4 /* profileViewNoItems.xib */; };
 		FFA4ED93155D12D8008CB4CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED92155D12D8008CB4CA /* UIKit.framework */; };
 		FFA4ED95155D12D8008CB4CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED94155D12D8008CB4CA /* Foundation.framework */; };
 		FFA4ED97155D12D8008CB4CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED96155D12D8008CB4CA /* CoreGraphics.framework */; };
@@ -560,6 +561,7 @@
 		FF980BE915A5E65F00001259 /* commentsViewWriteCommentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = commentsViewWriteCommentView.xib; sourceTree = "<group>"; };
 		FF980C0415A5EDDF00001259 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		FF980C0615A5EE1200001259 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		FF98330115C84AF600DC02C4 /* profileViewNoItems.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = profileViewNoItems.xib; sourceTree = "<group>"; };
 		FFA4ED8E155D12D8008CB4CA /* Olgot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Olgot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFA4ED92155D12D8008CB4CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FFA4ED94155D12D8008CB4CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -860,6 +862,7 @@
 				FF919A44157D04B3000978A5 /* itemViewWriteCommentView.xib */,
 				FF7A000015750F0500BB5A65 /* profileViewPersonCard.xib */,
 				FF20E75B1575175A004EC879 /* profileViewItemTile.xib */,
+				FF98330115C84AF600DC02C4 /* profileViewNoItems.xib */,
 				FF6AFF811580E9DD000A24BA /* nearbyViewPlaceRow.xib */,
 			);
 			name = Views;
@@ -1414,6 +1417,7 @@
 				FF34C8DC15C5895D00D8770F /* btn-following.png in Resources */,
 				FF9551DA15C6DF0F0016FD44 /* icon-notifications-off.png in Resources */,
 				FF9551DB15C6DF0F0016FD44 /* icon-notifications-off@2x.png in Resources */,
+				FF98330215C84AF600DC02C4 /* profileViewNoItems.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,7 @@
 @end
 
 @implementation olgotProfileViewController
+@synthesize noItemsTile = _noItemsTile;
 
 @synthesize profileCardTile = _profileCardTile, profileItemTile = _profileItemTile;
 
@@ -104,6 +105,7 @@
 //    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 //    [alert show];
     NSLog(@"Hit error: %@", error);
+    [self.pullToRefreshView finishLoading];
 }
 
 - (void)viewDidLoad
@@ -148,6 +150,7 @@
 {
     
     [self setFollowButton:nil];
+    [self setNoItemsTile:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     self.userID = nil;
@@ -163,7 +166,7 @@
 
 - (NSUInteger)numberOfSectionsInCollectionView:(SSCollectionView *)aCollectionView {
     if (_user != NULL) {
-        return 2;
+        return 3;
     }else {
         return 0;
     }
@@ -172,8 +175,15 @@
 - (NSUInteger)collectionView:(SSCollectionView *)aCollectionView numberOfItemsInSection:(NSUInteger)section {
     if (section == 0) {
         return 1;
-    }else{
+    }else if (section == 1){
         return [_items count];
+    }else {
+        if ([_items count] == 0) {
+            return 1;
+        } else {
+            return 0;
+        }
+
     }
 }
 
@@ -234,7 +244,7 @@
         
         return cell1;
     }
-    else {
+    else if(indexPath.section == 1){
         SSCollectionViewItem *cell2 = [aCollectionView dequeueReusableItemWithIdentifier:myProfileItemTileIdentifier];
         
         if (cell2 == nil) {
@@ -262,6 +272,17 @@
                             ]];
         
         return cell2;
+    }else{
+        SSCollectionViewItem *cell3 = [aCollectionView dequeueReusableItemWithIdentifier:@"userNoItems"];
+        
+        if (cell3 == nil) {
+            [[NSBundle mainBundle] loadNibNamed:@"profileViewNoItems" owner:self options:nil];
+            cell3 = _noItemsTile;
+            self.noItemsTile = nil;
+        }
+        
+        return cell3;
+        
     }
     
 }
@@ -289,8 +310,10 @@
             return CGSizeMake(300.0f, 138.0f);
         }
         
-    }else{
+    }else if(section == 1){
         return CGSizeMake(145.0f, 184.0f);
+    }else{
+        return CGSizeMake(300.0f, 45.0f);
     }
 	
 }
@@ -313,6 +336,7 @@
     }
 	
 }
+
 
 -(void)collectionView:(SSCollectionView *)aCollectionView willDisplayItem:(SSCollectionViewItem *)item atIndexPath:(NSIndexPath *)indexPath
 {
