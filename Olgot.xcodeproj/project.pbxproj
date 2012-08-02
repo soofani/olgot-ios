@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E027CE6715CAC2A4007220F2 /* icon-map-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = E027CE6515CAC2A4007220F2 /* icon-map-marker.png */; };
+		E027CE6815CAC2A4007220F2 /* icon-map-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */; };
 		FF10F29A155D167400F4EC2E /* olgotExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF10F299155D167400F4EC2E /* olgotExploreViewController.m */; };
 		FF10F29E155D169600F4EC2E /* olgotLovelyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF10F29D155D169600F4EC2E /* olgotLovelyViewController.m */; };
 		FF10F2A1155D16B000F4EC2E /* olgotShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF10F2A0155D16B000F4EC2E /* olgotShareViewController.m */; };
@@ -323,6 +325,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E027CE6515CAC2A4007220F2 /* icon-map-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-map-marker.png"; sourceTree = "<group>"; };
+		E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-map-marker@2x.png"; sourceTree = "<group>"; };
 		FF10F298155D167400F4EC2E /* olgotExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotExploreViewController.h; path = ViewControllers/olgotExploreViewController.h; sourceTree = "<group>"; };
 		FF10F299155D167400F4EC2E /* olgotExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotExploreViewController.m; path = ViewControllers/olgotExploreViewController.m; sourceTree = "<group>"; };
 		FF10F29C155D169600F4EC2E /* olgotLovelyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotLovelyViewController.h; path = ViewControllers/olgotLovelyViewController.h; sourceTree = "<group>"; };
@@ -688,6 +692,8 @@
 		FF10F2A9155D16F500F4EC2E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E027CE6515CAC2A4007220F2 /* icon-map-marker.png */,
+				E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */,
 				FF25124215C56D720047C87B /* btn-nav-friends.png */,
 				FF25124315C56D720047C87B /* btn-nav-friends@2x.png */,
 				FF25124415C56D720047C87B /* icon-help.png */,
@@ -1418,6 +1424,8 @@
 				FF9551DA15C6DF0F0016FD44 /* icon-notifications-off.png in Resources */,
 				FF9551DB15C6DF0F0016FD44 /* icon-notifications-off@2x.png in Resources */,
 				FF98330215C84AF600DC02C4 /* profileViewNoItems.xib in Resources */,
+				E027CE6715CAC2A4007220F2 /* icon-map-marker.png in Resources */,
+				E027CE6815CAC2A4007220F2 /* icon-map-marker@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

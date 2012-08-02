@@ -234,9 +234,6 @@
     itemImage = (UIImageView *)[cell viewWithTag:1];
     [itemImage setImageWithURL:[NSURL URLWithString:[[_items objectAtIndex:indexPath.row] itemPhotoUrl]]];
     
-    itemLabel = (UILabel *)[cell viewWithTag:2]; //description
-    [itemLabel setText:[[_items objectAtIndex:indexPath.row] itemDescription]];
-    
     itemLabel = (UILabel *)[cell viewWithTag:3]; //venue
     [itemLabel setText:[[_items objectAtIndex:indexPath.row] venueName_En]];
     
@@ -245,6 +242,9 @@
       [[[_items objectAtIndex:indexPath.row] itemPrice] floatValue],
       [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]                  
       ]];
+    
+    itemImage = (UIImageView*)[cell viewWithTag:5];
+    [itemImage setImageWithURL:[NSURL URLWithString:[[_items objectAtIndex:indexPath.row] userProfileImgUrl]]];
     
 //    cell.layer.shadowOpacity = 0.5;
 //    cell.layer.shadowColor = [[UIColor blackColor] CGColor];
