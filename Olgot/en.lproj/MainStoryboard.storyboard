@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
@@ -339,32 +338,32 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="GEw-0L-3nP">
-                                        <rect key="frame" x="9" y="9" width="300" height="287"/>
+                                        <rect key="frame" x="9" y="11" width="300" height="324"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" id="Y8M-eW-sFq" customClass="SSLineView">
-                                        <rect key="frame" x="10" y="206" width="300" height="1"/>
+                                        <rect key="frame" x="10" y="226" width="300" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="Q7P-rf-huv" customClass="SSLineView">
-                                        <rect key="frame" x="10" y="71" width="300" height="1"/>
+                                        <rect key="frame" x="10" y="79" width="300" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="HwX-I6-fJr" customClass="SSLineView">
-                                        <rect key="frame" x="10" y="246" width="300" height="1"/>
+                                        <rect key="frame" x="10" y="276" width="300" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="TkN-cv-J33">
-                                        <rect key="frame" x="170" y="73" width="130" height="130"/>
+                                        <rect key="frame" x="170" y="87" width="130" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.87450987099999999" green="0.8980392814" blue="0.90588241820000004" alpha="1" colorSpace="deviceRGB"/>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Why is this cool?" minimumFontSize="17" id="5eH-WG-u6B">
-                                        <rect key="frame" x="20" y="211" width="280" height="31"/>
+                                        <rect key="frame" x="20" y="236" width="280" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -381,14 +380,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tap to add price (optional)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="dwP-xp-zeW">
-                                        <rect key="frame" x="20" y="92" width="148" height="21"/>
+                                        <rect key="frame" x="20" y="102" width="148" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Un-t5-RhE">
-                                        <rect key="frame" x="7" y="299" width="304" height="35"/>
+                                        <rect key="frame" x="7" y="344" width="304" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="Post It" backgroundImage="btn-select-username.png">
@@ -407,7 +406,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="How much is it for?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="iqa-iw-lWS">
-                                        <rect key="frame" x="20" y="73" width="143" height="21"/>
+                                        <rect key="frame" x="20" y="83" width="143" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -439,7 +438,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="32D-Bs-Fhm">
-                                        <rect key="frame" x="265" y="252" width="35" height="35"/>
+                                        <rect key="frame" x="92" y="289" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="btn-share-twitter-on.png">
@@ -453,8 +452,8 @@
                                             <action selector="twitterSharePressed:" destination="Hte-Zn-Pmt" eventType="touchUpInside" id="REN-7b-lgq"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Share it on:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Jqf-Gh-W0D">
-                                        <rect key="frame" x="188" y="258" width="68" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Share on:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Jqf-Gh-W0D">
+                                        <rect key="frame" x="20" y="296" width="68" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1922,6 +1921,7 @@
                 <relationship kind="action" name="showFollowersAction:"/>
                 <relationship kind="action" name="showFollowingAction:"/>
                 <relationship kind="outlet" name="followButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="noItemsTile" candidateClass="SSCollectionViewItem"/>
                 <relationship kind="outlet" name="profileCardTile" candidateClass="SSCollectionViewItem"/>
                 <relationship kind="outlet" name="profileItemTile" candidateClass="SSCollectionViewItem"/>
             </relationships>
@@ -1972,9 +1972,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Lo1-V5-Une"/>
-        <segue reference="KPj-ac-EUo"/>
-        <segue reference="tAB-hG-qL1"/>
-        <segue reference="jD9-Wv-5GK"/>
         <segue reference="kFC-1d-6jx"/>
     </inferredMetricsTieBreakers>
 </document>
