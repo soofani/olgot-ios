@@ -15,6 +15,7 @@
 @property (nonatomic, retain) NSString* name_En;
 @property (nonatomic, retain) NSNumber* geoLat;
 @property (nonatomic, retain) NSNumber* geoLong;
+@property (nonatomic, retain) NSString* twitterName;
 @property (nonatomic, retain) NSNumber* items;
 @property (nonatomic, retain) NSString* venueIcon;
 @property (nonatomic, retain) NSString* foursquareAddress;

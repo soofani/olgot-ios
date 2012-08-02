@@ -22,6 +22,7 @@
 @property (nonatomic, retain) NSString* userFirstName;
 @property (nonatomic, retain) NSString* userLastName;
 @property (nonatomic, retain) NSString* userProfileImgUrl;
+@property (nonatomic, retain) NSString* userTwitterName;
 @property (nonatomic, retain) NSString* itemPhotoId;
 @property (nonatomic, retain) NSString* itemPhotoUrl;
 @property (nonatomic, retain) NSNumber* itemStatsLikes;
@@ -33,6 +34,7 @@
 @property (nonatomic, retain) NSString* name_Ar;
 @property (nonatomic, retain) NSNumber* venueGeoLat;
 @property (nonatomic, retain) NSNumber* venueGeoLong;
+@property (nonatomic, retain) NSString* venueTwitterName;
 @property (nonatomic, retain) NSNumber* cityId;
 @property (nonatomic, retain) NSString* cityName_En;
 @property (nonatomic, retain) NSString* countryCurrencyShortName;
