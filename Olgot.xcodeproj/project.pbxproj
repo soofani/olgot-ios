@@ -11,6 +11,8 @@
 		E027CE6815CAC2A4007220F2 /* icon-map-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */; };
 		FF0D3C1B15CE9AA200B8BA29 /* icon-cat-dummy.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0D3C1915CE9AA200B8BA29 /* icon-cat-dummy.png */; };
 		FF0D3C1C15CE9AA200B8BA29 /* icon-cat-dummy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0D3C1A15CE9AA200B8BA29 /* icon-cat-dummy@2x.png */; };
+		FF0D3C1E15CEB02500B8BA29 /* no-items.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0D3C1D15CEB02500B8BA29 /* no-items.png */; };
+		FF0D3C2015CEB26C00B8BA29 /* loading-gif-animation.gif in Resources */ = {isa = PBXBuildFile; fileRef = FF0D3C1F15CEB26C00B8BA29 /* loading-gif-animation.gif */; };
 		FF10F29A155D167400F4EC2E /* olgotExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF10F299155D167400F4EC2E /* olgotExploreViewController.m */; };
 		FF10F29E155D169600F4EC2E /* olgotLovelyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF10F29D155D169600F4EC2E /* olgotLovelyViewController.m */; };
 		FF10F2A1155D16B000F4EC2E /* olgotShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF10F2A0155D16B000F4EC2E /* olgotShareViewController.m */; };
@@ -329,6 +331,8 @@
 		E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-map-marker@2x.png"; sourceTree = "<group>"; };
 		FF0D3C1915CE9AA200B8BA29 /* icon-cat-dummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cat-dummy.png"; sourceTree = "<group>"; };
 		FF0D3C1A15CE9AA200B8BA29 /* icon-cat-dummy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cat-dummy@2x.png"; sourceTree = "<group>"; };
+		FF0D3C1D15CEB02500B8BA29 /* no-items.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-items.png"; sourceTree = "<group>"; };
+		FF0D3C1F15CEB26C00B8BA29 /* loading-gif-animation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "loading-gif-animation.gif"; sourceTree = "<group>"; };
 		FF10F298155D167400F4EC2E /* olgotExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotExploreViewController.h; path = ViewControllers/olgotExploreViewController.h; sourceTree = "<group>"; };
 		FF10F299155D167400F4EC2E /* olgotExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotExploreViewController.m; path = ViewControllers/olgotExploreViewController.m; sourceTree = "<group>"; };
 		FF10F29C155D169600F4EC2E /* olgotLovelyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotLovelyViewController.h; path = ViewControllers/olgotLovelyViewController.h; sourceTree = "<group>"; };
@@ -692,6 +696,8 @@
 		FF10F2A9155D16F500F4EC2E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				FF0D3C1F15CEB26C00B8BA29 /* loading-gif-animation.gif */,
+				FF0D3C1D15CEB02500B8BA29 /* no-items.png */,
 				E027CE6515CAC2A4007220F2 /* icon-map-marker.png */,
 				E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */,
 				FF25124215C56D720047C87B /* btn-nav-friends.png */,
@@ -1426,6 +1432,8 @@
 				E027CE6815CAC2A4007220F2 /* icon-map-marker@2x.png in Resources */,
 				FF0D3C1B15CE9AA200B8BA29 /* icon-cat-dummy.png in Resources */,
 				FF0D3C1C15CE9AA200B8BA29 /* icon-cat-dummy@2x.png in Resources */,
+				FF0D3C1E15CEB02500B8BA29 /* no-items.png in Resources */,
+				FF0D3C2015CEB26C00B8BA29 /* loading-gif-animation.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

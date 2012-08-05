@@ -124,6 +124,7 @@
     [infoBtn addTarget:self action:@selector(showInfoView) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:infoBtn];
+
     
 //    [self.navigationItem.titleView insertSubview:noteButton atIndex:1];
     [self loadCategories];
@@ -257,6 +258,7 @@
             self.boardBigTile = nil;
         }
         
+        
         UIImageView *tileImage;
         UILabel *tileLabel;
         
@@ -278,6 +280,7 @@
             cell2 = _boardNormalTile;
             self.boardNormalTile = nil;
         }
+        
         
         UIImageView *tileImage;
         UILabel *tileLabel;
@@ -303,6 +306,7 @@
             cell3 = _boardNormalTile;
             self.boardNormalTile = nil;
         }
+        
         
         UIImageView *tileImage;
         UILabel *tileLabel;
