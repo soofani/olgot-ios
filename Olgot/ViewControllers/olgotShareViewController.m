@@ -87,6 +87,11 @@
 {
     image = [info objectForKey:UIImagePickerControllerEditedImage];
     
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([[defaults objectForKey:@"autoSavePhotos"] isEqual:@"yes"] && picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    }
+    
     [self performSegueWithIdentifier:@"ShowNearbyPlaces" sender:self];
     [self dismissModalViewControllerAnimated:NO];
 }
