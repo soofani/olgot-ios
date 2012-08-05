@@ -392,7 +392,7 @@
     _currentPage = 1;
     _pageSize = 10;
     loadingNew = NO;
-    
+    [self loadUser];
     [self loadItems];
     
 }
