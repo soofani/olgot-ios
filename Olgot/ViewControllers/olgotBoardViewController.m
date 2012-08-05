@@ -238,17 +238,19 @@
     [itemLabel setText:[[_items objectAtIndex:indexPath.row] venueName_En]];
     
     itemLabel = (UILabel *)[cell viewWithTag:4]; //price
-    [itemLabel setText:[NSString stringWithFormat:@"%g %@",
-      [[[_items objectAtIndex:indexPath.row] itemPrice] floatValue],
-      [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]                  
-      ]];
+    if ([[[_items objectAtIndex:indexPath.row] itemPrice] isEqualToNumber:[NSNumber numberWithInt:0]]) {
+        [itemLabel setHidden:YES];
+    }else{
+        [itemLabel setHidden:NO];
+        [itemLabel setText:[NSString stringWithFormat:@"%g %@",
+                            [[[_items objectAtIndex:indexPath.row] itemPrice] floatValue],
+                            [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]
+                            ]];
+    }
+    
     
     itemImage = (UIImageView*)[cell viewWithTag:5];
     [itemImage setImageWithURL:[NSURL URLWithString:[[_items objectAtIndex:indexPath.row] userProfileImgUrl]]];
-    
-//    cell.layer.shadowOpacity = 0.5;
-//    cell.layer.shadowColor = [[UIColor blackColor] CGColor];
-//    cell.layer.shadowOffset = CGSizeMake(1.0, 1.0);
     
     return cell;
 }
