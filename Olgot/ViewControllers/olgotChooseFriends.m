@@ -65,7 +65,14 @@
                                 nil];
         
         [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-        [[RKClient sharedClient] post:@"/follower/" params:params delegate:nil];    
+        [[RKClient sharedClient] post:@"/follower/" params:params delegate:nil];
+        
+        followCounter++;
+        if (followCounter >= 5) {
+            [self.navigationItem.rightBarButtonItem setEnabled:YES];
+        } else {
+            [self.navigationItem.rightBarButtonItem setEnabled:NO];
+        }
         
     } else if ([[_myFriends objectAtIndex:cell.tag] iFollow] == [NSNumber numberWithInt:1]){
         //unfollow user
@@ -74,8 +81,17 @@
         
         [self.collectionView reloadData];        
         
-        [[RKClient sharedClient] delete:[@"/follower/" stringByAppendingQueryParameters:params] delegate:nil];  
+        [[RKClient sharedClient] delete:[@"/follower/" stringByAppendingQueryParameters:params] delegate:nil];
+        
+        followCounter--;
+        if (followCounter >= 5) {
+            [self.navigationItem.rightBarButtonItem setEnabled:YES];
+        } else {
+            [self.navigationItem.rightBarButtonItem setEnabled:NO];
+        }
     }
+    
+    
 }
 
 #pragma mark RKObjectLoaderDelegate methods
@@ -144,9 +160,11 @@
     [finishBtn setBackgroundImage:finishImage30 forState:UIControlStateNormal];
     [finishBtn addTarget:self action:@selector(finishSignup) forControlEvents:UIControlEventTouchUpInside];
     
+    followCounter = 0;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:finishBtn];
     [self.navigationItem.rightBarButtonItem setEnabled:NO];
+    
 }
 
 -(void)finishSignup

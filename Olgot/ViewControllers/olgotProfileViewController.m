@@ -206,13 +206,13 @@
         
         
         // configure custom data
-        if ([_userID isEqualToNumber:[defaults objectForKey:@"userid"]]) {
+        if ([_userID isEqual:[defaults objectForKey:@"userid"]]) {
             [followButton setHidden:YES];
         }else {
             [followButton setHidden:NO];
         }
         
-        if ([[_user iFollow] isEqualToNumber:[NSNumber numberWithInt:1]]) {
+        if ([[_user iFollow] isEqual:[NSNumber numberWithInt:1]]) {
             [followButton setBackgroundImage:[UIImage imageNamed:@"btn-following"] forState:UIControlStateNormal];
             [followButton setTitle:@"Following" forState:UIControlStateNormal];
         }else {
@@ -304,7 +304,7 @@
 
 - (CGSize)collectionView:(SSCollectionView *)aCollectionView itemSizeForSection:(NSUInteger)section {
     if (section == 0) {
-        if ([_userID isEqualToNumber:[defaults objectForKey:@"userid"]]) {
+        if ([_userID isEqual:[defaults objectForKey:@"userid"]]) {
             return CGSizeMake(300.0f, 95.0f);
         }else {
             return CGSizeMake(300.0f, 138.0f);
@@ -403,7 +403,7 @@
                             nil];
     
     [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    if ([[_user iFollow] isEqualToNumber:[NSNumber numberWithInt:1]]) {
+    if ([[_user iFollow] isEqual:[NSNumber numberWithInt:1]]) {
 //        unfollow user
         [_user setIFollow:[NSNumber numberWithInt:0]];
         [self.collectionView reloadData];

@@ -14,6 +14,8 @@
 {
     NSArray* _myFriends;
     NSIndexPath* _selectedRowIndexPath;
+    
+    int followCounter;
 }
 
 @property (nonatomic, strong) NSString* userID;
