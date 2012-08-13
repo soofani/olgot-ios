@@ -43,6 +43,7 @@
 						<string key="NSFrame">{{13, 12}, {20, 20}}</string>
 						<reference key="NSSuperview" ref="631208757"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="436067048"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -60,6 +61,7 @@
 						<string key="NSFrame">{{0, 44}, {300, 1}}</string>
 						<reference key="NSSuperview" ref="631208757"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -76,7 +78,7 @@
 						<string key="NSFrame">{{6, 4}, {35, 35}}</string>
 						<reference key="NSSuperview" ref="631208757"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="436067048"/>
+						<reference key="NSNextKeyView" ref="1030639048"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -276,7 +278,7 @@
 							<object class="IBUserDefinedRuntimeAttribute">
 								<string key="typeIdentifier">com.apple.InterfaceBuilder.userDefinedRuntimeAttributeType.string</string>
 								<string key="keyPath">reuseIdentifier</string>
-								<string key="value">personTileID</string>
+								<string key="value">personTile</string>
 							</object>
 						</array>
 					</object>
