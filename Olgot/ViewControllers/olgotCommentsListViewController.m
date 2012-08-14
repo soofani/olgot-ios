@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AFNetworking.h"
 #import "olgotComment.h"
+#import "olgotProfileViewController.h"
 
 @interface olgotCommentsListViewController ()
 
@@ -125,6 +126,14 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqual:@"ShowUserProfile"]) {
+        olgotProfileViewController *profileViewController = [segue destinationViewController];
+        [profileViewController setUserID:[[_comments objectAtIndex:_selectedRowIndexPath.row] userId]];
+    }
 }
 
 #pragma mark RKObjectLoaderDelegate methods
@@ -271,7 +280,8 @@
 - (void)collectionView:(SSCollectionView *)aCollectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 1) {
-        //        [self performSegueWithIdentifier:@"showProfile" sender:self];
+        _selectedRowIndexPath = indexPath;
+        [self performSegueWithIdentifier:@"ShowUserProfile" sender:self];
     }
     
 }

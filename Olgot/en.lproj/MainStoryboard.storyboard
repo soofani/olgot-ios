@@ -689,6 +689,9 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="S5e-x9-Z0j"/>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="HAn-Se-f9H" kind="push" identifier="ShowUserProfile" id="Ttl-PY-xm6"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="3156" y="159"/>
@@ -1970,10 +1973,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kFC-1d-6jx"/>
         <segue reference="Lo1-V5-Une"/>
-        <segue reference="tAB-hG-qL1"/>
+        <segue reference="kFC-1d-6jx"/>
+        <segue reference="Ttl-PY-xm6"/>
         <segue reference="rOZ-3k-il0"/>
-        <segue reference="jD9-Wv-5GK"/>
+        <segue reference="tAB-hG-qL1"/>
     </inferredMetricsTieBreakers>
 </document>

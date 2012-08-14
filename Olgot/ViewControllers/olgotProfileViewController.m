@@ -57,6 +57,7 @@
 {
     defaults = [NSUserDefaults standardUserDefaults];
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    NSLog(@"User %@ viewing %@",[defaults objectForKey:@"userid"], _userID);
     NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _userID, @"user", [defaults objectForKey:@"userid"], @"id", nil];
     NSString* resourcePath = [@"/user/" appendQueryParams:myParams];
     [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
@@ -206,7 +207,8 @@
         
         
         // configure custom data
-        if ([_userID isEqual:[defaults objectForKey:@"userid"]]) {
+        NSNumber* myID = [defaults objectForKey:@"userid"];
+        if ([_userID isEqual:myID]) {
             [followButton setHidden:YES];
         }else {
             [followButton setHidden:NO];
