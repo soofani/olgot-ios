@@ -338,7 +338,7 @@
         }
     }
     else {  //comments footer
-        if ([[_item itemStatsComments] intValue] > 0) {
+        if ([[_item itemStatsComments] intValue] > 3) {
             return 1;
         } else {
             return 0;
