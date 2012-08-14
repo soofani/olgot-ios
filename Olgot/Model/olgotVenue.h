@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSNumber* items;
 @property (nonatomic, retain) NSString* venueIcon;
 @property (nonatomic, retain) NSString* foursquareAddress;
+@property (nonatomic, retain) NSString* distance;
 @property (nonatomic, retain) NSString* iconUrl;
 @property (nonatomic, retain) NSNumber* topUserId;
 @property (nonatomic, retain) NSString* topUserFirstName;

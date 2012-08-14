@@ -284,6 +284,7 @@
      @"items",@"items",
      @"iconUrl",@"venueIcon",
      @"foursquareAddress",@"foursquareAddress",
+     @"distance",@"distance",
      @"iconUrl",@"iconUrl",
      @"topUser.userId",@"topUserId",
      @"topUser.firstName",@"topUserFirstName",

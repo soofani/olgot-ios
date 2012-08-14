@@ -197,9 +197,12 @@
     placeLabel = (UILabel*)[cell viewWithTag:2];    //place name
     placeLabel.text = [[_places objectAtIndex:indexPath.row] name_En];
     
-    placeLabel = (UILabel*)[cell viewWithTag:3];    //place name
+    placeLabel = (UILabel*)[cell viewWithTag:3];    //place address
     placeLabel.text = [[_places objectAtIndex:indexPath.row] foursquareAddress];
-        
+    
+    placeLabel = (UILabel*)[cell viewWithTag:4];    //place distance
+    placeLabel.text = [[_places objectAtIndex:indexPath.row] distance];
+
     return cell;
 }
 
