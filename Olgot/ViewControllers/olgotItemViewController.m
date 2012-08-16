@@ -592,7 +592,7 @@
 //        return CGSizeMake(300.0f, 370.0f);
     }
     else if (section == 0) {
-        return CGSizeMake(300.0f, 44.0f);
+        return CGSizeMake(300.0f, 55.0f);
     }
     else if (section == 2) {
         return CGSizeMake(300.0f, 85.0f);
