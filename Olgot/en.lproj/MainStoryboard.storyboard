@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -243,7 +243,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gks-Qd-1ij" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="87U-8D-FOE" customClass="olgotVenueMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AxW-Ju-4Wz">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="Pz3-17-uJm">
@@ -883,15 +883,15 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" image="logo-210x155.png" id="ORG-0G-HY6">
-                                <rect key="frame" x="40" y="20" width="240" height="151"/>
+                                <rect key="frame" x="40" y="90" width="240" height="151"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" image="slogan-390x50.png" id="tm1-l0-M0x">
-                                <rect key="frame" x="40" y="166" width="240" height="54"/>
+                                <rect key="frame" x="40" y="236" width="240" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7CT-oO-27O">
-                                <rect key="frame" x="55" y="246" width="210" height="40"/>
+                                <rect key="frame" x="55" y="316" width="210" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="btn-join-twitter-420x80.png">
@@ -920,7 +920,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="sQf-E2-iaS">
-                                <rect key="frame" x="150" y="207" width="20" height="20"/>
+                                <rect key="frame" x="150" y="286" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.90980392160000001" green="0.30588235289999999" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
@@ -1975,8 +1975,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="Lo1-V5-Une"/>
         <segue reference="kFC-1d-6jx"/>
-        <segue reference="Ttl-PY-xm6"/>
-        <segue reference="rOZ-3k-il0"/>
-        <segue reference="tAB-hG-qL1"/>
     </inferredMetricsTieBreakers>
 </document>
