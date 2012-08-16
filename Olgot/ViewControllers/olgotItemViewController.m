@@ -355,7 +355,7 @@
     static NSString *myCommentTileIdentifier = @"itemViewCommentRowID";
     static NSString *myCommentsFooterIdentifier = @"commentsFooter";
     
-    if (indexPath.section == 0) {
+    if (indexPath.section == 1) {
         SSCollectionViewItem *cell = [aCollectionView dequeueReusableItemWithIdentifier:myItemTileIdentifier];
         
         if (cell == nil) {
@@ -396,7 +396,7 @@
         
         return cell;
     }
-    else if (indexPath.section == 1) {
+    else if (indexPath.section == 0) {
         SSCollectionViewItem *cell = [aCollectionView dequeueReusableItemWithIdentifier:myFinderTileIdentifier];
         
         if (cell == nil) {
@@ -582,7 +582,7 @@
 #pragma mark - SSCollectionViewDelegate
 
 - (CGSize)collectionView:(SSCollectionView *)aCollectionView itemSizeForSection:(NSUInteger)section {
-    if(section == 0){
+    if(section == 1){
         CGSize labelSize = [[_item itemDescription] sizeWithFont:[UIFont systemFontOfSize:18.0] constrainedToSize:CGSizeMake(280.0, 9000.0) lineBreakMode:UILineBreakModeWordWrap];
         
         CGSize itemSize = CGSizeMake(300.0, labelSize.height + 310.0);
@@ -591,7 +591,7 @@
         
 //        return CGSizeMake(300.0f, 370.0f);
     }
-    else if (section == 1) {
+    else if (section == 0) {
         return CGSizeMake(300.0f, 44.0f);
     }
     else if (section == 2) {
