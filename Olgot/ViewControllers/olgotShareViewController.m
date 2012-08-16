@@ -59,12 +59,8 @@
     
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) 
     {
-        UILabel* ovLabel = [[UILabel alloc] init];
-        [ovLabel setText:@"Rweished"];
-        
         [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
         [imagePicker setAllowsEditing:YES];
-        [imagePicker setCameraOverlayView:ovLabel];
     }
     else 
     {

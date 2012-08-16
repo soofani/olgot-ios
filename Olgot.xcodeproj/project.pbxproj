@@ -230,6 +230,7 @@
 		FFCD11F115B2E5BE00B120FB /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF98031D15B2E4F0004B96E7 /* libRestKit.a */; };
 		FFD62D191594C0810068B04A /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD62D181594C0810068B04A /* DejalActivityView.m */; };
 		FFD62D241594CB920068B04A /* olgotVenueMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD62D231594CB920068B04A /* olgotVenueMapViewController.m */; };
+		FFDA69F415DD21A3009759D9 /* olgotCameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDA69F315DD21A3009759D9 /* olgotCameraOverlayViewController.m */; };
 		FFDAE0B715849FFC00859B3A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDAE0B615849FFC00859B3A /* CoreLocation.framework */; };
 		FFDC6334156E814C008CCA28 /* olgotCommentsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDC6333156E814C008CCA28 /* olgotCommentsListViewController.m */; };
 		FFDC6336156E8232008CCA28 /* commentsListHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFDC6335156E8232008CCA28 /* commentsListHeaderCell.xib */; };
@@ -602,6 +603,8 @@
 		FFD62D181594C0810068B04A /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
 		FFD62D221594CB920068B04A /* olgotVenueMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotVenueMapViewController.h; path = ViewControllers/olgotVenueMapViewController.h; sourceTree = "<group>"; };
 		FFD62D231594CB920068B04A /* olgotVenueMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotVenueMapViewController.m; path = ViewControllers/olgotVenueMapViewController.m; sourceTree = "<group>"; };
+		FFDA69F215DD21A3009759D9 /* olgotCameraOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = olgotCameraOverlayViewController.h; sourceTree = "<group>"; };
+		FFDA69F315DD21A3009759D9 /* olgotCameraOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = olgotCameraOverlayViewController.m; sourceTree = "<group>"; };
 		FFDAE0B615849FFC00859B3A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FFDC6332156E814C008CCA28 /* olgotCommentsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotCommentsListViewController.h; path = ViewControllers/olgotCommentsListViewController.h; sourceTree = "<group>"; };
 		FFDC6333156E814C008CCA28 /* olgotCommentsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotCommentsListViewController.m; path = ViewControllers/olgotCommentsListViewController.m; sourceTree = "<group>"; };
@@ -1084,6 +1087,8 @@
 			children = (
 				FF10F29F155D16B000F4EC2E /* olgotShareViewController.h */,
 				FF10F2A0155D16B000F4EC2E /* olgotShareViewController.m */,
+				FFDA69F215DD21A3009759D9 /* olgotCameraOverlayViewController.h */,
+				FFDA69F315DD21A3009759D9 /* olgotCameraOverlayViewController.m */,
 				FF26E275156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.h */,
 				FF26E276156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.m */,
 				FF33102B156502F50083602B /* olgotAddItemDetailsViewController.h */,
@@ -1493,6 +1498,7 @@
 				FF8BB1CD15C19678003E27E2 /* olgotNotification.m in Sources */,
 				FF8BB1D015C198F5003E27E2 /* olgotNotificationUser.m in Sources */,
 				FF25124C15C56F2F0047C87B /* olgotHelpViewController.m in Sources */,
+				FFDA69F415DD21A3009759D9 /* olgotCameraOverlayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
