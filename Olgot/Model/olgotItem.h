@@ -14,6 +14,7 @@
 @property (nonatomic, retain) NSNumber* itemPrice;
 @property (nonatomic, retain) NSNumber* itemDiscount;
 @property (nonatomic, retain) NSString* itemDate;
+@property (nonatomic, retain) NSString* itemDateNatural;
 @property (nonatomic, retain) NSString* itemUrl;
 @property (nonatomic, retain) NSNumber* itemKey;
 @property (nonatomic, retain) NSNumber* itemPublished;

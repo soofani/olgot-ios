@@ -388,9 +388,11 @@
         UIImageView* itemImage;
         UILabel* itemDescription;
         UILabel* itemPriceLabel;
+        UILabel* itemDateLabel;
         
         itemImage = (UIImageView*)[cell viewWithTag:1];
         itemDescription = (UILabel*)[cell viewWithTag:2];
+        itemDateLabel = (UILabel*)[cell viewWithTag:5];
         
         [itemImage setImageWithURL:[NSURL URLWithString:[_item itemPhotoUrl]]];
         [itemDescription setText:[_item itemDescription]];
@@ -402,6 +404,8 @@
             [itemPriceLabel setHidden:NO];
             [itemPriceLabel setText:[NSString stringWithFormat:@"%g %@",[[_item itemPrice] floatValue],[_item countryCurrencyShortName]]];
         }
+        
+        [itemDateLabel setText:[_item itemDateNatural]];
         
         return cell;
     }
