@@ -177,6 +177,7 @@
      @"itemPrice",@"itemPrice",
      @"itemDiscount",@"itemDiscount",
      @"itemDate",@"itemDate",
+     @"itemDateNatural",@"itemDateNatural",
      @"itemKey",@"itemKey",
      @"itemUrl",@"itemUrl",
      @"itemPublished",@"itemPublished",
