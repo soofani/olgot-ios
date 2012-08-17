@@ -585,7 +585,7 @@
     if(section == 1){
         CGSize labelSize = [[_item itemDescription] sizeWithFont:[UIFont systemFontOfSize:18.0] constrainedToSize:CGSizeMake(280.0, 9000.0) lineBreakMode:UILineBreakModeWordWrap];
         
-        CGSize itemSize = CGSizeMake(300.0, labelSize.height + 310.0);
+        CGSize itemSize = CGSizeMake(300.0, labelSize.height + 370.0);
 
         return itemSize; 
         
