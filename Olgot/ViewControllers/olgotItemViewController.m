@@ -387,12 +387,21 @@
         
         UIImageView* itemImage;
         UILabel* itemDescription;
+        UILabel* itemPriceLabel;
         
         itemImage = (UIImageView*)[cell viewWithTag:1];
         itemDescription = (UILabel*)[cell viewWithTag:2];
         
         [itemImage setImageWithURL:[NSURL URLWithString:[_item itemPhotoUrl]]];
         [itemDescription setText:[_item itemDescription]];
+        
+        itemPriceLabel = (UILabel*)[cell viewWithTag:3]; //price
+        if ([[_item itemPrice] isEqualToNumber:[NSNumber numberWithInt:0]]) {
+            [itemPriceLabel setHidden:YES];
+        }else{
+            [itemPriceLabel setHidden:NO];
+            [itemPriceLabel setText:[NSString stringWithFormat:@"%g %@",[[_item itemPrice] floatValue],[_item countryCurrencyShortName]]];
+        }
         
         return cell;
     }
@@ -406,7 +415,7 @@
         }
         
         UIImageView* finderImage;
-        UILabel* finderLabel;
+        //UILabel* finderLabel;
         UIButton* finderButton;
         
         finderImage = (UIImageView*)[cell viewWithTag:1];
@@ -418,8 +427,8 @@
         finderButton = (UIButton*)[cell viewWithTag:3]; //venue name
         [finderButton setTitle:[_item venueName_En] forState:UIControlStateNormal];
         
-        finderLabel = (UILabel*)[cell viewWithTag:4]; //price
-        [finderLabel setText:[NSString stringWithFormat:@"%@ %g",[_item countryCurrencyShortName],[[_item itemPrice] floatValue]]];
+//        finderLabel = (UILabel*)[cell viewWithTag:4]; //price
+//        [finderLabel setText:[NSString stringWithFormat:@"%@ %g",[_item countryCurrencyShortName],[[_item itemPrice] floatValue]]];
         
         return cell;
     }
