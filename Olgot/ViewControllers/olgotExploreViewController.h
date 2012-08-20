@@ -19,6 +19,7 @@
     NSUserDefaults* defaults;
     CLLocationManager* locationManager;
     NSString* feedImage;
+    NSString* feedSummary;
     NSString* nearbyImage;
     NSString* wantsImage;
     

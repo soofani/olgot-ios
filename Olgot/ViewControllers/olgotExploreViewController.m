@@ -261,14 +261,16 @@
         
         UIImageView *tileImage;
         UILabel *tileLabel;
+        UILabel *tileSummaryLabel;
         
         tileImage = (UIImageView *)[cell1 viewWithTag:1];
         tileLabel = (UILabel *)[cell1 viewWithTag:2];
+        tileSummaryLabel = (UILabel *)[cell1 viewWithTag:3];
         
         [tileImage setImageWithURL:[NSURL URLWithString:feedImage]];
         
         tileLabel.text = @"Feed";
-        
+        [tileSummaryLabel setText:feedSummary];
         
         return cell1;
     }
@@ -445,6 +447,8 @@
         if ([[[[JSON valueForKeyPath:@"wants"] valueForKeyPath:@"items"] valueForKeyPath:@"itemPhotoUrl"] count] > 0) {
                 wantsImage = [[[[JSON valueForKeyPath:@"wants"] valueForKeyPath:@"items"] valueForKeyPath:@"itemPhotoUrl"] objectAtIndex:0];
         }
+        
+        feedSummary = [[JSON valueForKeyPath:@"feed"] valueForKeyPath:@"summary"];
         
         [self.collectionView reloadData];
         
