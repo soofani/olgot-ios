@@ -272,6 +272,9 @@
         tileLabel.text = @"Feed";
         [tileSummaryLabel setText:feedSummary];
         
+        //tileSummaryLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-gradient.png"]];
+
+        
         return cell1;
     }
     else if (indexPath.section == 1) {
