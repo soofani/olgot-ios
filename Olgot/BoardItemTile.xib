@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1296</int>
+		<int key="IBDocument.SystemTarget">1280</int>
 		<string key="IBDocument.SystemVersion">11E53</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
 		<string key="IBDocument.AppKitVersion">1138.47</string>
@@ -43,7 +43,7 @@
 						<string key="NSFrame">{{62, 63}, {20, 20}}</string>
 						<reference key="NSSuperview" ref="1007777650"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="227711603"/>
+						<reference key="NSNextKeyView" ref="923159303"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -63,7 +63,7 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="423244183"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<object class="NSColor" key="IBUIBackgroundColor" id="559544394">
+						<object class="NSColor" key="IBUIBackgroundColor" id="688940624">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
 						</object>
@@ -71,10 +71,10 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
-					<object class="IBUIImageView" id="227711603">
+					<object class="IBUIImageView" id="923159303">
 						<reference key="NSNextResponder" ref="1007777650"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{5, 111}, {137, 33}}</string>
+						<string key="NSFrame">{{4, 111}, {139, 33}}</string>
 						<reference key="NSSuperview" ref="1007777650"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="7169210"/>
@@ -126,12 +126,12 @@
 					<object class="IBUILabel" id="423244183">
 						<reference key="NSNextResponder" ref="1007777650"/>
 						<int key="NSvFlags">294</int>
-						<string key="NSFrame">{{72, 120}, {70, 21}}</string>
+						<string key="NSFrame">{{66, 120}, {70, 21}}</string>
 						<reference key="NSSuperview" ref="1007777650"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="769978541"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<reference key="IBUIBackgroundColor" ref="559544394"/>
+						<reference key="IBUIBackgroundColor" ref="688940624"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -146,7 +146,7 @@
 						<reference key="IBUIHighlightedColor" ref="911645000"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<float key="IBUIMinimumFontSize">10</float>
-						<int key="IBUITextAlignment">1</int>
+						<int key="IBUITextAlignment">2</int>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
 							<string key="name">HelveticaNeue-Bold</string>
 							<string key="family">Helvetica Neue</string>
@@ -257,7 +257,7 @@
 							<reference ref="238450852"/>
 							<reference ref="583930189"/>
 							<reference ref="769978541"/>
-							<reference ref="227711603"/>
+							<reference ref="923159303"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -298,7 +298,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">14</int>
-						<reference key="object" ref="227711603"/>
+						<reference key="object" ref="923159303"/>
 						<reference key="parent" ref="1007777650"/>
 					</object>
 				</array>
@@ -380,10 +380,6 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1296" key="NS.object.0"/>
-		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">

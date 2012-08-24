@@ -202,7 +202,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ipx-qk-eQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="XiP-jZ-yvg" customClass="olgotPeopleListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7f1-hg-2ux">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -220,7 +220,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSt-x6-VLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="gYY-SF-9fN" customClass="olgotVenueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dV0-qV-LCI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -243,11 +243,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gks-Qd-1ij" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="87U-8D-FOE" customClass="olgotVenueMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AxW-Ju-4Wz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="Pz3-17-uJm">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                         </subviews>
@@ -361,7 +361,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.87450987099999999" green="0.8980392814" blue="0.90588241820000004" alpha="1" colorSpace="deviceRGB"/>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Why is this cool?" minimumFontSize="17" id="5eH-WG-u6B">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tell your friends more about this" minimumFontSize="17" id="5eH-WG-u6B">
                                         <rect key="frame" x="20" y="236" width="280" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -681,7 +681,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhJ-b2-O2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="qgL-I9-Ymt" customClass="olgotCommentsListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uUV-e7-4t0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -702,7 +702,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hk5-4P-7cX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="HAn-Se-f9H" customClass="olgotProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fbN-fm-WR5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1973,7 +1973,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Lo1-V5-Une"/>
         <segue reference="kFC-1d-6jx"/>
+        <segue reference="Lo1-V5-Une"/>
+        <segue reference="FeI-wE-YUy"/>
+        <segue reference="7BR-Ub-gCU"/>
+        <segue reference="tAB-hG-qL1"/>
     </inferredMetricsTieBreakers>
 </document>
