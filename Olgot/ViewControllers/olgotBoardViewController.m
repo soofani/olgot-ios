@@ -249,7 +249,16 @@
     
     
     itemImage = (UIImageView*)[cell viewWithTag:5];
+    
+    
     [itemImage setImageWithURL:[NSURL URLWithString:[[_items objectAtIndex:indexPath.row] userProfileImgUrl]]];
+    
+    itemImage.layer.cornerRadius = 3;
+    itemImage.clipsToBounds = YES;
+
+    itemImage = (UIImageView *)[cell viewWithTag:6];
+    itemImage.layer.cornerRadius = 3;
+    itemImage.clipsToBounds = YES;
     
     return cell;
 }

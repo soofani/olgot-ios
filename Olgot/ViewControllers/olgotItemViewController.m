@@ -431,6 +431,9 @@
         finderButton = (UIButton*)[cell viewWithTag:3]; //venue name
         [finderButton setTitle:[_item venueName_En] forState:UIControlStateNormal];
         
+        finderImage.layer.cornerRadius = 4;
+        finderImage.clipsToBounds = YES;
+        
 //        finderLabel = (UILabel*)[cell viewWithTag:4]; //price
 //        [finderLabel setText:[NSString stringWithFormat:@"%@ %g",[_item countryCurrencyShortName],[[_item itemPrice] floatValue]]];
         
