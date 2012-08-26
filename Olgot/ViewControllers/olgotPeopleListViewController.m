@@ -229,6 +229,9 @@
         UILabel* actionLabel;
         
         actionImage = (UIImageView*)[cell viewWithTag:1];
+        actionImage.layer.cornerRadius = 4;
+        actionImage.clipsToBounds = YES;
+        
         [actionImage setImageWithURL:[NSURL URLWithString:[[_userActions objectAtIndex:indexPath.row] userProfileImgUrl]]];
         
         actionLabel = (UILabel*)[cell viewWithTag:2]; //user full name

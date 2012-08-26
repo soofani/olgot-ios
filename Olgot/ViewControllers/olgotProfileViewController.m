@@ -225,8 +225,10 @@
         
         UIImageView* userImage;
         UILabel* userLabel;
-        
+
         userImage = (UIImageView*)[cell1 viewWithTag:1];
+        userImage.layer.cornerRadius = 5;
+        userImage.clipsToBounds = YES;
         [userImage setImageWithURL:[NSURL URLWithString:[_user userProfileImageUrl]]];
         
         userLabel = (UILabel*)[cell1 viewWithTag:2];    //Name
