@@ -18,16 +18,20 @@
     UIImagePickerController *imagePickerController;
     
 @private
-
-    
+    UIButton *cancelButton;
+    UIButton *takePictureButton;
 }
 
 @property (nonatomic, retain) id <olgotCameraOverlayViewControllerDelegate> delegate;
 @property (nonatomic, retain) UIImagePickerController *imagePickerController;
+@property (strong, nonatomic) IBOutlet UIButton *cancelButton;
+@property (strong, nonatomic) IBOutlet UIButton *takePictureButton;
 
 - (void)setupImagePicker:(UIImagePickerControllerSourceType)sourceType;
 
-
+// camera page (overlay view)
+- (IBAction)done:(id)sender;
+- (IBAction)takePhoto:(id)sender;
 
 @end
 

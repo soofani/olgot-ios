@@ -201,6 +201,7 @@
 		FF980C0515A5EDDF00001259 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF980C0415A5EDDF00001259 /* MessageUI.framework */; };
 		FF980C0715A5EE1200001259 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF980C0615A5EE1200001259 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FF98330215C84AF600DC02C4 /* profileViewNoItems.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF98330115C84AF600DC02C4 /* profileViewNoItems.xib */; };
+		FFA0559D15EA7167009F6945 /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA0559C15EA7167009F6945 /* OverlayViewController.xib */; };
 		FFA4ED93155D12D8008CB4CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED92155D12D8008CB4CA /* UIKit.framework */; };
 		FFA4ED95155D12D8008CB4CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED94155D12D8008CB4CA /* Foundation.framework */; };
 		FFA4ED97155D12D8008CB4CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED96155D12D8008CB4CA /* CoreGraphics.framework */; };
@@ -567,6 +568,7 @@
 		FF980C0415A5EDDF00001259 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		FF980C0615A5EE1200001259 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		FF98330115C84AF600DC02C4 /* profileViewNoItems.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = profileViewNoItems.xib; sourceTree = "<group>"; };
+		FFA0559C15EA7167009F6945 /* OverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayViewController.xib; sourceTree = "<group>"; };
 		FFA4ED8E155D12D8008CB4CA /* Olgot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Olgot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFA4ED92155D12D8008CB4CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FFA4ED94155D12D8008CB4CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1087,6 +1089,7 @@
 			children = (
 				FF10F29F155D16B000F4EC2E /* olgotShareViewController.h */,
 				FF10F2A0155D16B000F4EC2E /* olgotShareViewController.m */,
+				FFA0559C15EA7167009F6945 /* OverlayViewController.xib */,
 				FFDA69F215DD21A3009759D9 /* olgotCameraOverlayViewController.h */,
 				FFDA69F315DD21A3009759D9 /* olgotCameraOverlayViewController.m */,
 				FF26E275156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.h */,
@@ -1432,6 +1435,7 @@
 				E027CE6815CAC2A4007220F2 /* icon-map-marker@2x.png in Resources */,
 				FF0D3C1B15CE9AA200B8BA29 /* icon-cat-dummy.png in Resources */,
 				FF0D3C1C15CE9AA200B8BA29 /* icon-cat-dummy@2x.png in Resources */,
+				FFA0559D15EA7167009F6945 /* OverlayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

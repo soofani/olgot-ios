@@ -13,6 +13,8 @@
 @end
 
 @implementation olgotCameraOverlayViewController
+@synthesize cancelButton;
+@synthesize takePictureButton;
 
 @synthesize delegate, imagePickerController;
 
@@ -35,6 +37,8 @@
 
 - (void)viewDidUnload
 {
+    [self setCancelButton:nil];
+    [self setTakePictureButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -53,6 +57,7 @@
         // user wants to use the camera interface
         
         self.imagePickerController.showsCameraControls = NO;
+
         
         if ([[self.imagePickerController.cameraOverlayView subviews] count] == 0)
         {
@@ -62,9 +67,9 @@
             CGRect overlayViewFrame = self.imagePickerController.cameraOverlayView.frame;
             CGRect newFrame = CGRectMake(0.0,
                                          CGRectGetHeight(overlayViewFrame) -
-                                         self.view.frame.size.height - 10.0,
+                                         self.view.frame.size.height,
                                          CGRectGetWidth(overlayViewFrame),
-                                         self.view.frame.size.height + 10.0);
+                                         self.view.frame.size.height);
             self.view.frame = newFrame;
             [self.imagePickerController.cameraOverlayView addSubview:self.view];
         }
