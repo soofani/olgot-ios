@@ -13,7 +13,6 @@
 #import "olgotItemViewController.h"
 #import "olgotVenueMapViewController.h"
 #import "olgotProfileViewController.h"
-#import "olgotAddItemDetailsViewController.h"
 
 @interface olgotVenueViewController ()
 
@@ -24,6 +23,8 @@
 @synthesize venueCardTile = _venueCardTile, venueItemTile = _venueItemTile;
 
 @synthesize venueId = _venueId;
+
+@synthesize cameraOverlayViewController;
 
 @synthesize pullToRefreshView = _pullToRefreshView;
 @synthesize venueLocationBtn = _venueLocationBtn;
@@ -156,21 +157,8 @@
 }
 
 - (IBAction)takePicture:(id)sender {
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) 
-    {
-        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-        [imagePicker setAllowsEditing:YES];
-    }
-    else 
-    {
-        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    }
-    
-    [imagePicker setDelegate:self];
-    
-    [self presentModalViewController:imagePicker animated:NO];
+    [self showCamAnimated:NO source:UIImagePickerControllerSourceTypeCamera];
 }
 
 - (void)viewDidUnload
@@ -388,20 +376,58 @@
     [self performSegueWithIdentifier:@"ShowTopUserProfile" sender:self];
 }
 
-#pragma mark UIImagePickerDelegate
-
--(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+-(void)showCamAnimated:(BOOL)animated source:(UIImagePickerControllerSourceType)sourceType
 {
-    image = [info objectForKey:UIImagePickerControllerEditedImage];
+    self.cameraOverlayViewController = [[olgotCameraOverlayViewController alloc] initWithNibName:@"OverlayViewController" bundle:nil];
     
-    [self dismissModalViewControllerAnimated:NO];
-    [self performSegueWithIdentifier:@"ShowItemDetails" sender:self];
+    self.cameraOverlayViewController.delegate = self;
+    
+    [self.cameraOverlayViewController setupImagePicker:sourceType];
+    [self presentModalViewController:self.cameraOverlayViewController.imagePickerController animated:animated];
     
 }
 
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+#pragma mark - olgotCameraOverlayControllerDelegate
+
+-(void)tookPicture:(UIImage *)mImage
+{
+    olgotAddItemDetailsViewController *itemDetailsController = [[olgotAddItemDetailsViewController alloc] initWithNibName:@"addItemDetailsView" bundle:[NSBundle mainBundle]];
+    
+    //setup details controller
+    itemDetailsController.venue = _venue;
+    itemDetailsController.itemImage = mImage;
+    itemDetailsController.delegate = self;
+    
+    UINavigationController *camNavController = [[UINavigationController alloc] initWithRootViewController:itemDetailsController];
+    
+    [self dismissModalViewControllerAnimated:NO];
+    [self presentModalViewController:camNavController animated:NO];
+}
+
+-(void)cancelled
 {
     [self dismissModalViewControllerAnimated:NO];
+    NSLog(@"cancelled");
 }
+
+-(void)wantsLibrary
+{
+    [self dismissModalViewControllerAnimated:NO];
+    [self showCamAnimated:NO source:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+#pragma mark - addItemDetailsDelegate
+
+-(void)wantsBack
+{
+    [self dismissModalViewControllerAnimated:NO];
+    [self showCamAnimated:NO source:UIImagePickerControllerSourceTypeCamera];
+}
+
+-(void)exitAddItemFlow
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 
 @end

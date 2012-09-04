@@ -12,7 +12,10 @@
 #import "olgotVenue.h"
 #import "SSPullToRefresh.h"
 
-@interface olgotVenueViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
+#import "olgotAddItemDetailsViewController.h"
+#import "olgotCameraOverlayViewController.h"
+
+@interface olgotVenueViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate,olgotCameraOverlayViewControllerDelegate, addItemDetailsProtocol>{
     olgotVenue* _venue;
     NSMutableArray* _items;
     NSIndexPath* _selectedRowIndexPath;
@@ -24,6 +27,8 @@
     BOOL loadingNew;
     BOOL hasTopUser;
 }
+
+@property (nonatomic,retain) olgotCameraOverlayViewController *cameraOverlayViewController;
 
 @property (nonatomic, strong) NSNumber *venueId;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *venueCardTile;

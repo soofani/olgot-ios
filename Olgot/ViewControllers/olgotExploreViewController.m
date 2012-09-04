@@ -13,7 +13,7 @@
 #import "olgotCategory.h"
 #import "olgotItem.h"
 #import "olgotFriendsViewController.h"
-
+#import "olgotTabBarViewController.h"
 
 @interface olgotExploreViewController ()
 
@@ -175,6 +175,14 @@
         [locationManager startUpdatingLocation];
         [self checkNotifications];
     }
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    olgotTabBarViewController* myTabBar = (olgotTabBarViewController*)self.tabBarController;
+    [myTabBar addCenterButtonWithImage];
     
 }
 

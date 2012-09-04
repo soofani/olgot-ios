@@ -10,8 +10,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AFNetworking.h"
 #import "UIImage+fixOrientation.h"
-#import "olgotAddItemConfirmationViewController.h"
+
 #import "olgotItem.h"
+#import "olgotTabBarViewController.h"
 
 @interface olgotAddItemDetailsViewController ()
 
@@ -35,7 +36,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.title = @"Add Item";
     }
     return self;
 }
@@ -48,6 +49,23 @@
         NSLog(@"set venue %@",_venue);
         [self configureView];
     }
+}
+
+-(void)addBackButton{
+    UIImage *backImage = [UIImage imageNamed:@"btn-nav-back"];
+    
+    UIButton *customBackBtn = [[UIButton alloc] init];
+    
+    customBackBtn.frame=CGRectMake(0,0,55,30);
+    [customBackBtn setBackgroundImage:backImage forState:UIControlStateNormal];
+    [customBackBtn addTarget:self action:@selector(backSim) forControlEvents:UIControlEventTouchUpInside];
+    [customBackBtn setTitle:@"  Back" forState:UIControlStateNormal];
+    [customBackBtn.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.0f]];
+    
+    
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithCustomView:customBackBtn];
+    
+    self.navigationItem.leftBarButtonItem = button;
 }
 
 #pragma mark RKObjectLoaderDelegate methods
@@ -72,7 +90,8 @@
                     _itemKey = [_itemJsonResponse objectForKey:@"key"];
                     _itemUrl = [_itemJsonResponse objectForKey:@"itemUrl"];
 //                    [self performSelector:@selector(postPhoto)];
-                    [self performSegueWithIdentifier:@"ShowAddItemConfirmation" sender:self];
+//                    [self performSegueWithIdentifier:@"ShowAddItemConfirmation" sender:self];
+                    [self showAddItemConfirmation];
                 }else if ([[request userData] isEqual:@"uploadPhoto"]) {
                     NSLog(@"posted photo");
                     [self performSegueWithIdentifier:@"ShowAddItemConfirmation" sender:self];
@@ -137,6 +156,30 @@
     [self.venueNameLabel setText:[_venue name_En]];
     [self.venueLocationLabel setText:[_venue name_En]];
     [self configureSharingBtns];
+    
+    
+    //if view controller is coming from add venue, count is 1 -- no nearby controller
+    if([[self.navigationController viewControllers] count] == 1){
+        UIImage *backImage = [UIImage imageNamed:@"btn-nav-back"];
+        
+        UIButton *customBackBtn = [[UIButton alloc] init];
+        
+        customBackBtn.frame=CGRectMake(0,0,55,30);
+        [customBackBtn setBackgroundImage:backImage forState:UIControlStateNormal];
+        [customBackBtn addTarget:self action:@selector(backSim) forControlEvents:UIControlEventTouchUpInside];
+        [customBackBtn setTitle:@"  Back" forState:UIControlStateNormal];
+        [customBackBtn.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.0f]];
+        
+        
+        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithCustomView:customBackBtn];
+        
+        self.navigationItem.leftBarButtonItem = button;
+    }
+}
+
+-(void)backSim
+{
+    [self.delegate wantsBack];
 }
 
 -(void)configureSharingBtns
@@ -278,6 +321,49 @@
 
 }
 
+-(void)showAddItemConfirmation
+{
+    olgotAddItemConfirmationViewController* confirmationController = [[olgotAddItemConfirmationViewController alloc] initWithNibName:@"addItemConfirmationView" bundle:[NSBundle mainBundle]];
+    
+    confirmationController.itemID = _itemID;
+    confirmationController.itemKey = _itemKey;
+    confirmationController.capturedImage = _itemImage;
+    confirmationController.itemPrice = [NSNumber numberWithFloat:[self.itemPriceTF.text floatValue]];
+    confirmationController.venueID = [_venue venueId];
+    confirmationController.venueName = [_venue name_En];
+    confirmationController.venueItemCount = [_venue items];
+    
+    //        fire photo uploading
+    NSLog(@"Got image: %@", [_itemImageView image]);
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    RKParams* params = [RKParams params];
+    [params setValue:[defaults objectForKey:@"userid"] forParam:@"id"];
+    [params setValue:_itemID forParam:@"item"];
+    
+    //    NSData* imageData = UIImagePNGRepresentation(_itemImage);
+    NSData* imageData = UIImageJPEGRepresentation([_itemImage fixOrientation], 0.2);
+    //    [params setData:imageData MIMEType:@"image/jpeg" forParam:@"file"];
+    [params setData:imageData MIMEType:@"image/jpeg" fileName:@"myimage.jpg" forParam:@"file"];
+    
+    NSLog(@"RKParams HTTPHeaderValueForContentType = %@", [params HTTPHeaderValueForContentType]);
+    NSLog(@"RKParams HTTPHeaderValueForContentLength = %d", [params HTTPHeaderValueForContentLength]);
+    
+    [[[RKClient sharedClient] post:@"/photo/" params:params delegate:confirmationController] setUserData:@"uploadPhoto"];
+    
+    [[[RKClient sharedClient] requestWithResourcePath:@"/photo/"] setDelegate:nil];
+    
+    if (twitterShare) {
+        [self tweetItem];
+    }
+    
+    confirmationController.delegate = [self.navigationController.viewControllers objectAtIndex:0];
+    
+    [self.navigationController pushViewController:confirmationController animated:YES];
+
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([[segue identifier] isEqual:@"ShowAddItemConfirmation"]){
@@ -323,5 +409,13 @@
     twitterShare = !twitterShare;
     [self configureSharingBtns];
 }
+
+#pragma mark - addItemConfirmationProtocol
+
+-(void)finishedAddItem
+{
+    [self.delegate exitAddItemFlow];
+}
+
 
 @end

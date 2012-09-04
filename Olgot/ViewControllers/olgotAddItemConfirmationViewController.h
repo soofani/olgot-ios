@@ -14,6 +14,8 @@
 
 @class olgotItem;
 
+@protocol addItemConfirmationProtocol;
+
 @interface olgotAddItemConfirmationViewController : UIViewController<RKObjectLoaderDelegate>
 {
     IBOutlet SSLineView *line1;
@@ -21,8 +23,10 @@
     
     olgotItem* _item;
     
-    
+    id<addItemConfirmationProtocol> delegate;
 }
+
+@property (nonatomic,retain) id <addItemConfirmationProtocol> delegate;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIProgressView *progressView;
@@ -52,6 +56,10 @@
 - (IBAction)likePressed:(id)sender;
 - (IBAction)venueNamePressed:(id)sender;
 
+@end
 
+@protocol addItemConfirmationProtocol
+
+-(void)finishedAddItem;
 
 @end
