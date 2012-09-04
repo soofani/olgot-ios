@@ -51,6 +51,23 @@
     }
 }
 
+-(void)addBackButton{
+    UIImage *backImage = [UIImage imageNamed:@"btn-nav-back"];
+    
+    UIButton *customBackBtn = [[UIButton alloc] init];
+    
+    customBackBtn.frame=CGRectMake(0,0,55,30);
+    [customBackBtn setBackgroundImage:backImage forState:UIControlStateNormal];
+    [customBackBtn addTarget:self action:@selector(backSim) forControlEvents:UIControlEventTouchUpInside];
+    [customBackBtn setTitle:@"  Back" forState:UIControlStateNormal];
+    [customBackBtn.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.0f]];
+    
+    
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithCustomView:customBackBtn];
+    
+    self.navigationItem.leftBarButtonItem = button;
+}
+
 #pragma mark RKObjectLoaderDelegate methods
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
@@ -139,6 +156,30 @@
     [self.venueNameLabel setText:[_venue name_En]];
     [self.venueLocationLabel setText:[_venue name_En]];
     [self configureSharingBtns];
+    
+    
+    //if view controller is coming from add venue, count is 1 -- no nearby controller
+    if([[self.navigationController viewControllers] count] == 1){
+        UIImage *backImage = [UIImage imageNamed:@"btn-nav-back"];
+        
+        UIButton *customBackBtn = [[UIButton alloc] init];
+        
+        customBackBtn.frame=CGRectMake(0,0,55,30);
+        [customBackBtn setBackgroundImage:backImage forState:UIControlStateNormal];
+        [customBackBtn addTarget:self action:@selector(backSim) forControlEvents:UIControlEventTouchUpInside];
+        [customBackBtn setTitle:@"  Back" forState:UIControlStateNormal];
+        [customBackBtn.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.0f]];
+        
+        
+        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithCustomView:customBackBtn];
+        
+        self.navigationItem.leftBarButtonItem = button;
+    }
+}
+
+-(void)backSim
+{
+    [self.delegate wantsBack];
 }
 
 -(void)configureSharingBtns
@@ -369,6 +410,12 @@
     [self configureSharingBtns];
 }
 
+#pragma mark - addItemConfirmationProtocol
+
+-(void)finishedAddItem
+{
+    [self.delegate exitAddItemFlow];
+}
 
 
 @end

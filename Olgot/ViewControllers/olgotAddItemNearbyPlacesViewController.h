@@ -12,6 +12,7 @@
 #import <RestKit/RestKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+
 @protocol addItemNearbyProtocol;
 
 @interface olgotAddItemNearbyPlacesViewController : SSCollectionViewController <RKObjectLoaderDelegate,CLLocationManagerDelegate, UISearchBarDelegate>

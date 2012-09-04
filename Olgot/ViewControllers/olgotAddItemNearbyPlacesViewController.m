@@ -49,8 +49,6 @@
         
         UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithCustomView:customBackBtn];
         
-//        UIBarButtonItem *button = [[UIBarButtonItem alloc] init]
-        
         self.navigationItem.leftBarButtonItem = button;
     }
     
