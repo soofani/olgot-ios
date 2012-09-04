@@ -120,9 +120,17 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
  
     UIImage *cropImage = [self squareImageWithImage:image scaledToSize:CGSizeMake(320.0f, 320.0f)];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([[defaults objectForKey:@"autoSavePhotos"] isEqual:@"yes"] && picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    }
+    
     [self.delegate tookPicture:cropImage];
 }
 
