@@ -100,13 +100,13 @@
         // Configure navigation controllers and tab icons
         UIImage *exploreSelected = [UIImage imageNamed:@"icon-tab-bar-explore-active"];
         UIImage *lovelySelected = [UIImage imageNamed:@"icon-tab-bar-lovely-active"];
-        UIImage *shareSelected = [UIImage imageNamed:@"btn-share-130x116"];
+//        UIImage *shareSelected = [UIImage imageNamed:@"btn-share-130x116"];
         UIImage *profileSelected = [UIImage imageNamed:@"icon-tab-bar-profile-active"];
         UIImage *moreSelected = [UIImage imageNamed:@"icon-tab-bar-more-active"];
         
         UIImage *exploreUnSelected = [UIImage imageNamed:@"icon-tab-bar-explore"];
         UIImage *lovelyUnSelected = [UIImage imageNamed:@"icon-tab-bar-lovely"];
-        UIImage *shareUnSelected = [UIImage imageNamed:@"btn-share-130x116"];
+//        UIImage *shareUnSelected = [UIImage imageNamed:@"btn-share-130x116"];
         UIImage *profileUnSelected = [UIImage imageNamed:@"icon-tab-bar-profile"];
         UIImage *moreUnSelected = [UIImage imageNamed:@"icon-tab-bar-more"];
         
@@ -120,7 +120,7 @@
         
         
         [[shareNavigationController tabBarItem] setTitle:@"Share"];
-        [[shareNavigationController tabBarItem] setFinishedSelectedImage:shareSelected withFinishedUnselectedImage:shareUnSelected];
+//        [[shareNavigationController tabBarItem] setFinishedSelectedImage:shareSelected withFinishedUnselectedImage:shareUnSelected];
         
         
         [[profileNavigationController tabBarItem] setTitle:@"Profile"];

@@ -19,6 +19,7 @@
 
 @synthesize capturedImage = _capturedImage, placeCell = _placeCell;
 @synthesize searchBar = _searchBar;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +28,39 @@
         // Custom initialization
     }
     return self;
+}
+
+-(id)init
+{
+    self = [super init];
+    if (self) {
+        self.title = @"Where is this at?";
+        
+        UIImage *backImage = [UIImage imageNamed:@"btn-nav-back"];
+        
+        UIButton *customBackBtn = [[UIButton alloc] init];
+        
+        customBackBtn.frame=CGRectMake(0,0,55,30);
+        [customBackBtn setBackgroundImage:backImage forState:UIControlStateNormal];
+        [customBackBtn addTarget:self action:@selector(backSim) forControlEvents:UIControlEventTouchUpInside];
+        [customBackBtn setTitle:@"  Back" forState:UIControlStateNormal];
+        [customBackBtn.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.0f]];
+        
+        
+        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithCustomView:customBackBtn];
+        
+//        UIBarButtonItem *button = [[UIBarButtonItem alloc] init]
+        
+        self.navigationItem.leftBarButtonItem = button;
+    }
+    
+    return self;
+    
+}
+
+-(void)backSim
+{
+    [self.delegate wantsBack];
 }
 
 - (void)loadVenues:(NSString*)query {
@@ -164,6 +198,20 @@
     }
 }
 
+-(void)showAddItemDetails
+{
+    olgotAddItemDetailsViewController* itemDetailsController = [[olgotAddItemDetailsViewController alloc] initWithNibName:@"addItemDetailsView" bundle:[NSBundle mainBundle]];
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    [[self navigationItem] setBackBarButtonItem:backButton];
+    
+    
+    itemDetailsController.venue = [_places objectAtIndex:_selectedRowIndexPath.row];
+    itemDetailsController.itemImage = _capturedImage;
+    
+    [self.navigationController pushViewController:itemDetailsController animated:YES];
+}
+
 #pragma mark - SSCollectionViewDataSource
 
 - (NSUInteger)numberOfSectionsInCollectionView:(SSCollectionView *)aCollectionView {
@@ -232,7 +280,8 @@
     
     if (indexPath.section == 0) {
         _selectedRowIndexPath = indexPath;
-        [self performSegueWithIdentifier:@"ShowAddItemDetails" sender:self];
+//        [self performSegueWithIdentifier:@"ShowAddItemDetails" sender:self];
+        [self showAddItemDetails];
     }
     
 }
@@ -308,6 +357,13 @@
 - (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {  
     [searchBar setShowsCancelButton:NO animated:YES];
     return YES; 
-} 
+}
+
+#pragma mark - addItemConfirmationDelegate
+
+-(void)finishedAddItem
+{
+    [self.delegate exitAddItemFlow];
+}
 
 @end

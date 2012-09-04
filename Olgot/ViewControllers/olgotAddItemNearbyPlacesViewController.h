@@ -12,6 +12,8 @@
 #import <RestKit/RestKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+@protocol addItemNearbyProtocol;
+
 @interface olgotAddItemNearbyPlacesViewController : SSCollectionViewController <RKObjectLoaderDelegate,CLLocationManagerDelegate, UISearchBarDelegate>
 {
     NSMutableArray* _places;
@@ -21,10 +23,21 @@
     int _pageSize;
     int _currentPage;
     BOOL loadingNew;
+    
+    id <addItemNearbyProtocol> delegate;
 }
 
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *placeCell;
 @property (strong, nonatomic) UIImage *capturedImage;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+
+@property (nonatomic,retain) id <addItemNearbyProtocol> delegate;
+
+@end
+
+@protocol addItemNearbyProtocol
+
+-(void)wantsBack;
+-(void)exitAddItemFlow;
 
 @end

@@ -10,32 +10,34 @@
 
 @protocol olgotCameraOverlayViewControllerDelegate;
 
-@interface olgotCameraOverlayViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface olgotCameraOverlayViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 {
     id <olgotCameraOverlayViewControllerDelegate> delegate;
     
     UIImagePickerController *imagePickerController;
     
-@private
-    UIButton *cancelButton;
-    UIButton *takePictureButton;
 }
 
 @property (nonatomic, retain) id <olgotCameraOverlayViewControllerDelegate> delegate;
 @property (nonatomic, retain) UIImagePickerController *imagePickerController;
-@property (strong, nonatomic) IBOutlet UIButton *cancelButton;
-@property (strong, nonatomic) IBOutlet UIButton *takePictureButton;
 
 - (void)setupImagePicker:(UIImagePickerControllerSourceType)sourceType;
 
-// camera page (overlay view)
-- (IBAction)done:(id)sender;
-- (IBAction)takePhoto:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *shootBtn;
+@property (strong, nonatomic) IBOutlet UIButton *libraryBtn;
+@property (strong, nonatomic) IBOutlet UIButton *closeBtn;
+@property (strong, nonatomic) IBOutlet UIButton *flashBtn;
+
+- (IBAction)shootAction:(id)sender;
+- (IBAction)libraryAction:(id)sender;
+- (IBAction)closeAction:(id)sender;
+- (IBAction)flashAction:(id)sender;
 
 @end
 
 @protocol olgotCameraOverlayViewControllerDelegate
-- (void)didTakePicture:(UIImage *)picture;
-- (void)didFinishWithCamera;
+-(void)tookPicture:(UIImage*)image;
+-(void)cancelled;
+-(void)wantsLibrary;
 @end

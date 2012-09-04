@@ -26,36 +26,40 @@
     return self;
 }
 
-//-(void) viewWillAppear:(BOOL)animated{
-//    
-//    [super viewWillAppear:animated];
-//
-//    
-//}
-
--(void)loadView
-{
-    [super loadView];
-    
-    self.overlayViewController =
-    [[olgotCameraOverlayViewController alloc] initWithNibName:@"OverlayViewController" bundle:nil];
-    
-    // as a delegate we will be notified when pictures are taken and when to dismiss the image picker
-    self.overlayViewController.delegate = self;
-    
-    
-}
-
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+
     
-    [self takePicture:self];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+//        [self takePicture:self];
+
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    showCam = YES;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    showCam = YES;
+//    self.overlayViewController =
+//    [[olgotCameraOverlayViewController alloc] initWithNibName:@"OverlayViewController" bundle:nil];
+    
+    // as a delegate we will be notified when pictures are taken and when to dismiss the image picker
+    self.overlayViewController.delegate = self;
         
 }
 
@@ -96,11 +100,7 @@
 
 - (void)showImagePicker:(UIImagePickerControllerSourceType)sourceType
 {
-    if ([UIImagePickerController isSourceTypeAvailable:sourceType])
-    {
-        [self.overlayViewController setupImagePicker:sourceType];
-        [self presentModalViewController:self.overlayViewController.imagePickerController animated:NO];
-    }
+   
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -142,6 +142,9 @@
 - (void)didTakePicture:(UIImage *)picture
 {
     self.image = picture;
+//    showCam = NO;
+    [self performSegueWithIdentifier:@"ShowNearbyPlaces" sender:self];
+    [self dismissModalViewControllerAnimated:NO];
 }
 
 // as a delegate we are told to finished with the camera

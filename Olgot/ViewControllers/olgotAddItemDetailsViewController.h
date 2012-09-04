@@ -11,8 +11,9 @@
 #import <RestKit/RestKit.h>
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
+#import "olgotAddItemConfirmationViewController.h"
 
-@interface olgotAddItemDetailsViewController : UIViewController<RKObjectLoaderDelegate, UITextFieldDelegate>
+@interface olgotAddItemDetailsViewController : UIViewController<RKObjectLoaderDelegate, UITextFieldDelegate, addItemConfirmationProtocol>
 {
     UIImageView *itemImageView;
     NSNumber* _itemID;

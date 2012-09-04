@@ -12,6 +12,7 @@
 @interface olgotShareViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate,olgotCameraOverlayViewControllerDelegate>
 {
     UIImage *image;
+    BOOL showCam;
     
     olgotCameraOverlayViewController *overlayViewController; // the camera custom overlay view
 }
