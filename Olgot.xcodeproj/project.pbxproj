@@ -29,10 +29,10 @@
 		E020291115DE98CE004759CF /* btn-venue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E020290F15DE98CC004759CF /* btn-venue@2x.png */; };
 		E027CE6715CAC2A4007220F2 /* icon-map-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = E027CE6515CAC2A4007220F2 /* icon-map-marker.png */; };
 		E027CE6815CAC2A4007220F2 /* icon-map-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */; };
-		FF02BD5815F3928E00333E32 /* addItemDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF02BD5715F3928E00333E32 /* addItemDetailsView.xib */; };
-		FF02BD5A15F39CE000333E32 /* addItemConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF02BD5915F39CE000333E32 /* addItemConfirmationView.xib */; };
 		E08A8BCE15E467C800F3A6C9 /* bg-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = E08A8BCC15E467C800F3A6C9 /* bg-gradient.png */; };
 		E08A8BCF15E467C800F3A6C9 /* bg-gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E08A8BCD15E467C800F3A6C9 /* bg-gradient@2x.png */; };
+		FF02BD5815F3928E00333E32 /* addItemDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF02BD5715F3928E00333E32 /* addItemDetailsView.xib */; };
+		FF02BD5A15F39CE000333E32 /* addItemConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF02BD5915F39CE000333E32 /* addItemConfirmationView.xib */; };
 		FF0D3C1B15CE9AA200B8BA29 /* icon-cat-dummy.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0D3C1915CE9AA200B8BA29 /* icon-cat-dummy.png */; };
 		FF0D3C1C15CE9AA200B8BA29 /* icon-cat-dummy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0D3C1A15CE9AA200B8BA29 /* icon-cat-dummy@2x.png */; };
 		FF10F29A155D167400F4EC2E /* olgotExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF10F299155D167400F4EC2E /* olgotExploreViewController.m */; };
@@ -361,10 +361,10 @@
 		E020290F15DE98CC004759CF /* btn-venue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-venue@2x.png"; sourceTree = "<group>"; };
 		E027CE6515CAC2A4007220F2 /* icon-map-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-map-marker.png"; sourceTree = "<group>"; };
 		E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-map-marker@2x.png"; sourceTree = "<group>"; };
-		FF02BD5715F3928E00333E32 /* addItemDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addItemDetailsView.xib; sourceTree = "<group>"; };
-		FF02BD5915F39CE000333E32 /* addItemConfirmationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addItemConfirmationView.xib; sourceTree = "<group>"; };
 		E08A8BCC15E467C800F3A6C9 /* bg-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-gradient.png"; sourceTree = "<group>"; };
 		E08A8BCD15E467C800F3A6C9 /* bg-gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-gradient@2x.png"; sourceTree = "<group>"; };
+		FF02BD5715F3928E00333E32 /* addItemDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addItemDetailsView.xib; sourceTree = "<group>"; };
+		FF02BD5915F39CE000333E32 /* addItemConfirmationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addItemConfirmationView.xib; sourceTree = "<group>"; };
 		FF0D3C1915CE9AA200B8BA29 /* icon-cat-dummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cat-dummy.png"; sourceTree = "<group>"; };
 		FF0D3C1A15CE9AA200B8BA29 /* icon-cat-dummy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cat-dummy@2x.png"; sourceTree = "<group>"; };
 		FF10F298155D167400F4EC2E /* olgotExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotExploreViewController.h; path = ViewControllers/olgotExploreViewController.h; sourceTree = "<group>"; };
