@@ -21,6 +21,7 @@
 #import <FacebookSDK/FBRequest.h>
 
 
+
 @interface olgotItemViewController ()
 
 @end
@@ -90,7 +91,7 @@
     UIButton *shareBtn = [[UIButton alloc] init];
     shareBtn.frame=CGRectMake(0,0,35,30);
     [shareBtn setBackgroundImage:shareImage30 forState:UIControlStateNormal];
-    [shareBtn addTarget:self action:@selector(tweetItem) forControlEvents:UIControlEventTouchUpInside];
+    [shareBtn addTarget:self action:@selector(displayShareActionSheet) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:shareBtn];
     
@@ -560,7 +561,8 @@
         return cell;
  
     }
-    else {
+    else if (indexPath.section == 7) { //comments footer
+        NSLog(@"index path %d",indexPath.section);
         SSCollectionViewItem *cell = [aCollectionView dequeueReusableItemWithIdentifier:myCommentsFooterIdentifier];
         
         if (cell == nil) {
@@ -575,6 +577,9 @@
         [footerLabel setText:[NSString stringWithFormat:@"See all (%d) comments",[[_item itemStatsComments] intValue]]];
         
         return cell;
+    }
+    else if (indexPath.section == 8){
+        
     }
 	
 }
@@ -852,32 +857,143 @@
     [self performSegueWithIdentifier:@"showProfile" sender:self];
 }
 
--(void)shareOnFacebook{
+-(void)displayShareActionSheet{
+    UIActionSheet *shareAS = [[UIActionSheet alloc] initWithTitle:@"Share" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Twitter",@"Email", nil];
     
+	shareAS.actionSheetStyle = UIActionSheetStyleDefault;
+	[shareAS showInView:self.view];
+}
+
+-(void)shareOnFacebook{
+//    id<olgotOgItem> itemObject = [self itemObjectForItem];
+    id<olgotOgItem> itemObject = [self itemObjectForItem:@"dummy"];
+    
+    id<olgotOgFindItem> action = (id<olgotOgFindItem>)[FBGraphObject graphObject];
+    
+    action.item = itemObject;
+    
+    [FBSettings setLoggingBehavior:[NSSet
+                                    setWithObjects:FBLoggingBehaviorFBRequests,
+                                    FBLoggingBehaviorFBURLConnections,
+                                    nil]];
+    
+    // Create the request and post the action to the "me/fb_sample_scrumps:eat" path.
+    [FBRequestConnection startForPostWithGraphPath:@"me/olgotapp:find"
+                                       graphObject:action
+                                 completionHandler:^(FBRequestConnection *connection,
+                                                     id result,
+                                                     NSError *error) {
+                                     [self.view setUserInteractionEnabled:YES];
+                                     
+                                     NSString *alertText;
+                                     if (!error) {
+                                         alertText = [NSString stringWithFormat:@"Posted Open Graph action, id: %@",
+                                                      [result objectForKey:@"id"]];
+                                         
+
+                                     } else {
+                                         alertText = [NSString stringWithFormat:@"error: domain = %@, code = %d",
+                                                      error.domain, error.code];
+                                     }
+                                     [[[UIAlertView alloc] initWithTitle:@"Result"
+                                                                 message:alertText
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"Thanks!"
+                                                       otherButtonTitles:nil]
+                                      show];
+                                 }];
 }
 
 - (id<olgotOgItem>)itemObjectForItem:(NSString*)mItem
 {
-    // This URL is specific to this sample, and can be used to
-    // create arbitrary OG objects for this app; your OG objects
-    // will have URLs hosted by your server.
-    NSString *format =
-    @"http://naf-lab.com/olgottesting/repeater.php?"
-    @"fb:app_id=474720479212670&og:type=%@&"
-    @"og:title=%@&og:description=%%22%@%%22&"
-    @"og:image=http://cdn.ifanboy.com/wp-content/uploads/2012/05/Shawarma.jpg&"
-    @"body=%@";
-    
-    // We create an FBGraphObject object, but we can treat it as
-    // an SCOGMeal with typed properties, etc. See <FacebookSDK/FBGraphObject.h>
-    // for more details.
     id<olgotOgItem> result = (id<olgotOgItem>)[FBGraphObject graphObject];
     
-    // Give it a URL that will echo back the name of the meal as its title,
-    // description, and body.
-    result.url = [NSString stringWithFormat:format,
-                  @"olgotapp:item", mItem, mItem, mItem];
+//    result.url = self.item.itemUrl;
+    result.url = @"http://naf-lab.com/olgottesting/dummyitem.php";
     
     return result;
+    
+//    // This URL is specific to this sample, and can be used to
+//    // create arbitrary OG objects for this app; your OG objects
+//    // will have URLs hosted by your server.
+//    NSString *format =
+//    @"http://naf-lab.com/olgottesting/repeater.php?"
+//    @"fb:app_id=474720479212670&og:type=%@&"
+//    @"og:title=%@&og:description=%%22%@%%22&"
+//    @"og:image=https://s-static.ak.fbcdn.net/images/devsite/attachment_blank.png&"
+//    @"body=%@";
+//    
+//    // We create an FBGraphObject object, but we can treat it as
+//    // an SCOGMeal with typed properties, etc. See <FacebookSDK/FBGraphObject.h>
+//    // for more details.
+//    id<olgotOgItem> result = (id<olgotOgItem>)[FBGraphObject graphObject];
+//    
+//    // Give it a URL that will echo back the name of the meal as its title,
+//    // description, and body.
+//    result.url = [NSString stringWithFormat:format,
+//                  @"olgotapp:item", mItem, mItem, mItem];
+    
+//    return result;                                
 }
+
+-(void)showMailComposer
+{
+    MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+    
+    mailer.mailComposeDelegate = self;
+    
+    [mailer setSubject:@"Olgot"];
+    
+    NSString *emailBody = [NSString stringWithFormat:@"I just found this item on Olgot! %@", self.item.itemUrl];
+    [mailer setMessageBody:emailBody isHTML:NO];
+    
+    [self presentModalViewController:mailer animated:YES];
+}
+
+#pragma mark - UIActionSheet Delegate
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+	if (buttonIndex == 0) {
+        //facebook
+        [self shareOnFacebook];
+
+	} else if (buttonIndex == 1) {
+        //twitter
+        [self tweetItem];
+	} else if (buttonIndex == 2) {
+        //email
+        if ([MFMailComposeViewController canSendMail])
+        {
+            [self showMailComposer];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
+                                                            message:@"Your device doesn't support the composer sheet"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+	} else if (buttonIndex == 3) {
+        //cancel
+    }
+    
+}
+
+#pragma mark - MFMailComposer Delegate
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+
+#pragma mark -
+
+-(void)deleteItem
+{
+    
+}
+
 @end
