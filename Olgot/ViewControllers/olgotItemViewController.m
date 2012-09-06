@@ -111,7 +111,27 @@
     [tap setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:tap];
     
+    
+    
+    
     [self loadItemData];
+}
+
+-(void)addDeleteItemButton
+{
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 54.0f)];
+    
+    UIButton* deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 300.0f, 44.0f)];
+    
+    [deleteButton setTitle:@"Delete" forState:UIControlStateNormal];
+    
+    [deleteButton setBackgroundImage:[UIImage imageNamed:@"btn-select-username"] forState:UIControlStateNormal];
+    
+    [deleteButton addTarget:self action:@selector(deleteItem) forControlEvents:UIControlEventTouchUpInside];
+    
+    [footerView addSubview:deleteButton];
+    
+    [self.collectionView setCollectionFooterView:footerView];
 }
 
 -(void)tweetItem
@@ -274,6 +294,15 @@
     _wants = [_item wants];
     _gots = [_item gots];
     NSLog(@"user actions: %@ %@ %@",[_item iLike],[_item iWant],[_item iGot]);
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([[_item userID] isEqual:[defaults objectForKey:@"userid"]]) {
+        NSLog(@"Item Owner");
+        [self addDeleteItemButton];
+        
+    } else {
+        NSLog(@"Item Visitor");
+    }
     
     [self.collectionView reloadData];
 }
@@ -993,7 +1022,21 @@
 
 -(void)deleteItem
 {
+    NSLog(@"delete item with id %@ key %@", [_item itemID], [_item itemKey]);
     
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            [_item itemID], @"item",
+                            [_item itemKey], @"key",
+                            [defaults objectForKey:@"userid"], @"id",
+                            nil];
+    
+    [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    [[[RKClient sharedClient] delete:[@"/item/" stringByAppendingQueryParameters:params] delegate:nil] setUserData:@"deleteitem"];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
