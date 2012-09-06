@@ -127,7 +127,7 @@
     
     [deleteButton setBackgroundImage:[UIImage imageNamed:@"btn-select-username"] forState:UIControlStateNormal];
     
-    [deleteButton addTarget:self action:@selector(deleteItem) forControlEvents:UIControlEventTouchUpInside];
+    [deleteButton addTarget:self action:@selector(confirmDeleteItem) forControlEvents:UIControlEventTouchUpInside];
     
     [footerView addSubview:deleteButton];
     
@@ -1020,9 +1020,20 @@
 
 #pragma mark -
 
--(void)deleteItem
+-(void)confirmDeleteItem
 {
     NSLog(@"delete item with id %@ key %@", [_item itemID], [_item itemKey]);
+    
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Delete Item"
+                                                      message:@"Your are about to delete this item, this action cannot be undone."
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Delete", nil];
+    [message show];
+}
+
+-(void)deleteItem
+{
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     
@@ -1037,6 +1048,18 @@
     [[[RKClient sharedClient] delete:[@"/item/" stringByAppendingQueryParameters:params] delegate:nil] setUserData:@"deleteitem"];
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark uialertview delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (buttonIndex == 0) {
+        NSLog(@"cancel");
+    } else {
+        NSLog(@"delete");
+        [self deleteItem];
+    }
 }
 
 @end

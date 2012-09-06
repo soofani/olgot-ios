@@ -16,7 +16,7 @@
 
 @class olgotItem;
 
-@interface olgotItemViewController : SSCollectionViewController<RKObjectLoaderDelegate, UITextFieldDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>{
+@interface olgotItemViewController : SSCollectionViewController<RKObjectLoaderDelegate, UITextFieldDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate>{
     SSCollectionViewItem *commentsHeader;
     NSArray* _likes;
     NSArray* _wants;
