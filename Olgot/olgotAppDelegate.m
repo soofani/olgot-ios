@@ -21,6 +21,7 @@
 #import "olgotNotificationUser.h"
 #import "LocalyticsSession.h"
 
+
 @implementation olgotAppDelegate
 
 @synthesize window = _window;
@@ -30,6 +31,12 @@
     [[LocalyticsSession sharedLocalyticsSession] startSession:@"79e9cf2757a4dbe32bfda7c-8361ac6a-8e30-11e1-356e-00ef75f32667"];
     
     [self configureRestkit];
+    
+//    check for facebook session
+    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+        // Yes, so just open the session (this won't display any UX).
+        [self openFBSession];
+    }
     
         // Setup custom tab view
         CGRect frame = CGRectMake(0, 0, 480, 49);
@@ -429,6 +436,12 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    // this means the user switched back to this app without completing
+    // a login in Safari/Facebook App
+    if (FBSession.activeSession.state == FBSessionStateCreatedOpening) {
+        [FBSession.activeSession close]; // so we close our session and start over
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -442,5 +455,64 @@
 {
     NSLog(@"Memory warning");
 }
+
+#pragma mark facebook methods
+
+- (void)openFBSession
+{
+    NSArray *permissions = [NSArray arrayWithObjects:@"publish_actions",
+                            nil];
+    
+    [FBSession openActiveSessionWithPermissions:permissions
+                                   allowLoginUI:YES
+                              completionHandler:
+     ^(FBSession *session,
+       FBSessionState state, NSError *error) {
+         [self FBsessionStateChanged:session state:state error:error];
+     }];
+}
+
+- (void)FBsessionStateChanged:(FBSession *)session
+                      state:(FBSessionState) state
+                      error:(NSError *)error
+{
+    switch (state) {
+        case FBSessionStateOpen: {
+            
+        }
+            break;
+        case FBSessionStateClosed:
+        case FBSessionStateClosedLoginFailed:
+            // Once the user has logged in, we want them to
+            // be looking at the root view.
+            [FBSession.activeSession closeAndClearTokenInformation];
+            
+            break;
+        default:
+            break;
+    }
+    
+    if (error) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Error"
+                                  message:error.localizedDescription
+                                  delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [FBSession.activeSession handleOpenURL:url];
+}
+
+
+
+
 
 @end

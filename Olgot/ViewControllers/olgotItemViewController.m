@@ -17,6 +17,8 @@
 #import "olgotActionUser.h"
 #import "olgotComment.h"
 #import "DejalActivityView.h"
+#import "olgotProtocols.h"
+#import <FacebookSDK/FBRequest.h>
 
 
 @interface olgotItemViewController ()
@@ -848,5 +850,34 @@
 
 - (IBAction)showProfile:(id)sender {
     [self performSegueWithIdentifier:@"showProfile" sender:self];
+}
+
+-(void)shareOnFacebook{
+    
+}
+
+- (id<olgotOgItem>)itemObjectForItem:(NSString*)mItem
+{
+    // This URL is specific to this sample, and can be used to
+    // create arbitrary OG objects for this app; your OG objects
+    // will have URLs hosted by your server.
+    NSString *format =
+    @"http://naf-lab.com/olgottesting/repeater.php?"
+    @"fb:app_id=474720479212670&og:type=%@&"
+    @"og:title=%@&og:description=%%22%@%%22&"
+    @"og:image=http://cdn.ifanboy.com/wp-content/uploads/2012/05/Shawarma.jpg&"
+    @"body=%@";
+    
+    // We create an FBGraphObject object, but we can treat it as
+    // an SCOGMeal with typed properties, etc. See <FacebookSDK/FBGraphObject.h>
+    // for more details.
+    id<olgotOgItem> result = (id<olgotOgItem>)[FBGraphObject graphObject];
+    
+    // Give it a URL that will echo back the name of the meal as its title,
+    // description, and body.
+    result.url = [NSString stringWithFormat:format,
+                  @"olgotapp:item", mItem, mItem, mItem];
+    
+    return result;
 }
 @end

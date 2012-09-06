@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/ViewControllers/olgotSignupRootViewController.m"
-         timestampString = "363199763.253709"
+         timestampString = "368533540.027409"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "155"
-         endingLineNumber = "155"
+         startingLineNumber = "154"
+         endingLineNumber = "154"
          landmarkName = "-chooseTwitterAccount:"
          landmarkType = "5">
       </FileBreakpoint>

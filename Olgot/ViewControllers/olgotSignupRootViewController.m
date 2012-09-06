@@ -116,7 +116,6 @@
 
 -(void)checkTwitterName:(NSString *)text
 {
-    //TEMP: add check available method;
     _twitterName = text;
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
@@ -229,6 +228,8 @@
     }
     
 }
+
+#pragma mark RKObjectLoader Delegate
 
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {  
