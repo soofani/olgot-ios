@@ -31,6 +31,7 @@
 		E027CE6815CAC2A4007220F2 /* icon-map-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */; };
 		E08A8BCE15E467C800F3A6C9 /* bg-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = E08A8BCC15E467C800F3A6C9 /* bg-gradient.png */; };
 		E08A8BCF15E467C800F3A6C9 /* bg-gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E08A8BCD15E467C800F3A6C9 /* bg-gradient@2x.png */; };
+		FF00106615FA15E700118192 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF00106515FA15E700118192 /* FacebookSDK.framework */; };
 		FF02BD5815F3928E00333E32 /* addItemDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF02BD5715F3928E00333E32 /* addItemDetailsView.xib */; };
 		FF02BD5A15F39CE000333E32 /* addItemConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF02BD5915F39CE000333E32 /* addItemConfirmationView.xib */; };
 		FF0D3C1B15CE9AA200B8BA29 /* icon-cat-dummy.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0D3C1915CE9AA200B8BA29 /* icon-cat-dummy.png */; };
@@ -139,7 +140,6 @@
 		FF76C45C15BEC0C40045B4EA /* friendsHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF76C45B15BEC0C40045B4EA /* friendsHeaderCell.xib */; };
 		FF76C45E15BEC0D20045B4EA /* friendsFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF76C45D15BEC0D20045B4EA /* friendsFooterCell.xib */; };
 		FF76C46015BEC0DF0045B4EA /* friendsPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF76C45F15BEC0DF0045B4EA /* friendsPersonCell.xib */; };
-		FF774FD215F755170044A153 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF774FD115F755170044A153 /* FacebookSDK.framework */; };
 		FF774FD415F7609A0044A153 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FF774FD315F7609A0044A153 /* FacebookSDKResources.bundle */; };
 		FF7A000115750F0500BB5A65 /* profileViewPersonCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7A000015750F0500BB5A65 /* profileViewPersonCard.xib */; };
 		FF7A00041575106E00BB5A65 /* box-stats.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7A00021575106E00BB5A65 /* box-stats.png */; };
@@ -365,6 +365,7 @@
 		E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-map-marker@2x.png"; sourceTree = "<group>"; };
 		E08A8BCC15E467C800F3A6C9 /* bg-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-gradient.png"; sourceTree = "<group>"; };
 		E08A8BCD15E467C800F3A6C9 /* bg-gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-gradient@2x.png"; sourceTree = "<group>"; };
+		FF00106515FA15E700118192 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		FF02BD5715F3928E00333E32 /* addItemDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addItemDetailsView.xib; sourceTree = "<group>"; };
 		FF02BD5915F39CE000333E32 /* addItemConfirmationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addItemConfirmationView.xib; sourceTree = "<group>"; };
 		FF0D3C1915CE9AA200B8BA29 /* icon-cat-dummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cat-dummy.png"; sourceTree = "<group>"; };
@@ -497,7 +498,6 @@
 		FF76C45B15BEC0C40045B4EA /* friendsHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = friendsHeaderCell.xib; sourceTree = "<group>"; };
 		FF76C45D15BEC0D20045B4EA /* friendsFooterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = friendsFooterCell.xib; sourceTree = "<group>"; };
 		FF76C45F15BEC0DF0045B4EA /* friendsPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = friendsPersonCell.xib; sourceTree = "<group>"; };
-		FF774FD115F755170044A153 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		FF774FD315F7609A0044A153 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		FF774FD615F7933D0044A153 /* olgotProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = olgotProtocols.h; sourceTree = "<group>"; };
 		FF7A000015750F0500BB5A65 /* profileViewPersonCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = profileViewPersonCard.xib; sourceTree = "<group>"; };
@@ -691,7 +691,7 @@
 				FFA4ED93155D12D8008CB4CA /* UIKit.framework in Frameworks */,
 				FFA4ED95155D12D8008CB4CA /* Foundation.framework in Frameworks */,
 				FFA4ED97155D12D8008CB4CA /* CoreGraphics.framework in Frameworks */,
-				FF774FD215F755170044A153 /* FacebookSDK.framework in Frameworks */,
+				FF00106615FA15E700118192 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1062,6 +1062,7 @@
 				FFDAE0B615849FFC00859B3A /* CoreLocation.framework */,
 				FF6AFF9A15814636000A24BA /* libsqlite3.dylib */,
 				FF6AFF9815814626000A24BA /* libz.dylib */,
+				FF00106515FA15E700118192 /* FacebookSDK.framework */,
 				FF6AFF8D158144DE000A24BA /* src */,
 				FF20E75F157525F5004EC879 /* Accounts.framework */,
 				FF20E75D157525EE004EC879 /* Twitter.framework */,
@@ -1069,7 +1070,6 @@
 				FFE9A02215726DCF00509B09 /* OlgotModel.xcdatamodeld */,
 				FF7AAF06157237C60073EAA3 /* libxml2.dylib */,
 				FF774FD315F7609A0044A153 /* FacebookSDKResources.bundle */,
-				FF774FD115F755170044A153 /* FacebookSDK.framework */,
 				FFDCBDF81562622800FB8009 /* MapKit.framework */,
 				FFDCBDF61562621800FB8009 /* MobileCoreServices.framework */,
 				FF10F2FC155D206600F4EC2E /* QuartzCore.framework */,
