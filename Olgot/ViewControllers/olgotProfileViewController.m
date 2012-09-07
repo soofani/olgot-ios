@@ -11,7 +11,6 @@
 #import "UIImageView+AFNetworking.h"
 #import "olgotItem.h"
 #import "olgotUser.h"
-#import "olgotItemViewController.h"
 #import "olgotPeopleListViewController.h"
 
 
@@ -105,6 +104,8 @@
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
 //    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 //    [alert show];
+    
+    
     NSLog(@"Hit error: %@", error);
     [self.pullToRefreshView finishLoading];
 }
@@ -359,6 +360,8 @@
         
         itemViewController.itemID = [[_items objectAtIndex:_selectedRowIndexPath.row] itemID];
         itemViewController.itemKey = [[_items objectAtIndex:_selectedRowIndexPath.row] itemKey];
+        
+        itemViewController.delegate = self;
     }else if ([[segue identifier] isEqualToString:@"ShowFollowers"]) {
         olgotPeopleListViewController *peopleViewController = [segue destinationViewController];
         
@@ -421,4 +424,16 @@
         
     }
 }
+
+#pragma mark - olgotDeleteItemProtocol
+
+-(void)deletedItem
+{
+    _currentPage = 1;
+    _pageSize = 10;
+    loadingNew = NO;
+    [self loadUser];
+    [self loadItems];
+}
+
 @end

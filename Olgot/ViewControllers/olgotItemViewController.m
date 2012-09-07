@@ -32,6 +32,7 @@
 @synthesize gotButton = _gotButton;
 @synthesize mySmallImage = _mySmallImage;
 @synthesize myCommentTF = _myCommentTF;
+@synthesize delegate;
 
 @synthesize itemCell = _itemCell, finderCell = _finderCell, peopleRowCell = _peopleRowCell,  commentsHeader, commentCell = _commentCell, commentsFooter = _commentsFooter;
 
@@ -232,6 +233,9 @@
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
     NSLog(@"resource path: %@",[request resourcePath]);
     NSLog(@"Loaded payload: %@", [response bodyAsString]);
+    
+    id userData = [request userData];
+    
     if ([request isPOST]) {  
         
         if ([response isJSON]) {
@@ -263,7 +267,7 @@
         if ([response isJSON]) {
             
             if([response isOK]){
-                id userData = [request userData];
+                
                 
                 if ([userData isEqual:@"unlike"]) {
                     NSLog(@"succesful unlike");
@@ -274,12 +278,24 @@
                 }else if ([userData isEqual:@"ungot"]) {
                     NSLog(@"succesful ungot");
                     [_item setIGot:[NSNumber numberWithInt:0]];
+                }else if ([userData isEqual:@"deleteitem"]){
+                    if (self.delegate) {
+                        [self.delegate deletedItem];
+                        
+                        [self.navigationController popViewControllerAnimated:YES];
+                    }
                 }
                 NSLog(@"Got a JSON response back from our DELETE! %@", [response bodyAsString]);
                 
                 [self.collectionView reloadData];
             }else {
-                
+                if ([userData isEqual:@"deleteitem"]){
+                    [self showAlertWithErrorTitle:@"Oops!" message:@"Failed to delete Item"];
+                }
+            }
+        }else{
+            if ([userData isEqual:@"deleteitem"]){
+                [self showAlertWithErrorTitle:@"Oops!" message:@"Failed to delete Item"];
             }
         }
     }
@@ -310,9 +326,17 @@
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
 //    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 //    [alert show];
+    
     NSLog(@"Hit error: %@", error);
 }
 
+#pragma mark -
+
+-(void)showAlertWithErrorTitle:(NSString*)title message:(NSString*)message{
+    UIAlertView *errAlert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"Ok.." otherButtonTitles:nil, nil];
+    
+    [errAlert show];
+}
 
 #pragma mark - SSCollectionViewDataSource
 
@@ -924,12 +948,14 @@
                                          alertText = [NSString stringWithFormat:@"error: domain = %@, code = %d",
                                                       error.domain, error.code];
                                      }
-                                     [[[UIAlertView alloc] initWithTitle:@"Result"
-                                                                 message:alertText
-                                                                delegate:nil
-                                                       cancelButtonTitle:@"Thanks!"
-                                                       otherButtonTitles:nil]
-                                      show];
+                                     
+                                     NSLog(@"Facebook: %@",alertText);
+//                                     [[[UIAlertView alloc] initWithTitle:@"Result"
+//                                                                 message:alertText
+//                                                                delegate:nil
+//                                                       cancelButtonTitle:@"Thanks!"
+//                                                       otherButtonTitles:nil]
+//                                      show];
                                  }];
 }
 
@@ -937,8 +963,8 @@
 {
     id<olgotOgItem> result = (id<olgotOgItem>)[FBGraphObject graphObject];
     
-//    result.url = self.item.itemUrl;
-    result.url = @"http://naf-lab.com/olgottesting/dummyitem.php";
+    result.url = self.item.itemUrl;
+//    result.url = @"http://naf-lab.com/olgottesting/dummyitem.php";
     
     return result;
     
@@ -1045,9 +1071,9 @@
     
     [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
-    [[[RKClient sharedClient] delete:[@"/item/" stringByAppendingQueryParameters:params] delegate:nil] setUserData:@"deleteitem"];
+    [[[RKClient sharedClient] delete:[@"/item/" stringByAppendingQueryParameters:params] delegate:self] setUserData:@"deleteitem"];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 #pragma mark uialertview delegate

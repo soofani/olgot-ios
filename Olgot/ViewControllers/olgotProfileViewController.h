@@ -11,8 +11,10 @@
 #import <RestKit/RestKit.h>
 #import "olgotUser.h"
 #import "SSPullToRefresh.h"
+#import "olgotItemViewController.h"
 
-@interface olgotProfileViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate>{
+
+@interface olgotProfileViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate, olgotDeleteItemProtocol>{
     NSMutableArray* _items;
     olgotUser* _user;
     NSIndexPath* _selectedRowIndexPath;
