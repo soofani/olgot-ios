@@ -17,6 +17,7 @@
 
 @implementation olgotSignupRootViewController
 @synthesize activityIndicator;
+@synthesize facebookSigninButton;
 @synthesize twitterSigninButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -58,6 +59,7 @@
 {
     [self setTwitterSigninButton:nil];
     [self setActivityIndicator:nil];
+    [self setFacebookSigninButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -114,6 +116,10 @@
     }];
 }
 
+- (IBAction)facebookSignin:(id)sender {
+    [self openFBSession];
+}
+
 -(void)checkTwitterName:(NSString *)text
 {
     _twitterName = text;
@@ -124,10 +130,24 @@
     [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
 }
 
+-(void)checkFacebookId:(NSString *)fbID
+{
+    // Load the object model via RestKit
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: fbID, @"facebookid", nil];
+    NSString* resourcePath = [@"/userid/" appendQueryParams:myParams];
+    [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([[segue identifier] isEqual:@"ShowChooseUsername"]){
         olgotChooseUsernameViewController* chooseUsernameVC = [segue destinationViewController];
-        chooseUsernameVC.twitterResponseData = _twitterResponse;
+        if (_twitterResponse) {
+            chooseUsernameVC.twitterResponseData = _twitterResponse;
+        } else if(fbUser) {
+            chooseUsernameVC.fbUser = fbUser;
+        }
+        
     }
 }
 
@@ -228,6 +248,71 @@
     }
     
 }
+
+#pragma mark Facebook methods
+
+- (void)openFBSession
+{
+    NSArray *permissions = [NSArray arrayWithObjects:@"publish_actions",
+                            nil];
+    
+    [FBSession openActiveSessionWithPermissions:permissions
+                                   allowLoginUI:YES
+                              completionHandler:
+     ^(FBSession *session,
+       FBSessionState state, NSError *error) {
+         [self FBsessionStateChanged:session state:state error:error];
+     }];
+}
+
+- (void)FBsessionStateChanged:(FBSession *)session
+                        state:(FBSessionState) state
+                        error:(NSError *)error
+{
+    switch (state) {
+        case FBSessionStateOpen: {
+            NSLog(@"fb session open");
+            [[FBRequest requestForMe] startWithCompletionHandler:
+             ^(FBRequestConnection *connection,
+               NSDictionary<FBGraphUser> *user,
+               NSError *error) {
+                 if (!error) {
+                     NSLog(@"my info %@ :",user);
+                     fbUser = user;
+                     NSLog(@"photo url: %@",[user objectForKey:@"picture"]);
+                     [self checkFacebookId:user.id];
+                 }
+             }];
+            
+            
+            
+        }
+            break;
+        case FBSessionStateClosed:
+            NSLog(@"Closed");
+            
+        case FBSessionStateClosedLoginFailed:
+            NSLog(@"Failed");
+            // Once the user has logged in, we want them to
+            // be looking at the root view.
+            [FBSession.activeSession closeAndClearTokenInformation];
+            
+            break;
+        default:
+            break;
+    }
+    
+    if (error) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Error"
+                                  message:error.localizedDescription
+                                  delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
 
 #pragma mark RKObjectLoader Delegate
 

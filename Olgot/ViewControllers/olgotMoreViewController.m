@@ -92,6 +92,8 @@
         
         [defaults synchronize];
         
+        [FBSession.activeSession closeAndClearTokenInformation];
+        
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
 //                                                        message:@"You have been logged out."
 //                                                       delegate:nil
