@@ -117,17 +117,18 @@
 
 - (void)loadItems {    
     // Load the object model via RestKit
+    defaults = [NSUserDefaults standardUserDefaults];
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    if(_boardName == @"Feed"){
+    if([_boardName isEqual:@"Feed"]){
         NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
                                   [defaults objectForKey:@"userid"], @"id",
                                   nil];
         NSString* resourcePath = [@"/mapfeeditems/" appendQueryParams:myParams];
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
         
-    }else if (_boardName == @"Nearby") {
+    }else if ([_boardName isEqual:@"Nearby"]) {
         [locationManager startUpdatingLocation];
-    }else if (_boardName == @"My Wants") {
+    }else if ([_boardName isEqual:@"My Wants"]) {
         NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
                                   [defaults objectForKey:@"userid"], @"user",
                                   nil];
@@ -135,7 +136,7 @@
         [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
         
     }
-    else if (_boardName == @"Hot") {
+    else if ([_boardName isEqual:@"Hot"]) {
         [locationManager startUpdatingLocation];
     }
     else {
