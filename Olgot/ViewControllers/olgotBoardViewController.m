@@ -178,6 +178,7 @@
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
     NSLog(@"Loaded payload: %@", [response bodyAsString]);
     NSLog(@"From request %@",[request resourcePath]);
+    [self removeWaitLoader];
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
@@ -200,6 +201,7 @@
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
 //    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 //    [alert show];
+    
     NSLog(@"Hit error: %@", error);
 }
 
@@ -302,8 +304,29 @@
     if (indexPath.row == ([_items count] - 1) && loadingNew == NO && [_items count] > 4) {
         _currentPage++;
         NSLog(@"loading page %d with item count %d",_currentPage,[_items count]);
+        [self addWaitLoader];
         [self loadItems];
     }
+}
+
+-(void)addWaitLoader{
+    UIActivityIndicatorView* pageLoader = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    
+    [pageLoader setColor:[UIColor redColor]];
+    [pageLoader setHidesWhenStopped:YES];
+    [pageLoader startAnimating];
+    
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
+    
+    [pageLoader setCenter:[footerView center]];
+    
+    [footerView addSubview:pageLoader];
+    
+    [self.collectionView setCollectionFooterView:footerView];
+}
+
+-(void)removeWaitLoader{
+    [self.collectionView setCollectionFooterView:nil];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
