@@ -246,6 +246,56 @@
         
         return commentCell;
     }
+    else if ([[mNote actionType] isEqualToNumber:[NSNumber numberWithInt:5]]) {
+        UITableViewCell *commentCell = [mTableView dequeueReusableCellWithIdentifier:commentCellIdentifier];
+        
+        UIImageView* cellImage = (UIImageView*)[commentCell viewWithTag:1];
+        UILabel* cellText = (UILabel*)[commentCell viewWithTag:2];
+        UILabel* cellDate = (UILabel*)[commentCell viewWithTag:3];
+        
+        [cellImage setImageWithURL:[NSURL URLWithString:[[mNote noteData] profileImgUrl]]];
+        
+        [cellText setText:[NSString stringWithFormat:@"%@ wants your item",
+                           [[mNote noteData] username]]];
+        
+        [cellDate setText:[mNote noteDate]];
+        
+        cellImage = (UIImageView*)[commentCell viewWithTag:4];
+        [cellImage setImageWithURL:[NSURL URLWithString:[[mNote noteData] itemImgUrl]]];
+        
+        if ([[mNote noteStatus] isEqualToNumber:[NSNumber numberWithInt:0]]) {
+            [[commentCell contentView] setBackgroundColor:[UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0]];
+        } else {
+            [[commentCell contentView] setBackgroundColor:[UIColor whiteColor]];
+        }
+        
+        return commentCell;
+    }
+    else if ([[mNote actionType] isEqualToNumber:[NSNumber numberWithInt:6]]) {
+        UITableViewCell *commentCell = [mTableView dequeueReusableCellWithIdentifier:commentCellIdentifier];
+        
+        UIImageView* cellImage = (UIImageView*)[commentCell viewWithTag:1];
+        UILabel* cellText = (UILabel*)[commentCell viewWithTag:2];
+        UILabel* cellDate = (UILabel*)[commentCell viewWithTag:3];
+        
+        [cellImage setImageWithURL:[NSURL URLWithString:[[mNote noteData] profileImgUrl]]];
+        
+        [cellText setText:[NSString stringWithFormat:@"%@ got your item",
+                           [[mNote noteData] username]]];
+        
+        [cellDate setText:[mNote noteDate]];
+        
+        cellImage = (UIImageView*)[commentCell viewWithTag:4];
+        [cellImage setImageWithURL:[NSURL URLWithString:[[mNote noteData] itemImgUrl]]];
+        
+        if ([[mNote noteStatus] isEqualToNumber:[NSNumber numberWithInt:0]]) {
+            [[commentCell contentView] setBackgroundColor:[UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0]];
+        } else {
+            [[commentCell contentView] setBackgroundColor:[UIColor whiteColor]];
+        }
+        
+        return commentCell;
+    }
     else if ([[mNote actionType] isEqualToNumber:[NSNumber numberWithInt:7]]) {
         UITableViewCell *userCell = [mTableView dequeueReusableCellWithIdentifier:userCellIdentifier];
         
