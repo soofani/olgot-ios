@@ -129,16 +129,28 @@
             [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
             [[[RKClient sharedClient] post:@"/user/" params:params delegate:self] setUserData:@"twitter"];
         }else if (self.fbUser){
-            NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    self.usernameTF.text,@"username",
-                                    @"nopass",@"password",
-                                    self.userEmail.text, @"email",
-                                    self.fbUser.name,@"fullname",
-                                    self.fbUser.id,@"facebookid",
-                                    nil];
+            NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"picture",@"fields",nil];
+            FBRequest *picRequest = [FBRequest requestWithGraphPath:@"me" parameters:params HTTPMethod:nil];
             
-            [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-            [[[RKClient sharedClient] post:@"/user/" params:params delegate:self] setUserData:@"facebook"];
+            [picRequest startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                
+                NSString* userProfileImageUrl = [[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"];
+                
+                NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        self.usernameTF.text,@"username",
+                                        @"nopass",@"password",
+                                        self.userEmail.text, @"email",
+                                        self.fbUser.name,@"fullname",
+                                        self.fbUser.id,@"facebookid",
+                                        userProfileImageUrl, @"facebookimg",
+                                        nil];
+                
+                [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+                [[[RKClient sharedClient] post:@"/user/" params:params delegate:self] setUserData:@"facebook"];
+
+                
+            }];
+            
         }
         
     }
@@ -167,13 +179,7 @@
                 
                 if ([[request userData] isEqual:@"facebook"]) {
                     NSLog(@"facebook");
-                    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"picture",@"fields",nil];
-                    FBRequest *picRequest = [FBRequest requestWithGraphPath:@"me" parameters:params HTTPMethod:nil];
-                    
-                    [picRequest startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                         
-                        NSString* userProfileImageUrl = [[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"];
-                            
                         // Store the data
                         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
                         
@@ -181,10 +187,11 @@
                         [defaults setObject:_userID forKey:@"userid"];
                         [defaults setObject:self.usernameTF.text forKey:@"username"];
                         [defaults setObject:self.userEmail.text forKey:@"email"];
-                        [defaults setObject:userProfileImageUrl forKey:@"userProfileImageUrl"];
+                        [defaults setObject:[resp objectForKey:@"profileImgUrl"] forKey:@"userProfileImageUrl"];
                         [defaults setObject:[self.fbUser name] forKey:@"fullname"];
                         [defaults setObject:0 forKey:@"twitterid"];
                         [defaults setObject:0 forKey:@"twittername"];
+                    [defaults setObject:[resp objectForKey:@"facebookId"] forKey:@"userFacebookId"];
                         
                         [defaults setObject:@"yes" forKey:@"autoSavePhotos"];
                         [defaults setObject:@"no" forKey:@"autoTweetItems"];
@@ -197,10 +204,7 @@
                         NSLog(@"Data saved");
                         
                         [self performSegueWithIdentifier:@"ShowChooseFriends" sender:self];
-                        
-                    }];
-                    
-                    
+
                 } else if ([[request userData] isEqual:@"twitter"]) {
                     NSLog(@"twitter");
                     NSString* userProfileImageUrl = [resp objectForKey:@"profileImgUrl"];
@@ -215,6 +219,8 @@
                     [defaults setObject:[_twitterJson objectForKey:@"name"] forKey:@"fullname"];
                     [defaults setObject:[_twitterJson objectForKey:@"id"] forKey:@"twitterid"];
                     [defaults setObject:[_twitterJson objectForKey:@"screen_name"] forKey:@"twittername"];
+                    
+                    [defaults setObject:0 forKey:@"userFacebookId"];
                     
                     [defaults setObject:@"yes" forKey:@"autoSavePhotos"];
                     [defaults setObject:@"yes" forKey:@"autoTweetItems"];
