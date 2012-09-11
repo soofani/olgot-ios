@@ -16,8 +16,14 @@
 @end
 
 @implementation olgotSignupRootViewController
+@synthesize dummyBgImageView;
+@synthesize swipeRecogniser;
 @synthesize activityIndicator;
+@synthesize bgImageView;
+@synthesize sloganImageView;
+@synthesize logoImageView;
 @synthesize twitterSigninButton;
+@synthesize homeImage = _homeImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +32,17 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)setHomeImage:(UIImage *)newImage{
+    if (![_homeImage isEqual:newImage]) {
+        _homeImage = newImage;
+        [self configureView];
+    }
+}
+
+-(void)configureView{
+    [self.dummyBgImageView setImage:self.homeImage];
 }
 
 - (void)viewDidLoad
@@ -38,10 +55,39 @@
 //    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
 //    [self.navigationController.navigationBar.topItem setTitleView:titleImageView];
     
+    [self configureView];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(canTweetStatus) name:ACAccountStoreDidChangeNotification object:nil];
     
     
     
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [UIView animateWithDuration:0.5 delay:0.0 options:1 animations:^{
+        [self.logoImageView setCenter:CGPointMake(self.logoImageView.center.x, self.logoImageView.center.y - 30.0)];
+        
+        [self.sloganImageView setCenter:CGPointMake(self.sloganImageView.center.x, self.sloganImageView.center.y - 30.0)];
+        
+        [self.bgImageView setCenter:CGPointMake(self.bgImageView.center.x, self.bgImageView.center.y - 30.0)];
+        
+        [self.twitterSigninButton setCenter:CGPointMake(self.twitterSigninButton.center.x, self.twitterSigninButton.center.y - 30.0)];
+    } completion:^(BOOL finished) {
+        if (finished) {
+            [UIView animateWithDuration:0.5 animations:^{
+                [self.logoImageView setCenter:CGPointMake(self.logoImageView.center.x, self.logoImageView.center.y + 30.0)];
+                
+                [self.sloganImageView setCenter:CGPointMake(self.sloganImageView.center.x, self.sloganImageView.center.y + 30.0)];
+                
+                [self.bgImageView setCenter:CGPointMake(self.bgImageView.center.x, self.bgImageView.center.y + 30.0)];
+                
+                [self.twitterSigninButton setCenter:CGPointMake(self.twitterSigninButton.center.x, self.twitterSigninButton.center.y + 30.0)];
+            }];
+        }
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -58,6 +104,11 @@
 {
     [self setTwitterSigninButton:nil];
     [self setActivityIndicator:nil];
+    [self setSwipeRecogniser:nil];
+    [self setBgImageView:nil];
+    [self setLogoImageView:nil];
+    [self setSloganImageView:nil];
+    [self setDummyBgImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -65,6 +116,12 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(void)setGuestSettings{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"no" forKey:@"firstRun"];
+    [self dismissModalViewControllerAnimated:NO];
 }
 
 - (IBAction)hideSignup:(id)sender {
@@ -294,4 +351,33 @@
 }
 
 
+- (IBAction)swipeUp:(UISwipeGestureRecognizer *)recognizer {
+    NSLog(@"Swipe up");
+    
+//    [UIView animateWithDuration:0.55 animations:^{
+//        [self.logoImageView setCenter:CGPointMake(self.logoImageView.center.x, self.logoImageView.center.y - 500.0)];
+//        
+//        [self.sloganImageView setCenter:CGPointMake(self.sloganImageView.center.x, self.sloganImageView.center.y - 500.0)];
+//        
+//        [self.bgImageView setCenter:CGPointMake(self.bgImageView.center.x, self.bgImageView.center.y - 500.0)];
+//        
+//        [self.twitterSigninButton setCenter:CGPointMake(self.twitterSigninButton.center.x, self.twitterSigninButton.center.y - 500.0)];
+//    }];
+    
+    [UIView animateWithDuration:0.55 animations:^{
+        [self.logoImageView setCenter:CGPointMake(self.logoImageView.center.x, self.logoImageView.center.y - 500.0)];
+        
+        [self.sloganImageView setCenter:CGPointMake(self.sloganImageView.center.x, self.sloganImageView.center.y - 500.0)];
+        
+        [self.bgImageView setCenter:CGPointMake(self.bgImageView.center.x, self.bgImageView.center.y - 500.0)];
+        
+        [self.twitterSigninButton setCenter:CGPointMake(self.twitterSigninButton.center.x, self.twitterSigninButton.center.y - 500.0)];
+    } completion:^(BOOL finished) {
+        if (finished) {
+//            [self dismissModalViewControllerAnimated:NO];
+            [self setGuestSettings];
+        }
+        
+    }];
+}
 @end

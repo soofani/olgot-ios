@@ -15,6 +15,7 @@
 #import "olgotFriendsViewController.h"
 #import "olgotTabBarViewController.h"
 
+
 @interface olgotExploreViewController ()
 
 @end
@@ -24,6 +25,8 @@
 @synthesize boardBigTile = _boardBigTile, boardNormalTile = _boardNormalTile;
 
 @synthesize pullToRefreshView = _pullToRefreshView;
+
+@synthesize signupRootVC;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -227,6 +230,7 @@
     updateTime = [NSDate dateWithTimeIntervalSinceNow:60];
     [self.pullToRefreshView finishLoading];
     [self.collectionView reloadData];
+    
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
@@ -403,6 +407,19 @@
     }else if ([[segue identifier] isEqual:@"ShowFriendsList"]) {
         olgotFriendsViewController *friendsViewController = [segue destinationViewController];
         [friendsViewController setUserID:[defaults objectForKey:@"userid"]];
+    }else if ([[segue identifier] isEqual:@"ShowSignupFlow"]){
+        UINavigationController* signupNavController = (UINavigationController*)[segue destinationViewController];
+        self.signupRootVC = [[signupNavController viewControllers] objectAtIndex:0];
+        
+        UIGraphicsBeginImageContext(CGSizeMake(self.tabBarController.view.bounds.size.width, self.tabBarController.view.bounds.size.height));
+        
+
+        [self.tabBarController.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+        UIImage *myImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        [self.signupRootVC setHomeImage:myImage];
+//        [signupRootController.dummyBgImageView setBackgroundColor:[UIColor greenColor]];
     }
 }
 
@@ -496,6 +513,7 @@
         [defaults synchronize];
         NSLog(@"check notifications from %@", [request URL]);
         [self updateNotificationButton];
+        
     } failure:^(NSURLRequest *request , NSHTTPURLResponse *response , NSError *error , id JSON){
         NSLog(@"AFNetowkring failed from %@", [request URL]);
     }];

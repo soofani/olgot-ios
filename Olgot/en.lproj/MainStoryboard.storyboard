@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
@@ -703,7 +703,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hk5-4P-7cX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="HAn-Se-f9H" customClass="olgotProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fbN-fm-WR5">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -876,12 +876,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7oS-Rj-Npc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="2Yr-NR-tJx" customClass="olgotSignupRootViewController" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="tPx-6d-H8a">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="pey-ZY-PRe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Dx1-YP-h0M">
+                                <rect key="frame" x="0.0" y="-20" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <imageView alpha="0.90000000000000002" contentMode="scaleToFill" image="bg.png" id="pey-ZY-PRe">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="vZ3-5F-TBP" appends="YES" id="Fcb-PB-1Ey"/>
+                                </connections>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" image="logo-210x155.png" id="ORG-0G-HY6">
                                 <rect key="frame" x="40" y="90" width="240" height="151"/>
@@ -907,7 +916,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="l8C-qk-Nwp">
-                                <rect key="frame" x="1" y="417" width="319" height="37"/>
+                                <rect key="frame" x="1" y="427" width="319" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Pull up to skip signup and start browsing">
@@ -926,16 +935,27 @@
                                 <color key="color" red="0.90980392160000001" green="0.30588235289999999" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="OjZ-FW-zks"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="sQf-E2-iaS" id="P1Z-Rf-5Ap"/>
+                        <outlet property="bgImageView" destination="pey-ZY-PRe" id="vsD-m0-cgq"/>
+                        <outlet property="dummyBgImageView" destination="Dx1-YP-h0M" id="mVx-m5-xAR"/>
+                        <outlet property="logoImageView" destination="ORG-0G-HY6" id="ZyY-fd-MJy"/>
+                        <outlet property="sloganImageView" destination="tm1-l0-M0x" id="svG-SL-6Hc"/>
+                        <outlet property="swipeRecogniser" destination="vZ3-5F-TBP" id="xvL-Af-YMk"/>
                         <outlet property="twitterSigninButton" destination="7CT-oO-27O" id="hyw-6k-FiS"/>
                         <segue destination="PTG-8b-tCg" kind="push" identifier="ShowChooseUsername" id="BTe-DC-rJm"/>
                     </connections>
                 </viewController>
+                <swipeGestureRecognizer direction="up" id="vZ3-5F-TBP">
+                    <connections>
+                        <action selector="swipeUp:" destination="2Yr-NR-tJx" id="RFP-Vt-t7H"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1166" y="-1706"/>
         </scene>
@@ -945,15 +965,15 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y7S-xV-mYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="PTG-8b-tCg" customClass="olgotChooseUsernameViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G3N-YJ-BRP">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="f70-N8-KIB">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="tng-8x-Roh">
-                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="jTr-Tg-488">
@@ -1039,7 +1059,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c6c-fC-y9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Qpl-3d-aeD" customClass="olgotChooseFriends" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="smz-ab-041">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1925,8 +1945,14 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotSignupRootViewController.h"/>
             <relationships>
                 <relationship kind="action" name="hideSignup:"/>
+                <relationship kind="action" name="swipeUp:" candidateClass="UISwipeGestureRecognizer"/>
                 <relationship kind="action" name="twitterSignin:"/>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="bgImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="dummyBgImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="sloganImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="swipeRecogniser" candidateClass="UISwipeGestureRecognizer"/>
                 <relationship kind="outlet" name="twitterSigninButton" candidateClass="UIButton"/>
             </relationships>
         </class>
@@ -1963,9 +1989,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kFC-1d-6jx"/>
         <segue reference="Lo1-V5-Une"/>
-        <segue reference="FeI-wE-YUy"/>
         <segue reference="7BR-Ub-gCU"/>
         <segue reference="tAB-hG-qL1"/>
         <segue reference="ZAZ-Wu-M0M"/>
