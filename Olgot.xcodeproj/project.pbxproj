@@ -31,6 +31,7 @@
 		E027CE6815CAC2A4007220F2 /* icon-map-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */; };
 		E08A8BCE15E467C800F3A6C9 /* bg-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = E08A8BCC15E467C800F3A6C9 /* bg-gradient.png */; };
 		E08A8BCF15E467C800F3A6C9 /* bg-gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E08A8BCD15E467C800F3A6C9 /* bg-gradient@2x.png */; };
+		FF00106815FA192200118192 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF00106715FA192200118192 /* FacebookSDK.framework */; };
 		FF02BD5815F3928E00333E32 /* addItemDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF02BD5715F3928E00333E32 /* addItemDetailsView.xib */; };
 		FF02BD5A15F39CE000333E32 /* addItemConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF02BD5915F39CE000333E32 /* addItemConfirmationView.xib */; };
 		FF0D3C1B15CE9AA200B8BA29 /* icon-cat-dummy.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0D3C1915CE9AA200B8BA29 /* icon-cat-dummy.png */; };
@@ -139,6 +140,7 @@
 		FF76C45C15BEC0C40045B4EA /* friendsHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF76C45B15BEC0C40045B4EA /* friendsHeaderCell.xib */; };
 		FF76C45E15BEC0D20045B4EA /* friendsFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF76C45D15BEC0D20045B4EA /* friendsFooterCell.xib */; };
 		FF76C46015BEC0DF0045B4EA /* friendsPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF76C45F15BEC0DF0045B4EA /* friendsPersonCell.xib */; };
+		FF774FD415F7609A0044A153 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FF774FD315F7609A0044A153 /* FacebookSDKResources.bundle */; };
 		FF7A000115750F0500BB5A65 /* profileViewPersonCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7A000015750F0500BB5A65 /* profileViewPersonCard.xib */; };
 		FF7A00041575106E00BB5A65 /* box-stats.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7A00021575106E00BB5A65 /* box-stats.png */; };
 		FF7A00051575106E00BB5A65 /* box-stats@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7A00031575106E00BB5A65 /* box-stats@2x.png */; };
@@ -363,6 +365,7 @@
 		E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-map-marker@2x.png"; sourceTree = "<group>"; };
 		E08A8BCC15E467C800F3A6C9 /* bg-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-gradient.png"; sourceTree = "<group>"; };
 		E08A8BCD15E467C800F3A6C9 /* bg-gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-gradient@2x.png"; sourceTree = "<group>"; };
+		FF00106715FA192200118192 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		FF02BD5715F3928E00333E32 /* addItemDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addItemDetailsView.xib; sourceTree = "<group>"; };
 		FF02BD5915F39CE000333E32 /* addItemConfirmationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addItemConfirmationView.xib; sourceTree = "<group>"; };
 		FF0D3C1915CE9AA200B8BA29 /* icon-cat-dummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cat-dummy.png"; sourceTree = "<group>"; };
@@ -495,6 +498,8 @@
 		FF76C45B15BEC0C40045B4EA /* friendsHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = friendsHeaderCell.xib; sourceTree = "<group>"; };
 		FF76C45D15BEC0D20045B4EA /* friendsFooterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = friendsFooterCell.xib; sourceTree = "<group>"; };
 		FF76C45F15BEC0DF0045B4EA /* friendsPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = friendsPersonCell.xib; sourceTree = "<group>"; };
+		FF774FD315F7609A0044A153 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		FF774FD615F7933D0044A153 /* olgotProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = olgotProtocols.h; sourceTree = "<group>"; };
 		FF7A000015750F0500BB5A65 /* profileViewPersonCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = profileViewPersonCard.xib; sourceTree = "<group>"; };
 		FF7A00021575106E00BB5A65 /* box-stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box-stats.png"; sourceTree = "<group>"; };
 		FF7A00031575106E00BB5A65 /* box-stats@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box-stats@2x.png"; sourceTree = "<group>"; };
@@ -686,6 +691,7 @@
 				FFA4ED93155D12D8008CB4CA /* UIKit.framework in Frameworks */,
 				FFA4ED95155D12D8008CB4CA /* Foundation.framework in Frameworks */,
 				FFA4ED97155D12D8008CB4CA /* CoreGraphics.framework in Frameworks */,
+				FF00106815FA192200118192 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -981,6 +987,14 @@
 			name = Maps;
 			sourceTree = "<group>";
 		};
+		FF774FD515F7930A0044A153 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FF774FD615F7933D0044A153 /* olgotProtocols.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		FF7AFF7B1574C7DB00BB5A65 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -1047,6 +1061,7 @@
 				FF980C0415A5EDDF00001259 /* MessageUI.framework */,
 				FFDAE0B615849FFC00859B3A /* CoreLocation.framework */,
 				FF6AFF9A15814636000A24BA /* libsqlite3.dylib */,
+				FF00106715FA192200118192 /* FacebookSDK.framework */,
 				FF6AFF9815814626000A24BA /* libz.dylib */,
 				FF6AFF8D158144DE000A24BA /* src */,
 				FF20E75F157525F5004EC879 /* Accounts.framework */,
@@ -1054,6 +1069,7 @@
 				FF7AFF7B1574C7DB00BB5A65 /* AFNetworking */,
 				FFE9A02215726DCF00509B09 /* OlgotModel.xcdatamodeld */,
 				FF7AAF06157237C60073EAA3 /* libxml2.dylib */,
+				FF774FD315F7609A0044A153 /* FacebookSDKResources.bundle */,
 				FFDCBDF81562622800FB8009 /* MapKit.framework */,
 				FFDCBDF61562621800FB8009 /* MobileCoreServices.framework */,
 				FF10F2FC155D206600F4EC2E /* QuartzCore.framework */,
@@ -1091,6 +1107,7 @@
 		FFA4ED98155D12D8008CB4CA /* Olgot */ = {
 			isa = PBXGroup;
 			children = (
+				FF774FD515F7930A0044A153 /* Protocols */,
 				FFA4EDA1155D12D8008CB4CA /* olgotAppDelegate.h */,
 				FFA4EDA2155D12D8008CB4CA /* olgotAppDelegate.m */,
 				FFA4EDA4155D12D8008CB4CA /* MainStoryboard.storyboard */,
@@ -1494,6 +1511,7 @@
 				E020291115DE98CE004759CF /* btn-venue@2x.png in Resources */,
 				E08A8BCE15E467C800F3A6C9 /* bg-gradient.png in Resources */,
 				E08A8BCF15E467C800F3A6C9 /* bg-gradient@2x.png in Resources */,
+				FF774FD415F7609A0044A153 /* FacebookSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1649,6 +1667,10 @@
 		FFA4EDB8155D12D8008CB4CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Olgot/Olgot-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1660,6 +1682,7 @@
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
+					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -1670,6 +1693,10 @@
 		FFA4EDB9155D12D8008CB4CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Olgot/Olgot-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1681,6 +1708,7 @@
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
+					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";

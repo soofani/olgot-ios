@@ -22,6 +22,7 @@ iFollow = _iFollow,
 followsMe = _followsMe,
 email = _email,
 twitterId = _twitterId,
-twitterName = _twitterName;
+twitterName = _twitterName,
+facebookId = _facebookId;
 
 @end

@@ -17,6 +17,9 @@
 #import "olgotActionUser.h"
 #import "olgotComment.h"
 #import "DejalActivityView.h"
+#import "olgotProtocols.h"
+#import <FacebookSDK/FBRequest.h>
+
 
 
 @interface olgotItemViewController ()
@@ -29,6 +32,7 @@
 @synthesize gotButton = _gotButton;
 @synthesize mySmallImage = _mySmallImage;
 @synthesize myCommentTF = _myCommentTF;
+@synthesize delegate;
 
 @synthesize itemCell = _itemCell, finderCell = _finderCell, peopleRowCell = _peopleRowCell,  commentsHeader, commentCell = _commentCell, commentsFooter = _commentsFooter;
 
@@ -88,7 +92,7 @@
     UIButton *shareBtn = [[UIButton alloc] init];
     shareBtn.frame=CGRectMake(0,0,35,30);
     [shareBtn setBackgroundImage:shareImage30 forState:UIControlStateNormal];
-    [shareBtn addTarget:self action:@selector(tweetItem) forControlEvents:UIControlEventTouchUpInside];
+    [shareBtn addTarget:self action:@selector(displayShareActionSheet) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:shareBtn];
     
@@ -108,7 +112,27 @@
     [tap setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:tap];
     
+    
+    
+    
     [self loadItemData];
+}
+
+-(void)addDeleteItemButton
+{
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 54.0f)];
+    
+    UIButton* deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 300.0f, 44.0f)];
+    
+    [deleteButton setTitle:@"Delete" forState:UIControlStateNormal];
+    
+    [deleteButton setBackgroundImage:[UIImage imageNamed:@"btn-select-username"] forState:UIControlStateNormal];
+    
+    [deleteButton addTarget:self action:@selector(confirmDeleteItem) forControlEvents:UIControlEventTouchUpInside];
+    
+    [footerView addSubview:deleteButton];
+    
+    [self.collectionView setCollectionFooterView:footerView];
 }
 
 -(void)tweetItem
@@ -209,6 +233,9 @@
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
     NSLog(@"resource path: %@",[request resourcePath]);
     NSLog(@"Loaded payload: %@", [response bodyAsString]);
+    
+    id userData = [request userData];
+    
     if ([request isPOST]) {  
         
         if ([response isJSON]) {
@@ -240,7 +267,7 @@
         if ([response isJSON]) {
             
             if([response isOK]){
-                id userData = [request userData];
+                
                 
                 if ([userData isEqual:@"unlike"]) {
                     NSLog(@"succesful unlike");
@@ -251,12 +278,24 @@
                 }else if ([userData isEqual:@"ungot"]) {
                     NSLog(@"succesful ungot");
                     [_item setIGot:[NSNumber numberWithInt:0]];
+                }else if ([userData isEqual:@"deleteitem"]){
+                    if (self.delegate) {
+                        [self.delegate deletedItem];
+                        
+                        [self.navigationController popViewControllerAnimated:YES];
+                    }
                 }
                 NSLog(@"Got a JSON response back from our DELETE! %@", [response bodyAsString]);
                 
                 [self.collectionView reloadData];
             }else {
-                
+                if ([userData isEqual:@"deleteitem"]){
+                    [self showAlertWithErrorTitle:@"Oops!" message:@"Failed to delete Item"];
+                }
+            }
+        }else{
+            if ([userData isEqual:@"deleteitem"]){
+                [self showAlertWithErrorTitle:@"Oops!" message:@"Failed to delete Item"];
             }
         }
     }
@@ -272,15 +311,32 @@
     _gots = [_item gots];
     NSLog(@"user actions: %@ %@ %@",[_item iLike],[_item iWant],[_item iGot]);
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([[_item userID] isEqual:[defaults objectForKey:@"userid"]]) {
+        NSLog(@"Item Owner");
+        [self addDeleteItemButton];
+        
+    } else {
+        NSLog(@"Item Visitor");
+    }
+    
     [self.collectionView reloadData];
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
 //    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 //    [alert show];
+    
     NSLog(@"Hit error: %@", error);
 }
 
+#pragma mark -
+
+-(void)showAlertWithErrorTitle:(NSString*)title message:(NSString*)message{
+    UIAlertView *errAlert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"Ok.." otherButtonTitles:nil, nil];
+    
+    [errAlert show];
+}
 
 #pragma mark - SSCollectionViewDataSource
 
@@ -558,7 +614,8 @@
         return cell;
  
     }
-    else {
+    else if (indexPath.section == 7) { //comments footer
+        NSLog(@"index path %d",indexPath.section);
         SSCollectionViewItem *cell = [aCollectionView dequeueReusableItemWithIdentifier:myCommentsFooterIdentifier];
         
         if (cell == nil) {
@@ -573,6 +630,9 @@
         [footerLabel setText:[NSString stringWithFormat:@"See all (%d) comments",[[_item itemStatsComments] intValue]]];
         
         return cell;
+    }
+    else if (indexPath.section == 8){
+        
     }
 	
 }
@@ -849,4 +909,183 @@
 - (IBAction)showProfile:(id)sender {
     [self performSegueWithIdentifier:@"showProfile" sender:self];
 }
+
+-(void)displayShareActionSheet{
+    UIActionSheet *shareAS = [[UIActionSheet alloc] initWithTitle:@"Share" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Twitter",@"Email", nil];
+    
+	shareAS.actionSheetStyle = UIActionSheetStyleDefault;
+	[shareAS showInView:self.view];
+}
+
+-(void)shareOnFacebook{
+//    id<olgotOgItem> itemObject = [self itemObjectForItem];
+    id<olgotOgItem> itemObject = [self itemObjectForItem:@"dummy"];
+    
+    id<olgotOgFindItem> action = (id<olgotOgFindItem>)[FBGraphObject graphObject];
+    
+    action.item = itemObject;
+    
+    [FBSettings setLoggingBehavior:[NSSet
+                                    setWithObjects:FBLoggingBehaviorFBRequests,
+                                    FBLoggingBehaviorFBURLConnections,
+                                    nil]];
+    
+    // Create the request and post the action to the "me/fb_sample_scrumps:eat" path.
+    [FBRequestConnection startForPostWithGraphPath:@"me/olgotapp:find"
+                                       graphObject:action
+                                 completionHandler:^(FBRequestConnection *connection,
+                                                     id result,
+                                                     NSError *error) {
+                                     [self.view setUserInteractionEnabled:YES];
+                                     
+                                     NSString *alertText;
+                                     if (!error) {
+                                         alertText = [NSString stringWithFormat:@"Posted Open Graph action, id: %@",
+                                                      [result objectForKey:@"id"]];
+                                         
+
+                                     } else {
+                                         alertText = [NSString stringWithFormat:@"error: domain = %@, code = %d",
+                                                      error.domain, error.code];
+                                     }
+                                     
+                                     NSLog(@"Facebook: %@",alertText);
+//                                     [[[UIAlertView alloc] initWithTitle:@"Result"
+//                                                                 message:alertText
+//                                                                delegate:nil
+//                                                       cancelButtonTitle:@"Thanks!"
+//                                                       otherButtonTitles:nil]
+//                                      show];
+                                 }];
+}
+
+- (id<olgotOgItem>)itemObjectForItem:(NSString*)mItem
+{
+    id<olgotOgItem> result = (id<olgotOgItem>)[FBGraphObject graphObject];
+    
+    result.url = self.item.itemUrl;
+//    result.url = @"http://naf-lab.com/olgottesting/dummyitem.php";
+    
+    return result;
+    
+//    // This URL is specific to this sample, and can be used to
+//    // create arbitrary OG objects for this app; your OG objects
+//    // will have URLs hosted by your server.
+//    NSString *format =
+//    @"http://naf-lab.com/olgottesting/repeater.php?"
+//    @"fb:app_id=474720479212670&og:type=%@&"
+//    @"og:title=%@&og:description=%%22%@%%22&"
+//    @"og:image=https://s-static.ak.fbcdn.net/images/devsite/attachment_blank.png&"
+//    @"body=%@";
+//    
+//    // We create an FBGraphObject object, but we can treat it as
+//    // an SCOGMeal with typed properties, etc. See <FacebookSDK/FBGraphObject.h>
+//    // for more details.
+//    id<olgotOgItem> result = (id<olgotOgItem>)[FBGraphObject graphObject];
+//    
+//    // Give it a URL that will echo back the name of the meal as its title,
+//    // description, and body.
+//    result.url = [NSString stringWithFormat:format,
+//                  @"olgotapp:item", mItem, mItem, mItem];
+    
+//    return result;                                
+}
+
+-(void)showMailComposer
+{
+    MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+    
+    mailer.mailComposeDelegate = self;
+    
+    [mailer setSubject:@"Olgot"];
+    
+    NSString *emailBody = [NSString stringWithFormat:@"I just found this item on Olgot! %@", self.item.itemUrl];
+    [mailer setMessageBody:emailBody isHTML:NO];
+    
+    [self presentModalViewController:mailer animated:YES];
+}
+
+#pragma mark - UIActionSheet Delegate
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+	if (buttonIndex == 0) {
+        //facebook
+        [self shareOnFacebook];
+
+	} else if (buttonIndex == 1) {
+        //twitter
+        [self tweetItem];
+	} else if (buttonIndex == 2) {
+        //email
+        if ([MFMailComposeViewController canSendMail])
+        {
+            [self showMailComposer];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
+                                                            message:@"Your device doesn't support the composer sheet"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+	} else if (buttonIndex == 3) {
+        //cancel
+    }
+    
+}
+
+#pragma mark - MFMailComposer Delegate
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+
+#pragma mark -
+
+-(void)confirmDeleteItem
+{
+    NSLog(@"delete item with id %@ key %@", [_item itemID], [_item itemKey]);
+    
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Delete Item"
+                                                      message:@"Your are about to delete this item, this action cannot be undone."
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Delete", nil];
+    [message show];
+}
+
+-(void)deleteItem
+{
+    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            [_item itemID], @"item",
+                            [_item itemKey], @"key",
+                            [defaults objectForKey:@"userid"], @"id",
+                            nil];
+    
+    [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    [[[RKClient sharedClient] delete:[@"/item/" stringByAppendingQueryParameters:params] delegate:self] setUserData:@"deleteitem"];
+    
+    
+}
+
+#pragma mark uialertview delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (buttonIndex == 0) {
+        NSLog(@"cancel");
+    } else {
+        NSLog(@"delete");
+        [self deleteItem];
+    }
+}
+
 @end

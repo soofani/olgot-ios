@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface olgotChooseUsernameViewController : UIViewController<RKRequestDelegate>
 {
     id _twitterJson;
     NSString* _userID;
+    
+    NSDictionary<FBGraphUser> *fbUser;
 }
 
+@property (strong, nonatomic) NSDictionary<FBGraphUser> *fbUser;
 @property (strong, nonatomic) NSData *twitterResponseData;
 @property (strong, nonatomic) IBOutlet UITextField *usernameTF;
 @property (strong, nonatomic) IBOutlet UITextField *userEmail;

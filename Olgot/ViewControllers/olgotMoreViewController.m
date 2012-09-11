@@ -15,6 +15,7 @@
 @implementation olgotMoreViewController
 @synthesize savePhotosSwitch;
 @synthesize autoTweetSwitch;
+@synthesize facebookConnectSwitch;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,12 +51,21 @@
     }else {
         [self.autoTweetSwitch setOn:NO];
     }
+    
+    //    check for facebook session
+    if (FBSession.activeSession.state == FBSessionStateOpen) {
+        // Yes, so just open the session (this won't display any UX).
+        [self.facebookConnectSwitch setOn:YES];
+    }else{
+        [self.facebookConnectSwitch setOn:NO];
+    }
 }
 
 - (void)viewDidUnload
 {
     [self setSavePhotosSwitch:nil];
     [self setAutoTweetSwitch:nil];
+    [self setFacebookConnectSwitch:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -81,6 +91,8 @@
         [defaults setObject:nil forKey:@"twittername"];
         
         [defaults synchronize];
+        
+        [FBSession.activeSession closeAndClearTokenInformation];
         
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
 //                                                        message:@"You have been logged out."
@@ -126,4 +138,23 @@
     
     [defaults synchronize];
 }
+
+- (IBAction)changeFacebookConnect:(id)sender {
+    NSLog(@"changing facebook connect status");
+    
+    if (facebookConnectSwitch.isOn) {
+//        user wants to connect with facebook
+        olgotAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        [appDelegate openFBSession];
+        
+    } else {
+//        user wants to disconnect facebook
+        [FBSession.activeSession closeAndClearTokenInformation];
+        
+    }
+}
+
+
+
+
 @end

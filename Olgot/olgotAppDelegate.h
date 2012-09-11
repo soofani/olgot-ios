@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
-
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface olgotAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 -(void)configureRestkit;
+-(void)openFBSession;
 
 @end

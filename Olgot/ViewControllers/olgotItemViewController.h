@@ -12,10 +12,13 @@
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
 #import <QuartzCore/QuartzCore.h>
+#import <MessageUI/MessageUI.h>
 
 @class olgotItem;
 
-@interface olgotItemViewController : SSCollectionViewController<RKObjectLoaderDelegate, UITextFieldDelegate>{
+@protocol olgotDeleteItemProtocol;
+
+@interface olgotItemViewController : SSCollectionViewController<RKObjectLoaderDelegate, UITextFieldDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate>{
     SSCollectionViewItem *commentsHeader;
     NSArray* _likes;
     NSArray* _wants;
@@ -26,9 +29,12 @@
     UIView* myCommentView;
     
     NSArray* accountsArray;
+    
+    id <olgotDeleteItemProtocol> delegate;
 }
 - (IBAction)showProfile:(id)sender;
 
+@property (nonatomic, retain) id <olgotDeleteItemProtocol> delegate;
 @property (strong, nonatomic) NSNumber *itemID;
 @property (strong, nonatomic) NSNumber *itemKey;
 @property (nonatomic, strong) olgotItem *item;
@@ -53,5 +59,11 @@
 - (IBAction)touchedWriteComment:(id)sender;
 - (IBAction)finishedComment:(id)sender;
 
+
+@end
+
+@protocol olgotDeleteItemProtocol
+
+-(void)deletedItem;
 
 @end

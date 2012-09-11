@@ -10,6 +10,7 @@
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
 #import <RestKit/RestKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface olgotSignupRootViewController : UIViewController<RKRequestDelegate, UIActionSheetDelegate, RKObjectLoaderDelegate,UIGestureRecognizerDelegate>
 {
@@ -18,6 +19,8 @@
     NSData* _twitterResponse;
     NSArray* twitterAccounts;
     UIPickerView* accountsPicker;
+    
+    NSDictionary<FBGraphUser> *fbUser;
 }
 
 @property (strong, nonatomic) UIImage *homeImage;
@@ -28,6 +31,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *twitterSigninButton;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) IBOutlet UIButton *facebookSigninButton;
 @property (strong, nonatomic) IBOutlet UIImageView *bgImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *sloganImageView;
 
@@ -36,6 +40,7 @@
 - (IBAction)hideSignup:(id)sender;
 
 - (IBAction)twitterSignin:(id)sender;
+- (IBAction)facebookSignin:(id)sender;
 - (void)canTweetStatus;
 - (void)checkTwitterName:(NSString *)text;
 
