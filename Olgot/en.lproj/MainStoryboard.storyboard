@@ -876,7 +876,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7oS-Rj-Npc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="2Yr-NR-tJx" customClass="olgotSignupRootViewController" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="tPx-6d-H8a">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Dx1-YP-h0M">
@@ -959,10 +959,10 @@
                         <outlet property="activityIndicator" destination="sQf-E2-iaS" id="P1Z-Rf-5Ap"/>
                         <outlet property="bgImageView" destination="pey-ZY-PRe" id="vsD-m0-cgq"/>
                         <outlet property="dummyBgImageView" destination="Dx1-YP-h0M" id="mVx-m5-xAR"/>
+                        <outlet property="facebookSigninButton" destination="Fak-jJ-YAI" id="rik-7X-37F"/>
                         <outlet property="logoImageView" destination="ORG-0G-HY6" id="ZyY-fd-MJy"/>
                         <outlet property="sloganImageView" destination="tm1-l0-M0x" id="svG-SL-6Hc"/>
                         <outlet property="swipeRecogniser" destination="vZ3-5F-TBP" id="xvL-Af-YMk"/>
-                        <outlet property="facebookSigninButton" destination="Fak-jJ-YAI" id="rik-7X-37F"/>
                         <outlet property="twitterSigninButton" destination="7CT-oO-27O" id="hyw-6k-FiS"/>
                         <segue destination="PTG-8b-tCg" kind="push" identifier="ShowChooseUsername" id="BTe-DC-rJm"/>
                     </connections>
@@ -1995,10 +1995,10 @@
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="bgImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="dummyBgImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="facebookSigninButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="sloganImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="swipeRecogniser" candidateClass="UISwipeGestureRecognizer"/>
-                <relationship kind="outlet" name="facebookSigninButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="twitterSigninButton" candidateClass="UIButton"/>
             </relationships>
         </class>

@@ -76,6 +76,8 @@
         [self.bgImageView setCenter:CGPointMake(self.bgImageView.center.x, self.bgImageView.center.y - 30.0)];
         
         [self.twitterSigninButton setCenter:CGPointMake(self.twitterSigninButton.center.x, self.twitterSigninButton.center.y - 30.0)];
+        
+        [self.facebookSigninButton setCenter:CGPointMake(self.facebookSigninButton.center.x, self.facebookSigninButton.center.y - 30.0)];
     } completion:^(BOOL finished) {
         if (finished) {
             [UIView animateWithDuration:0.5 animations:^{
@@ -86,6 +88,8 @@
                 [self.bgImageView setCenter:CGPointMake(self.bgImageView.center.x, self.bgImageView.center.y + 30.0)];
                 
                 [self.twitterSigninButton setCenter:CGPointMake(self.twitterSigninButton.center.x, self.twitterSigninButton.center.y + 30.0)];
+                
+                [self.facebookSigninButton setCenter:CGPointMake(self.facebookSigninButton.center.x, self.facebookSigninButton.center.y + 30.0)];
             }];
         }
     }];
@@ -460,6 +464,8 @@
         [self.bgImageView setCenter:CGPointMake(self.bgImageView.center.x, self.bgImageView.center.y - 500.0)];
         
         [self.twitterSigninButton setCenter:CGPointMake(self.twitterSigninButton.center.x, self.twitterSigninButton.center.y - 500.0)];
+        
+        [self.facebookSigninButton setCenter:CGPointMake(self.facebookSigninButton.center.x, self.facebookSigninButton.center.y - 500.0)];
     } completion:^(BOOL finished) {
         if (finished) {
 //            [self dismissModalViewControllerAnimated:NO];
