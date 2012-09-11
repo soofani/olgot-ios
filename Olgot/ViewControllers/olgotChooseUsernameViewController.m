@@ -191,7 +191,7 @@
                         [defaults setObject:[self.fbUser name] forKey:@"fullname"];
                         [defaults setObject:0 forKey:@"twitterid"];
                         [defaults setObject:0 forKey:@"twittername"];
-                    [defaults setObject:[resp objectForKey:@"facebookId"] forKey:@"userFacebookId"];
+                        [defaults setObject:[resp objectForKey:@"facebookId"] forKey:@"userFacebookId"];
                         
                         [defaults setObject:@"yes" forKey:@"autoSavePhotos"];
                         [defaults setObject:@"no" forKey:@"autoTweetItems"];

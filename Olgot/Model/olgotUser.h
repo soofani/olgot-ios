@@ -23,5 +23,6 @@
 @property (nonatomic, retain) NSString* email;
 @property (nonatomic, retain) NSString* twitterId;
 @property (nonatomic, retain) NSString* twitterName;
+@property (nonatomic, retain) NSString* facebookId;
 
 @end

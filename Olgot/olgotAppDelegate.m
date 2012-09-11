@@ -231,6 +231,7 @@
      @"email", @"email",
      @"twitterId", @"twitterId",
      @"twitterName", @"twitterName",
+     @"facebookid",@"facebookId",
      nil];
     
     RKObjectMapping* actionUserMapping = [RKObjectMapping mappingForClass:[olgotActionUser class]];
