@@ -25,10 +25,19 @@
 @synthesize placeBigLabel;
 @synthesize placeItemCountLabel;
 @synthesize capturedImage = _capturedImage;
+@synthesize delegate;
 
 @synthesize itemID = _itemID, itemKey = _itemKey, venueID = _venueID, venueItemCount = _venueItemCount, venueName = _venueName;
 @synthesize itemPrice = _itemPrice;
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.title = @"Great!";
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -103,8 +112,9 @@
 
 -(void)finishUpload
 {
-    self.tabBarController.selectedIndex = 0;
-   [self.navigationController popToRootViewControllerAnimated:YES];
+//    self.tabBarController.selectedIndex = 0;
+//   [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.delegate finishedAddItem];
 }
 
 - (void)viewDidUnload

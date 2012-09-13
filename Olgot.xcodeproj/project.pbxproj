@@ -31,6 +31,8 @@
 		E027CE6815CAC2A4007220F2 /* icon-map-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */; };
 		E08A8BCE15E467C800F3A6C9 /* bg-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = E08A8BCC15E467C800F3A6C9 /* bg-gradient.png */; };
 		E08A8BCF15E467C800F3A6C9 /* bg-gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E08A8BCD15E467C800F3A6C9 /* bg-gradient@2x.png */; };
+		FF02BD5815F3928E00333E32 /* addItemDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF02BD5715F3928E00333E32 /* addItemDetailsView.xib */; };
+		FF02BD5A15F39CE000333E32 /* addItemConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF02BD5915F39CE000333E32 /* addItemConfirmationView.xib */; };
 		FF0D3C1B15CE9AA200B8BA29 /* icon-cat-dummy.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0D3C1915CE9AA200B8BA29 /* icon-cat-dummy.png */; };
 		FF0D3C1C15CE9AA200B8BA29 /* icon-cat-dummy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0D3C1A15CE9AA200B8BA29 /* icon-cat-dummy@2x.png */; };
 		FF10F29A155D167400F4EC2E /* olgotExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF10F299155D167400F4EC2E /* olgotExploreViewController.m */; };
@@ -102,6 +104,7 @@
 		FF331049156542150083602B /* icon-cam-80x60.png in Resources */ = {isa = PBXBuildFile; fileRef = FF331047156542150083602B /* icon-cam-80x60.png */; };
 		FF33104A156542150083602B /* icon-cam-80x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF331048156542150083602B /* icon-cam-80x60@2x.png */; };
 		FF34C8DC15C5895D00D8770F /* btn-following.png in Resources */ = {isa = PBXBuildFile; fileRef = FF34C8DB15C5895D00D8770F /* btn-following.png */; };
+		FF3F050D15EE62BF008BE562 /* olgotCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3F050C15EE62BF008BE562 /* olgotCameraViewController.m */; };
 		FF423CE81578DD3100A3B970 /* btn-user-list-following.png in Resources */ = {isa = PBXBuildFile; fileRef = FF423CE61578DD3100A3B970 /* btn-user-list-following.png */; };
 		FF423CE91578DD3100A3B970 /* btn-user-list-following@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF423CE71578DD3100A3B970 /* btn-user-list-following@2x.png */; };
 		FF423CEC157991B600A3B970 /* olgotUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FF423CEB157991B600A3B970 /* olgotUser.m */; };
@@ -207,6 +210,7 @@
 		FF980C0515A5EDDF00001259 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF980C0415A5EDDF00001259 /* MessageUI.framework */; };
 		FF980C0715A5EE1200001259 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF980C0615A5EE1200001259 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FF98330215C84AF600DC02C4 /* profileViewNoItems.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF98330115C84AF600DC02C4 /* profileViewNoItems.xib */; };
+		FFA0559D15EA7167009F6945 /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA0559C15EA7167009F6945 /* OverlayViewController.xib */; };
 		FFA4ED93155D12D8008CB4CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED92155D12D8008CB4CA /* UIKit.framework */; };
 		FFA4ED95155D12D8008CB4CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED94155D12D8008CB4CA /* Foundation.framework */; };
 		FFA4ED97155D12D8008CB4CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED96155D12D8008CB4CA /* CoreGraphics.framework */; };
@@ -231,11 +235,13 @@
 		FFA85436156D3FE20009134C /* itemViewCommentsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA85435156D3FE20009134C /* itemViewCommentsHeader.xib */; };
 		FFA85454156D44270009134C /* itemViewCommentsFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA85453156D44270009134C /* itemViewCommentsFooter.xib */; };
 		FFA85456156D47FC0009134C /* peopleListHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA85455156D47FC0009134C /* peopleListHeaderCell.xib */; };
+		FFB45D9915ECD041001E1564 /* olgotTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB45D9815ECD041001E1564 /* olgotTabBarViewController.m */; };
 		FFBE4878156E5EF700DF3716 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FFBE4877156E5EF700DF3716 /* Icon.png */; };
 		FFBE487A156E5F0600DF3716 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFBE4879156E5F0500DF3716 /* Icon@2x.png */; };
 		FFCD11F115B2E5BE00B120FB /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF98031D15B2E4F0004B96E7 /* libRestKit.a */; };
 		FFD62D191594C0810068B04A /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD62D181594C0810068B04A /* DejalActivityView.m */; };
 		FFD62D241594CB920068B04A /* olgotVenueMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD62D231594CB920068B04A /* olgotVenueMapViewController.m */; };
+		FFDA69F415DD21A3009759D9 /* olgotCameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDA69F315DD21A3009759D9 /* olgotCameraOverlayViewController.m */; };
 		FFDAE0B715849FFC00859B3A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDAE0B615849FFC00859B3A /* CoreLocation.framework */; };
 		FFDC6334156E814C008CCA28 /* olgotCommentsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFDC6333156E814C008CCA28 /* olgotCommentsListViewController.m */; };
 		FFDC6336156E8232008CCA28 /* commentsListHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFDC6335156E8232008CCA28 /* commentsListHeaderCell.xib */; };
@@ -244,6 +250,8 @@
 		FFDCBDF91562622800FB8009 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDCBDF81562622800FB8009 /* MapKit.framework */; };
 		FFE4647C1573BDD300395BD5 /* olgotActionUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE4647B1573BDD300395BD5 /* olgotActionUser.m */; };
 		FFE4647F1573BF3800395BD5 /* olgotComment.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE4647E1573BF3800395BD5 /* olgotComment.m */; };
+		FFE51CA515F4E3D100F45F8F /* bg-cam-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = FFE51CA315F4E3D100F45F8F /* bg-cam-toolbar.png */; };
+		FFE51CA615F4E3D100F45F8F /* bg-cam-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFE51CA415F4E3D100F45F8F /* bg-cam-toolbar@2x.png */; };
 		FFE9A01E15725C3700509B09 /* olgotCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE9A01D15725C3700509B09 /* olgotCategory.m */; };
 		FFE9A02115726B1E00509B09 /* olgotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE9A02015726B1E00509B09 /* olgotItem.m */; };
 		FFE9A02415726DCF00509B09 /* OlgotModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFE9A02215726DCF00509B09 /* OlgotModel.xcdatamodeld */; };
@@ -355,6 +363,8 @@
 		E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-map-marker@2x.png"; sourceTree = "<group>"; };
 		E08A8BCC15E467C800F3A6C9 /* bg-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-gradient.png"; sourceTree = "<group>"; };
 		E08A8BCD15E467C800F3A6C9 /* bg-gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-gradient@2x.png"; sourceTree = "<group>"; };
+		FF02BD5715F3928E00333E32 /* addItemDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addItemDetailsView.xib; sourceTree = "<group>"; };
+		FF02BD5915F39CE000333E32 /* addItemConfirmationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addItemConfirmationView.xib; sourceTree = "<group>"; };
 		FF0D3C1915CE9AA200B8BA29 /* icon-cat-dummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cat-dummy.png"; sourceTree = "<group>"; };
 		FF0D3C1A15CE9AA200B8BA29 /* icon-cat-dummy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cat-dummy@2x.png"; sourceTree = "<group>"; };
 		FF10F298155D167400F4EC2E /* olgotExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotExploreViewController.h; path = ViewControllers/olgotExploreViewController.h; sourceTree = "<group>"; };
@@ -439,6 +449,8 @@
 		FF331048156542150083602B /* icon-cam-80x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cam-80x60@2x.png"; sourceTree = "<group>"; };
 		FF34C8DA15C588AE00D8770F /* btn-following@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-following@2x.png"; sourceTree = "<group>"; };
 		FF34C8DB15C5895D00D8770F /* btn-following.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-following.png"; sourceTree = "<group>"; };
+		FF3F050B15EE62BF008BE562 /* olgotCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = olgotCameraViewController.h; sourceTree = "<group>"; };
+		FF3F050C15EE62BF008BE562 /* olgotCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = olgotCameraViewController.m; sourceTree = "<group>"; };
 		FF423CE61578DD3100A3B970 /* btn-user-list-following.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-user-list-following.png"; sourceTree = "<group>"; };
 		FF423CE71578DD3100A3B970 /* btn-user-list-following@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-user-list-following@2x.png"; sourceTree = "<group>"; };
 		FF423CEA157991B600A3B970 /* olgotUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotUser.h; path = Model/olgotUser.h; sourceTree = "<group>"; };
@@ -578,6 +590,7 @@
 		FF980C0415A5EDDF00001259 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		FF980C0615A5EE1200001259 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		FF98330115C84AF600DC02C4 /* profileViewNoItems.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = profileViewNoItems.xib; sourceTree = "<group>"; };
+		FFA0559C15EA7167009F6945 /* OverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayViewController.xib; sourceTree = "<group>"; };
 		FFA4ED8E155D12D8008CB4CA /* Olgot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Olgot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFA4ED92155D12D8008CB4CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FFA4ED94155D12D8008CB4CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -608,12 +621,16 @@
 		FFA85435156D3FE20009134C /* itemViewCommentsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = itemViewCommentsHeader.xib; sourceTree = "<group>"; };
 		FFA85453156D44270009134C /* itemViewCommentsFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = itemViewCommentsFooter.xib; sourceTree = "<group>"; };
 		FFA85455156D47FC0009134C /* peopleListHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = peopleListHeaderCell.xib; sourceTree = "<group>"; };
+		FFB45D9715ECD041001E1564 /* olgotTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = olgotTabBarViewController.h; sourceTree = "<group>"; };
+		FFB45D9815ECD041001E1564 /* olgotTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = olgotTabBarViewController.m; sourceTree = "<group>"; };
 		FFBE4877156E5EF700DF3716 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		FFBE4879156E5F0500DF3716 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		FFD62D171594C0810068B04A /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
 		FFD62D181594C0810068B04A /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
 		FFD62D221594CB920068B04A /* olgotVenueMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotVenueMapViewController.h; path = ViewControllers/olgotVenueMapViewController.h; sourceTree = "<group>"; };
 		FFD62D231594CB920068B04A /* olgotVenueMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotVenueMapViewController.m; path = ViewControllers/olgotVenueMapViewController.m; sourceTree = "<group>"; };
+		FFDA69F215DD21A3009759D9 /* olgotCameraOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = olgotCameraOverlayViewController.h; sourceTree = "<group>"; };
+		FFDA69F315DD21A3009759D9 /* olgotCameraOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = olgotCameraOverlayViewController.m; sourceTree = "<group>"; };
 		FFDAE0B615849FFC00859B3A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FFDC6332156E814C008CCA28 /* olgotCommentsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotCommentsListViewController.h; path = ViewControllers/olgotCommentsListViewController.h; sourceTree = "<group>"; };
 		FFDC6333156E814C008CCA28 /* olgotCommentsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotCommentsListViewController.m; path = ViewControllers/olgotCommentsListViewController.m; sourceTree = "<group>"; };
@@ -625,6 +642,8 @@
 		FFE4647B1573BDD300395BD5 /* olgotActionUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotActionUser.m; path = Model/olgotActionUser.m; sourceTree = "<group>"; };
 		FFE4647D1573BF3800395BD5 /* olgotComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotComment.h; path = Model/olgotComment.h; sourceTree = "<group>"; };
 		FFE4647E1573BF3800395BD5 /* olgotComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotComment.m; path = Model/olgotComment.m; sourceTree = "<group>"; };
+		FFE51CA315F4E3D100F45F8F /* bg-cam-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-cam-toolbar.png"; sourceTree = "<group>"; };
+		FFE51CA415F4E3D100F45F8F /* bg-cam-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-cam-toolbar@2x.png"; sourceTree = "<group>"; };
 		FFE9A01C15725C3700509B09 /* olgotCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotCategory.h; path = Model/olgotCategory.h; sourceTree = "<group>"; };
 		FFE9A01D15725C3700509B09 /* olgotCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotCategory.m; path = Model/olgotCategory.m; sourceTree = "<group>"; };
 		FFE9A01F15726B1E00509B09 /* olgotItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotItem.h; path = Model/olgotItem.h; sourceTree = "<group>"; };
@@ -704,6 +723,8 @@
 		FF10F2A9155D16F500F4EC2E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				FFE51CA315F4E3D100F45F8F /* bg-cam-toolbar.png */,
+				FFE51CA415F4E3D100F45F8F /* bg-cam-toolbar@2x.png */,
 				E027CE6515CAC2A4007220F2 /* icon-map-marker.png */,
 				E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */,
 				FF25124215C56D720047C87B /* btn-nav-friends.png */,
@@ -892,6 +913,17 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		FF3F050A15EE6291008BE562 /* CamFiles */ = {
+			isa = PBXGroup;
+			children = (
+				FF3F050B15EE62BF008BE562 /* olgotCameraViewController.h */,
+				FF3F050C15EE62BF008BE562 /* olgotCameraViewController.m */,
+				FF02BD5715F3928E00333E32 /* addItemDetailsView.xib */,
+				FF02BD5915F39CE000333E32 /* addItemConfirmationView.xib */,
+			);
+			name = CamFiles;
+			sourceTree = "<group>";
+		};
 		FF6AFF8D158144DE000A24BA /* src */ = {
 			isa = PBXGroup;
 			children = (
@@ -1062,6 +1094,8 @@
 				FFA4EDA1155D12D8008CB4CA /* olgotAppDelegate.h */,
 				FFA4EDA2155D12D8008CB4CA /* olgotAppDelegate.m */,
 				FFA4EDA4155D12D8008CB4CA /* MainStoryboard.storyboard */,
+				FFB45D9715ECD041001E1564 /* olgotTabBarViewController.h */,
+				FFB45D9815ECD041001E1564 /* olgotTabBarViewController.m */,
 				FF76C42E15BEB86A0045B4EA /* Classes */,
 				FF98030015B2DC36004B96E7 /* SSPullToRefresh */,
 				FFE9A01B15725BB500509B09 /* Model */,
@@ -1100,8 +1134,12 @@
 		FFA8542C156D33500009134C /* Add Item */ = {
 			isa = PBXGroup;
 			children = (
+				FF3F050A15EE6291008BE562 /* CamFiles */,
 				FF10F29F155D16B000F4EC2E /* olgotShareViewController.h */,
 				FF10F2A0155D16B000F4EC2E /* olgotShareViewController.m */,
+				FFA0559C15EA7167009F6945 /* OverlayViewController.xib */,
+				FFDA69F215DD21A3009759D9 /* olgotCameraOverlayViewController.h */,
+				FFDA69F315DD21A3009759D9 /* olgotCameraOverlayViewController.m */,
 				FF26E275156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.h */,
 				FF26E276156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.m */,
 				FF33102B156502F50083602B /* olgotAddItemDetailsViewController.h */,
@@ -1193,6 +1231,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
 			);
 			mainGroup = FFA4ED83155D12D8008CB4CA;
 			productRefGroup = FFA4ED8F155D12D8008CB4CA /* Products */;
@@ -1428,6 +1467,11 @@
 				E027CE6815CAC2A4007220F2 /* icon-map-marker@2x.png in Resources */,
 				FF0D3C1B15CE9AA200B8BA29 /* icon-cat-dummy.png in Resources */,
 				FF0D3C1C15CE9AA200B8BA29 /* icon-cat-dummy@2x.png in Resources */,
+				FFA0559D15EA7167009F6945 /* OverlayViewController.xib in Resources */,
+				FF02BD5815F3928E00333E32 /* addItemDetailsView.xib in Resources */,
+				FF02BD5A15F39CE000333E32 /* addItemConfirmationView.xib in Resources */,
+				FFE51CA515F4E3D100F45F8F /* bg-cam-toolbar.png in Resources */,
+				FFE51CA615F4E3D100F45F8F /* bg-cam-toolbar@2x.png in Resources */,
 				E02028CA15DDB60C004759CF /* bubble-tip-up.png in Resources */,
 				E02028CB15DDB60C004759CF /* bubble-tip-up@2x.png in Resources */,
 				E02028DC15DDBFAC004759CF /* icon-item-action-comment-active.png in Resources */,
@@ -1516,6 +1560,9 @@
 				FF8BB1CD15C19678003E27E2 /* olgotNotification.m in Sources */,
 				FF8BB1D015C198F5003E27E2 /* olgotNotificationUser.m in Sources */,
 				FF25124C15C56F2F0047C87B /* olgotHelpViewController.m in Sources */,
+				FFDA69F415DD21A3009759D9 /* olgotCameraOverlayViewController.m in Sources */,
+				FFB45D9915ECD041001E1564 /* olgotTabBarViewController.m in Sources */,
+				FF3F050D15EE62BF008BE562 /* olgotCameraViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

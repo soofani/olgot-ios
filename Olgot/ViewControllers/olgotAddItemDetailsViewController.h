@@ -11,8 +11,11 @@
 #import <RestKit/RestKit.h>
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
+#import "olgotAddItemConfirmationViewController.h"
 
-@interface olgotAddItemDetailsViewController : UIViewController<RKObjectLoaderDelegate, UITextFieldDelegate>
+@protocol addItemDetailsProtocol;
+
+@interface olgotAddItemDetailsViewController : UIViewController<RKObjectLoaderDelegate, UITextFieldDelegate, addItemConfirmationProtocol>
 {
     UIImageView *itemImageView;
     NSNumber* _itemID;
@@ -22,7 +25,12 @@
     NSArray* accountsArray;
     
     BOOL twitterShare;
+    
+    id <addItemDetailsProtocol> delegate;
 }
+
+@property (nonatomic, retain) id <addItemDetailsProtocol> delegate;
+
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) IBOutlet UIImageView *venueImageIV;
@@ -44,5 +52,12 @@
 - (IBAction)editDescription:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *twitterShareBtn;
 - (IBAction)twitterSharePressed:(id)sender;
+
+@end
+
+@protocol addItemDetailsProtocol
+
+-(void)wantsBack;
+-(void)exitAddItemFlow;
 
 @end

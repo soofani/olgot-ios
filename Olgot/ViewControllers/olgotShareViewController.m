@@ -15,6 +15,7 @@
 
 @implementation olgotShareViewController
 
+@synthesize overlayViewController,image;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,27 +26,48 @@
     return self;
 }
 
-//-(void) viewWillAppear:(BOOL)animated{
-//    
-//    [super viewWillAppear:animated];
-//
-//    
-//}
-
--(void)loadView
+-(void)viewDidAppear:(BOOL)animated
 {
-    [self takePicture:self];
+    [super viewDidAppear:animated];
+
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+//        [self takePicture:self];
+
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    showCam = YES;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    showCam = YES;
+//    self.overlayViewController =
+//    [[olgotCameraOverlayViewController alloc] initWithNibName:@"OverlayViewController" bundle:nil];
+    
+    // as a delegate we will be notified when pictures are taken and when to dismiss the image picker
+    self.overlayViewController.delegate = self;
         
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    self.overlayViewController = nil;
+    self.image = nil;
 
 }
 
@@ -54,22 +76,31 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+//- (IBAction)takePicture:(id)sender {
+//    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+//    
+//    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) 
+//    {
+//        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+//        [imagePicker setAllowsEditing:YES];
+//    }
+//    else 
+//    {
+//        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+//    }
+//    
+//    [imagePicker setDelegate:self];
+//    
+//    [self presentModalViewController:imagePicker animated:NO];
+//}
+
 - (IBAction)takePicture:(id)sender {
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) 
-    {
-        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-        [imagePicker setAllowsEditing:YES];
-    }
-    else 
-    {
-        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    }
-    
-    [imagePicker setDelegate:self];
-    
-    [self presentModalViewController:imagePicker animated:NO];
+    [self showImagePicker:UIImagePickerControllerSourceTypeCamera];
+}
+
+- (void)showImagePicker:(UIImagePickerControllerSourceType)sourceType
+{
+   
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -81,25 +112,48 @@
     }
 }
 
-#pragma mark UIImagePickerDelegate
 
--(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+
+//#pragma mark UIImagePickerDelegate
+//
+//-(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+//{
+//    image = [info objectForKey:UIImagePickerControllerEditedImage];
+//    
+//    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+//    if ([[defaults objectForKey:@"autoSavePhotos"] isEqual:@"yes"] && picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+//        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+//    }
+//    
+//    [self performSegueWithIdentifier:@"ShowNearbyPlaces" sender:self];
+//    [self dismissModalViewControllerAnimated:NO];
+//}
+//
+//-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+//{
+//    [self.tabBarController setSelectedIndex:0];
+//    [self dismissModalViewControllerAnimated:NO];
+//}
+
+#pragma mark -
+#pragma mark OverlayViewControllerDelegate
+
+// as a delegate we are being told a picture was taken
+- (void)didTakePicture:(UIImage *)picture
 {
-    image = [info objectForKey:UIImagePickerControllerEditedImage];
-    
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    if ([[defaults objectForKey:@"autoSavePhotos"] isEqual:@"yes"] && picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-    }
-    
+    self.image = picture;
+//    showCam = NO;
     [self performSegueWithIdentifier:@"ShowNearbyPlaces" sender:self];
     [self dismissModalViewControllerAnimated:NO];
 }
 
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+// as a delegate we are told to finished with the camera
+- (void)didFinishWithCamera
 {
     [self.tabBarController setSelectedIndex:0];
     [self dismissModalViewControllerAnimated:NO];
+    
 }
+
 
 @end
