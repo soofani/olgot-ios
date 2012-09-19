@@ -144,6 +144,7 @@
                                         self.fbUser.id,@"facebookid",
                                         userProfileImageUrl, @"facebookimg",
                                         nil];
+                NSLog(@"facebook id: %@", self.fbUser.id);
                 
                 [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
                 [[[RKClient sharedClient] post:@"/user/" params:params delegate:self] setUserData:@"facebook"];

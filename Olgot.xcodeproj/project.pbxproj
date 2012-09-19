@@ -105,6 +105,10 @@
 		FF331049156542150083602B /* icon-cam-80x60.png in Resources */ = {isa = PBXBuildFile; fileRef = FF331047156542150083602B /* icon-cam-80x60.png */; };
 		FF33104A156542150083602B /* icon-cam-80x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF331048156542150083602B /* icon-cam-80x60@2x.png */; };
 		FF34C8DC15C5895D00D8770F /* btn-following.png in Resources */ = {isa = PBXBuildFile; fileRef = FF34C8DB15C5895D00D8770F /* btn-following.png */; };
+		FF39F2D41600B211004A67ED /* btn-join-facebook-211x37.png in Resources */ = {isa = PBXBuildFile; fileRef = FF39F2D01600B211004A67ED /* btn-join-facebook-211x37.png */; };
+		FF39F2D51600B211004A67ED /* btn-join-facebook-211x37@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF39F2D11600B211004A67ED /* btn-join-facebook-211x37@2x.png */; };
+		FF39F2D61600B211004A67ED /* btn-join-twitter-211x37.png in Resources */ = {isa = PBXBuildFile; fileRef = FF39F2D21600B211004A67ED /* btn-join-twitter-211x37.png */; };
+		FF39F2D71600B211004A67ED /* btn-join-twitter-211x37@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF39F2D31600B211004A67ED /* btn-join-twitter-211x37@2x.png */; };
 		FF3F050D15EE62BF008BE562 /* olgotCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3F050C15EE62BF008BE562 /* olgotCameraViewController.m */; };
 		FF423CE81578DD3100A3B970 /* btn-user-list-following.png in Resources */ = {isa = PBXBuildFile; fileRef = FF423CE61578DD3100A3B970 /* btn-user-list-following.png */; };
 		FF423CE91578DD3100A3B970 /* btn-user-list-following@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF423CE71578DD3100A3B970 /* btn-user-list-following@2x.png */; };
@@ -452,6 +456,10 @@
 		FF331048156542150083602B /* icon-cam-80x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-cam-80x60@2x.png"; sourceTree = "<group>"; };
 		FF34C8DA15C588AE00D8770F /* btn-following@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-following@2x.png"; sourceTree = "<group>"; };
 		FF34C8DB15C5895D00D8770F /* btn-following.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-following.png"; sourceTree = "<group>"; };
+		FF39F2D01600B211004A67ED /* btn-join-facebook-211x37.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-join-facebook-211x37.png"; sourceTree = "<group>"; };
+		FF39F2D11600B211004A67ED /* btn-join-facebook-211x37@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-join-facebook-211x37@2x.png"; sourceTree = "<group>"; };
+		FF39F2D21600B211004A67ED /* btn-join-twitter-211x37.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-join-twitter-211x37.png"; sourceTree = "<group>"; };
+		FF39F2D31600B211004A67ED /* btn-join-twitter-211x37@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-join-twitter-211x37@2x.png"; sourceTree = "<group>"; };
 		FF3F050B15EE62BF008BE562 /* olgotCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = olgotCameraViewController.h; sourceTree = "<group>"; };
 		FF3F050C15EE62BF008BE562 /* olgotCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = olgotCameraViewController.m; sourceTree = "<group>"; };
 		FF423CE61578DD3100A3B970 /* btn-user-list-following.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-user-list-following.png"; sourceTree = "<group>"; };
@@ -729,6 +737,10 @@
 		FF10F2A9155D16F500F4EC2E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				FF39F2D01600B211004A67ED /* btn-join-facebook-211x37.png */,
+				FF39F2D11600B211004A67ED /* btn-join-facebook-211x37@2x.png */,
+				FF39F2D21600B211004A67ED /* btn-join-twitter-211x37.png */,
+				FF39F2D31600B211004A67ED /* btn-join-twitter-211x37@2x.png */,
 				FFE51CA315F4E3D100F45F8F /* bg-cam-toolbar.png */,
 				FFE51CA415F4E3D100F45F8F /* bg-cam-toolbar@2x.png */,
 				E027CE6515CAC2A4007220F2 /* icon-map-marker.png */,
@@ -1512,6 +1524,10 @@
 				E08A8BCE15E467C800F3A6C9 /* bg-gradient.png in Resources */,
 				E08A8BCF15E467C800F3A6C9 /* bg-gradient@2x.png in Resources */,
 				FF774FD415F7609A0044A153 /* FacebookSDKResources.bundle in Resources */,
+				FF39F2D41600B211004A67ED /* btn-join-facebook-211x37.png in Resources */,
+				FF39F2D51600B211004A67ED /* btn-join-facebook-211x37@2x.png in Resources */,
+				FF39F2D61600B211004A67ED /* btn-join-twitter-211x37.png in Resources */,
+				FF39F2D71600B211004A67ED /* btn-join-twitter-211x37@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
