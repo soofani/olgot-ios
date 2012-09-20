@@ -139,6 +139,8 @@
 {
     UIImage* orImage = [image fixOrientation];
     
+    
+    
     ImageCropper *cropper = [[ImageCropper alloc] initWithImage:orImage];
 	[cropper setDelegate:self];
     

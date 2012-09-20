@@ -259,8 +259,8 @@
 	
 	CGImageRelease(cr);
 	
-//	[delegate imageCropper:self didFinishCroppingWithImage:cropped];
-    UIImageWriteToSavedPhotosAlbum(cropped, nil, nil, nil);
+	[delegate imageCropper:self didFinishCroppingWithImage:cropped];
+//    UIImageWriteToSavedPhotosAlbum(cropped, nil, nil, nil);
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
