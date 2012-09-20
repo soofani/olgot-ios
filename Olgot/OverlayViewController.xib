@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1296</int>
+		<int key="IBDocument.SystemTarget">1280</int>
 		<string key="IBDocument.SystemVersion">11E53</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2549</string>
 		<string key="IBDocument.AppKitVersion">1138.47</string>
@@ -51,22 +51,6 @@
 							<string key="NSResourceName">bg-cam-toolbar.png</string>
 						</object>
 					</object>
-					<object class="IBUIImageView" id="1019716730">
-						<reference key="NSNextResponder" ref="677870532"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrameSize">{320, 53}</string>
-						<reference key="NSSuperview" ref="677870532"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="884690214"/>
-						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<int key="IBUIContentMode">2</int>
-						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<object class="NSCustomResource" key="IBUIImage" id="211830640">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">cam-bg-strip.png</string>
-						</object>
-					</object>
 					<object class="IBUIButton" id="884690214">
 						<reference key="NSNextResponder" ref="677870532"/>
 						<int key="NSvFlags">292</int>
@@ -111,7 +95,7 @@
 						<string key="NSFrame">{{281, 5}, {34, 34}}</string>
 						<reference key="NSSuperview" ref="677870532"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="757101171"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -179,24 +163,11 @@
 						<reference key="IBUIFontDescription" ref="732302854"/>
 						<reference key="IBUIFont" ref="464672042"/>
 					</object>
-					<object class="IBUIImageView" id="757101171">
-						<reference key="NSNextResponder" ref="677870532"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 374}, {320, 53}}</string>
-						<reference key="NSSuperview" ref="677870532"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="655708116"/>
-						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<int key="IBUIContentMode">2</int>
-						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<reference key="IBUIImage" ref="211830640"/>
-					</object>
 				</array>
 				<string key="NSFrameSize">{320, 480}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="1019716730"/>
+				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -312,8 +283,6 @@
 							<reference ref="113088651"/>
 							<reference ref="628066489"/>
 							<reference ref="655708116"/>
-							<reference ref="757101171"/>
-							<reference ref="1019716730"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -342,16 +311,6 @@
 						<reference key="object" ref="655708116"/>
 						<reference key="parent" ref="677870532"/>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">94</int>
-						<reference key="object" ref="757101171"/>
-						<reference key="parent" ref="677870532"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">95</int>
-						<reference key="object" ref="1019716730"/>
-						<reference key="parent" ref="677870532"/>
-					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -365,8 +324,6 @@
 				<string key="80.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="82.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="93.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="94.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="95.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
@@ -436,10 +393,6 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1296" key="NS.object.0"/>
-		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
@@ -448,7 +401,6 @@
 			<string key="btn-cam-flash-on.png">{34, 34}</string>
 			<string key="btn-cam-library.png">{34, 34}</string>
 			<string key="btn-cam-shoot-on.png">{93, 36}</string>
-			<string key="cam-bg-strip.png">{320, 32}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1498</string>
 	</data>

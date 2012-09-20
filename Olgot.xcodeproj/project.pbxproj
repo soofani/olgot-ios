@@ -77,6 +77,15 @@
 		FF2571D7156942AE00D544F8 /* btn-user-list-follow.png in Resources */ = {isa = PBXBuildFile; fileRef = FF2571D5156942AE00D544F8 /* btn-user-list-follow.png */; };
 		FF2571D8156942AE00D544F8 /* btn-user-list-follow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF2571D6156942AE00D544F8 /* btn-user-list-follow@2x.png */; };
 		FF263F0F155D5AC4005285DE /* olgotBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF263F0E155D5AC4005285DE /* olgotBoardViewController.m */; };
+		FF26A591160B48AD00153E0C /* ImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = FF26A590160B48AD00153E0C /* ImageCropper.m */; };
+		FF26A594160B4BC600153E0C /* UIImage+WBImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FF26A593160B4BC600153E0C /* UIImage+WBImage.m */; };
+		FF26A597160B548C00153E0C /* trim-square.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26A595160B548C00153E0C /* trim-square.png */; };
+		FF26A598160B548C00153E0C /* trim-square@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26A596160B548C00153E0C /* trim-square@2x.png */; };
+		FF26A59E160B5DD800153E0C /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF26A59D160B5DD800153E0C /* CoreImage.framework */; };
+		FF26A5A3160B814A00153E0C /* normal-effect.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26A59F160B814A00153E0C /* normal-effect.png */; };
+		FF26A5A4160B814A00153E0C /* sepia-effect.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26A5A0160B814A00153E0C /* sepia-effect.png */; };
+		FF26A5A5160B814A00153E0C /* vibrance-effect.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26A5A1160B814A00153E0C /* vibrance-effect.png */; };
+		FF26A5A6160B814A00153E0C /* vignette-effect.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26A5A2160B814A00153E0C /* vignette-effect.png */; };
 		FF26E26C1562807E00BECF4C /* olgotVenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF26E26B1562807E00BECF4C /* olgotVenueViewController.m */; };
 		FF26E26E1562819E00BECF4C /* VenueCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF26E26D1562819E00BECF4C /* VenueCard.xib */; };
 		FF26E2701562857200BECF4C /* VenueItemTile.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF26E26F1562857200BECF4C /* VenueItemTile.xib */; };
@@ -422,6 +431,17 @@
 		FF2571D6156942AE00D544F8 /* btn-user-list-follow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-user-list-follow@2x.png"; sourceTree = "<group>"; };
 		FF263F0D155D5AC4005285DE /* olgotBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotBoardViewController.h; path = ViewControllers/olgotBoardViewController.h; sourceTree = "<group>"; };
 		FF263F0E155D5AC4005285DE /* olgotBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotBoardViewController.m; path = ViewControllers/olgotBoardViewController.m; sourceTree = "<group>"; };
+		FF26A58F160B48AD00153E0C /* ImageCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCropper.h; sourceTree = "<group>"; };
+		FF26A590160B48AD00153E0C /* ImageCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCropper.m; sourceTree = "<group>"; };
+		FF26A592160B4BC600153E0C /* UIImage+WBImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WBImage.h"; sourceTree = "<group>"; };
+		FF26A593160B4BC600153E0C /* UIImage+WBImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WBImage.m"; sourceTree = "<group>"; };
+		FF26A595160B548C00153E0C /* trim-square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trim-square.png"; sourceTree = "<group>"; };
+		FF26A596160B548C00153E0C /* trim-square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trim-square@2x.png"; sourceTree = "<group>"; };
+		FF26A59D160B5DD800153E0C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		FF26A59F160B814A00153E0C /* normal-effect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "normal-effect.png"; sourceTree = "<group>"; };
+		FF26A5A0160B814A00153E0C /* sepia-effect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sepia-effect.png"; sourceTree = "<group>"; };
+		FF26A5A1160B814A00153E0C /* vibrance-effect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vibrance-effect.png"; sourceTree = "<group>"; };
+		FF26A5A2160B814A00153E0C /* vignette-effect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vignette-effect.png"; sourceTree = "<group>"; };
 		FF26E26A1562807E00BECF4C /* olgotVenueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotVenueViewController.h; path = ViewControllers/olgotVenueViewController.h; sourceTree = "<group>"; };
 		FF26E26B1562807E00BECF4C /* olgotVenueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotVenueViewController.m; path = ViewControllers/olgotVenueViewController.m; sourceTree = "<group>"; };
 		FF26E26D1562819E00BECF4C /* VenueCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueCard.xib; sourceTree = "<group>"; };
@@ -679,6 +699,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF26A59E160B5DD800153E0C /* CoreImage.framework in Frameworks */,
 				FFCD11F115B2E5BE00B120FB /* libRestKit.a in Frameworks */,
 				FF980C0715A5EE1200001259 /* CoreFoundation.framework in Frameworks */,
 				FFDAE0B715849FFC00859B3A /* CoreLocation.framework in Frameworks */,
@@ -737,6 +758,12 @@
 		FF10F2A9155D16F500F4EC2E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				FF26A59F160B814A00153E0C /* normal-effect.png */,
+				FF26A5A0160B814A00153E0C /* sepia-effect.png */,
+				FF26A5A1160B814A00153E0C /* vibrance-effect.png */,
+				FF26A5A2160B814A00153E0C /* vignette-effect.png */,
+				FF26A595160B548C00153E0C /* trim-square.png */,
+				FF26A596160B548C00153E0C /* trim-square@2x.png */,
 				FF39F2D01600B211004A67ED /* btn-join-facebook-211x37.png */,
 				FF39F2D11600B211004A67ED /* btn-join-facebook-211x37@2x.png */,
 				FF39F2D21600B211004A67ED /* btn-join-twitter-211x37.png */,
@@ -1068,6 +1095,7 @@
 		FFA4ED83155D12D8008CB4CA = {
 			isa = PBXGroup;
 			children = (
+				FF26A59D160B5DD800153E0C /* CoreImage.framework */,
 				FF98031115B2E4F0004B96E7 /* RestKit.xcodeproj */,
 				FF980C0615A5EE1200001259 /* CoreFoundation.framework */,
 				FF980C0415A5EDDF00001259 /* MessageUI.framework */,
@@ -1169,6 +1197,10 @@
 				FFA0559C15EA7167009F6945 /* OverlayViewController.xib */,
 				FFDA69F215DD21A3009759D9 /* olgotCameraOverlayViewController.h */,
 				FFDA69F315DD21A3009759D9 /* olgotCameraOverlayViewController.m */,
+				FF26A58F160B48AD00153E0C /* ImageCropper.h */,
+				FF26A590160B48AD00153E0C /* ImageCropper.m */,
+				FF26A592160B4BC600153E0C /* UIImage+WBImage.h */,
+				FF26A593160B4BC600153E0C /* UIImage+WBImage.m */,
 				FF26E275156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.h */,
 				FF26E276156291C100BECF4C /* olgotAddItemNearbyPlacesViewController.m */,
 				FF33102B156502F50083602B /* olgotAddItemDetailsViewController.h */,
@@ -1528,6 +1560,12 @@
 				FF39F2D51600B211004A67ED /* btn-join-facebook-211x37@2x.png in Resources */,
 				FF39F2D61600B211004A67ED /* btn-join-twitter-211x37.png in Resources */,
 				FF39F2D71600B211004A67ED /* btn-join-twitter-211x37@2x.png in Resources */,
+				FF26A597160B548C00153E0C /* trim-square.png in Resources */,
+				FF26A598160B548C00153E0C /* trim-square@2x.png in Resources */,
+				FF26A5A3160B814A00153E0C /* normal-effect.png in Resources */,
+				FF26A5A4160B814A00153E0C /* sepia-effect.png in Resources */,
+				FF26A5A5160B814A00153E0C /* vibrance-effect.png in Resources */,
+				FF26A5A6160B814A00153E0C /* vignette-effect.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1597,6 +1635,8 @@
 				FFDA69F415DD21A3009759D9 /* olgotCameraOverlayViewController.m in Sources */,
 				FFB45D9915ECD041001E1564 /* olgotTabBarViewController.m in Sources */,
 				FF3F050D15EE62BF008BE562 /* olgotCameraViewController.m in Sources */,
+				FF26A591160B48AD00153E0C /* ImageCropper.m in Sources */,
+				FF26A594160B4BC600153E0C /* UIImage+WBImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

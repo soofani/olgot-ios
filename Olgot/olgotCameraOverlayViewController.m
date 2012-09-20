@@ -123,7 +123,7 @@
     
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
  
-    UIImage *cropImage = [self squareImageWithImage:image scaledToSize:CGSizeMake(320.0f, 320.0f)];
+//    UIImage *cropImage = [self squareImageWithImage:image scaledToSize:CGSizeMake(320.0f, 320.0f)];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -131,7 +131,9 @@
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     }
     
-    [self.delegate tookPicture:cropImage];
+    NSLog(@"image size %f,%f",image.size.width, image.size.height);
+    
+    [self.delegate tookPicture:image];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker

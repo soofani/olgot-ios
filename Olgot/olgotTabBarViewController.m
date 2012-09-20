@@ -137,15 +137,13 @@
 
 -(void)tookPicture:(UIImage *)image
 {
-    olgotAddItemNearbyPlacesViewController* nearbyController = [[olgotAddItemNearbyPlacesViewController alloc] init];
+    UIImage* orImage = [image fixOrientation];
     
-    nearbyController.capturedImage = image;
-    nearbyController.delegate = self;
-    
-    UINavigationController *camNavController = [[UINavigationController alloc] initWithRootViewController:nearbyController];
+    ImageCropper *cropper = [[ImageCropper alloc] initWithImage:orImage];
+	[cropper setDelegate:self];
     
     [self dismissModalViewControllerAnimated:NO];
-    [self presentModalViewController:camNavController animated:NO];
+    [self presentModalViewController:cropper animated:NO];
 }
 
 -(void)cancelled
@@ -158,6 +156,27 @@
 {
     [self dismissModalViewControllerAnimated:NO];
     [self showCamAnimated:NO source:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+#pragma mark - olgotTrimEffectsDelegate
+
+- (void)imageCropper:(ImageCropper *)cropper didFinishCroppingWithImage:(UIImage *)editedImage
+{
+    olgotAddItemNearbyPlacesViewController* nearbyController = [[olgotAddItemNearbyPlacesViewController alloc] init];
+    
+    nearbyController.capturedImage = editedImage;
+    nearbyController.delegate = self;
+    
+    UINavigationController *camNavController = [[UINavigationController alloc] initWithRootViewController:nearbyController];
+    
+    [self dismissModalViewControllerAnimated:NO];
+    [self presentModalViewController:camNavController animated:NO];
+}
+
+- (void)imageCropperDidCancel:(ImageCropper *)cropper {
+	[self dismissModalViewControllerAnimated:NO];
+	
+    [self showCamAnimated:NO source:UIImagePickerControllerSourceTypeCamera];
 }
 
 #pragma mark - addItemNearbyDelegate

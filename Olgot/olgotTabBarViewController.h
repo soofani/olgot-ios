@@ -10,8 +10,10 @@
 #import "olgotAddItemNearbyPlacesViewController.h"
 #import "olgotAddItemConfirmationViewController.h"
 #import "olgotCameraOverlayViewController.h"
+#import "ImageCropper.h"
+#import "UIImage+fixOrientation.h"
 
-@interface olgotTabBarViewController : UITabBarController<olgotCameraOverlayViewControllerDelegate ,addItemNearbyProtocol>
+@interface olgotTabBarViewController : UITabBarController<olgotCameraOverlayViewControllerDelegate ,addItemNearbyProtocol, ImageCropperDelegate>
 {
 
 }
