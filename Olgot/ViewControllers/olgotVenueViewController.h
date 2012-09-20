@@ -15,7 +15,10 @@
 #import "olgotAddItemDetailsViewController.h"
 #import "olgotCameraOverlayViewController.h"
 
-@interface olgotVenueViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate,olgotCameraOverlayViewControllerDelegate, addItemDetailsProtocol>{
+#import "ImageCropper.h"
+#import "UIImage+fixOrientation.h"
+
+@interface olgotVenueViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate,olgotCameraOverlayViewControllerDelegate, addItemDetailsProtocol, ImageCropperDelegate>{
     olgotVenue* _venue;
     NSMutableArray* _items;
     NSIndexPath* _selectedRowIndexPath;

@@ -14,6 +14,7 @@
 #import "olgotVenueMapViewController.h"
 #import "olgotProfileViewController.h"
 
+
 @interface olgotVenueViewController ()
 
 @end
@@ -415,17 +416,15 @@
 
 -(void)tookPicture:(UIImage *)mImage
 {
-    olgotAddItemDetailsViewController *itemDetailsController = [[olgotAddItemDetailsViewController alloc] initWithNibName:@"addItemDetailsView" bundle:[NSBundle mainBundle]];
+    UIImage* orImage = [mImage fixOrientation];
     
-    //setup details controller
-    itemDetailsController.venue = _venue;
-    itemDetailsController.itemImage = mImage;
-    itemDetailsController.delegate = self;
     
-    UINavigationController *camNavController = [[UINavigationController alloc] initWithRootViewController:itemDetailsController];
+    
+    ImageCropper *cropper = [[ImageCropper alloc] initWithImage:orImage];
+	[cropper setDelegate:self];
     
     [self dismissModalViewControllerAnimated:NO];
-    [self presentModalViewController:camNavController animated:NO];
+    [self presentModalViewController:cropper animated:NO];
 }
 
 -(void)cancelled
@@ -451,6 +450,29 @@
 -(void)exitAddItemFlow
 {
     [self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark - olgotTrimEffectsDelegate
+
+- (void)imageCropper:(ImageCropper *)cropper didFinishCroppingWithImage:(UIImage *)editedImage
+{
+    olgotAddItemDetailsViewController *itemDetailsController = [[olgotAddItemDetailsViewController alloc] initWithNibName:@"addItemDetailsView" bundle:[NSBundle mainBundle]];
+    
+    //setup details controller
+    itemDetailsController.venue = _venue;
+    itemDetailsController.itemImage = editedImage;
+    itemDetailsController.delegate = self;
+    
+    UINavigationController *camNavController = [[UINavigationController alloc] initWithRootViewController:itemDetailsController];
+    
+    [self dismissModalViewControllerAnimated:NO];
+    [self presentModalViewController:camNavController animated:NO];
+}
+
+- (void)imageCropperDidCancel:(ImageCropper *)cropper {
+	[self dismissModalViewControllerAnimated:NO];
+	
+    [self showCamAnimated:NO source:UIImagePickerControllerSourceTypeCamera];
 }
 
 
