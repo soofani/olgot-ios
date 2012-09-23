@@ -10,14 +10,28 @@
 #import <SSToolkit/SSToolkit.h>
 #import <RestKit/RestKit.h>
 
-@interface olgotFriendsViewController : SSCollectionViewController<RKObjectLoaderDelegate>{
+@protocol olgotFriendsViewDelegate;
+
+@interface olgotFriendsViewController : SSCollectionViewController<RKObjectLoaderDelegate,UIActionSheetDelegate>{
     NSArray* _myFriends;
     NSIndexPath* _selectedRowIndexPath;
+    
+    id <olgotFriendsViewDelegate> delegate;
 }
 
+@property (nonatomic, retain) id <olgotFriendsViewDelegate> delegate;
 @property (nonatomic, strong) NSString* userID;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *headerCell;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *personCell;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *footerCell;
+
+@end
+
+
+@protocol olgotFriendsViewDelegate
+
+-(void)showInviteTwitter;
+-(void)showInviteFacebook;
+-(void)dismissFriendsView;
 
 @end

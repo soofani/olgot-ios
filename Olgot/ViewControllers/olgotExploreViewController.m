@@ -12,7 +12,6 @@
 #import "olgotBoardViewController.h"
 #import "olgotCategory.h"
 #import "olgotItem.h"
-#import "olgotFriendsViewController.h"
 #import "olgotTabBarViewController.h"
 
 
@@ -407,6 +406,7 @@
     }else if ([[segue identifier] isEqual:@"ShowFriendsList"]) {
         olgotFriendsViewController *friendsViewController = [segue destinationViewController];
         [friendsViewController setUserID:[defaults objectForKey:@"userid"]];
+        [friendsViewController setDelegate:self];
     }else if ([[segue identifier] isEqual:@"ShowSignupFlow"]){
         UINavigationController* signupNavController = (UINavigationController*)[segue destinationViewController];
         self.signupRootVC = [[signupNavController viewControllers] objectAtIndex:0];
@@ -540,6 +540,37 @@
     [self loadCategories];
     [self loadFixedCategories];
     [self checkNotifications];
+}
+
+#pragma mark friends view delegate
+
+-(void)dismissFriendsView{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+-(void)showInviteTwitter{
+    olgotTwitterInvitesViewController* twitterInviteController = [[olgotTwitterInvitesViewController alloc] initWithNibName:@"TwitterInvitesVC" bundle:nil];
+    [twitterInviteController setDelegate:self];
+    [twitterInviteController setUserId:[defaults objectForKey:@"userid"]];
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self presentModalViewController:twitterInviteController animated:YES];
+    }];
+    
+}
+
+-(void)showInviteFacebook{
+    [self dismissViewControllerAnimated:YES completion:^{
+       
+    }];
+}
+
+#pragma mark twitter invites delegate
+
+-(void)finishedInvites{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 @end

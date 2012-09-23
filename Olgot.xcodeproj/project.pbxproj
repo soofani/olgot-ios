@@ -273,6 +273,10 @@
 		FFEF1F931577B1B300CE9AE9 /* olgotMyFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEF1F921577B1B300CE9AE9 /* olgotMyFriend.m */; };
 		FFEF1F961577C9DC00CE9AE9 /* cam-bg-strip.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEF1F941577C9DB00CE9AE9 /* cam-bg-strip.png */; };
 		FFEF1F971577C9DC00CE9AE9 /* cam-bg-strip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFEF1F951577C9DB00CE9AE9 /* cam-bg-strip@2x.png */; };
+		FFF17EBD160F1D070024FB77 /* olgotTwitterInvitesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF17EBC160F1D070024FB77 /* olgotTwitterInvitesViewController.m */; };
+		FFF17EBF160F20020024FB77 /* TwitterInvitesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF17EBE160F20020024FB77 /* TwitterInvitesVC.xib */; };
+		FFF17EC2160F218B0024FB77 /* olgotTwitterInviteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF17EC1160F218B0024FB77 /* olgotTwitterInviteCell.m */; };
+		FFF17EC4160F21B00024FB77 /* TwitterInviteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF17EC3160F21B00024FB77 /* TwitterInviteCell.xib */; };
 		FFF580AF15A08B5300662E8D /* icon-tab-bar-lovely-active.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF580AB15A08B5300662E8D /* icon-tab-bar-lovely-active.png */; };
 		FFF580B015A08B5300662E8D /* icon-tab-bar-lovely-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF580AC15A08B5300662E8D /* icon-tab-bar-lovely-active@2x.png */; };
 		FFF580B115A08B5300662E8D /* icon-tab-bar-lovely.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF580AD15A08B5300662E8D /* icon-tab-bar-lovely.png */; };
@@ -686,6 +690,12 @@
 		FFEF1F921577B1B300CE9AE9 /* olgotMyFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotMyFriend.m; path = Model/olgotMyFriend.m; sourceTree = "<group>"; };
 		FFEF1F941577C9DB00CE9AE9 /* cam-bg-strip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam-bg-strip.png"; sourceTree = "<group>"; };
 		FFEF1F951577C9DB00CE9AE9 /* cam-bg-strip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cam-bg-strip@2x.png"; sourceTree = "<group>"; };
+		FFF17EBB160F1D070024FB77 /* olgotTwitterInvitesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = olgotTwitterInvitesViewController.h; sourceTree = "<group>"; };
+		FFF17EBC160F1D070024FB77 /* olgotTwitterInvitesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = olgotTwitterInvitesViewController.m; sourceTree = "<group>"; };
+		FFF17EBE160F20020024FB77 /* TwitterInvitesVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterInvitesVC.xib; sourceTree = "<group>"; };
+		FFF17EC0160F218B0024FB77 /* olgotTwitterInviteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = olgotTwitterInviteCell.h; sourceTree = "<group>"; };
+		FFF17EC1160F218B0024FB77 /* olgotTwitterInviteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = olgotTwitterInviteCell.m; sourceTree = "<group>"; };
+		FFF17EC3160F21B00024FB77 /* TwitterInviteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterInviteCell.xib; sourceTree = "<group>"; };
 		FFF580AB15A08B5300662E8D /* icon-tab-bar-lovely-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tab-bar-lovely-active.png"; sourceTree = "<group>"; };
 		FFF580AC15A08B5300662E8D /* icon-tab-bar-lovely-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tab-bar-lovely-active@2x.png"; sourceTree = "<group>"; };
 		FFF580AD15A08B5300662E8D /* icon-tab-bar-lovely.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tab-bar-lovely.png"; sourceTree = "<group>"; };
@@ -730,6 +740,7 @@
 		FF10F2A8155D16DA00F4EC2E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FFF17EBA160F1C8F0024FB77 /* Invite */,
 				FFA8542B156D33130009134C /* Signup */,
 				FF76C42D15BEB8490045B4EA /* Main */,
 				FFA8542C156D33500009134C /* Add Item */,
@@ -1254,6 +1265,19 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		FFF17EBA160F1C8F0024FB77 /* Invite */ = {
+			isa = PBXGroup;
+			children = (
+				FFF17EBB160F1D070024FB77 /* olgotTwitterInvitesViewController.h */,
+				FFF17EBC160F1D070024FB77 /* olgotTwitterInvitesViewController.m */,
+				FFF17EBE160F20020024FB77 /* TwitterInvitesVC.xib */,
+				FFF17EC0160F218B0024FB77 /* olgotTwitterInviteCell.h */,
+				FFF17EC1160F218B0024FB77 /* olgotTwitterInviteCell.m */,
+				FFF17EC3160F21B00024FB77 /* TwitterInviteCell.xib */,
+			);
+			name = Invite;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1566,6 +1590,8 @@
 				FF26A5A4160B814A00153E0C /* sepia-effect.png in Resources */,
 				FF26A5A5160B814A00153E0C /* vibrance-effect.png in Resources */,
 				FF26A5A6160B814A00153E0C /* vignette-effect.png in Resources */,
+				FFF17EBF160F20020024FB77 /* TwitterInvitesVC.xib in Resources */,
+				FFF17EC4160F21B00024FB77 /* TwitterInviteCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1637,6 +1663,8 @@
 				FF3F050D15EE62BF008BE562 /* olgotCameraViewController.m in Sources */,
 				FF26A591160B48AD00153E0C /* ImageCropper.m in Sources */,
 				FF26A594160B4BC600153E0C /* UIImage+WBImage.m in Sources */,
+				FFF17EBD160F1D070024FB77 /* olgotTwitterInvitesViewController.m in Sources */,
+				FFF17EC2160F218B0024FB77 /* olgotTwitterInviteCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@
 #import "olgotMyFriend.h"
 #import <QuartzCore/QuartzCore.h>
 
+
 @interface olgotFriendsViewController ()
 
 @end
@@ -19,6 +20,7 @@
 
 @synthesize headerCell = _headerCell, personCell = _personCell, footerCell = _footerCell;
 @synthesize userID = _userID;
+@synthesize delegate;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -150,12 +152,22 @@
     UINavigationBar *naviBarObj = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     [self.view addSubview:naviBarObj];
     
+    //setup done button
     UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(doneButtonPressed)];
     
     [doneItem setTintColor:[UIColor colorWithRed:232.0/255.0 green:78.0/255.0 blue:32.0/255.0 alpha:1.0]];
     
+    //setup invite
+    UIImage *addImage30 = [UIImage imageNamed:@"btn-nav-add-item"];
+    
+    UIButton *addBtn = [[UIButton alloc] init];
+    addBtn.frame=CGRectMake(0,0,35,30);
+    [addBtn setBackgroundImage:addImage30 forState:UIControlStateNormal];
+    [addBtn addTarget:self action:@selector(showSharingActionSheet) forControlEvents:UIControlEventTouchUpInside];
+    
     UINavigationItem *navigItem = [[UINavigationItem alloc] initWithTitle:@"Friends"];
-    navigItem.rightBarButtonItem = doneItem;
+    navigItem.leftBarButtonItem = doneItem;
+    navigItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:addBtn];
     naviBarObj.items = [NSArray arrayWithObjects: navigItem,nil];
     
     
@@ -163,7 +175,15 @@
 
 - (void) doneButtonPressed 
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self.delegate dismissFriendsView];
+}
+
+-(void)showSharingActionSheet
+{
+    UIActionSheet *inviteAS = [[UIActionSheet alloc] initWithTitle:@"Invite People" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Twitter", nil];
+    
+	inviteAS.actionSheetStyle = UIActionSheetStyleDefault;
+	[inviteAS showInView:self.view];
 }
 
 - (void)viewDidUnload
@@ -297,6 +317,22 @@
 
 - (CGFloat)collectionView:(SSCollectionView *)aCollectionView heightForHeaderInSection:(NSUInteger)section {
 	return 0.0f;
+}
+
+#pragma mark - UIActionSheet Delegate
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+	if (buttonIndex == 0) {
+        //facebook
+        [self.delegate showInviteFacebook];
+	} else if (buttonIndex == 1) {
+        //twitter
+        [self.delegate showInviteTwitter];
+	}
+	else if (buttonIndex == 2) {
+        //cancel
+    }
+    
 }
 
 @end

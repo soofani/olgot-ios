@@ -22,6 +22,7 @@
 #import "LocalyticsSession.h"
 
 
+
 @implementation olgotAppDelegate
 
 @synthesize window = _window;
@@ -346,6 +347,14 @@
      @"followsMe",@"followsMe",
      nil];
     
+    RKObjectMapping* twitterInviteeMapping = [RKObjectMapping mappingForClass:[olgotMyFriend class]];
+    [twitterInviteeMapping mapKeyPathsToAttributes:
+     @"id",@"userId",
+     @"twitterName",@"username",
+     @"fullName",@"firstName",
+     @"twitterImageUrl",@"userProfileImgUrl",
+     nil];
+    
     RKObjectMapping* notificationMapping = [RKObjectMapping mappingForClass:[olgotNotification class]];
     [notificationMapping mapKeyPathsToAttributes:
      @"id", @"noteID",
@@ -407,6 +416,8 @@
     [objectManager.mappingProvider setObjectMapping:commentMapping forResourcePathPattern:@"/comments/"];
     
     [objectManager.mappingProvider setObjectMapping:myFriendMapping forResourcePathPattern:@"/friends/"];
+    
+    [objectManager.mappingProvider setObjectMapping:twitterInviteeMapping forResourcePathPattern:@"/networkfriends/"];
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [[LocalyticsSession sharedLocalyticsSession] tagEvent:[NSString stringWithFormat:@"user %@ started the app", [defaults objectForKey:@"userid"]]];
