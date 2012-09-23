@@ -163,7 +163,7 @@
     UIButton *addBtn = [[UIButton alloc] init];
     addBtn.frame=CGRectMake(0,0,35,30);
     [addBtn setBackgroundImage:addImage30 forState:UIControlStateNormal];
-    [addBtn addTarget:self action:@selector(showSharingActionSheet) forControlEvents:UIControlEventTouchUpInside];
+    [addBtn addTarget:self action:@selector(showInviteActionSheet) forControlEvents:UIControlEventTouchUpInside];
     
     UINavigationItem *navigItem = [[UINavigationItem alloc] initWithTitle:@"Friends"];
     navigItem.leftBarButtonItem = doneItem;
@@ -178,9 +178,9 @@
     [self.delegate dismissFriendsView];
 }
 
--(void)showSharingActionSheet
+-(void)showInviteActionSheet
 {
-    UIActionSheet *inviteAS = [[UIActionSheet alloc] initWithTitle:@"Invite People" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Twitter", nil];
+    UIActionSheet *inviteAS = [[UIActionSheet alloc] initWithTitle:@"Invite People" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Twitter", nil];
     
 	inviteAS.actionSheetStyle = UIActionSheetStyleDefault;
 	[inviteAS showInView:self.view];
@@ -323,15 +323,12 @@
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 0) {
-        //facebook
-        [self.delegate showInviteFacebook];
-	} else if (buttonIndex == 1) {
         //twitter
         [self.delegate showInviteTwitter];
-	}
-	else if (buttonIndex == 2) {
+	} else if (buttonIndex == 1) {
         //cancel
-    }
+	}
+	
     
 }
 

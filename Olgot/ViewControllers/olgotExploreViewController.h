@@ -15,6 +15,7 @@
 #import "olgotFriendsViewController.h"
 #import "olgotTwitterInvitesViewController.h"
 
+
 @interface olgotExploreViewController : SSCollectionViewController <RKObjectLoaderDelegate, CLLocationManagerDelegate,SSPullToRefreshViewDelegate, olgotFriendsViewDelegate,olgotTwitterInvitesDelegate>{
     NSString *firstRun;
     NSArray* _categories;
