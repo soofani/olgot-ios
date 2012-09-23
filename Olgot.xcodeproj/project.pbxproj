@@ -153,7 +153,6 @@
 		FF76C45C15BEC0C40045B4EA /* friendsHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF76C45B15BEC0C40045B4EA /* friendsHeaderCell.xib */; };
 		FF76C45E15BEC0D20045B4EA /* friendsFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF76C45D15BEC0D20045B4EA /* friendsFooterCell.xib */; };
 		FF76C46015BEC0DF0045B4EA /* friendsPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF76C45F15BEC0DF0045B4EA /* friendsPersonCell.xib */; };
-		FF774FD415F7609A0044A153 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FF774FD315F7609A0044A153 /* FacebookSDKResources.bundle */; };
 		FF7A000115750F0500BB5A65 /* profileViewPersonCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7A000015750F0500BB5A65 /* profileViewPersonCard.xib */; };
 		FF7A00041575106E00BB5A65 /* box-stats.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7A00021575106E00BB5A65 /* box-stats.png */; };
 		FF7A00051575106E00BB5A65 /* box-stats@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7A00031575106E00BB5A65 /* box-stats@2x.png */; };
@@ -277,6 +276,7 @@
 		FFF17EBF160F20020024FB77 /* TwitterInvitesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF17EBE160F20020024FB77 /* TwitterInvitesVC.xib */; };
 		FFF17EC2160F218B0024FB77 /* olgotTwitterInviteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF17EC1160F218B0024FB77 /* olgotTwitterInviteCell.m */; };
 		FFF17EC4160F21B00024FB77 /* TwitterInviteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF17EC3160F21B00024FB77 /* TwitterInviteCell.xib */; };
+		FFF17ED7160F6A340024FB77 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FFF17ED6160F6A340024FB77 /* FacebookSDKResources.bundle */; };
 		FFF580AF15A08B5300662E8D /* icon-tab-bar-lovely-active.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF580AB15A08B5300662E8D /* icon-tab-bar-lovely-active.png */; };
 		FFF580B015A08B5300662E8D /* icon-tab-bar-lovely-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF580AC15A08B5300662E8D /* icon-tab-bar-lovely-active@2x.png */; };
 		FFF580B115A08B5300662E8D /* icon-tab-bar-lovely.png in Resources */ = {isa = PBXBuildFile; fileRef = FFF580AD15A08B5300662E8D /* icon-tab-bar-lovely.png */; };
@@ -530,7 +530,6 @@
 		FF76C45B15BEC0C40045B4EA /* friendsHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = friendsHeaderCell.xib; sourceTree = "<group>"; };
 		FF76C45D15BEC0D20045B4EA /* friendsFooterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = friendsFooterCell.xib; sourceTree = "<group>"; };
 		FF76C45F15BEC0DF0045B4EA /* friendsPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = friendsPersonCell.xib; sourceTree = "<group>"; };
-		FF774FD315F7609A0044A153 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		FF774FD615F7933D0044A153 /* olgotProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = olgotProtocols.h; sourceTree = "<group>"; };
 		FF7A000015750F0500BB5A65 /* profileViewPersonCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = profileViewPersonCard.xib; sourceTree = "<group>"; };
 		FF7A00021575106E00BB5A65 /* box-stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box-stats.png"; sourceTree = "<group>"; };
@@ -696,6 +695,7 @@
 		FFF17EC0160F218B0024FB77 /* olgotTwitterInviteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = olgotTwitterInviteCell.h; sourceTree = "<group>"; };
 		FFF17EC1160F218B0024FB77 /* olgotTwitterInviteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = olgotTwitterInviteCell.m; sourceTree = "<group>"; };
 		FFF17EC3160F21B00024FB77 /* TwitterInviteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterInviteCell.xib; sourceTree = "<group>"; };
+		FFF17ED6160F6A340024FB77 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = FacebookSDK.framework/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		FFF580AB15A08B5300662E8D /* icon-tab-bar-lovely-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tab-bar-lovely-active.png"; sourceTree = "<group>"; };
 		FFF580AC15A08B5300662E8D /* icon-tab-bar-lovely-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tab-bar-lovely-active@2x.png"; sourceTree = "<group>"; };
 		FFF580AD15A08B5300662E8D /* icon-tab-bar-lovely.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tab-bar-lovely.png"; sourceTree = "<group>"; };
@@ -1114,13 +1114,13 @@
 				FF6AFF9A15814636000A24BA /* libsqlite3.dylib */,
 				FF00106715FA192200118192 /* FacebookSDK.framework */,
 				FF6AFF9815814626000A24BA /* libz.dylib */,
+				FFF17ED6160F6A340024FB77 /* FacebookSDKResources.bundle */,
 				FF6AFF8D158144DE000A24BA /* src */,
 				FF20E75F157525F5004EC879 /* Accounts.framework */,
 				FF20E75D157525EE004EC879 /* Twitter.framework */,
 				FF7AFF7B1574C7DB00BB5A65 /* AFNetworking */,
 				FFE9A02215726DCF00509B09 /* OlgotModel.xcdatamodeld */,
 				FF7AAF06157237C60073EAA3 /* libxml2.dylib */,
-				FF774FD315F7609A0044A153 /* FacebookSDKResources.bundle */,
 				FFDCBDF81562622800FB8009 /* MapKit.framework */,
 				FFDCBDF61562621800FB8009 /* MobileCoreServices.framework */,
 				FF10F2FC155D206600F4EC2E /* QuartzCore.framework */,
@@ -1579,7 +1579,6 @@
 				E020291115DE98CE004759CF /* btn-venue@2x.png in Resources */,
 				E08A8BCE15E467C800F3A6C9 /* bg-gradient.png in Resources */,
 				E08A8BCF15E467C800F3A6C9 /* bg-gradient@2x.png in Resources */,
-				FF774FD415F7609A0044A153 /* FacebookSDKResources.bundle in Resources */,
 				FF39F2D41600B211004A67ED /* btn-join-facebook-211x37.png in Resources */,
 				FF39F2D51600B211004A67ED /* btn-join-facebook-211x37@2x.png in Resources */,
 				FF39F2D61600B211004A67ED /* btn-join-twitter-211x37.png in Resources */,
@@ -1592,6 +1591,7 @@
 				FF26A5A6160B814A00153E0C /* vignette-effect.png in Resources */,
 				FFF17EBF160F20020024FB77 /* TwitterInvitesVC.xib in Resources */,
 				FFF17EC4160F21B00024FB77 /* TwitterInviteCell.xib in Resources */,
+				FFF17ED7160F6A340024FB77 /* FacebookSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
