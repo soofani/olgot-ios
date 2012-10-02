@@ -79,8 +79,6 @@
 		FF263F0F155D5AC4005285DE /* olgotBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF263F0E155D5AC4005285DE /* olgotBoardViewController.m */; };
 		FF26A591160B48AD00153E0C /* ImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = FF26A590160B48AD00153E0C /* ImageCropper.m */; };
 		FF26A594160B4BC600153E0C /* UIImage+WBImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FF26A593160B4BC600153E0C /* UIImage+WBImage.m */; };
-		FF26A597160B548C00153E0C /* trim-square.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26A595160B548C00153E0C /* trim-square.png */; };
-		FF26A598160B548C00153E0C /* trim-square@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26A596160B548C00153E0C /* trim-square@2x.png */; };
 		FF26A59E160B5DD800153E0C /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF26A59D160B5DD800153E0C /* CoreImage.framework */; };
 		FF26A5A3160B814A00153E0C /* normal-effect.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26A59F160B814A00153E0C /* normal-effect.png */; };
 		FF26A5A4160B814A00153E0C /* sepia-effect.png in Resources */ = {isa = PBXBuildFile; fileRef = FF26A5A0160B814A00153E0C /* sepia-effect.png */; };
@@ -119,6 +117,8 @@
 		FF39F2D61600B211004A67ED /* btn-join-twitter-211x37.png in Resources */ = {isa = PBXBuildFile; fileRef = FF39F2D21600B211004A67ED /* btn-join-twitter-211x37.png */; };
 		FF39F2D71600B211004A67ED /* btn-join-twitter-211x37@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF39F2D31600B211004A67ED /* btn-join-twitter-211x37@2x.png */; };
 		FF3F050D15EE62BF008BE562 /* olgotCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3F050C15EE62BF008BE562 /* olgotCameraViewController.m */; };
+		FF40B37F161090C4005F1F39 /* trim-square.png in Resources */ = {isa = PBXBuildFile; fileRef = FF40B37D161090C4005F1F39 /* trim-square.png */; };
+		FF40B380161090C4005F1F39 /* trim-square@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF40B37E161090C4005F1F39 /* trim-square@2x.png */; };
 		FF423CE81578DD3100A3B970 /* btn-user-list-following.png in Resources */ = {isa = PBXBuildFile; fileRef = FF423CE61578DD3100A3B970 /* btn-user-list-following.png */; };
 		FF423CE91578DD3100A3B970 /* btn-user-list-following@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF423CE71578DD3100A3B970 /* btn-user-list-following@2x.png */; };
 		FF423CEC157991B600A3B970 /* olgotUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FF423CEB157991B600A3B970 /* olgotUser.m */; };
@@ -439,8 +439,6 @@
 		FF26A590160B48AD00153E0C /* ImageCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCropper.m; sourceTree = "<group>"; };
 		FF26A592160B4BC600153E0C /* UIImage+WBImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WBImage.h"; sourceTree = "<group>"; };
 		FF26A593160B4BC600153E0C /* UIImage+WBImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WBImage.m"; sourceTree = "<group>"; };
-		FF26A595160B548C00153E0C /* trim-square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trim-square.png"; sourceTree = "<group>"; };
-		FF26A596160B548C00153E0C /* trim-square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trim-square@2x.png"; sourceTree = "<group>"; };
 		FF26A59D160B5DD800153E0C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		FF26A59F160B814A00153E0C /* normal-effect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "normal-effect.png"; sourceTree = "<group>"; };
 		FF26A5A0160B814A00153E0C /* sepia-effect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sepia-effect.png"; sourceTree = "<group>"; };
@@ -486,6 +484,8 @@
 		FF39F2D31600B211004A67ED /* btn-join-twitter-211x37@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-join-twitter-211x37@2x.png"; sourceTree = "<group>"; };
 		FF3F050B15EE62BF008BE562 /* olgotCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = olgotCameraViewController.h; sourceTree = "<group>"; };
 		FF3F050C15EE62BF008BE562 /* olgotCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = olgotCameraViewController.m; sourceTree = "<group>"; };
+		FF40B37D161090C4005F1F39 /* trim-square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trim-square.png"; sourceTree = "<group>"; };
+		FF40B37E161090C4005F1F39 /* trim-square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trim-square@2x.png"; sourceTree = "<group>"; };
 		FF423CE61578DD3100A3B970 /* btn-user-list-following.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-user-list-following.png"; sourceTree = "<group>"; };
 		FF423CE71578DD3100A3B970 /* btn-user-list-following@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-user-list-following@2x.png"; sourceTree = "<group>"; };
 		FF423CEA157991B600A3B970 /* olgotUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotUser.h; path = Model/olgotUser.h; sourceTree = "<group>"; };
@@ -769,12 +769,12 @@
 		FF10F2A9155D16F500F4EC2E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				FF40B37D161090C4005F1F39 /* trim-square.png */,
+				FF40B37E161090C4005F1F39 /* trim-square@2x.png */,
 				FF26A59F160B814A00153E0C /* normal-effect.png */,
 				FF26A5A0160B814A00153E0C /* sepia-effect.png */,
 				FF26A5A1160B814A00153E0C /* vibrance-effect.png */,
 				FF26A5A2160B814A00153E0C /* vignette-effect.png */,
-				FF26A595160B548C00153E0C /* trim-square.png */,
-				FF26A596160B548C00153E0C /* trim-square@2x.png */,
 				FF39F2D01600B211004A67ED /* btn-join-facebook-211x37.png */,
 				FF39F2D11600B211004A67ED /* btn-join-facebook-211x37@2x.png */,
 				FF39F2D21600B211004A67ED /* btn-join-twitter-211x37.png */,
@@ -1583,8 +1583,6 @@
 				FF39F2D51600B211004A67ED /* btn-join-facebook-211x37@2x.png in Resources */,
 				FF39F2D61600B211004A67ED /* btn-join-twitter-211x37.png in Resources */,
 				FF39F2D71600B211004A67ED /* btn-join-twitter-211x37@2x.png in Resources */,
-				FF26A597160B548C00153E0C /* trim-square.png in Resources */,
-				FF26A598160B548C00153E0C /* trim-square@2x.png in Resources */,
 				FF26A5A3160B814A00153E0C /* normal-effect.png in Resources */,
 				FF26A5A4160B814A00153E0C /* sepia-effect.png in Resources */,
 				FF26A5A5160B814A00153E0C /* vibrance-effect.png in Resources */,
@@ -1592,6 +1590,8 @@
 				FFF17EBF160F20020024FB77 /* TwitterInvitesVC.xib in Resources */,
 				FFF17EC4160F21B00024FB77 /* TwitterInviteCell.xib in Resources */,
 				FFF17ED7160F6A340024FB77 /* FacebookSDKResources.bundle in Resources */,
+				FF40B37F161090C4005F1F39 /* trim-square.png in Resources */,
+				FF40B380161090C4005F1F39 /* trim-square@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1725,6 +1725,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -1745,6 +1746,7 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};
