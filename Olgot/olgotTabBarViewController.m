@@ -61,7 +61,8 @@
 // Create a custom UIButton and add it to the center of our tab bar
 -(void) addCenterButtonWithImage
 {
-    if ([[self.tabBar subviews] count] == 7) {
+    NSLog(@"subview %d", [[self.tabBar subviews] count]);
+    if ([[self.tabBar subviews] count] == 7 || [[self.tabBar subviews] count] == 8) {
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
         button.frame = CGRectMake(0.0, 0.0, 65.0, 58.0);
