@@ -14,7 +14,7 @@
 @synthesize libraryBtn;
 @synthesize closeBtn;
 @synthesize flashBtn;
-
+@synthesize imagePickerController;                                                       
 @synthesize delegate;
 
 
