@@ -16,41 +16,39 @@
 - (id)initWithImage:(UIImage *)image {
 	self = [super init];
 	
-	if (self) {
-		
-		
-        image = [image scaleWithMaxSize:600.0 quality:kCGInterpolationHigh];
+	if (self) {        
+//        rawImage = [image scaleWithMaxSize:426.0 quality:kCGInterpolationDefault];
         rawImage = image;
-//        thumbImage = [image scaleWithMaxSize:60.0 quality:kCGInterpolationLow];
+        image = nil;
         
-		scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, -20.0, 320.0, 426.0)];
-		[scrollView setBackgroundColor:[UIColor blackColor]];
-		[scrollView setDelegate:self];
-		[scrollView setShowsHorizontalScrollIndicator:NO];
-		[scrollView setShowsVerticalScrollIndicator:NO];
-		[scrollView setMaximumZoomScale:2.0];
-		
-		imageView = [[UIImageView alloc] initWithImage:image];
-		
-		CGRect rect;
-		rect.size.width = image.size.width;
-		rect.size.height = image.size.height;
-		NSLog(@"image size %f,%f",image.size.width,image.size.height);
-		[imageView setFrame:rect];
-		
-		[scrollView setContentSize:[imageView frame].size];
-        if (image.size.width > image.size.height) {
+        scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, -20.0, 320.0, 426.0)];
+        [scrollView setBackgroundColor:[UIColor blackColor]];
+        [scrollView setDelegate:self];
+        [scrollView setShowsHorizontalScrollIndicator:NO];
+        [scrollView setShowsVerticalScrollIndicator:NO];
+        [scrollView setMaximumZoomScale:2.0];
+        
+        imageView = [[UIImageView alloc] initWithImage:rawImage];
+        
+        CGRect rect;
+        rect.size.width = rawImage.size.width;
+        rect.size.height = rawImage.size.height;
+        NSLog(@"image size %f,%f",rawImage.size.width,rawImage.size.height);
+        [imageView setFrame:rect];
+        
+        [scrollView setContentSize:[imageView frame].size];
+        if (rawImage.size.width > rawImage.size.height) {
             NSLog(@"Landscape image");
             [scrollView setContentInset:UIEdgeInsetsMake(93.0, 0.0, 0.0, 0.0)];
         }else{
             NSLog(@"portrait image");
         }
         
-		[scrollView setMinimumZoomScale:[scrollView frame].size.width / [imageView frame].size.width];
-		[scrollView setZoomScale:[scrollView minimumZoomScale]];
-		[scrollView addSubview:imageView];
-		
-		[[self view] addSubview:scrollView];
+        [scrollView setMinimumZoomScale:[scrollView frame].size.width / [imageView frame].size.width];
+        [scrollView setZoomScale:[scrollView minimumZoomScale]];
+        [scrollView addSubview:imageView];
+        
+        [[self view] addSubview:scrollView];
         
         UIImage *trimSquare = [UIImage imageNamed:@"trim-square"];
         UIImageView *trimSquareIV = [[UIImageView alloc] initWithImage:trimSquare];
@@ -58,24 +56,16 @@
         [self.view addSubview:trimSquareIV];
         
         [self addFilterButtons];
-		
-		UINavigationBar *navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 44.0)];
-		[navigationBar setBarStyle:UIBarStyleBlack];
-		[navigationBar setTranslucent:NO];
-		
-		UINavigationItem *aNavigationItem = [[UINavigationItem alloc] initWithTitle:@"Make It Pretty"];
-		[aNavigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelCropping)]];
         
-        UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishCropping)];
-        [doneBtn setTintColor:[UIColor redColor]];
+        //add toolbar
+        UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, 406.0, 320.0, 52.0)];
+        UIBarButtonItem *retakeBtn = [[UIBarButtonItem alloc] initWithTitle:@"Retake" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelCropping)];
+        UIBarButtonItem *spacing = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+        UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(finishCropping)];
         
-		[aNavigationItem setRightBarButtonItem:doneBtn];
-		
-		[navigationBar setItems:[NSArray arrayWithObject:aNavigationItem]];
-		
-//		[[self view] addSubview:navigationBar];
-        
-//        [self populateFilters];
+        NSArray *barItems = [[NSArray alloc] initWithObjects:retakeBtn, spacing, doneBtn, nil];
+        [toolBar setItems:barItems];
+        [self.view addSubview:toolBar];
 		
 	}
 	
@@ -85,164 +75,177 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+    context = [CIContext contextWithOptions:nil];
+
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
 }
+
 
 -(void)addFilterButtons{
     filterButtons = [[NSMutableArray alloc] init];
+    float btnWidth = 59.0;
+    float btnHeight = 58.0;
+    float yVal = 330.0;
+    float hSpacing = 15.0;
+    float initialX = 20.0;
+    float labelYSpacing = 4.0;
+    float labelHeight = 14.0;
     
-    UIButton *normalBtn = [[UIButton alloc] initWithFrame:CGRectMake(30.0, 400.0, 60.0, 60.0)];
-    [normalBtn setTitle:@"Normal" forState:UIControlStateNormal];
-    [normalBtn setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
-    [normalBtn setBackgroundImage:[UIImage imageNamed:@"normal-effect"] forState:UIControlStateNormal];
+    //generate buttons
+    UIButton *normalBtn = [[UIButton alloc] initWithFrame:CGRectMake(initialX, yVal, btnWidth, btnHeight)];
+    [normalBtn setTag:0];
+    [normalBtn setBackgroundImage:[UIImage imageNamed:@"filter-normal"] forState:UIControlStateNormal];
     [normalBtn addTarget:self action:@selector(addEffect:) forControlEvents:UIControlEventTouchUpInside];
-//    [normalBtn setBackgroundColor:[UIColor orangeColor]];
     [filterButtons addObject:normalBtn];
     
-    UIButton *sepiaBtn = [[UIButton alloc] initWithFrame:CGRectMake(100.0, 400.0, 60.0, 60.0)];
-    [sepiaBtn setTitle:@"Sepia" forState:UIControlStateNormal];
-    [sepiaBtn setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
-    [sepiaBtn setBackgroundImage:[UIImage imageNamed:@"sepia-effect"] forState:UIControlStateNormal];
-//    [sepiaBtn setBackgroundColor:[UIColor orangeColor]];
-    [sepiaBtn addTarget:self action:@selector(addEffect:) forControlEvents:UIControlEventTouchUpInside];
-    [filterButtons addObject:sepiaBtn];
+    initialX = initialX + btnWidth + hSpacing;
+    UIButton *crispBtn = [[UIButton alloc] initWithFrame:CGRectMake(initialX, yVal, btnWidth, btnHeight)];
+    [crispBtn setTag:1];
+    [crispBtn setBackgroundImage:[UIImage imageNamed:@"filter-crisp"] forState:UIControlStateNormal];
+    [crispBtn addTarget:self action:@selector(addEffect:) forControlEvents:UIControlEventTouchUpInside];
+    [filterButtons addObject:crispBtn];
     
-    UIButton *vignetteBtn = [[UIButton alloc] initWithFrame:CGRectMake(170.0, 400.0, 60.0, 60.0)];
-    [vignetteBtn setTitle:@"Vignette" forState:UIControlStateNormal];
-    [vignetteBtn setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
-    [vignetteBtn setBackgroundImage:[UIImage imageNamed:@"vignette-effect"] forState:UIControlStateNormal];
-//    [vignetteBtn setBackgroundColor:[UIColor orangeColor]];
-    [vignetteBtn addTarget:self action:@selector(addEffect:) forControlEvents:UIControlEventTouchUpInside];
-    [filterButtons addObject:vignetteBtn];
+    initialX = initialX + btnWidth + hSpacing;
+    UIButton *brightBtn = [[UIButton alloc] initWithFrame:CGRectMake(initialX, yVal, btnWidth, btnHeight)];
+    [brightBtn setTag:2];
+    [brightBtn setBackgroundImage:[UIImage imageNamed:@"filter-bright"] forState:UIControlStateNormal];
+    [brightBtn addTarget:self action:@selector(addEffect:) forControlEvents:UIControlEventTouchUpInside];
+    [filterButtons addObject:brightBtn];
     
-    UIButton *vibranceBtn = [[UIButton alloc] initWithFrame:CGRectMake(240.0, 400.0, 60.0, 60.0)];
-    [vibranceBtn setTitle:@"Vibrance" forState:UIControlStateNormal];
-    [vibranceBtn setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
-    [vibranceBtn setBackgroundImage:[UIImage imageNamed:@"vibrance-effect"] forState:UIControlStateNormal];
-//    [vibranceBtn setBackgroundColor:[UIColor orangeColor]];
-    [vibranceBtn addTarget:self action:@selector(addEffect:) forControlEvents:UIControlEventTouchUpInside];
-    [filterButtons addObject:vibranceBtn];
+    initialX = initialX + btnWidth + hSpacing;
+    UIButton *vibrantBtn = [[UIButton alloc] initWithFrame:CGRectMake(initialX, yVal, btnWidth, btnHeight)];
+    [vibrantBtn setTag:3];
+    [vibrantBtn setBackgroundImage:[UIImage imageNamed:@"filter-vibrant"] forState:UIControlStateNormal];
+    [vibrantBtn addTarget:self action:@selector(addEffect:) forControlEvents:UIControlEventTouchUpInside];
+    [filterButtons addObject:vibrantBtn];
     
+    //generate labels
+    NSMutableArray *filterLabels = [[NSMutableArray alloc] init];
+    
+    initialX = 20.0;
+    UILabel* label1 = [[UILabel alloc] initWithFrame:CGRectMake(initialX, yVal + btnHeight + labelYSpacing, btnWidth, labelHeight)];
+    [label1 setText:@"normal"];
+    [filterLabels addObject:label1];
+    
+    initialX = initialX + btnWidth + hSpacing;
+    UILabel* label2 = [[UILabel alloc] initWithFrame:CGRectMake(initialX, yVal + btnHeight + labelYSpacing, btnWidth, labelHeight)];
+    [label2 setText:@"crisp"];
+    [filterLabels addObject:label2];
+    
+    initialX = initialX + btnWidth + hSpacing;
+    UILabel* label3 = [[UILabel alloc] initWithFrame:CGRectMake(initialX, yVal + btnHeight + labelYSpacing, btnWidth, labelHeight)];
+    [label3 setText:@"bright"];
+    [filterLabels addObject:label3];
+    
+    initialX = initialX + btnWidth + hSpacing;
+    UILabel* label4 = [[UILabel alloc] initWithFrame:CGRectMake(initialX, yVal + btnHeight + labelYSpacing, btnWidth, labelHeight)];
+    [label4 setText:@"vibrant"];
+    [filterLabels addObject:label4];
     
     for (UIButton *mFilter in filterButtons) {
         [self.view addSubview:mFilter];
     }
-}
-
--(void)populateFilters
-{
-    filtersArray = [[NSMutableArray alloc] init];
     
-    CIContext *context = [CIContext contextWithOptions:nil];
-    
-    CIImage *beginImage = [CIImage imageWithData:UIImagePNGRepresentation(thumbImage)];
-    
-    [filtersArray addObject:[CIFilter filterWithName:@"CISepiaTone"
-                                      keysAndValues: kCIInputImageKey, beginImage,
-                            @"inputIntensity", [NSNumber numberWithFloat:0.8], nil]];
-    
-    [filtersArray addObject:[CIFilter filterWithName:@"CIVignette"
-                                       keysAndValues: kCIInputImageKey, beginImage,
-                             @"inputIntensity", [NSNumber numberWithFloat:1.0], @"inputRadius",[NSNumber numberWithFloat:2.0], nil]];
-    
-    [filtersArray addObject:[CIFilter filterWithName:@"CIColorControls"
-                                       keysAndValues:
-                             kCIInputImageKey, beginImage,
-                             @"inputBrightness", [NSNumber numberWithFloat:0.0],
-                             @"inputContrast", [NSNumber numberWithFloat:1.2],
-                             @"inputSaturation", [NSNumber numberWithFloat:1.2],
-                             nil]];
-    
-    int i = 1;
-    for (CIFilter *mFilter in filtersArray) {
-        CIImage *outputImage = [mFilter outputImage];
-        
-        CGImageRef cgimg = [context createCGImage:outputImage fromRect:[outputImage extent]];
-        UIImage* newImage = [UIImage imageWithCGImage:cgimg];
-        
-        CGImageRelease(cgimg);
-
-        [[filterButtons objectAtIndex:i] setBackgroundImage:newImage forState:UIControlStateNormal];
-        i++;
+    for (UILabel *mLabel in filterLabels) {
+        [mLabel setFont:[UIFont systemFontOfSize:12.0]];
+        [mLabel setBackgroundColor:[UIColor clearColor]];
+        [mLabel setTextAlignment:NSTextAlignmentCenter];
+        [self.view addSubview:mLabel];
     }
     
-    [[filterButtons objectAtIndex:0] setBackgroundImage:rawImage forState:UIControlStateNormal];
+    filterButtons = nil;
+    filterLabels = nil;
 }
 
 -(void)addEffect:(id)effectButton
 {
     UIButton *mBtn = (UIButton*)effectButton;
     
+    CIImage *beginImage;
+    CIFilter *filter;
+    CIImage *outputImage;
+    CGImageRef cgimg;
     
-    if ([[[mBtn titleLabel]text]isEqual:@"Normal"]) {
-        [self.imageView setImage:rawImage];
-        
-    }else if ([[[mBtn titleLabel]text]isEqual:@"Sepia"]){
-        CIImage *beginImage = [CIImage imageWithData:UIImagePNGRepresentation(rawImage)];
-        
-        CIContext *context = [CIContext contextWithOptions:nil];
-        
-        CIFilter *filter = [CIFilter filterWithName:@"CISepiaTone"
-                                      keysAndValues: kCIInputImageKey, beginImage,
-                            @"inputIntensity", [NSNumber numberWithFloat:0.8], nil];
-        CIImage *outputImage = [filter outputImage];
-        
-        CGImageRef cgimg = [context createCGImage:outputImage fromRect:[outputImage extent]];
-        UIImage* newImage = [UIImage imageWithCGImage:cgimg];
-        
-        CGImageRelease(cgimg);
-        
-        [self.imageView setImage:newImage];
-    }
-    else if ([[[mBtn titleLabel]text]isEqual:@"Vignette"]){
-        CIImage *beginImage = [CIImage imageWithData:UIImagePNGRepresentation(rawImage)];
-        
-        CIContext *context = [CIContext contextWithOptions:nil];
-        
-        CIFilter *filter = [CIFilter filterWithName:@"CIVignette"
-                                      keysAndValues: kCIInputImageKey, beginImage,
-                            @"inputIntensity", [NSNumber numberWithFloat:1.0], @"inputRadius",[NSNumber numberWithFloat:2.0], nil];
-        
-        
-        CIImage *outputImage = [filter outputImage];
-        
-        CGImageRef cgimg = [context createCGImage:outputImage fromRect:[outputImage extent]];
-        UIImage* newImage = [UIImage imageWithCGImage:cgimg];
-        
-        CGImageRelease(cgimg);
-        
-        [self.imageView setImage:newImage];
-    }
-    else if ([[[mBtn titleLabel]text]isEqual:@"Vibrance"]){
-        CIImage *beginImage = [CIImage imageWithData:UIImagePNGRepresentation(rawImage)];
-        
-        CIContext *context = [CIContext contextWithOptions:nil];
-        
-        CIFilter *filter = [CIFilter filterWithName:@"CIColorControls"
-                                      keysAndValues:
-                            kCIInputImageKey, beginImage,
-                            @"inputBrightness", [NSNumber numberWithFloat:0.0],
-                            @"inputContrast", [NSNumber numberWithFloat:1.2],
-                            @"inputSaturation", [NSNumber numberWithFloat:1.2],
-                            nil];
-        CIImage *outputImage = [filter outputImage];
-        
-        CGImageRef cgimg = [context createCGImage:outputImage fromRect:[outputImage extent]];
-        UIImage* newImage = [UIImage imageWithCGImage:cgimg];
-        
-        CGImageRelease(cgimg);
-        
-        [self.imageView setImage:newImage];
-    }
+    switch ([mBtn tag]) {
+        case 0:
+            //normal
+            
+            [self.imageView setImage:rawImage];
+            break;
+            
+            
+        case 1:
+            //crisp
+            
+            beginImage = [CIImage imageWithData:UIImagePNGRepresentation(rawImage)];
+            
+            filter = [CIFilter filterWithName:@"CIColorControls"];
+            
+            [filter setValue:beginImage forKey:@"inputImage"];
+            [filter setValue:[NSNumber numberWithFloat:0.0f] forKey:@"inputBrightness"];    //default: 0.0, max:1.0, min:-1.0
+            [filter setValue:[NSNumber numberWithFloat:1.1f] forKey:@"inputContrast"];      //default: 1.0, max:4.0, min:0.0
+            [filter setValue:[NSNumber numberWithFloat:1.0f] forKey:@"inputSaturation"];    //default: 1.0, max:2.0, min:0.0
+            
+            outputImage = [filter outputImage];
+            
+            cgimg = [context createCGImage:outputImage fromRect:[outputImage extent]];
+            filteredImage = [UIImage imageWithCGImage:cgimg];
+            
+            CGImageRelease(cgimg);
+            
+            [self.imageView setImage:filteredImage];
+            outputImage = nil;
+            break;
+            
+                        
+        case 2:
+            //bright
+            
+            beginImage = [CIImage imageWithData:UIImagePNGRepresentation(rawImage)];
+            
+            filter = [CIFilter filterWithName:@"CIExposureAdjust"];
+            
+            [filter setValue:beginImage forKey:@"inputImage"];
+            [filter setValue:[NSNumber numberWithFloat:1.0f] forKey:@"inputEV"];    //default: 0.0, max: 10.0, min:-10.0
+            
+            outputImage = [filter outputImage];
+            
+            cgimg = [context createCGImage:outputImage fromRect:[outputImage extent]];
+            filteredImage = [UIImage imageWithCGImage:cgimg];
+            
+            CGImageRelease(cgimg);
+            
+            [self.imageView setImage:filteredImage];
+            outputImage = nil;
+            break;
 
+           
+        case 3:
+            //vibrant
+            
+            beginImage = [CIImage imageWithData:UIImagePNGRepresentation(rawImage)];
+            
+            filter = [CIFilter filterWithName:@"CIVibrance"];
+            
+            [filter setValue:beginImage forKey:@"inputImage"];
+            [filter setValue:[NSNumber numberWithFloat:1.0f] forKey:@"inputAmount"];    //default: 0.0, max:1.0, min:-1.0
+                      
+            outputImage = [filter outputImage];
+            
+            cgimg = [context createCGImage:outputImage fromRect:[outputImage extent]];
+            filteredImage = [UIImage imageWithCGImage:cgimg];
+            
+            CGImageRelease(cgimg);
+            
+            [self.imageView setImage:filteredImage];
+            outputImage = nil;
+            break;
+    }
     
 }
 
@@ -288,6 +291,12 @@
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
 }
 
 @end

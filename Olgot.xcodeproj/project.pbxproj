@@ -117,8 +117,6 @@
 		FF39F2D61600B211004A67ED /* btn-join-twitter-211x37.png in Resources */ = {isa = PBXBuildFile; fileRef = FF39F2D21600B211004A67ED /* btn-join-twitter-211x37.png */; };
 		FF39F2D71600B211004A67ED /* btn-join-twitter-211x37@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF39F2D31600B211004A67ED /* btn-join-twitter-211x37@2x.png */; };
 		FF3F050D15EE62BF008BE562 /* olgotCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3F050C15EE62BF008BE562 /* olgotCameraViewController.m */; };
-		FF40B37F161090C4005F1F39 /* trim-square.png in Resources */ = {isa = PBXBuildFile; fileRef = FF40B37D161090C4005F1F39 /* trim-square.png */; };
-		FF40B380161090C4005F1F39 /* trim-square@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF40B37E161090C4005F1F39 /* trim-square@2x.png */; };
 		FF423CE81578DD3100A3B970 /* btn-user-list-following.png in Resources */ = {isa = PBXBuildFile; fileRef = FF423CE61578DD3100A3B970 /* btn-user-list-following.png */; };
 		FF423CE91578DD3100A3B970 /* btn-user-list-following@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF423CE71578DD3100A3B970 /* btn-user-list-following@2x.png */; };
 		FF423CEC157991B600A3B970 /* olgotUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FF423CEB157991B600A3B970 /* olgotUser.m */; };
@@ -171,6 +169,16 @@
 		FF7AFF981574C7DB00BB5A65 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7AFF8C1574C7DB00BB5A65 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF7AFF991574C7DB00BB5A65 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7AFF8E1574C7DB00BB5A65 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FF7AFF9A1574C7DB00BB5A65 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7AFF901574C7DB00BB5A65 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF879E4A161AFD80009F49A7 /* filter-bright.png in Resources */ = {isa = PBXBuildFile; fileRef = FF879E42161AFD80009F49A7 /* filter-bright.png */; };
+		FF879E4B161AFD80009F49A7 /* filter-bright@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF879E43161AFD80009F49A7 /* filter-bright@2x.png */; };
+		FF879E4C161AFD80009F49A7 /* filter-crisp.png in Resources */ = {isa = PBXBuildFile; fileRef = FF879E44161AFD80009F49A7 /* filter-crisp.png */; };
+		FF879E4D161AFD80009F49A7 /* filter-crisp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF879E45161AFD80009F49A7 /* filter-crisp@2x.png */; };
+		FF879E4E161AFD80009F49A7 /* filter-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = FF879E46161AFD80009F49A7 /* filter-normal.png */; };
+		FF879E4F161AFD80009F49A7 /* filter-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF879E47161AFD80009F49A7 /* filter-normal@2x.png */; };
+		FF879E50161AFD80009F49A7 /* filter-vibrant.png in Resources */ = {isa = PBXBuildFile; fileRef = FF879E48161AFD80009F49A7 /* filter-vibrant.png */; };
+		FF879E51161AFD80009F49A7 /* filter-vibrant@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF879E49161AFD80009F49A7 /* filter-vibrant@2x.png */; };
+		FF879E54161B02A8009F49A7 /* trim-square.png in Resources */ = {isa = PBXBuildFile; fileRef = FF879E52161B02A8009F49A7 /* trim-square.png */; };
+		FF879E55161B02A8009F49A7 /* trim-square@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF879E53161B02A8009F49A7 /* trim-square@2x.png */; };
 		FF88813C15AEBFC100B18BA6 /* logo-210x155.png in Resources */ = {isa = PBXBuildFile; fileRef = FF88813A15AEBFC100B18BA6 /* logo-210x155.png */; };
 		FF88813D15AEBFC100B18BA6 /* logo-210x155@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF88813B15AEBFC100B18BA6 /* logo-210x155@2x.png */; };
 		FF88814015AEC08900B18BA6 /* logo-70x55.png in Resources */ = {isa = PBXBuildFile; fileRef = FF88813E15AEC08900B18BA6 /* logo-70x55.png */; };
@@ -484,8 +492,6 @@
 		FF39F2D31600B211004A67ED /* btn-join-twitter-211x37@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-join-twitter-211x37@2x.png"; sourceTree = "<group>"; };
 		FF3F050B15EE62BF008BE562 /* olgotCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = olgotCameraViewController.h; sourceTree = "<group>"; };
 		FF3F050C15EE62BF008BE562 /* olgotCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = olgotCameraViewController.m; sourceTree = "<group>"; };
-		FF40B37D161090C4005F1F39 /* trim-square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trim-square.png"; sourceTree = "<group>"; };
-		FF40B37E161090C4005F1F39 /* trim-square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trim-square@2x.png"; sourceTree = "<group>"; };
 		FF423CE61578DD3100A3B970 /* btn-user-list-following.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-user-list-following.png"; sourceTree = "<group>"; };
 		FF423CE71578DD3100A3B970 /* btn-user-list-following@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-user-list-following@2x.png"; sourceTree = "<group>"; };
 		FF423CEA157991B600A3B970 /* olgotUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotUser.h; path = Model/olgotUser.h; sourceTree = "<group>"; };
@@ -560,6 +566,16 @@
 		FF7AFF8E1574C7DB00BB5A65 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		FF7AFF8F1574C7DB00BB5A65 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		FF7AFF901574C7DB00BB5A65 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		FF879E42161AFD80009F49A7 /* filter-bright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter-bright.png"; sourceTree = "<group>"; };
+		FF879E43161AFD80009F49A7 /* filter-bright@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter-bright@2x.png"; sourceTree = "<group>"; };
+		FF879E44161AFD80009F49A7 /* filter-crisp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter-crisp.png"; sourceTree = "<group>"; };
+		FF879E45161AFD80009F49A7 /* filter-crisp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter-crisp@2x.png"; sourceTree = "<group>"; };
+		FF879E46161AFD80009F49A7 /* filter-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter-normal.png"; sourceTree = "<group>"; };
+		FF879E47161AFD80009F49A7 /* filter-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter-normal@2x.png"; sourceTree = "<group>"; };
+		FF879E48161AFD80009F49A7 /* filter-vibrant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter-vibrant.png"; sourceTree = "<group>"; };
+		FF879E49161AFD80009F49A7 /* filter-vibrant@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filter-vibrant@2x.png"; sourceTree = "<group>"; };
+		FF879E52161B02A8009F49A7 /* trim-square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trim-square.png"; sourceTree = "<group>"; };
+		FF879E53161B02A8009F49A7 /* trim-square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trim-square@2x.png"; sourceTree = "<group>"; };
 		FF88813A15AEBFC100B18BA6 /* logo-210x155.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-210x155.png"; sourceTree = "<group>"; };
 		FF88813B15AEBFC100B18BA6 /* logo-210x155@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-210x155@2x.png"; sourceTree = "<group>"; };
 		FF88813E15AEC08900B18BA6 /* logo-70x55.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-70x55.png"; sourceTree = "<group>"; };
@@ -769,8 +785,16 @@
 		FF10F2A9155D16F500F4EC2E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				FF40B37D161090C4005F1F39 /* trim-square.png */,
-				FF40B37E161090C4005F1F39 /* trim-square@2x.png */,
+				FF879E42161AFD80009F49A7 /* filter-bright.png */,
+				FF879E43161AFD80009F49A7 /* filter-bright@2x.png */,
+				FF879E44161AFD80009F49A7 /* filter-crisp.png */,
+				FF879E45161AFD80009F49A7 /* filter-crisp@2x.png */,
+				FF879E46161AFD80009F49A7 /* filter-normal.png */,
+				FF879E47161AFD80009F49A7 /* filter-normal@2x.png */,
+				FF879E48161AFD80009F49A7 /* filter-vibrant.png */,
+				FF879E49161AFD80009F49A7 /* filter-vibrant@2x.png */,
+				FF879E52161B02A8009F49A7 /* trim-square.png */,
+				FF879E53161B02A8009F49A7 /* trim-square@2x.png */,
 				FF26A59F160B814A00153E0C /* normal-effect.png */,
 				FF26A5A0160B814A00153E0C /* sepia-effect.png */,
 				FF26A5A1160B814A00153E0C /* vibrance-effect.png */,
@@ -1590,8 +1614,16 @@
 				FFF17EBF160F20020024FB77 /* TwitterInvitesVC.xib in Resources */,
 				FFF17EC4160F21B00024FB77 /* TwitterInviteCell.xib in Resources */,
 				FFF17ED7160F6A340024FB77 /* FacebookSDKResources.bundle in Resources */,
-				FF40B37F161090C4005F1F39 /* trim-square.png in Resources */,
-				FF40B380161090C4005F1F39 /* trim-square@2x.png in Resources */,
+				FF879E4A161AFD80009F49A7 /* filter-bright.png in Resources */,
+				FF879E4B161AFD80009F49A7 /* filter-bright@2x.png in Resources */,
+				FF879E4C161AFD80009F49A7 /* filter-crisp.png in Resources */,
+				FF879E4D161AFD80009F49A7 /* filter-crisp@2x.png in Resources */,
+				FF879E4E161AFD80009F49A7 /* filter-normal.png in Resources */,
+				FF879E4F161AFD80009F49A7 /* filter-normal@2x.png in Resources */,
+				FF879E50161AFD80009F49A7 /* filter-vibrant.png in Resources */,
+				FF879E51161AFD80009F49A7 /* filter-vibrant@2x.png in Resources */,
+				FF879E54161B02A8009F49A7 /* trim-square.png in Resources */,
+				FF879E55161B02A8009F49A7 /* trim-square@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

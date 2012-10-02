@@ -18,6 +18,8 @@
     UIImage *filteredImage;
 	UIImage *thumbImage;
     
+    CIContext *context;
+    
 	id <ImageCropperDelegate> delegate;
     
     NSMutableArray *filterButtons;

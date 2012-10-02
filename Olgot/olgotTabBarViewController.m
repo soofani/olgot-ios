@@ -138,11 +138,11 @@
 
 -(void)tookPicture:(UIImage *)image
 {
-    UIImage* orImage = [image fixOrientation];
+    //OPTIMIZE
+    image = [image fixOrientation];
     
-    
-    
-    ImageCropper *cropper = [[ImageCropper alloc] initWithImage:orImage];
+
+    ImageCropper *cropper = [[ImageCropper alloc] initWithImage:[image scaleWithMaxSize:640.0]];
 	[cropper setDelegate:self];
     
     [self dismissModalViewControllerAnimated:NO];
