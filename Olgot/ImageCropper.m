@@ -23,7 +23,7 @@
         rawImage = image;
 //        thumbImage = [image scaleWithMaxSize:60.0 quality:kCGInterpolationLow];
         
-		scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, 40.0, 320.0, 426.0)];
+		scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, -20.0, 320.0, 426.0)];
 		[scrollView setBackgroundColor:[UIColor blackColor]];
 		[scrollView setDelegate:self];
 		[scrollView setShowsHorizontalScrollIndicator:NO];
@@ -54,7 +54,7 @@
         
         UIImage *trimSquare = [UIImage imageNamed:@"trim-square"];
         UIImageView *trimSquareIV = [[UIImageView alloc] initWithImage:trimSquare];
-        [trimSquareIV setFrame:CGRectMake(0.0, 40.0, 320.0, 426.0)];
+        [trimSquareIV setFrame:CGRectMake(0.0, -20.0, 320.0, 480)];
         [self.view addSubview:trimSquareIV];
         
         [self addFilterButtons];
@@ -73,7 +73,7 @@
 		
 		[navigationBar setItems:[NSArray arrayWithObject:aNavigationItem]];
 		
-		[[self view] addSubview:navigationBar];
+//		[[self view] addSubview:navigationBar];
         
 //        [self populateFilters];
 		
@@ -86,6 +86,14 @@
 {
     [super viewDidLoad];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
 }
 
 -(void)addFilterButtons{
@@ -275,6 +283,11 @@
         CIFilter *fltr = [CIFilter filterWithName:filterName];
         NSLog(@"%@", [fltr attributes]);
     }
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
 }
 
 @end
