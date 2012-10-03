@@ -1334,6 +1334,7 @@
                         <outlet property="autoTweetSwitch" destination="8O1-Kw-ivE" id="xZU-RF-Tc2"/>
                         <outlet property="facebookConnectSwitch" destination="dqN-uM-qUc" id="Lge-PN-fFM"/>
                         <outlet property="savePhotosSwitch" destination="DxL-5K-12j" id="uhh-cu-Ws3"/>
+                        <outlet property="sessionStatusLbl" destination="at1-cx-het" id="UG6-KS-FbZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Egq-RR-Q1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1950,6 +1951,7 @@
                 <relationship kind="outlet" name="autoTweetSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="facebookConnectSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="savePhotosSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="sessionStatusLbl" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="olgotNotificationsViewController" superclassName="UIViewController">

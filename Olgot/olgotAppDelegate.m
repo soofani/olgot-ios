@@ -547,6 +547,7 @@
 {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@"no" forKey:@"firstRun"];
+    [defaults synchronize];
     [self.window.rootViewController dismissModalViewControllerAnimated:NO];
 }
 

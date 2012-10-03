@@ -128,10 +128,12 @@
     
     self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionView.scrollView delegate:self];
     
+    didShowSignup = NO;
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     defaults = [NSUserDefaults standardUserDefaults];
     if(_userID == nil){
         _userID = [defaults objectForKey:@"userid"];
@@ -144,9 +146,21 @@
     }
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    if ([defaults objectForKey:@"userid"] == nil && didShowSignup == NO) {
+        didShowSignup = YES;
+        olgotAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        [appDelegate showSignup];
+    }
+}
+
 -(void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
+    
 }
 
 - (void)viewDidUnload

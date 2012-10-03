@@ -11,12 +11,15 @@
 #import <FacebookSDK/FacebookSDK.h>
 
 
-@interface olgotMoreViewController : UITableViewController
+@interface olgotMoreViewController : UITableViewController{
+    NSUserDefaults *defaults;
+}
 
 @property (strong, nonatomic) IBOutlet UISwitch *savePhotosSwitch;
 
 @property (strong, nonatomic) IBOutlet UISwitch *autoTweetSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *facebookConnectSwitch;
+@property (strong, nonatomic) IBOutlet UILabel *sessionStatusLbl;
 
 
 - (IBAction)changeSavePhotos:(id)sender;

@@ -911,10 +911,17 @@
 }
 
 -(void)displayShareActionSheet{
-    UIActionSheet *shareAS = [[UIActionSheet alloc] initWithTitle:@"Share" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Twitter",@"Email", nil];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"userid"] == nil) {
+        olgotAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        [appDelegate showSignup];
+    }else{
+        UIActionSheet *shareAS = [[UIActionSheet alloc] initWithTitle:@"Share" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Twitter",@"Email", nil];
+        
+        shareAS.actionSheetStyle = UIActionSheetStyleDefault;
+        [shareAS showInView:self.view];
+    }
     
-	shareAS.actionSheetStyle = UIActionSheetStyleDefault;
-	[shareAS showInView:self.view];
 }
 
 -(void)shareOnFacebook{

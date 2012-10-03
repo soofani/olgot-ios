@@ -38,7 +38,7 @@
     self.tableView.backgroundView = tempImageView;
     self.tableView.contentInset = UIEdgeInsetsMake(10.0,0.0,0.0,0.0);
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    defaults = [NSUserDefaults standardUserDefaults];
     
     if ([[defaults objectForKey:@"autoSavePhotos"] isEqual:@"yes"]) {
         [self.savePhotosSwitch setOn:YES];
@@ -61,11 +61,23 @@
     }
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if ([defaults objectForKey:@"userid"] != nil) {
+        [self.sessionStatusLbl setText:@"Logout"];
+    } else {
+        [self.sessionStatusLbl setText:@"Login"];
+    }
+}
+
 - (void)viewDidUnload
 {
     [self setSavePhotosSwitch:nil];
     [self setAutoTweetSwitch:nil];
     [self setFacebookConnectSwitch:nil];
+    [self setSessionStatusLbl:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -79,18 +91,20 @@
 {
     if (indexPath.section == 2 && indexPath.row == 0) {
         NSLog(@"logout");
-        // Store the data
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        // Delete data
         
-        [defaults setObject:nil forKey:@"firstRun"];
-        [defaults setObject:nil forKey:@"userid"];
-        [defaults setObject:nil forKey:@"username"];
-        [defaults setObject:nil forKey:@"email"];
-        [defaults setObject:nil forKey:@"fullname"];
-        [defaults setObject:nil forKey:@"twitterid"];
-        [defaults setObject:nil forKey:@"twittername"];
+//        [defaults setObject:nil forKey:@"firstRun"];
+//        [defaults setObject:nil forKey:@"userid"];
+//        [defaults setObject:nil forKey:@"username"];
+//        [defaults setObject:nil forKey:@"email"];
+//        [defaults setObject:nil forKey:@"fullname"];
+//        [defaults setObject:nil forKey:@"twitterid"];
+//        [defaults setObject:nil forKey:@"twittername"];
+//        
+//        [defaults synchronize];
         
-        [defaults synchronize];
+        NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
         
         [FBSession.activeSession closeAndClearTokenInformation];
         
@@ -108,7 +122,7 @@
 - (IBAction)changeSavePhotos:(id)sender {
     NSLog(@"user changing auto save photos");
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     
     UISwitch* photosSwitch = (UISwitch*)sender;
     if (photosSwitch.isOn) {
@@ -125,7 +139,7 @@
 - (IBAction)changeAutoTweet:(id)sender {
     NSLog(@"user changing auto tweet items");
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     
     UISwitch* tweetSwitch = (UISwitch*)sender;
     if (tweetSwitch.isOn) {

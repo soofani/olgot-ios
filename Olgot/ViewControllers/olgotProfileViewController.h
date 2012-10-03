@@ -12,6 +12,7 @@
 #import "olgotUser.h"
 #import "SSPullToRefresh.h"
 #import "olgotItemViewController.h"
+#import "olgotAppDelegate.h"
 
 
 @interface olgotProfileViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate, olgotDeleteItemProtocol>{
@@ -23,6 +24,8 @@
     int _pageSize;
     int _currentPage;
     BOOL loadingNew;
+    
+    BOOL didShowSignup;
 }
 
 @property (strong, nonatomic) NSNumber *userID;
