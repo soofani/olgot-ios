@@ -232,6 +232,8 @@
 		FF980C0515A5EDDF00001259 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF980C0415A5EDDF00001259 /* MessageUI.framework */; };
 		FF980C0715A5EE1200001259 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF980C0615A5EE1200001259 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FF98330215C84AF600DC02C4 /* profileViewNoItems.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF98330115C84AF600DC02C4 /* profileViewNoItems.xib */; };
+		FF9BF0E8161C4F2E00CC54E0 /* olgotSignupRootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF9BF0E7161C4F2E00CC54E0 /* olgotSignupRootView.xib */; };
+		FF9BF0EA161C50B800CC54E0 /* olgotChooseUsernameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF9BF0E9161C50B800CC54E0 /* olgotChooseUsernameView.xib */; };
 		FFA0559D15EA7167009F6945 /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA0559C15EA7167009F6945 /* OverlayViewController.xib */; };
 		FFA4ED93155D12D8008CB4CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED92155D12D8008CB4CA /* UIKit.framework */; };
 		FFA4ED95155D12D8008CB4CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA4ED94155D12D8008CB4CA /* Foundation.framework */; };
@@ -642,6 +644,8 @@
 		FF980C0415A5EDDF00001259 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		FF980C0615A5EE1200001259 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		FF98330115C84AF600DC02C4 /* profileViewNoItems.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = profileViewNoItems.xib; sourceTree = "<group>"; };
+		FF9BF0E7161C4F2E00CC54E0 /* olgotSignupRootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = olgotSignupRootView.xib; sourceTree = "<group>"; };
+		FF9BF0E9161C50B800CC54E0 /* olgotChooseUsernameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = olgotChooseUsernameView.xib; sourceTree = "<group>"; };
 		FFA0559C15EA7167009F6945 /* OverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayViewController.xib; sourceTree = "<group>"; };
 		FFA4ED8E155D12D8008CB4CA /* Olgot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Olgot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFA4ED92155D12D8008CB4CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -1215,8 +1219,10 @@
 			children = (
 				FF916C4415616485004C6A86 /* olgotSignupRootViewController.h */,
 				FF916C4515616485004C6A86 /* olgotSignupRootViewController.m */,
+				FF9BF0E7161C4F2E00CC54E0 /* olgotSignupRootView.xib */,
 				FF916C47156165ED004C6A86 /* olgotChooseUsernameViewController.h */,
 				FF916C48156165EE004C6A86 /* olgotChooseUsernameViewController.m */,
+				FF9BF0E9161C50B800CC54E0 /* olgotChooseUsernameView.xib */,
 				FFA85411156D20BB0009134C /* olgotChooseFriends.h */,
 				FFA85412156D20BB0009134C /* olgotChooseFriends.m */,
 			);
@@ -1624,6 +1630,8 @@
 				FF879E51161AFD80009F49A7 /* filter-vibrant@2x.png in Resources */,
 				FF879E54161B02A8009F49A7 /* trim-square.png in Resources */,
 				FF879E55161B02A8009F49A7 /* trim-square@2x.png in Resources */,
+				FF9BF0E8161C4F2E00CC54E0 /* olgotSignupRootView.xib in Resources */,
+				FF9BF0EA161C50B800CC54E0 /* olgotChooseUsernameView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

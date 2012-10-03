@@ -15,6 +15,7 @@
 
 @synthesize headerCell = _headerCell, personCell = _personCell, footerCell = _footerCell;
 @synthesize userID = _userID;
+@synthesize delegate;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -169,7 +170,7 @@
 
 -(void)finishSignup
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self.delegate finishedPickingFriends];
 }
 
 

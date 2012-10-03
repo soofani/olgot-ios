@@ -148,7 +148,7 @@
                                                             nil] 
                                                   forState:UIControlStateSelected];
     
-    
+    [self showSignup];
     
     return YES;
 }
@@ -523,8 +523,44 @@
     return [FBSession.activeSession handleOpenURL:url];
 }
 
+-(void)showSignup
+{
+    UIGraphicsBeginImageContext(CGSizeMake(self.window.rootViewController.view.bounds.size.width, self.window.rootViewController.view.bounds.size.height));
+    
+    
+    [self.window.rootViewController.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *myImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    olgotSignupRootViewController *signupRootVC = [[olgotSignupRootViewController alloc] initWithNibName:@"olgotSignupRootView" bundle:nil];
+    [signupRootVC setHomeImage:myImage];
+    [signupRootVC setDelegate:self];
+    
+    UINavigationController *signupNavigationController = [[UINavigationController alloc] initWithRootViewController:signupRootVC];
+    
+    [self.window.rootViewController presentModalViewController:signupNavigationController animated:YES];
+}
 
+#pragma mark signupRootDelegate
 
+-(void)skippedSignup
+{
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"no" forKey:@"firstRun"];
+    [self.window.rootViewController dismissModalViewControllerAnimated:NO];
+}
+
+-(void)existingUser
+{
+    [self.window.rootViewController dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark chooseFriendsDelegate
+
+-(void)finishedPickingFriends
+{
+    [self.window.rootViewController dismissModalViewControllerAnimated:YES];
+}
 
 
 @end

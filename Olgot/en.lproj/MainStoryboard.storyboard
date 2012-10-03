@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Olgot Tab Bar View Controller-->
         <scene sceneID="15">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
                 <tabBarController id="4" customClass="olgotTabBarViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5">
@@ -24,13 +23,13 @@
                         <segue destination="hzt-U5-Yis" kind="relationship" relationship="viewControllers" id="Pgk-AN-SoR"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
         <!--Olgot Explore View Controller - Explore-->
         <scene sceneID="Uo6-rb-un2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AX4-Pc-wGT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="RkR-jM-mZQ" customClass="olgotExploreViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Explore" id="I2T-sA-9Qu">
                         <barButtonItem key="backBarButtonItem" title="Back" id="1Xx-OT-Mfq"/>
@@ -43,13 +42,13 @@
                         <segue destination="5En-Ad-4ak" kind="modal" identifier="ShowNotifications" id="ErZ-1s-Tjc"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AX4-Pc-wGT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1116" y="-1004"/>
         </scene>
         <!--Olgot Board View Controller - Board View-->
         <scene sceneID="mtF-hO-pcf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9u0-pw-KSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController modalTransitionStyle="flipHorizontal" hidesBottomBarWhenPushed="YES" id="onH-ec-kNX" customClass="olgotBoardViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Rt-6A-JXc">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -64,13 +63,13 @@
                         <segue destination="WYe-AX-etf" kind="modal" identifier="ShowMapView" modalTransitionStyle="flipHorizontal" id="V3k-mD-4K2"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9u0-pw-KSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1588" y="-1004"/>
         </scene>
         <!--Olgot Friends View Controller-->
         <scene sceneID="4Nl-UY-dXm">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9jA-9S-0dn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="2d6-B9-oGp" customClass="olgotFriendsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PCT-mO-2a1">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -78,13 +77,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9jA-9S-0dn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1663" y="-659"/>
         </scene>
         <!--Olgot Help View Controller-->
         <scene sceneID="n4j-ZO-RUI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="h6k-YB-wbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="dbc-jH-RBX" customClass="olgotHelpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0X8-em-8on">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -123,13 +122,13 @@
                         <outlet property="webView" destination="xDy-X1-Xqa" id="Mt6-v3-x6I"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h6k-YB-wbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1663" y="-443"/>
         </scene>
         <!--Olgot Map View Controller-->
         <scene sceneID="am4-Y8-NMl">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0VX-2r-3hC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="lYn-Ft-tZA" customClass="olgotMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="48m-jf-MAV">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -173,13 +172,13 @@
                         <segue destination="Fmr-fE-SC3" kind="push" identifier="ShowItemFromMap" id="2IH-Ik-b9l"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0VX-2r-3hC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3067" y="-1499"/>
         </scene>
         <!--Olgot Item View Controller-->
         <scene sceneID="2iW-DK-6if">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e0f-Kv-jdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="Fmr-fE-SC3" customClass="olgotItemViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="rlt-7Z-Zwt">
                         <barButtonItem key="backBarButtonItem" title="Back" id="jT5-Wz-vXr"/>
@@ -193,13 +192,13 @@
                         <segue destination="HAn-Se-f9H" kind="push" identifier="showProfile" id="jD9-Wv-5GK"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e0f-Kv-jdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2470" y="-451"/>
         </scene>
         <!--Olgot People List View Controller-->
         <scene sceneID="dRN-Wf-YUD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ipx-qk-eQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="XiP-jZ-yvg" customClass="olgotPeopleListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7f1-hg-2ux">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -211,13 +210,13 @@
                         <segue destination="HAn-Se-f9H" kind="push" identifier="showProfile" id="UlP-O7-YDP"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ipx-qk-eQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3150" y="-417"/>
         </scene>
         <!--Olgot Venue View Controller - Venue-->
         <scene sceneID="QV0-yf-ov6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qSt-x6-VLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="gYY-SF-9fN" customClass="olgotVenueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dV0-qV-LCI">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -234,13 +233,13 @@
                         <segue destination="Hte-Zn-Pmt" kind="push" identifier="ShowItemDetails" id="ZAZ-Wu-M0M"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qSt-x6-VLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3456" y="-1246"/>
         </scene>
         <!--Olgot Venue Map View Controller-->
         <scene sceneID="zXN-C1-VSN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gks-Qd-1ij" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="87U-8D-FOE" customClass="olgotVenueMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AxW-Ju-4Wz">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -258,13 +257,13 @@
                         <outlet property="mapView" destination="Pz3-17-uJm" id="Dyr-qv-hFz"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gks-Qd-1ij" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4136" y="-1338"/>
         </scene>
         <!--Olgot Lovely View Controller - Hot-->
         <scene sceneID="45u-xx-Xjr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LKt-NN-eUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="a8M-z2-hPg" customClass="olgotLovelyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7AF-cw-8fx">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -279,13 +278,13 @@
                         <segue destination="WYe-AX-etf" kind="modal" identifier="ShowMapView" modalTransitionStyle="flipHorizontal" id="Lo1-V5-Une"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LKt-NN-eUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1116" y="-417"/>
         </scene>
         <!--Olgot Share View Controller - Share-->
         <scene sceneID="97n-in-0zS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pxs-2g-ciK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="fsi-nE-oPn" customClass="olgotShareViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yvX-Mo-9yC">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -300,13 +299,13 @@
                         <segue destination="W0F-bq-L6J" kind="push" identifier="ShowNearbyPlaces" id="mDe-EP-u9J"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pxs-2g-ciK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1116" y="180"/>
         </scene>
         <!--Olgot Add Item Nearby Places View Controller - Where is this at?-->
         <scene sceneID="g95-LZ-nCS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1gp-Xt-1FY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController hidesBottomBarWhenPushed="YES" id="W0F-bq-L6J" customClass="olgotAddItemNearbyPlacesViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Where is this at?" id="gah-HF-rCu">
                         <barButtonItem key="backBarButtonItem" title="Back" id="OWD-W6-CLJ"/>
@@ -316,13 +315,13 @@
                         <segue destination="Hte-Zn-Pmt" kind="push" identifier="ShowAddItemDetails" id="kFC-1d-6jx"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1gp-Xt-1FY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1556" y="172"/>
         </scene>
         <!--Olgot Add Item Details View Controller - Add an item-->
         <scene sceneID="m1H-GG-2m6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7z0-fM-xgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Hte-Zn-Pmt" customClass="olgotAddItemDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v6c-Cb-I40">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -478,13 +477,13 @@
                         <segue destination="AmF-Fo-vjg" kind="push" identifier="ShowAddItemConfirmation" id="RAK-xK-CA2"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7z0-fM-xgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2075" y="172"/>
         </scene>
         <!--Olgot Add Item Confirmation View Controller - Great!-->
         <scene sceneID="RS9-X2-Y3s">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zwj-lH-pPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="AmF-Fo-vjg" customClass="olgotAddItemConfirmationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sR6-nh-WIA">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -672,13 +671,13 @@
                         <outlet property="wantButton" destination="jg7-8G-b6u" id="NuV-5y-0Iw"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zwj-lH-pPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2607" y="172"/>
         </scene>
         <!--Olgot Comments List View Controller-->
         <scene sceneID="NVY-wf-LX9">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qhJ-b2-O2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="qgL-I9-Ymt" customClass="olgotCommentsListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uUV-e7-4t0">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -693,13 +692,13 @@
                         <segue destination="HAn-Se-f9H" kind="push" identifier="ShowUserProfile" id="Ttl-PY-xm6"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qhJ-b2-O2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3156" y="159"/>
         </scene>
         <!--Olgot Profile View Controller - Profile-->
         <scene sceneID="AUq-iE-uyS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hk5-4P-7cX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="HAn-Se-f9H" customClass="olgotProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fbN-fm-WR5">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -715,13 +714,13 @@
                         <segue destination="XiP-jZ-yvg" kind="push" identifier="ShowFollowing" id="mIt-V2-IHO"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hk5-4P-7cX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1116" y="769"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="cfc-WA-Hfs">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="541-Ad-8fx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="kVK-Pb-dWs" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="B5D-vy-nht"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Qkl-Pb-0ta">
@@ -731,13 +730,13 @@
                         <segue destination="fsi-nE-oPn" kind="relationship" relationship="rootViewController" id="Mt9-Yo-4gg"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="541-Ad-8fx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="640" y="165"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="8vG-Xc-KXu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mgn-uU-Z8K" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController hidesBottomBarWhenPushed="YES" id="DOv-Gu-sHe" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="UDD-A7-6Dh"/>
                     <toolbarItems/>
@@ -750,13 +749,13 @@
                         <segue destination="a8M-z2-hPg" kind="relationship" relationship="rootViewController" id="uN2-Oq-ZyT"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mgn-uU-Z8K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="640" y="-417"/>
         </scene>
         <!--Olgot Notifications View Controller - Notifications-->
         <scene sceneID="3R3-Hb-Rka">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PLW-bB-AMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="bHT-Pn-EkF" customClass="olgotNotificationsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gcX-eC-n5v">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -866,13 +865,13 @@
                         <outlet property="tableView" destination="aEr-df-ZgU" id="BFc-d4-Bsb"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PLW-bB-AMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1628" y="-2345"/>
         </scene>
         <!--Olgot Signup Root View Controller-->
         <scene sceneID="EKJ-IJ-68I">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7oS-Rj-Npc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="2Yr-NR-tJx" customClass="olgotSignupRootViewController" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="tPx-6d-H8a">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -966,6 +965,7 @@
                         <segue destination="PTG-8b-tCg" kind="push" identifier="ShowChooseUsername" id="BTe-DC-rJm"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7oS-Rj-Npc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="up" id="vZ3-5F-TBP">
                     <connections>
                         <action selector="swipeUp:" destination="2Yr-NR-tJx" id="RFP-Vt-t7H"/>
@@ -977,7 +977,6 @@
         <!--Olgot Choose Username View Controller-->
         <scene sceneID="gSx-Oo-ROx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y7S-xV-mYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="PTG-8b-tCg" customClass="olgotChooseUsernameViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G3N-YJ-BRP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -1065,13 +1064,13 @@
                         <segue destination="Qpl-3d-aeD" kind="push" identifier="ShowChooseFriends" id="KJP-dM-Nkb"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y7S-xV-mYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1620" y="-1706"/>
         </scene>
         <!--Olgot Choose Friends-->
         <scene sceneID="lRM-te-rOX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c6c-fC-y9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Qpl-3d-aeD" customClass="olgotChooseFriends" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="smz-ab-041">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -1080,13 +1079,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="tnY-g6-4wr"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c6c-fC-y9d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2072" y="-1708"/>
         </scene>
         <!--Navigation Controller - item-->
         <scene sceneID="G6o-Fg-1Qc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OGe-Ml-GB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController hidesBottomBarWhenPushed="YES" id="AJ3-nd-Nsz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="item" id="Aof-1Z-jMU"/>
                     <toolbarItems/>
@@ -1103,13 +1102,13 @@
                         <segue destination="RkR-jM-mZQ" kind="relationship" relationship="rootViewController" id="RZl-Sk-aKX"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OGe-Ml-GB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="640" y="-1004"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="Vik-1D-xUc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xcn-SF-3cx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController hidesBottomBarWhenPushed="YES" id="tSZ-oB-z9i" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Boa-Df-lJA"/>
                     <toolbarItems/>
@@ -1122,13 +1121,13 @@
                         <segue destination="HAn-Se-f9H" kind="relationship" relationship="rootViewController" id="FeI-wE-YUy"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xcn-SF-3cx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="640" y="769"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="rL2-30-wd9">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ypV-oQ-b3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController hidesBottomBarWhenPushed="YES" id="hzt-U5-Yis" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="13L-tg-HkR"/>
                     <toolbarItems/>
@@ -1141,13 +1140,13 @@
                         <segue destination="CVZ-O8-kBz" kind="relationship" relationship="rootViewController" id="ZuR-Yb-Nq7"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ypV-oQ-b3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="640" y="1349"/>
         </scene>
         <!--Olgot More View Controller - More-->
         <scene sceneID="bUQ-8B-Jz4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Egq-RR-Q1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="CVZ-O8-kBz" customClass="olgotMoreViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="F0B-1Q-DrB">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -1337,13 +1336,13 @@
                         <outlet property="savePhotosSwitch" destination="DxL-5K-12j" id="uhh-cu-Ws3"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Egq-RR-Q1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1116" y="1360"/>
         </scene>
         <!--Olgot Account Settings View Controller - Settings-->
         <scene sceneID="aky-az-Qzf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yii-Le-PQM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="vWb-eS-9ZB" customClass="olgotAccountSettingsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Sgk-y2-G67">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -1404,13 +1403,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="tym-vh-VwR"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yii-Le-PQM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1567" y="1291"/>
         </scene>
         <!--View Controller - About Us-->
         <scene sceneID="96y-V4-qw1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4O1-mV-JfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="0F3-Qv-T1G" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FDU-5o-Ve7">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -1464,13 +1463,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="About Us" id="yJ0-hJ-frH"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4O1-mV-JfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1527" y="1951"/>
         </scene>
         <!--View Controller - Change Password-->
         <scene sceneID="mRb-Ug-n07">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Waq-dB-T3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="1SI-Rl-XeF" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jN1-nv-5Yg">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -1540,13 +1539,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Change Password" id="plV-nr-kMD"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Waq-dB-T3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1953" y="1951"/>
         </scene>
         <!--View Controller - First Name-->
         <scene sceneID="xbl-vc-hoa">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qq8-Sr-bjX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="gLI-qR-hkn" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LLh-ZG-wqs">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -1634,13 +1633,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="First Name" id="sEi-ab-8XP"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qq8-Sr-bjX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1953" y="1360"/>
         </scene>
         <!--Olgot Feedback View Controller - Feedback-->
         <scene sceneID="YAb-QO-OGh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5oY-xF-0Cm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="coE-aD-TYw" customClass="olgotFeedbackViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PG0-IA-AYC">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -1703,13 +1702,13 @@
                         <outlet property="scrollView" destination="LM2-ID-qmr" id="IAY-vQ-522"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5oY-xF-0Cm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1527" y="2542"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LGR-NE-G0f">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V9I-U2-q8p" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="1Tv-LN-MnF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="EH4-JO-KSN">
@@ -1721,13 +1720,13 @@
                         <segue destination="2Yr-NR-tJx" kind="relationship" relationship="rootViewController" id="AWI-pw-Den"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V9I-U2-q8p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="640" y="-1706"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ah4-St-UdI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Msw-2r-hLu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="WYe-AX-etf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="GPL-ss-jQA">
@@ -1739,13 +1738,13 @@
                         <segue destination="lYn-Ft-tZA" kind="relationship" relationship="rootViewController" id="UHR-z2-ABn"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Msw-2r-hLu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2541" y="-1499"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fVV-HM-6eT">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CW4-e2-SUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="5En-Ad-4ak" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="tIN-C5-hgZ">
@@ -1757,6 +1756,7 @@
                         <segue destination="bHT-Pn-EkF" kind="relationship" relationship="rootViewController" id="p9g-7g-5zC"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CW4-e2-SUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1172" y="-2345"/>
         </scene>

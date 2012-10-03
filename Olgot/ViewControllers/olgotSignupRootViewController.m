@@ -25,6 +25,7 @@
 @synthesize logoImageView;
 @synthesize twitterSigninButton;
 @synthesize homeImage = _homeImage;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,23 +51,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-       
-    //title logo
-//    UIImage *titleImage = [UIImage imageNamed:@"logo-140x74"];
-//    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:titleImage];
-//    [self.navigationController.navigationBar.topItem setTitleView:titleImageView];
     
     [self configureView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(canTweetStatus) name:ACAccountStoreDidChangeNotification object:nil];
-    
-    
-    
+
 }
+
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    
     
     [UIView animateWithDuration:0.5 delay:0.0 options:1 animations:^{
         [self.logoImageView setCenter:CGPointMake(self.logoImageView.center.x, self.logoImageView.center.y - 30.0)];
@@ -97,12 +94,16 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
 }
 
 - (void)viewDidUnload
@@ -133,7 +134,7 @@
 - (IBAction)hideSignup:(id)sender {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@"no" forKey:@"firstRun"];
-    [self dismissModalViewControllerAnimated:YES];
+    [self.delegate skippedSignup];
 }
 
 - (IBAction)twitterSignin:(id)sender {
@@ -230,7 +231,7 @@
     ACAccountType *twitterType = [store accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
     [store requestAccessToAccountsWithType:twitterType withCompletionHandler:^(BOOL granted, NSError *error) {
         if(granted) {
-            [self.activityIndicator stopAnimating];
+            
             twitterAccounts = [store accountsWithAccountType:twitterType];
             ACAccount *account = [twitterAccounts objectAtIndex:accountNumber];
             // Do something with their Twitter account
@@ -287,7 +288,7 @@
                     [defaults synchronize];
                     
                     // Do something with the fetched data
-                    [self.twitterSigninButton setEnabled:YES];
+                    
                     [self performSelectorOnMainThread:@selector(checkTwitterName:) withObject:screenName waitUntilDone:NO];
                 });
             }];
@@ -379,7 +380,9 @@
 
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {  
-    NSLog(@"Loaded payload: %@", [response bodyAsString]);  
+    NSLog(@"Loaded payload: %@", [response bodyAsString]);
+    [self.twitterSigninButton setEnabled:YES];
+    [self.activityIndicator stopAnimating];
 }
 
 -(void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects{
@@ -401,7 +404,7 @@
     [defaults setObject:myUser.facebookId forKey:@"userFacebookId"];
     
     [defaults setObject:@"yes" forKey:@"autoSavePhotos"];
-    [defaults setObject:@"yes" forKey:@"autoTweetItems"];
+    [defaults setObject:@"no" forKey:@"autoTweetItems"];
     
     [defaults setObject:@"no" forKey:@"hasNotifications"];
     [defaults setObject:0 forKey:@"lastNotification"];
@@ -417,7 +420,7 @@
                                           otherButtonTitles:nil];
     [alert show];
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self.delegate existingUser];
 }
 
 -(void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
@@ -429,7 +432,8 @@
     if ([[objectLoader response] statusCode] == 404) {
         //New User
         NSLog(@"server message %@", [resp objectForKey:@"message"]);
-        [self performSegueWithIdentifier:@"ShowChooseUsername" sender:self];
+//        [self performSegueWithIdentifier:@"ShowChooseUsername" sender:self];
+        [self showChooseUsername];
     }else if ([[objectLoader response] statusCode] == 406) {
         //User needs invitation
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"" message:[resp objectForKey:@"message"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -443,35 +447,41 @@
 }
 
 
-- (IBAction)swipeUp:(UISwipeGestureRecognizer *)recognizer {
-    NSLog(@"Swipe up");
+- (IBAction)swipeUp:(UIPanGestureRecognizer *)recognizer {
     
-//    [UIView animateWithDuration:0.55 animations:^{
-//        [self.logoImageView setCenter:CGPointMake(self.logoImageView.center.x, self.logoImageView.center.y - 500.0)];
-//        
-//        [self.sloganImageView setCenter:CGPointMake(self.sloganImageView.center.x, self.sloganImageView.center.y - 500.0)];
-//        
-//        [self.bgImageView setCenter:CGPointMake(self.bgImageView.center.x, self.bgImageView.center.y - 500.0)];
-//        
-//        [self.twitterSigninButton setCenter:CGPointMake(self.twitterSigninButton.center.x, self.twitterSigninButton.center.y - 500.0)];
-//    }];
+    if ([recognizer state] == UIGestureRecognizerStateEnded) {
+        
+        
+        [UIView animateWithDuration:0.55 animations:^{
+            [self.logoImageView setCenter:CGPointMake(self.logoImageView.center.x, self.logoImageView.center.y - 500.0)];
+            
+            [self.sloganImageView setCenter:CGPointMake(self.sloganImageView.center.x, self.sloganImageView.center.y - 500.0)];
+            
+            [self.bgImageView setCenter:CGPointMake(self.bgImageView.center.x, self.bgImageView.center.y - 500.0)];
+            
+            [self.twitterSigninButton setCenter:CGPointMake(self.twitterSigninButton.center.x, self.twitterSigninButton.center.y - 500.0)];
+            
+            [self.facebookSigninButton setCenter:CGPointMake(self.facebookSigninButton.center.x, self.facebookSigninButton.center.y - 500.0)];
+        } completion:^(BOOL finished) {
+            if (finished) {
+                [self.delegate skippedSignup];
+            }
+            
+        }];
+    }
     
-    [UIView animateWithDuration:0.55 animations:^{
-        [self.logoImageView setCenter:CGPointMake(self.logoImageView.center.x, self.logoImageView.center.y - 500.0)];
-        
-        [self.sloganImageView setCenter:CGPointMake(self.sloganImageView.center.x, self.sloganImageView.center.y - 500.0)];
-        
-        [self.bgImageView setCenter:CGPointMake(self.bgImageView.center.x, self.bgImageView.center.y - 500.0)];
-        
-        [self.twitterSigninButton setCenter:CGPointMake(self.twitterSigninButton.center.x, self.twitterSigninButton.center.y - 500.0)];
-        
-        [self.facebookSigninButton setCenter:CGPointMake(self.facebookSigninButton.center.x, self.facebookSigninButton.center.y - 500.0)];
-    } completion:^(BOOL finished) {
-        if (finished) {
-//            [self dismissModalViewControllerAnimated:NO];
-            [self setGuestSettings];
-        }
-        
-    }];
 }
+
+-(void)showChooseUsername
+{
+    olgotChooseUsernameViewController* chooseUsernameVC = [[olgotChooseUsernameViewController alloc] initWithNibName:@"olgotChooseUsernameView" bundle:nil];
+    if (_twitterResponse) {
+        chooseUsernameVC.twitterResponseData = _twitterResponse;
+    } else if(fbUser) {
+        chooseUsernameVC.fbUser = fbUser;
+    }
+    
+    [self.navigationController pushViewController:chooseUsernameVC animated:YES];
+}
+
 @end

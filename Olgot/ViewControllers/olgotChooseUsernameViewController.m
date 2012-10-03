@@ -65,6 +65,12 @@
 
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
 - (void)viewDidUnload
 {
     [self setUsernameTF:nil];
@@ -204,7 +210,8 @@
                         
                         NSLog(@"Data saved");
                         
-                        [self performSegueWithIdentifier:@"ShowChooseFriends" sender:self];
+//                        [self performSegueWithIdentifier:@"ShowChooseFriends" sender:self];
+                    [self showChooseFriends];
 
                 } else if ([[request userData] isEqual:@"twitter"]) {
                     NSLog(@"twitter");
@@ -224,7 +231,7 @@
                     [defaults setObject:0 forKey:@"userFacebookId"];
                     
                     [defaults setObject:@"yes" forKey:@"autoSavePhotos"];
-                    [defaults setObject:@"yes" forKey:@"autoTweetItems"];
+                    [defaults setObject:@"no" forKey:@"autoTweetItems"];
                     
                     [defaults setObject:@"no" forKey:@"hasNotifications"];
                     [defaults setObject:0 forKey:@"lastNotification"];
@@ -233,7 +240,8 @@
                     
                     NSLog(@"Data saved");
                     
-                    [self performSegueWithIdentifier:@"ShowChooseFriends" sender:self];
+//                    [self performSegueWithIdentifier:@"ShowChooseFriends" sender:self];
+                    [self showChooseFriends];
                 }
                 
             }else {
@@ -256,4 +264,12 @@
         chooseFriendsVC.userID = _userID;
     }
 }
+
+-(void)showChooseFriends
+{
+    olgotChooseFriends* chooseFriendsVC = [[olgotChooseFriends alloc] init];
+    chooseFriendsVC.userID = _userID;
+    [self.navigationController pushViewController:chooseFriendsVC animated:YES];
+}
+
 @end

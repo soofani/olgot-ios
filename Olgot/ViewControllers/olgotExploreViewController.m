@@ -13,6 +13,7 @@
 #import "olgotCategory.h"
 #import "olgotItem.h"
 #import "olgotTabBarViewController.h"
+#import "olgotAppDelegate.h"
 
 
 @interface olgotExploreViewController ()
@@ -66,12 +67,12 @@
     
     // Get the stored data before the view loads
     defaults = [NSUserDefaults standardUserDefaults];
+//
+//    if ([defaults objectForKey:@"userid"] == nil) {
+//        [defaults setObject:nil forKey:@"firstRun"];
+//    }
     
-    if ([defaults objectForKey:@"userid"] == nil) {
-        [defaults setObject:nil forKey:@"firstRun"];
-    }
-    
-    NSLog(@"session user id = %@", [defaults objectForKey:@"userid"]);
+//    NSLog(@"session user id = %@", [defaults objectForKey:@"userid"]);
     
     // background
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
@@ -150,15 +151,19 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    NSLog(@"User id: %@",[defaults objectForKey:@"userid"]);
+    
     if([defaults objectForKey:@"firstRun"] == nil){
-        [self performSegueWithIdentifier:@"ShowSignupFlow" sender:self];
+        olgotAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        [appDelegate showSignup];
     }else if ([[defaults objectForKey:@"firstRun"] isEqual:@"yes"]) {
         [defaults setObject:@"no" forKey:@"firstRun"];
         [self loadCategories]; 
         [locationManager startUpdatingLocation];
     }
     
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.1 animations:^{
         [noteButton setHidden:NO];
     }];
     
@@ -177,6 +182,7 @@
         [locationManager startUpdatingLocation];
         [self checkNotifications];
     }
+
     
 }
 
@@ -247,9 +253,18 @@
 
 - (NSUInteger)collectionView:(SSCollectionView *)aCollectionView numberOfItemsInSection:(NSUInteger)section {
     if (section == 0) {
-        return 1;
+        if ([defaults objectForKey:@"userid"] != nil) {
+            return 1;
+        } else {
+            return 0;
+        }
+
     }else if(section == 1) {
-        return 2;
+        if ([defaults objectForKey:@"userid"] != nil) {
+            return 2;
+        } else {
+            return 0;
+        }
     }else{
         return [_categories count];
     }
@@ -419,7 +434,7 @@
         UIGraphicsEndImageContext();
         
         [self.signupRootVC setHomeImage:myImage];
-//        [signupRootController.dummyBgImageView setBackgroundColor:[UIColor greenColor]];
+
     }
 }
 

@@ -12,6 +12,8 @@
 #import <RestKit/RestKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 
+@protocol signupRootViewDelegate;
+
 @interface olgotSignupRootViewController : UIViewController<RKRequestDelegate, UIActionSheetDelegate, RKObjectLoaderDelegate,UIGestureRecognizerDelegate>
 {
     
@@ -21,9 +23,13 @@
     UIPickerView* accountsPicker;
     
     NSDictionary<FBGraphUser> *fbUser;
+    
+    id<signupRootViewDelegate> delegate;
 }
 
 @property (strong, nonatomic) UIImage *homeImage;
+
+@property (nonatomic,retain) id<signupRootViewDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UIImageView *dummyBgImageView;
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeRecogniser;
@@ -44,5 +50,12 @@
 - (void)canTweetStatus;
 - (void)checkTwitterName:(NSString *)text;
 
+
+@end
+
+@protocol signupRootViewDelegate
+
+-(void)skippedSignup;
+-(void)existingUser;
 
 @end
