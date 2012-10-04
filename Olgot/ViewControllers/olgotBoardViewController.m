@@ -255,15 +255,6 @@
     
     [itemImage setImageWithURL:[NSURL URLWithString:[[_items objectAtIndex:indexPath.row] userProfileImgUrl]]];
     
-//    itemImage.layer.cornerRadius = 3;
-//    itemImage.layer.shouldRasterize = YES;
-//    itemImage.clipsToBounds = YES;
-
-//    itemImage = (UIImageView *)[cell viewWithTag:6];
-//    itemImage.layer.cornerRadius = 3;
-//    itemImage.layer.shouldRasterize = YES;
-//    itemImage.clipsToBounds = YES;
-    
     return cell;
 }
 
