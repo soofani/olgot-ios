@@ -11,12 +11,13 @@
 #import <RestKit/RestKit.h>
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
+
 #import "olgotAddItemConfirmationViewController.h"
 #import "olgotAppDelegate.h"
 
 @protocol addItemDetailsProtocol;
 
-@interface olgotAddItemDetailsViewController : UIViewController<RKObjectLoaderDelegate, UITextFieldDelegate, addItemConfirmationProtocol, olgotTwitterDelegate>
+@interface olgotAddItemDetailsViewController : UIViewController<RKObjectLoaderDelegate, UITextFieldDelegate, addItemConfirmationProtocol, olgotTwitterDelegate,olgotFacebookDelegate>
 {
     UIImageView *itemImageView;
     NSNumber* _itemID;
@@ -26,6 +27,7 @@
     NSArray* accountsArray;
     
     BOOL twitterShare;
+    BOOL facebookShare;
     
     id <addItemDetailsProtocol> delegate;
 }
@@ -53,6 +55,8 @@
 - (IBAction)editDescription:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *twitterShareBtn;
 - (IBAction)twitterSharePressed:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *facebookShareBtn;
+- (IBAction)facebookSharePressed:(id)sender;
 
 @end
 

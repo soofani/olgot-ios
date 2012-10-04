@@ -372,11 +372,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/ViewControllers/olgotAddItemConfirmationViewController.m"
-         timestampString = "368290726.576275"
+         timestampString = "371056686.931789"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "117"
-         endingLineNumber = "117"
+         startingLineNumber = "122"
+         endingLineNumber = "122"
          landmarkName = "-finishUpload"
          landmarkType = "5">
       </FileBreakpoint>
@@ -398,11 +398,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/ViewControllers/olgotAddItemDetailsViewController.m"
-         timestampString = "371044640.020597"
+         timestampString = "371054335.419912"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "51"
-         endingLineNumber = "51"
+         startingLineNumber = "56"
+         endingLineNumber = "56"
          landmarkName = "-setVenue:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -593,11 +593,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/olgotAppDelegate.m"
-         timestampString = "371048128.769127"
+         timestampString = "371052735.410409"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "599"
-         endingLineNumber = "599"
+         startingLineNumber = "600"
+         endingLineNumber = "600"
          landmarkName = "-actionSheet:clickedButtonAtIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -605,38 +605,12 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Olgot/ViewControllers/olgotAddItemDetailsViewController.m"
-         timestampString = "371047687.264993"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "446"
-         endingLineNumber = "446"
-         landmarkName = "-twitterSharePressed:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Olgot/ViewControllers/olgotAddItemDetailsViewController.m"
-         timestampString = "371047692.461785"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "450"
-         endingLineNumber = "450"
-         landmarkName = "-twitterSharePressed:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "Olgot/olgotAppDelegate.m"
-         timestampString = "371047822.761078"
+         timestampString = "371052735.410409"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "554"
-         endingLineNumber = "554"
+         startingLineNumber = "555"
+         endingLineNumber = "555"
          landmarkName = "-twitterConnect"
          landmarkType = "5">
       </FileBreakpoint>
@@ -645,11 +619,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/olgotAppDelegate.m"
-         timestampString = "371047825.00951"
+         timestampString = "371052735.410409"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "583"
-         endingLineNumber = "583"
+         startingLineNumber = "584"
+         endingLineNumber = "584"
          landmarkName = "-twitterConnect"
          landmarkType = "5">
       </FileBreakpoint>
@@ -657,13 +631,13 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Olgot/ViewControllers/olgotAddItemDetailsViewController.m"
-         timestampString = "371047874.824665"
+         filePath = "Olgot/ViewControllers/olgotAddItemConfirmationViewController.m"
+         timestampString = "371056686.931789"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "487"
-         endingLineNumber = "487"
-         landmarkName = "-cancelledTwitter"
+         startingLineNumber = "179"
+         endingLineNumber = "179"
+         landmarkName = "-request:didLoadResponse:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

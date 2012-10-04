@@ -16,12 +16,16 @@
 
 #import "DejalActivityView.h"
 
+#import "olgotProtocols.h"
+#import <FacebookSDK/FBRequest.h>
+
 @interface olgotAddItemDetailsViewController ()
 
 @end
 
 @implementation olgotAddItemDetailsViewController
 @synthesize twitterShareBtn = _twitterShareBtn;
+@synthesize facebookShareBtn = _facebookShareBtn;
 
 @synthesize itemImageView = _itemImageView;
 @synthesize itemImage = _itemImage;
@@ -34,6 +38,7 @@
 @synthesize postButton = _postButton;
 @synthesize venue = _venue;
 @synthesize delegate;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -149,6 +154,8 @@
         twitterShare = NO;
     }
     
+    facebookShare = NO;
+    
     [self.itemImageView setImage:_itemImage];
     [self configureView];
 }
@@ -192,6 +199,12 @@
     } else {
         [_twitterShareBtn setImage:[UIImage imageNamed:@"btn-share-twitter"] forState:UIControlStateNormal];
     }
+    
+    if (facebookShare) {
+        [_facebookShareBtn setImage:[UIImage imageNamed:@"btn-share-facebook-on"] forState:UIControlStateNormal];
+    } else {
+        [_facebookShareBtn setImage:[UIImage imageNamed:@"btn-share-facebook"] forState:UIControlStateNormal];
+    }
 }
 
 - (void)viewDidUnload
@@ -205,6 +218,7 @@
     [self setScrollView:nil];
     [self setItemImage:nil];
     [self setTwitterShareBtn:nil];
+    [self setFacebookShareBtn:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -288,10 +302,9 @@
         }
     }];
     
-    
-    
-    
 }
+
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -356,6 +369,7 @@
     
     confirmationController.itemID = _itemID;
     confirmationController.itemKey = _itemKey;
+    confirmationController.itemUrl = _itemUrl;
     confirmationController.capturedImage = _itemImage;
     confirmationController.itemPrice = [NSNumber numberWithFloat:[self.itemPriceTF.text floatValue]];
     confirmationController.venueID = [_venue venueId];
@@ -372,7 +386,7 @@
     [params setValue:_itemID forParam:@"item"];
     
     //    NSData* imageData = UIImagePNGRepresentation(_itemImage);
-    NSData* imageData = UIImageJPEGRepresentation([_itemImage fixOrientation], 1.0);
+    NSData* imageData = UIImageJPEGRepresentation([_itemImage fixOrientation], 0.8);
     //    [params setData:imageData MIMEType:@"image/jpeg" forParam:@"file"];
     [params setData:imageData MIMEType:@"image/jpeg" fileName:@"myimage.jpg" forParam:@"file"];
     
@@ -386,6 +400,10 @@
     if (twitterShare) {
         [self tweetItem];
     }
+    
+    
+    confirmationController.facebookShare = facebookShare;
+    
     
     confirmationController.delegate = [self.navigationController.viewControllers objectAtIndex:0];
     
@@ -457,6 +475,24 @@
     [self configureSharingBtns];
 }
 
+- (IBAction)facebookSharePressed:(id)sender {
+    
+    facebookShare = !facebookShare;
+    if (facebookShare) {
+        if (FBSession.activeSession.state == FBSessionStateOpen) {
+            // Yes, so just open the session (this won't display any UX).
+            facebookShare = YES;
+        }else{
+            facebookShare = NO;
+            olgotAppDelegate* appDelegate =  (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
+            appDelegate.facebookDelegate = self;
+            [appDelegate openFBSession];
+        }
+    }
+    
+    [self configureSharingBtns];
+}
+
 #pragma mark - addItemConfirmationProtocol
 
 -(void)finishedAddItem
@@ -486,6 +522,24 @@
 {
     [DejalBezelActivityView removeView];
 }
+
+#pragma mark olgotFacebookDelegate
+
+-(void)facebookSuccess
+{
+    facebookShare = YES;
+    [self configureSharingBtns];
+}
+
+-(void)facebookFailed
+{
+    
+}
+
+-(void)facebookCancelled{
+    
+}
+
 
 
 

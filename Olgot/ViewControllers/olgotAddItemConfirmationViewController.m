@@ -9,6 +9,9 @@
 #import "olgotAddItemConfirmationViewController.h"
 #import "olgotItem.h"
 
+#import "olgotProtocols.h"
+#import <FacebookSDK/FBRequest.h>
+
 @interface olgotAddItemConfirmationViewController ()
 
 @end
@@ -26,6 +29,8 @@
 @synthesize placeItemCountLabel;
 @synthesize capturedImage = _capturedImage;
 @synthesize delegate;
+@synthesize facebookShare = _facebookShare;
+@synthesize itemUrl = _itemUrl;
 
 @synthesize itemID = _itemID, itemKey = _itemKey, venueID = _venueID, venueItemCount = _venueItemCount, venueName = _venueName;
 @synthesize itemPrice = _itemPrice;
@@ -157,10 +162,22 @@
     NSLog(@"progress: %f", progress);
     [_progressView setProgress:progress animated:YES];
     if (progress == 1.0) {
-        [request setDelegate:nil];
-        self.navigationItem.rightBarButtonItem.enabled = YES;
+//        [request setDelegate:nil];
+        
     }
     NSLog(@"sent bytes: %d of %d",totalBytesWritten,totalBytesExpectedToWrite);
+}
+
+-(void)request:(RKRequest *)request didLoadResponse:(RKResponse *)response
+{
+    
+    NSLog(@"user data: %@ response: %@", [request userData],[response bodyAsString]);
+    if ([[request userData] isEqual:@"uploadPhoto"]) {
+        if(_facebookShare){
+            [self shareOnFacebook];
+        }
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }
 }
 
 -(void)showPopup:(NSString*)sender
@@ -267,4 +284,58 @@
 - (IBAction)venueNamePressed:(id)sender {
     
 }
+
+-(void)shareOnFacebook{
+    //    id<olgotOgItem> itemObject = [self itemObjectForItem];
+    id<olgotOgItem> itemObject = [self itemObjectForItem:@"dummy"];
+    
+    id<olgotOgFindItem> action = (id<olgotOgFindItem>)[FBGraphObject graphObject];
+    
+    action.item = itemObject;
+    
+    [FBSettings setLoggingBehavior:[NSSet
+                                    setWithObjects:FBLoggingBehaviorFBRequests,
+                                    FBLoggingBehaviorFBURLConnections,
+                                    nil]];
+    
+    // Create the request and post the action to the "me/fb_sample_scrumps:eat" path.
+    [FBRequestConnection startForPostWithGraphPath:@"me/olgotapp:add"
+                                       graphObject:action
+                                 completionHandler:^(FBRequestConnection *connection,
+                                                     id result,
+                                                     NSError *error) {
+                                     [self.view setUserInteractionEnabled:YES];
+                                     
+                                     NSString *alertText;
+                                     if (!error) {
+                                         alertText = [NSString stringWithFormat:@"Posted Open Graph action, id: %@",
+                                                      [result objectForKey:@"id"]];
+                                         
+                                         
+                                     } else {
+                                         alertText = [NSString stringWithFormat:@"error: domain = %@, code = %d",
+                                                      error.domain, error.code];
+                                     }
+                                     
+                                     NSLog(@"Facebook: %@",alertText);
+                                     //                                     [[[UIAlertView alloc] initWithTitle:@"Result"
+                                     //                                                                 message:alertText
+                                     //                                                                delegate:nil
+                                     //                                                       cancelButtonTitle:@"Thanks!"
+                                     //                                                       otherButtonTitles:nil]
+                                     //                                      show];
+                                 }];
+    
+    
+}
+
+- (id<olgotOgItem>)itemObjectForItem:(NSString*)mItem
+{
+    id<olgotOgItem> result = (id<olgotOgItem>)[FBGraphObject graphObject];
+    
+    result.url = _itemUrl;
+    
+    return result;
+}
+
 @end

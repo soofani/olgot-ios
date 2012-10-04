@@ -28,6 +28,8 @@
 
 @property (nonatomic,retain) id <addItemConfirmationProtocol> delegate;
 
+@property (nonatomic, assign) BOOL facebookShare;
+
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIProgressView *progressView;
 
@@ -36,6 +38,7 @@
 @property (strong, nonatomic) NSNumber *itemID;
 @property (strong, nonatomic) NSString *itemKey;
 @property (strong, nonatomic) NSNumber *itemPrice;
+@property (strong, nonatomic) NSString *itemUrl;
 @property (strong, nonatomic) NSNumber *venueID;
 @property (strong, nonatomic) NSString *venueName;
 @property (strong, nonatomic) NSNumber *venueItemCount;

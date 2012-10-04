@@ -976,7 +976,15 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 0) {
         //facebook
-        [self shareOnFacebook];
+        if (FBSession.activeSession.state == FBSessionStateOpen) {
+            // Yes, so just open the session (this won't display any UX).
+            [self shareOnFacebook];
+        }else{
+            olgotAppDelegate* appDelegate =  (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
+            appDelegate.facebookDelegate = self;
+            [appDelegate openFBSession];
+        }
+    
 
 	} else if (buttonIndex == 1) {
         //twitter
@@ -1087,5 +1095,21 @@
     [DejalBezelActivityView removeView];
 }
 
+
+#pragma mark olgotFacebookDelegate
+
+-(void)facebookSuccess
+{
+    [self shareOnFacebook];
+}
+
+-(void)facebookFailed
+{
+    
+}
+
+-(void)facebookCancelled{
+    
+}
 
 @end

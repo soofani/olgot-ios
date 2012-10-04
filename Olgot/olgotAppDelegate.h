@@ -17,17 +17,20 @@
 #import "DejalActivityView.h"
 
 @protocol olgotTwitterDelegate;
+@protocol olgotFacebookDelegate;
 
 @interface olgotAppDelegate : UIResponder <UIApplicationDelegate,signupRootViewDelegate, chooseFriendsDelegate,UIActionSheetDelegate>{
     
     NSArray *twitterAccounts;
     
     id<olgotTwitterDelegate> twitterDelegate;
+    id<olgotFacebookDelegate> facebookDelegate;
 }
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (nonatomic,retain) id<olgotTwitterDelegate> twitterDelegate;
+@property (nonatomic,retain) id<olgotFacebookDelegate> facebookDelegate;
 
 -(void)configureRestkit;
 -(void)openFBSession;
@@ -43,5 +46,13 @@
 -(void)loadedAccounts;
 -(void)didChooseAccount;
 -(void)cancelledTwitter;
+
+@end
+
+@protocol olgotFacebookDelegate
+
+-(void)facebookSuccess;
+-(void)facebookFailed;
+-(void)facebookCancelled;
 
 @end

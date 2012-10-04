@@ -19,7 +19,7 @@
 
 @protocol olgotDeleteItemProtocol;
 
-@interface olgotItemViewController : SSCollectionViewController<RKObjectLoaderDelegate, UITextFieldDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate, olgotTwitterDelegate>{
+@interface olgotItemViewController : SSCollectionViewController<RKObjectLoaderDelegate, UITextFieldDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate, olgotTwitterDelegate,olgotFacebookDelegate>{
     SSCollectionViewItem *commentsHeader;
     NSArray* _likes;
     NSArray* _wants;

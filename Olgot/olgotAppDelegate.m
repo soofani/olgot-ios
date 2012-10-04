@@ -492,7 +492,8 @@
 {
     switch (state) {
         case FBSessionStateOpen: {
-            
+            [self.facebookDelegate facebookSuccess];
+            self.facebookDelegate = nil;
         }
             break;
         case FBSessionStateClosed:

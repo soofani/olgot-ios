@@ -272,6 +272,10 @@
 		FFDC6338156E839D008CCA28 /* commentsViewCommentRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFDC6337156E839D008CCA28 /* commentsViewCommentRow.xib */; };
 		FFDCBDF71562621900FB8009 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDCBDF61562621800FB8009 /* MobileCoreServices.framework */; };
 		FFDCBDF91562622800FB8009 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDCBDF81562622800FB8009 /* MapKit.framework */; };
+		FFDD76D6161DD22D0078DB6D /* btn-share-facebook-on.png in Resources */ = {isa = PBXBuildFile; fileRef = FFDD76D2161DD22D0078DB6D /* btn-share-facebook-on.png */; };
+		FFDD76D7161DD22D0078DB6D /* btn-share-facebook-on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFDD76D3161DD22D0078DB6D /* btn-share-facebook-on@2x.png */; };
+		FFDD76D8161DD22D0078DB6D /* btn-share-facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = FFDD76D4161DD22D0078DB6D /* btn-share-facebook.png */; };
+		FFDD76D9161DD22D0078DB6D /* btn-share-facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFDD76D5161DD22D0078DB6D /* btn-share-facebook@2x.png */; };
 		FFE4647C1573BDD300395BD5 /* olgotActionUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE4647B1573BDD300395BD5 /* olgotActionUser.m */; };
 		FFE4647F1573BF3800395BD5 /* olgotComment.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE4647E1573BF3800395BD5 /* olgotComment.m */; };
 		FFE51CA515F4E3D100F45F8F /* bg-cam-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = FFE51CA315F4E3D100F45F8F /* bg-cam-toolbar.png */; };
@@ -694,6 +698,10 @@
 		FFDC6337156E839D008CCA28 /* commentsViewCommentRow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = commentsViewCommentRow.xib; sourceTree = "<group>"; };
 		FFDCBDF61562621800FB8009 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		FFDCBDF81562622800FB8009 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FFDD76D2161DD22D0078DB6D /* btn-share-facebook-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-share-facebook-on.png"; sourceTree = "<group>"; };
+		FFDD76D3161DD22D0078DB6D /* btn-share-facebook-on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-share-facebook-on@2x.png"; sourceTree = "<group>"; };
+		FFDD76D4161DD22D0078DB6D /* btn-share-facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-share-facebook.png"; sourceTree = "<group>"; };
+		FFDD76D5161DD22D0078DB6D /* btn-share-facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-share-facebook@2x.png"; sourceTree = "<group>"; };
 		FFE4647A1573BDD300395BD5 /* olgotActionUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotActionUser.h; path = Model/olgotActionUser.h; sourceTree = "<group>"; };
 		FFE4647B1573BDD300395BD5 /* olgotActionUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotActionUser.m; path = Model/olgotActionUser.m; sourceTree = "<group>"; };
 		FFE4647D1573BF3800395BD5 /* olgotComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotComment.h; path = Model/olgotComment.h; sourceTree = "<group>"; };
@@ -789,6 +797,10 @@
 		FF10F2A9155D16F500F4EC2E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				FFDD76D2161DD22D0078DB6D /* btn-share-facebook-on.png */,
+				FFDD76D3161DD22D0078DB6D /* btn-share-facebook-on@2x.png */,
+				FFDD76D4161DD22D0078DB6D /* btn-share-facebook.png */,
+				FFDD76D5161DD22D0078DB6D /* btn-share-facebook@2x.png */,
 				FF879E42161AFD80009F49A7 /* filter-bright.png */,
 				FF879E43161AFD80009F49A7 /* filter-bright@2x.png */,
 				FF879E44161AFD80009F49A7 /* filter-crisp.png */,
@@ -1632,6 +1644,10 @@
 				FF879E55161B02A8009F49A7 /* trim-square@2x.png in Resources */,
 				FF9BF0E8161C4F2E00CC54E0 /* olgotSignupRootView.xib in Resources */,
 				FF9BF0EA161C50B800CC54E0 /* olgotChooseUsernameView.xib in Resources */,
+				FFDD76D6161DD22D0078DB6D /* btn-share-facebook-on.png in Resources */,
+				FFDD76D7161DD22D0078DB6D /* btn-share-facebook-on@2x.png in Resources */,
+				FFDD76D8161DD22D0078DB6D /* btn-share-facebook.png in Resources */,
+				FFDD76D9161DD22D0078DB6D /* btn-share-facebook@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
