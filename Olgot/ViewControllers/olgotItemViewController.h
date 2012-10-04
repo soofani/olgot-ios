@@ -13,12 +13,13 @@
 #import <Accounts/Accounts.h>
 #import <QuartzCore/QuartzCore.h>
 #import <MessageUI/MessageUI.h>
+#import "olgotAppDelegate.h"
 
 @class olgotItem;
 
 @protocol olgotDeleteItemProtocol;
 
-@interface olgotItemViewController : SSCollectionViewController<RKObjectLoaderDelegate, UITextFieldDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate>{
+@interface olgotItemViewController : SSCollectionViewController<RKObjectLoaderDelegate, UITextFieldDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate, olgotTwitterDelegate>{
     SSCollectionViewItem *commentsHeader;
     NSArray* _likes;
     NSArray* _wants;

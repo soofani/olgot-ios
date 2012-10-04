@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "olgotAppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "olgotAppDelegate.h"
+
+#import "DejalActivityView.h"
 
 
-@interface olgotMoreViewController : UITableViewController{
+@interface olgotMoreViewController : UITableViewController<olgotTwitterDelegate>{
     NSUserDefaults *defaults;
 }
 

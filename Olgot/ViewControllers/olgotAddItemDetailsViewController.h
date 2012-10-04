@@ -12,10 +12,11 @@
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
 #import "olgotAddItemConfirmationViewController.h"
+#import "olgotAppDelegate.h"
 
 @protocol addItemDetailsProtocol;
 
-@interface olgotAddItemDetailsViewController : UIViewController<RKObjectLoaderDelegate, UITextFieldDelegate, addItemConfirmationProtocol>
+@interface olgotAddItemDetailsViewController : UIViewController<RKObjectLoaderDelegate, UITextFieldDelegate, addItemConfirmationProtocol, olgotTwitterDelegate>
 {
     UIImageView *itemImageView;
     NSNumber* _itemID;

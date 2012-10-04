@@ -27,6 +27,8 @@
 
 @synthesize window = _window;
 
+@synthesize twitterDelegate;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[LocalyticsSession sharedLocalyticsSession] startSession:@"79e9cf2757a4dbe32bfda7c-8361ac6a-8e30-11e1-356e-00ef75f32667"];
@@ -539,6 +541,74 @@
     UINavigationController *signupNavigationController = [[UINavigationController alloc] initWithRootViewController:signupRootVC];
     
     [self.window.rootViewController presentModalViewController:signupNavigationController animated:YES];
+}
+
+-(void)twitterConnect
+{
+    [self.twitterDelegate loadingAccounts];
+    ACAccountStore *store = [[ACAccountStore alloc] init]; // Long-lived
+    ACAccountType *twitterType = [store accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    [store requestAccessToAccountsWithType:twitterType withCompletionHandler:^(BOOL granted, NSError *error) {
+        if(granted) {
+            // Remember that twitterType was instantiated above
+            twitterAccounts = [store accountsWithAccountType:twitterType];
+            
+            // If there are no accounts, we need to pop up an alert
+            if(twitterAccounts != nil && [twitterAccounts count] > 0) {
+                // Get the list of Twitter accounts.
+                
+                NSLog(@"accounts: %@",twitterAccounts);
+                
+                
+                UIActionSheet* twitterActionSheet;
+                twitterActionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose Twitter account" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+                
+                for (ACAccount* ac in twitterAccounts) {
+                    [twitterActionSheet addButtonWithTitle:[ac accountDescription]];
+                }
+                
+                [self.twitterDelegate loadedAccounts];
+                [twitterActionSheet showInView:self.window.rootViewController.view];
+            }
+            
+            else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Twitter Accounts"
+                                                                message:@"There are no Twitter accounts configured. You can add or create a Twitter account in Settings."
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+        }else{
+            [self.twitterDelegate cancelledTwitter];
+        }
+        // Handle any error state here as you wish
+    }];
+
+}
+
+#pragma mark -
+#pragma mark UIActionSheet Delegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"selected index %d",buttonIndex);
+     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (buttonIndex > 0) {
+       
+        
+        [defaults setObject:[NSNumber numberWithInt:(buttonIndex - 1)] forKey:@"twitterAccountIndex"];
+        
+        [defaults synchronize];
+        [self.twitterDelegate didChooseAccount];
+    }else {
+        //cancel
+        NSLog(@"cancel");
+        [defaults setObject:nil forKey:@"twitterAccountIndex"];
+        
+        [defaults synchronize];
+        [self.twitterDelegate cancelledTwitter];
+        
+    }
 }
 
 #pragma mark signupRootDelegate
