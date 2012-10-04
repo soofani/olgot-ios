@@ -68,6 +68,7 @@
 }
 
 -(void) viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
     [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
 }
 
