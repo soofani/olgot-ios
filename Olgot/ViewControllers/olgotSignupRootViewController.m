@@ -53,8 +53,6 @@
 	// Do any additional setup after loading the view.
     
     [self configureView];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(canTweetStatus) name:ACAccountStoreDidChangeNotification object:nil];
 
 }
 

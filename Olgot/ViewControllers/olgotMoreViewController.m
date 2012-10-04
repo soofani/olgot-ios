@@ -144,7 +144,18 @@
     UISwitch* tweetSwitch = (UISwitch*)sender;
     if (tweetSwitch.isOn) {
         NSLog(@"switched on");
-        [defaults setObject:@"yes" forKey:@"autoTweetItems"];
+        NSNumber* twitterAccountIndex = [defaults objectForKey:@"twitterAccountIndex"];
+        if([TWTweetComposeViewController canSendTweet] && twitterAccountIndex != nil){
+            //user can tweet, seebo b7alo
+            NSLog(@"can tweet");
+            [defaults setObject:@"yes" forKey:@"autoTweetItems"];
+        }else{
+            //user can't tweet
+            olgotAppDelegate *appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
+            appDelegate.twitterDelegate = self;
+            [appDelegate twitterConnect];
+        }
+        
     }else {
         NSLog(@"switched off");
         [defaults setObject:@"no" forKey:@"autoTweetItems"];
@@ -158,7 +169,7 @@
     
     if (facebookConnectSwitch.isOn) {
 //        user wants to connect with facebook
-        olgotAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        olgotAppDelegate* appDelegate =  (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
         [appDelegate openFBSession];
         
     } else {
@@ -168,6 +179,29 @@
     }
 }
 
+-(void)loadingAccounts
+{
+    [DejalBezelActivityView activityViewForView:self.view];
+}
+
+-(void)loadedAccounts
+{
+    [DejalBezelActivityView removeView];
+}
+
+-(void)didChooseAccount
+{
+    [defaults setObject:@"yes" forKey:@"autoTweetItems"];
+    [defaults synchronize];
+}
+
+-(void)cancelledTwitter
+{
+    [DejalBezelActivityView removeView];
+    [defaults setObject:@"yes" forKey:@"autoTweetItems"];
+    [defaults synchronize];
+    [autoTweetSwitch setOn:NO animated:YES];
+}
 
 
 

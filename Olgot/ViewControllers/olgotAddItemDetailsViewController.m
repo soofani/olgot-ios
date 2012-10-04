@@ -14,6 +14,8 @@
 #import "olgotItem.h"
 #import "olgotTabBarViewController.h"
 
+#import "DejalActivityView.h"
+
 @interface olgotAddItemDetailsViewController ()
 
 @end
@@ -31,6 +33,7 @@
 @synthesize descriptionTF = _descriptionTF;
 @synthesize postButton = _postButton;
 @synthesize venue = _venue;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -249,19 +252,45 @@
                     venueTwitterName = @"";
                 }
                 
-                TWRequest *postRequest = [[TWRequest alloc] initWithURL:[NSURL URLWithString:@"http://api.twitter.com/1/statuses/update.json"] parameters:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"I just posted an item at %@ using Olgot %@ %@", [_venue name_En], venueTwitterName,_itemUrl] forKey:@"status"] requestMethod:TWRequestMethodPOST];
+                TWRequest *request = [[TWRequest alloc] initWithURL:[NSURL URLWithString:
+                                                                     @"https://upload.twitter.com/1/statuses/update_with_media.json"]
+                                                         parameters:nil
+                                                      requestMethod:TWRequestMethodPOST];
                 
-                // Set the account used to post the tweet.
-                [postRequest setAccount:twitterAccount];
+                [request setAccount:twitterAccount];
                 
-                // Perform the request created above and create a handler block to handle the response.
-                [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-                    NSString *output = [NSString stringWithFormat:@"HTTP response status: %i", [urlResponse statusCode]];
-                    NSLog(@"twitter response %@",output);
-                }];
+                NSData *imageData = UIImagePNGRepresentation(self.itemImage);
+                
+                [request addMultiPartData:imageData
+                                 withName:@"media[]"
+                                     type:@"multipart/form-data"];
+                
+                NSString *status = [NSString stringWithFormat:@"I just posted an item at %@ using Olgot %@ %@", [_venue name_En], venueTwitterName,_itemUrl];
+                
+                [request addMultiPartData:[status dataUsingEncoding:NSUTF8StringEncoding]
+                                 withName:@"status"
+                                     type:@"multipart/form-data"];
+                
+                [request performRequestWithHandler:
+                 ^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+                     NSDictionary *dict =
+                     (NSDictionary *)[NSJSONSerialization
+                                      JSONObjectWithData:responseData options:0 error:nil];
+                     
+                     // Log the result
+                     NSLog(@"%@", dict);
+                     
+                     dispatch_async(dispatch_get_main_queue(), ^{
+                         // perform an action that updates the UI...
+                     });
+                 }];
             }
         }
     }];
+    
+    
+    
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -343,7 +372,7 @@
     [params setValue:_itemID forParam:@"item"];
     
     //    NSData* imageData = UIImagePNGRepresentation(_itemImage);
-    NSData* imageData = UIImageJPEGRepresentation([_itemImage fixOrientation], 0.2);
+    NSData* imageData = UIImageJPEGRepresentation([_itemImage fixOrientation], 1.0);
     //    [params setData:imageData MIMEType:@"image/jpeg" forParam:@"file"];
     [params setData:imageData MIMEType:@"image/jpeg" fileName:@"myimage.jpg" forParam:@"file"];
     
@@ -387,7 +416,7 @@
         [params setValue:_itemID forParam:@"item"];
         
         //    NSData* imageData = UIImagePNGRepresentation(_itemImage);
-        NSData* imageData = UIImageJPEGRepresentation([_itemImage fixOrientation], 0.2);
+        NSData* imageData = UIImageJPEGRepresentation(_itemImage, 1.0);
         //    [params setData:imageData MIMEType:@"image/jpeg" forParam:@"file"];
         [params setData:imageData MIMEType:@"image/jpeg" fileName:@"myimage.jpg" forParam:@"file"];
         
@@ -406,7 +435,25 @@
 }
 
 - (IBAction)twitterSharePressed:(id)sender {
+    
     twitterShare = !twitterShare;
+    if (twitterShare) {
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        NSNumber* twitterAccountIndex = [defaults objectForKey:@"twitterAccountIndex"];
+        
+        if([TWTweetComposeViewController canSendTweet] && twitterAccountIndex != nil){
+            //user can tweet, seebo b7alo
+            NSLog(@"can tweet");
+            
+        }else{
+            //user can't tweet
+            twitterShare = NO;
+            olgotAppDelegate *appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
+            appDelegate.twitterDelegate = self;
+            [appDelegate twitterConnect];
+        }
+    }
+
     [self configureSharingBtns];
 }
 
@@ -416,6 +463,30 @@
 {
     [self.delegate exitAddItemFlow];
 }
+
+#pragma mark olgotTwitterDelegate;
+
+-(void)loadingAccounts
+{
+    [DejalBezelActivityView activityViewForView:self.view];
+}
+
+-(void)loadedAccounts
+{
+    [DejalBezelActivityView removeView];
+}
+
+-(void)didChooseAccount
+{
+    twitterShare = YES;
+    [self configureSharingBtns];
+}
+
+-(void)cancelledTwitter
+{
+    [DejalBezelActivityView removeView];
+}
+
 
 
 @end

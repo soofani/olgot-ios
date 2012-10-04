@@ -157,6 +157,7 @@
     NSLog(@"progress: %f", progress);
     [_progressView setProgress:progress animated:YES];
     if (progress == 1.0) {
+        [request setDelegate:nil];
         self.navigationItem.rightBarButtonItem.enabled = YES;
     }
     NSLog(@"sent bytes: %d of %d",totalBytesWritten,totalBytesExpectedToWrite);
