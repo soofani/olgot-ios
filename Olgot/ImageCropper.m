@@ -129,22 +129,22 @@
     
     initialX = 20.0;
     UILabel* label1 = [[UILabel alloc] initWithFrame:CGRectMake(initialX, yVal + btnHeight + labelYSpacing, btnWidth, labelHeight)];
-    [label1 setText:@"normal"];
+    [label1 setText:@"Normal"];
     [filterLabels addObject:label1];
     
     initialX = initialX + btnWidth + hSpacing;
     UILabel* label2 = [[UILabel alloc] initWithFrame:CGRectMake(initialX, yVal + btnHeight + labelYSpacing, btnWidth, labelHeight)];
-    [label2 setText:@"crisp"];
+    [label2 setText:@"Crisp"];
     [filterLabels addObject:label2];
     
     initialX = initialX + btnWidth + hSpacing;
     UILabel* label3 = [[UILabel alloc] initWithFrame:CGRectMake(initialX, yVal + btnHeight + labelYSpacing, btnWidth, labelHeight)];
-    [label3 setText:@"bright"];
+    [label3 setText:@"Bright"];
     [filterLabels addObject:label3];
     
     initialX = initialX + btnWidth + hSpacing;
     UILabel* label4 = [[UILabel alloc] initWithFrame:CGRectMake(initialX, yVal + btnHeight + labelYSpacing, btnWidth, labelHeight)];
-    [label4 setText:@"vibrant"];
+    [label4 setText:@"Vibrant"];
     [filterLabels addObject:label4];
     
     for (UIButton *mFilter in filterButtons) {
@@ -154,7 +154,7 @@
     for (UILabel *mLabel in filterLabels) {
         [mLabel setFont:[UIFont systemFontOfSize:12.0]];
         [mLabel setBackgroundColor:[UIColor clearColor]];
-        [mLabel setTextAlignment:NSTextAlignmentCenter];
+        [mLabel setTextAlignment:UITextAlignmentCenter];
         [self.view addSubview:mLabel];
     }
     
@@ -184,12 +184,17 @@
             
             beginImage = [CIImage imageWithData:UIImagePNGRepresentation(rawImage)];
             
-            filter = [CIFilter filterWithName:@"CIColorControls"];
+//            filter = [CIFilter filterWithName:@"CIColorControls"];
+//            
+//            [filter setValue:beginImage forKey:@"inputImage"];
+//            [filter setValue:[NSNumber numberWithFloat:0.0f] forKey:@"inputBrightness"];    //default: 0.0, max:1.0, min:-1.0
+//            [filter setValue:[NSNumber numberWithFloat:1.1f] forKey:@"inputContrast"];      //default: 1.0, max:4.0, min:0.0
+//            [filter setValue:[NSNumber numberWithFloat:1.0f] forKey:@"inputSaturation"];    //default: 1.0, max:2.0, min:0.0
             
+            filter = [CIFilter filterWithName:@"CIHighlightShadowAdjust"];
             [filter setValue:beginImage forKey:@"inputImage"];
-            [filter setValue:[NSNumber numberWithFloat:0.0f] forKey:@"inputBrightness"];    //default: 0.0, max:1.0, min:-1.0
-            [filter setValue:[NSNumber numberWithFloat:1.1f] forKey:@"inputContrast"];      //default: 1.0, max:4.0, min:0.0
-            [filter setValue:[NSNumber numberWithFloat:1.0f] forKey:@"inputSaturation"];    //default: 1.0, max:2.0, min:0.0
+            [filter setValue:[NSNumber numberWithFloat:1.0] forKey:@"inputHighlightAmount"];
+            [filter setValue:[NSNumber numberWithFloat:1.5] forKey:@"inputShadowAmount"];
             
             outputImage = [filter outputImage];
             
@@ -230,11 +235,16 @@
             
             beginImage = [CIImage imageWithData:UIImagePNGRepresentation(rawImage)];
             
-            filter = [CIFilter filterWithName:@"CIVibrance"];
+//            filter = [CIFilter filterWithName:@"CIVibrance"];
+//            [filter setValue:beginImage forKey:@"inputImage"];
+//            [filter setValue:[NSNumber numberWithFloat:0.5f] forKey:@"inputAmount"];    //default: 0.0, max:1.0, min:-1.0
             
+            filter = [CIFilter filterWithName:@"CIColorControls"];
             [filter setValue:beginImage forKey:@"inputImage"];
-            [filter setValue:[NSNumber numberWithFloat:1.0f] forKey:@"inputAmount"];    //default: 0.0, max:1.0, min:-1.0
-                      
+            [filter setValue:[NSNumber numberWithFloat:0.0f] forKey:@"inputBrightness"];    //default: 0.0, max:1.0, min:-1.0
+            [filter setValue:[NSNumber numberWithFloat:1.1f] forKey:@"inputContrast"]; 
+            [filter setValue:[NSNumber numberWithFloat:1.2f] forKey:@"inputSaturation"]; 
+
             outputImage = [filter outputImage];
             
             cgimg = [context createCGImage:outputImage fromRect:[outputImage extent]];
@@ -246,7 +256,6 @@
             outputImage = nil;
             break;
     }
-    
 }
 
 - (void)cancelCropping {
