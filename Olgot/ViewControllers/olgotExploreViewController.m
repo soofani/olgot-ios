@@ -93,8 +93,8 @@
     [titleImageView setImage:titleImage];
     titleImageView.contentMode = UIViewContentModeBottom;
     
-    [self.navigationController.navigationBar.topItem setTitleView:titleImageView];    
-
+    [self.navigationController.navigationBar.topItem setTitleView:titleImageView];
+    
     
     self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:self.collectionView.scrollView delegate:self];
     
@@ -155,7 +155,7 @@
     NSLog(@"User id: %@",[defaults objectForKey:@"userid"]);
     
     if([defaults objectForKey:@"firstRun"] == nil){
-        olgotAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        olgotAppDelegate* appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
         [appDelegate showSignup];
     }else if ([[defaults objectForKey:@"firstRun"] isEqual:@"yes"]) {
         [defaults setObject:@"no" forKey:@"firstRun"];
