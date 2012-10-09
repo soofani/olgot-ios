@@ -8,6 +8,7 @@
 
 #import "ImageCropper.h"
 
+
 @implementation ImageCropper
 
 @synthesize scrollView, imageView;
@@ -39,12 +40,13 @@
         [scrollView setContentSize:[imageView frame].size];
         if (rawImage.size.width > rawImage.size.height) {
             NSLog(@"Landscape image");
-            [scrollView setContentInset:UIEdgeInsetsMake(93.0, 0.0, 0.0, 0.0)];
+            [scrollView setContentInset:UIEdgeInsetsMake(53.0, 0.0, 0.0, 0.0)];
+            [scrollView setMinimumZoomScale:[scrollView frame].size.height / [imageView frame].size.width];
         }else{
             NSLog(@"portrait image");
+            [scrollView setMinimumZoomScale:[scrollView frame].size.width / [imageView frame].size.width];
         }
         
-        [scrollView setMinimumZoomScale:[scrollView frame].size.width / [imageView frame].size.width];
         [scrollView setZoomScale:[scrollView minimumZoomScale]];
         [scrollView addSubview:imageView];
         
@@ -76,13 +78,28 @@
 {
     [super viewDidLoad];
     context = [CIContext contextWithOptions:nil];
-
+    [self initializeFilters];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+}
+
+-(void)initializeFilters
+{
+    //sharpness
+    shaprenFilter = [[GPUImageSharpenFilter alloc] init];
+    [shaprenFilter setSharpness:0.5];   //def:0 max:4.0 min:-4.0
+    
+    //brightness
+    brightnessFilter = [[GPUImageBrightnessFilter alloc] init];
+    [brightnessFilter setBrightness:0.2];   //def:0 max:1.0 min:-1.0
+    
+    //saturation
+    saturationFilter = [[GPUImageSaturationFilter alloc] init];
+    [saturationFilter setSaturation:1.5];   //def:1.0 max:2.0 min:0.0
 }
 
 
@@ -166,11 +183,6 @@
 {
     UIButton *mBtn = (UIButton*)effectButton;
     
-    CIImage *beginImage;
-    CIFilter *filter;
-    CIImage *outputImage;
-    CGImageRef cgimg;
-    
     switch ([mBtn tag]) {
         case 0:
             //normal
@@ -181,69 +193,23 @@
             
         case 1:
             //crisp
-            
-            beginImage = [CIImage imageWithData:UIImagePNGRepresentation(rawImage)];
-            
-            filter = [CIFilter filterWithName:@"CIColorControls"];
-            
-            [filter setValue:beginImage forKey:@"inputImage"];
-            [filter setValue:[NSNumber numberWithFloat:0.0f] forKey:@"inputBrightness"];    //default: 0.0, max:1.0, min:-1.0
-            [filter setValue:[NSNumber numberWithFloat:1.1f] forKey:@"inputContrast"];      //default: 1.0, max:4.0, min:0.0
-            [filter setValue:[NSNumber numberWithFloat:1.0f] forKey:@"inputSaturation"];    //default: 1.0, max:2.0, min:0.0
-            
-            outputImage = [filter outputImage];
-            
-            cgimg = [context createCGImage:outputImage fromRect:[outputImage extent]];
-            filteredImage = [UIImage imageWithCGImage:cgimg];
-            
-            CGImageRelease(cgimg);
-            
+            filteredImage = [shaprenFilter imageByFilteringImage:rawImage];
             [self.imageView setImage:filteredImage];
-            outputImage = nil;
             break;
             
                         
         case 2:
             //bright
-            
-            beginImage = [CIImage imageWithData:UIImagePNGRepresentation(rawImage)];
-            
-            filter = [CIFilter filterWithName:@"CIExposureAdjust"];
-            
-            [filter setValue:beginImage forKey:@"inputImage"];
-            [filter setValue:[NSNumber numberWithFloat:1.0f] forKey:@"inputEV"];    //default: 0.0, max: 10.0, min:-10.0
-            
-            outputImage = [filter outputImage];
-            
-            cgimg = [context createCGImage:outputImage fromRect:[outputImage extent]];
-            filteredImage = [UIImage imageWithCGImage:cgimg];
-            
-            CGImageRelease(cgimg);
-            
+            filteredImage = [brightnessFilter imageByFilteringImage:rawImage];
             [self.imageView setImage:filteredImage];
-            outputImage = nil;
             break;
 
            
         case 3:
             //vibrant
-            
-            beginImage = [CIImage imageWithData:UIImagePNGRepresentation(rawImage)];
-            
-            filter = [CIFilter filterWithName:@"CIVibrance"];
-            
-            [filter setValue:beginImage forKey:@"inputImage"];
-            [filter setValue:[NSNumber numberWithFloat:1.0f] forKey:@"inputAmount"];    //default: 0.0, max:1.0, min:-1.0
-                      
-            outputImage = [filter outputImage];
-            
-            cgimg = [context createCGImage:outputImage fromRect:[outputImage extent]];
-            filteredImage = [UIImage imageWithCGImage:cgimg];
-            
-            CGImageRelease(cgimg);
-            
+            filteredImage = [saturationFilter imageByFilteringImage:rawImage];
             [self.imageView setImage:filteredImage];
-            outputImage = nil;
+            
             break;
     }
     

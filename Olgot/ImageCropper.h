@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIImage+WBImage.h"
+#import "GPUImage.h"
 
 @protocol ImageCropperDelegate;
 
@@ -24,6 +25,10 @@
     
     NSMutableArray *filterButtons;
     NSMutableArray *filtersArray;
+    
+    GPUImageSharpenFilter *shaprenFilter;
+    GPUImageBrightnessFilter *brightnessFilter;
+    GPUImageSaturationFilter *saturationFilter;
     
 }
 

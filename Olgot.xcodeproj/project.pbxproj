@@ -280,6 +280,11 @@
 		FFE4647F1573BF3800395BD5 /* olgotComment.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE4647E1573BF3800395BD5 /* olgotComment.m */; };
 		FFE51CA515F4E3D100F45F8F /* bg-cam-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = FFE51CA315F4E3D100F45F8F /* bg-cam-toolbar.png */; };
 		FFE51CA615F4E3D100F45F8F /* bg-cam-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FFE51CA415F4E3D100F45F8F /* bg-cam-toolbar@2x.png */; };
+		FFE6E65516243E57003558CD /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE6E65416243E57003558CD /* CoreMedia.framework */; };
+		FFE6E65716243E66003558CD /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE6E65616243E66003558CD /* CoreVideo.framework */; };
+		FFE6E65916243E73003558CD /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE6E65816243E73003558CD /* OpenGLES.framework */; };
+		FFE6E65B16243E7E003558CD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE6E65A16243E7E003558CD /* AVFoundation.framework */; };
+		FFE6E67816243F15003558CD /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE6E67316243EDE003558CD /* libGPUImage.a */; };
 		FFE9A01E15725C3700509B09 /* olgotCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE9A01D15725C3700509B09 /* olgotCategory.m */; };
 		FFE9A02115726B1E00509B09 /* olgotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE9A02015726B1E00509B09 /* olgotItem.m */; };
 		FFE9A02415726DCF00509B09 /* OlgotModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFE9A02215726DCF00509B09 /* OlgotModel.xcdatamodeld */; };
@@ -368,6 +373,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 25160D1514564E810060A5C5;
 			remoteInfo = RestKit;
+		};
+		FFE6E67216243EDE003558CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFE6E66916243EDD003558CD /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		FFE6E67416243EDE003558CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFE6E66916243EDD003558CD /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A34414DDB1EC00852800;
+			remoteInfo = GPUImageTests;
+		};
+		FFE6E67616243F02003558CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFE6E66916243EDD003558CD /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCF1A33314DDB1EC00852800;
+			remoteInfo = GPUImage;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -708,6 +734,11 @@
 		FFE4647E1573BF3800395BD5 /* olgotComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotComment.m; path = Model/olgotComment.m; sourceTree = "<group>"; };
 		FFE51CA315F4E3D100F45F8F /* bg-cam-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-cam-toolbar.png"; sourceTree = "<group>"; };
 		FFE51CA415F4E3D100F45F8F /* bg-cam-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-cam-toolbar@2x.png"; sourceTree = "<group>"; };
+		FFE6E65416243E57003558CD /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		FFE6E65616243E66003558CD /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		FFE6E65816243E73003558CD /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		FFE6E65A16243E7E003558CD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		FFE6E66916243EDD003558CD /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = "BradLarson-GPUImage-a984bcb/framework/GPUImage.xcodeproj"; sourceTree = "<group>"; };
 		FFE9A01C15725C3700509B09 /* olgotCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotCategory.h; path = Model/olgotCategory.h; sourceTree = "<group>"; };
 		FFE9A01D15725C3700509B09 /* olgotCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = olgotCategory.m; path = Model/olgotCategory.m; sourceTree = "<group>"; };
 		FFE9A01F15726B1E00509B09 /* olgotItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = olgotItem.h; path = Model/olgotItem.h; sourceTree = "<group>"; };
@@ -737,6 +768,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFE6E67816243F15003558CD /* libGPUImage.a in Frameworks */,
+				FF10F2FD155D206600F4EC2E /* QuartzCore.framework in Frameworks */,
+				FFE6E65B16243E7E003558CD /* AVFoundation.framework in Frameworks */,
+				FFE6E65916243E73003558CD /* OpenGLES.framework in Frameworks */,
+				FFE6E65716243E66003558CD /* CoreVideo.framework in Frameworks */,
+				FFE6E65516243E57003558CD /* CoreMedia.framework in Frameworks */,
 				FF26A59E160B5DD800153E0C /* CoreImage.framework in Frameworks */,
 				FFCD11F115B2E5BE00B120FB /* libRestKit.a in Frameworks */,
 				FF980C0715A5EE1200001259 /* CoreFoundation.framework in Frameworks */,
@@ -753,7 +790,6 @@
 				FF7AAF011572379E0073EAA3 /* CoreData.framework in Frameworks */,
 				FFDCBDF91562622800FB8009 /* MapKit.framework in Frameworks */,
 				FFDCBDF71562621900FB8009 /* MobileCoreServices.framework in Frameworks */,
-				FF10F2FD155D206600F4EC2E /* QuartzCore.framework in Frameworks */,
 				FF10F2FB155D205800F4EC2E /* libSSToolkit.a in Frameworks */,
 				FFA4ED93155D12D8008CB4CA /* UIKit.framework in Frameworks */,
 				FFA4ED95155D12D8008CB4CA /* Foundation.framework in Frameworks */,
@@ -1146,6 +1182,11 @@
 		FFA4ED83155D12D8008CB4CA = {
 			isa = PBXGroup;
 			children = (
+				FFE6E66916243EDD003558CD /* GPUImage.xcodeproj */,
+				FFE6E65A16243E7E003558CD /* AVFoundation.framework */,
+				FFE6E65816243E73003558CD /* OpenGLES.framework */,
+				FFE6E65616243E66003558CD /* CoreVideo.framework */,
+				FFE6E65416243E57003558CD /* CoreMedia.framework */,
 				FF26A59D160B5DD800153E0C /* CoreImage.framework */,
 				FF98031115B2E4F0004B96E7 /* RestKit.xcodeproj */,
 				FF980C0615A5EE1200001259 /* CoreFoundation.framework */,
@@ -1282,6 +1323,15 @@
 			name = dummy;
 			sourceTree = "<group>";
 		};
+		FFE6E66A16243EDD003558CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFE6E67316243EDE003558CD /* libGPUImage.a */,
+				FFE6E67516243EDE003558CD /* GPUImageTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		FFE9A01B15725BB500509B09 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1334,6 +1384,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FFE6E67716243F02003558CD /* PBXTargetDependency */,
 				FFCD11F015B2E5A200B120FB /* PBXTargetDependency */,
 				FF10F2FA155D204300F4EC2E /* PBXTargetDependency */,
 			);
@@ -1364,6 +1415,10 @@
 			productRefGroup = FFA4ED8F155D12D8008CB4CA /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = FFE6E66A16243EDD003558CD /* Products */;
+					ProjectRef = FFE6E66916243EDD003558CD /* GPUImage.xcodeproj */;
+				},
 				{
 					ProductGroup = FF98031215B2E4F0004B96E7 /* Products */;
 					ProjectRef = FF98031115B2E4F0004B96E7 /* RestKit.xcodeproj */;
@@ -1435,6 +1490,20 @@
 			fileType = wrapper.cfbundle;
 			path = RestKitResources.bundle;
 			remoteRef = FF98032415B2E4F0004B96E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FFE6E67316243EDE003558CD /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = FFE6E67216243EDE003558CD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FFE6E67516243EDE003558CD /* GPUImageTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GPUImageTests.octest;
+			remoteRef = FFE6E67416243EDE003558CD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1737,6 +1806,11 @@
 			name = RestKit;
 			targetProxy = FFCD11EF15B2E5A200B120FB /* PBXContainerItemProxy */;
 		};
+		FFE6E67716243F02003558CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImage;
+			targetProxy = FFE6E67616243F02003558CD /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1818,6 +1892,7 @@
 				HEADER_SEARCH_PATHS = (
 					Vendor/SSToolkit,
 					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+					"BradLarson-GPUImage-a984bcb/framework/**",
 				);
 				INFOPLIST_FILE = "Olgot/Olgot-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -1844,6 +1919,7 @@
 				HEADER_SEARCH_PATHS = (
 					Vendor/SSToolkit,
 					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"",
+					"BradLarson-GPUImage-a984bcb/framework/**",
 				);
 				INFOPLIST_FILE = "Olgot/Olgot-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
