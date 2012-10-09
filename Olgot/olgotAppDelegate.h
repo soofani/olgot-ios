@@ -15,6 +15,7 @@
 #import "olgotChooseUsernameViewController.h"
 #import "olgotChooseFriends.h"
 #import "DejalActivityView.h"
+#import "olgotTabBarViewController.h"
 
 @protocol olgotTwitterDelegate;
 @protocol olgotFacebookDelegate;

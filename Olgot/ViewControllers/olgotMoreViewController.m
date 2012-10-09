@@ -170,6 +170,7 @@
     if (facebookConnectSwitch.isOn) {
 //        user wants to connect with facebook
         olgotAppDelegate* appDelegate =  (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
+        appDelegate.facebookDelegate = self;
         [appDelegate openFBSession];
         
     } else {
@@ -203,6 +204,27 @@
     [autoTweetSwitch setOn:NO animated:YES];
 }
 
+#pragma mark - olgotFacebookDelegate
+
+-(void)facebookSuccess
+{
+    [[FBRequest requestForMe] startWithCompletionHandler:
+     ^(FBRequestConnection *connection,
+       NSDictionary<FBGraphUser> *user,
+       NSError *error) {
+         if (!error) {
+             NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     [defaults objectForKey:@"userid"], @"id",
+                                     user.id, @"facebookid",
+                                     nil];
+             
+             [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+             
+             [[RKClient sharedClient] post:@"/fbconnect/" params:params delegate:nil];
+         }
+     }];
+    
+}
 
 
 @end

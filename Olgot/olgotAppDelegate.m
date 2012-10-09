@@ -569,7 +569,11 @@
                 }
                 
                 [self.twitterDelegate loadedAccounts];
-                [twitterActionSheet showInView:self.window.rootViewController.view];
+//                [twitterActionSheet showInView:self.window.rootViewController.view];
+                
+                olgotTabBarViewController *tabBarVC = (olgotTabBarViewController*)self.window.rootViewController;
+                [twitterActionSheet showInView:tabBarVC.view];
+//                [twitterActionSheet showFromRect:CGRectMake(50.0, 100.0, 320.0, 200.0) inView:tabBarVC.view animated:YES];
             }
             
             else {

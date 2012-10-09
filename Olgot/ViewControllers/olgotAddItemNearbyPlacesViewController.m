@@ -246,8 +246,9 @@
     placeLabel = (UILabel*)[cell viewWithTag:3];    //place address
     placeLabel.text = [[_places objectAtIndex:indexPath.row] foursquareAddress];
     
+    olgotVenue *mVenue = (olgotVenue*)[_places objectAtIndex:indexPath.row];
     placeLabel = (UILabel*)[cell viewWithTag:4];    //place distance
-    placeLabel.text = [[_places objectAtIndex:indexPath.row] distance];
+    placeLabel.text = [mVenue distance];
 
     return cell;
 }

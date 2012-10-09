@@ -151,7 +151,7 @@
     
     if ([defaults objectForKey:@"userid"] == nil && didShowSignup == NO) {
         didShowSignup = YES;
-        olgotAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        olgotAppDelegate* appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
         [appDelegate showSignup];
     }
 }
@@ -160,6 +160,7 @@
 {
     [super viewWillDisappear:animated];
     [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
+    _userID = nil;
     
 }
 

@@ -14,7 +14,7 @@
 #import "DejalActivityView.h"
 
 
-@interface olgotMoreViewController : UITableViewController<olgotTwitterDelegate>{
+@interface olgotMoreViewController : UITableViewController<olgotTwitterDelegate, olgotFacebookDelegate>{
     NSUserDefaults *defaults;
 }
 

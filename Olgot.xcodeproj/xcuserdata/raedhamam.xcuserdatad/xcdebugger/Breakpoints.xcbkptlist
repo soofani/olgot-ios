@@ -151,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/ViewControllers/olgotProfileViewController.m"
-         timestampString = "370971137.519119"
+         timestampString = "371487835.162622"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "226"
-         endingLineNumber = "226"
+         startingLineNumber = "227"
+         endingLineNumber = "227"
          landmarkName = "-collectionView:itemForIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -229,11 +229,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/ViewControllers/olgotProfileViewController.m"
-         timestampString = "370971137.519119"
+         timestampString = "371487835.162622"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "227"
-         endingLineNumber = "227"
+         startingLineNumber = "228"
+         endingLineNumber = "228"
          landmarkName = "-collectionView:itemForIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -242,11 +242,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/ViewControllers/olgotProfileViewController.m"
-         timestampString = "370971137.519119"
+         timestampString = "371487835.162622"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "229"
-         endingLineNumber = "229"
+         startingLineNumber = "230"
+         endingLineNumber = "230"
          landmarkName = "-collectionView:itemForIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -385,11 +385,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/ViewControllers/olgotAddItemNearbyPlacesViewController.m"
-         timestampString = "368451751.095226"
+         timestampString = "371490404.872826"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "364"
-         endingLineNumber = "364"
+         startingLineNumber = "365"
+         endingLineNumber = "365"
          landmarkName = "-finishedAddItem"
          landmarkType = "5">
       </FileBreakpoint>
@@ -553,12 +553,51 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Olgot/olgotAppDelegate.m"
-         timestampString = "371052735.410409"
+         filePath = "Olgot/olgotTabBarViewController.m"
+         timestampString = "370277203.221987"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "600"
-         endingLineNumber = "600"
+         startingLineNumber = "65"
+         endingLineNumber = "65"
+         landmarkName = "-addCenterButtonWithImage"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Olgot/olgotTabBarViewController.m"
+         timestampString = "370277203.221987"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "67"
+         endingLineNumber = "67"
+         landmarkName = "-addCenterButtonWithImage"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Olgot/olgotTabBarViewController.m"
+         timestampString = "370277203.221987"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "66"
+         endingLineNumber = "66"
+         landmarkName = "-addCenterButtonWithImage"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Olgot/olgotAppDelegate.m"
+         timestampString = "371490858.185911"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "602"
+         endingLineNumber = "602"
          landmarkName = "-actionSheet:clickedButtonAtIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -580,11 +619,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Olgot/olgotAppDelegate.m"
-         timestampString = "371052735.410409"
+         timestampString = "371490858.185911"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "584"
-         endingLineNumber = "584"
+         startingLineNumber = "586"
+         endingLineNumber = "586"
          landmarkName = "-twitterConnect"
          landmarkType = "5">
       </FileBreakpoint>

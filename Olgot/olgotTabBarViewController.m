@@ -122,7 +122,7 @@
     
     GPUImageLanczosResamplingFilter *resampler = [[GPUImageLanczosResamplingFilter alloc] init];
     
-    [resampler forceProcessingAtSizeRespectingAspectRatio:CGSizeMake(640.0, 320.0)];
+    [resampler forceProcessingAtSizeRespectingAspectRatio:CGSizeMake(900.0, 900.0)];
     
     UIImage *smallImage = [resampler imageByFilteringImage:image];
     ImageCropper *cropper = [[ImageCropper alloc] initWithImage:[smallImage fixOrientation]];
