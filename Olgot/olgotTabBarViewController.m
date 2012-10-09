@@ -9,7 +9,7 @@
 #import "olgotTabBarViewController.h"
 #import "olgotShareViewController.h"
 #import "olgotCameraViewController.h"
-
+#import "GPUImage.h"
 
 @interface olgotTabBarViewController ()
 
@@ -111,38 +111,21 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark -
-#pragma mark UIImagePickerControllerDelegate
-
-// this get called when an image has been chosen from the library or taken from the camera
-//
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-//    UIImage *image = [info valueForKey:UIImagePickerControllerEditedImage];
-//    NSLog(@"Took photo");
-    
-    
-//    [self pushViewController:nearbyController animated:YES];
-    //    [self dismissModalViewControllerAnimated:YES];
-    
-    
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    
-    
-}
 
 #pragma mark - olgotCameraOverlayControllerDelegate
 
 -(void)tookPicture:(UIImage *)image
 {
     //OPTIMIZE
-    image = [image fixOrientation];
+//    image = [image fixOrientation];
+//    image = [image rotateAndScaleFromCameraWithMaxSize:640.0];
     
-
-    ImageCropper *cropper = [[ImageCropper alloc] initWithImage:[image scaleWithMaxSize:640.0]];
+    GPUImageLanczosResamplingFilter *resampler = [[GPUImageLanczosResamplingFilter alloc] init];
+    
+    [resampler forceProcessingAtSizeRespectingAspectRatio:CGSizeMake(640.0, 320.0)];
+    
+    UIImage *smallImage = [resampler imageByFilteringImage:image];
+    ImageCropper *cropper = [[ImageCropper alloc] initWithImage:[smallImage fixOrientation]];
 	[cropper setDelegate:self];
     
     [self dismissModalViewControllerAnimated:NO];
@@ -169,7 +152,7 @@
     
     nearbyController.capturedImage = editedImage;
     nearbyController.delegate = self;
-    
+
     UINavigationController *camNavController = [[UINavigationController alloc] initWithRootViewController:nearbyController];
     
     [self dismissModalViewControllerAnimated:NO];
@@ -186,8 +169,10 @@
 
 -(void)wantsBack
 {
-    [self dismissModalViewControllerAnimated:NO];
-    [self showCamAnimated:NO source:UIImagePickerControllerSourceTypeCamera];
+    [self dismissViewControllerAnimated:NO completion:^{
+        [self showCamAnimated:NO source:UIImagePickerControllerSourceTypeCamera];
+    }];
+    
 }
 
 -(void)exitAddItemFlow
