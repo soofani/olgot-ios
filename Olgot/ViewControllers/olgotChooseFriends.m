@@ -85,7 +85,7 @@
         [[RKClient sharedClient] delete:[@"/follower/" stringByAppendingQueryParameters:params] delegate:nil];
         
         followCounter--;
-        if (followCounter >= 5) {
+        if (followCounter >= 2) {
             [self.navigationItem.rightBarButtonItem setEnabled:YES];
         } else {
             [self.navigationItem.rightBarButtonItem setEnabled:NO];

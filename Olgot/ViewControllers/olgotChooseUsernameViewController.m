@@ -10,6 +10,7 @@
 #import "olgotChooseFriends.h"
 #import <QuartzCore/QuartzCore.h>
 #import "DejalActivityView.h"
+#import "olgotAppDelegate.h"
 
 @interface olgotChooseUsernameViewController ()
 
@@ -269,6 +270,7 @@
 {
     olgotChooseFriends* chooseFriendsVC = [[olgotChooseFriends alloc] init];
     chooseFriendsVC.userID = _userID;
+    chooseFriendsVC.delegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
     [self.navigationController pushViewController:chooseFriendsVC animated:YES];
 }
 
