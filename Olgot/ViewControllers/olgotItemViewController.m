@@ -140,16 +140,21 @@
     // Initialize Tweet Compose View Controller
     TWTweetComposeViewController *vc = [[TWTweetComposeViewController alloc] init];
     // Settin The Initial Text
-    [vc setInitialText:[NSString stringWithFormat:@"I just found this item at %@ using Olgot %@ %@", [_item venueName_En], [_item userTwitterName], [_item venueTwitterName]]];
+//    [vc setInitialText:[NSString stringWithFormat:@"I just found this item at %@ using Olgot %@ %@", [_item venueName_En], [_item userTwitterName], [_item venueTwitterName]]];
+    
+    [vc setInitialText:[NSString stringWithFormat:@"Love this at %@ %@. Posted on #Olgot by %@", [_item venueName_En], [_item venueTwitterName], [_item userTwitterName] ]];
+    
     // Adding an Image
 //    UIImage *image = [(UIImageView*)[self.itemCell viewWithTag:1] image];
     NSURL *imageURL = [NSURL URLWithString:[_item itemPhotoUrl]];
     NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
     UIImage *image = [UIImage imageWithData:imageData];
     [vc addImage:image];
+    
     // Adding a URL
     NSURL *url = [NSURL URLWithString:[_item itemUrl]];
     [vc addURL:url];
+    
     // Setting a Completing Handler
     [vc setCompletionHandler:^(TWTweetComposeViewControllerResult result) {
         [self dismissModalViewControllerAnimated:YES];
