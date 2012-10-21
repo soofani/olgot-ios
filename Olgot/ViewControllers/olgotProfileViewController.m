@@ -135,6 +135,7 @@
 {
     [super viewWillAppear:animated];
     defaults = [NSUserDefaults standardUserDefaults];
+    NSLog(@"_userID = %@", _userID);
     if(_userID == nil){
         _userID = [defaults objectForKey:@"userid"];
         _items = [[NSMutableArray alloc] init];
@@ -150,7 +151,7 @@
     [super viewDidAppear:animated];
     
     if ([defaults objectForKey:@"userid"] == nil && didShowSignup == NO) {
-        didShowSignup = YES;
+        didShowSignup = NO;    // revert to YES to show only once
         olgotAppDelegate* appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
         [appDelegate showSignup];
     }
@@ -160,7 +161,7 @@
 {
     [super viewWillDisappear:animated];
     [[[RKObjectManager sharedManager] requestQueue] cancelRequestsWithDelegate:self];
-    _userID = nil;
+
     
 }
 
