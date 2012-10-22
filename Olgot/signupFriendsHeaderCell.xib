@@ -38,16 +38,17 @@
 					<object class="IBUILabel" id="839378969">
 						<reference key="NSNextResponder" ref="603267325"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{5, 6}, {290, 45}}</string>
+						<string key="NSFrame">{{7, 6}, {290, 45}}</string>
 						<reference key="NSSuperview" ref="603267325"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">It's boring to go alone, so please follow 5 people to start seeing recommendations:</string>
+						<string key="IBUIText">It's boring to go alone! Please follow at least 2 people to keep you company:</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4zMzMzMzMzMzMzIDAuMzMzMzMzMzMzMyAwLjMzMzMzMzMzMzMAA</bytes>
@@ -58,13 +59,13 @@
 						<int key="IBUINumberOfLines">2</int>
 						<int key="IBUILineBreakMode">0</int>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
-							<string key="name">HelveticaNeue</string>
+							<string key="name">HelveticaNeue-Bold</string>
 							<string key="family">Helvetica Neue</string>
-							<int key="traits">0</int>
+							<int key="traits">2</int>
 							<double key="pointSize">14</double>
 						</object>
 						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">HelveticaNeue-Medium</string>
+							<string key="NSName">HelveticaNeue-Bold</string>
 							<double key="NSSize">14</double>
 							<int key="NSfFlags">16</int>
 						</object>
