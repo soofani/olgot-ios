@@ -279,7 +279,7 @@
                                  withName:@"media[]"
                                      type:@"multipart/form-data"];
                 
-                NSString *status = [NSString stringWithFormat:@"I just posted an item at %@ using Olgot %@ %@", [_venue name_En], venueTwitterName,_itemUrl];
+                NSString *status = [NSString stringWithFormat:@"Just posted this  at %@ using #Olgot %@ %@", [_venue name_En], venueTwitterName,_itemUrl];
                 
                 [request addMultiPartData:[status dataUsingEncoding:NSUTF8StringEncoding]
                                  withName:@"status"
