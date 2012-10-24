@@ -13,6 +13,7 @@
 #import "ImageCropper.h"
 #import "UIImage+fixOrientation.h"
 #import "UIImage+WBImage.h"
+#import "olgotAppDelegate.h"
 
 @interface olgotTabBarViewController : UITabBarController<olgotCameraOverlayViewControllerDelegate ,addItemNearbyProtocol, ImageCropperDelegate>
 {

@@ -87,8 +87,14 @@
 }
 
 -(void)buttonEvent{
-    
-    [self showCamAnimated:NO source:UIImagePickerControllerSourceTypeCamera];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"userid"] == nil) {
+        olgotAppDelegate* appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
+        [appDelegate showSignup];
+    }else{
+        [self showCamAnimated:NO source:UIImagePickerControllerSourceTypeCamera];
+    }
+
 }
 
 -(void)showCamAnimated:(BOOL)animated source:(UIImagePickerControllerSourceType)sourceType
