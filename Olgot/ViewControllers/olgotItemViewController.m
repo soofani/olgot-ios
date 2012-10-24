@@ -772,29 +772,62 @@
 }
 
 - (IBAction)likeAction:(id)sender {
-    [self performSelector:@selector(showPopup:) withObject:@"like"];
-    [self performSelector:@selector(sendItemAction:) withObject:@"like"];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"userid"] == nil) {
+        olgotAppDelegate* appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
+        [appDelegate showSignup];
+    }else{
+        [self performSelector:@selector(showPopup:) withObject:@"like"];
+        [self performSelector:@selector(sendItemAction:) withObject:@"like"];
+    }
+    
 }
 
 - (IBAction)wantAction:(id)sender {
-    [self performSelector:@selector(showPopup:) withObject:@"want"];
-    [self performSelector:@selector(sendItemAction:) withObject:@"want"];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"userid"] == nil) {
+        olgotAppDelegate* appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
+        [appDelegate showSignup];
+    }else{
+        [self performSelector:@selector(showPopup:) withObject:@"want"];
+        [self performSelector:@selector(sendItemAction:) withObject:@"want"];
+    }
+    
 }
 
 - (IBAction)gotAction:(id)sender {
-    [self performSelector:@selector(showPopup:) withObject:@"got"];
-    [self performSelector:@selector(sendItemAction:) withObject:@"got"];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"userid"] == nil) {
+        olgotAppDelegate* appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
+        [appDelegate showSignup];
+    }else{
+        [self performSelector:@selector(showPopup:) withObject:@"got"];
+        [self performSelector:@selector(sendItemAction:) withObject:@"got"];
+    }
 }
 
 - (IBAction)touchedWriteComment:(id)sender {
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-//    [UIView setAnimationDelay:0.1];
-    myCommentView.frame = CGRectMake(0, 160, 320, 40);
-    [UIView commitAnimations];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"userid"] == nil) {
+        [self.myCommentTF resignFirstResponder];
+        olgotAppDelegate* appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
+        [appDelegate showSignup];
+    }else{
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        myCommentView.frame = CGRectMake(0, 160, 320, 40);
+        [UIView commitAnimations];
+    }
+    
 }
 
 - (IBAction)finishedComment:(id)sender {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"userid"] == nil) {
+        olgotAppDelegate* appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
+        [appDelegate showSignup];
+        return;
+    }
     [self performSelector:@selector(dismissKeyboard)];
     NSLog(@"user finished commenting: %@", self.myCommentTF.text);
     
@@ -872,7 +905,7 @@
 -(void)displayShareActionSheet{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"userid"] == nil) {
-        olgotAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        olgotAppDelegate* appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
         [appDelegate showSignup];
     }else{
         UIActionSheet *shareAS = [[UIActionSheet alloc] initWithTitle:@"Share" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Facebook", @"Twitter",@"Email", nil];
