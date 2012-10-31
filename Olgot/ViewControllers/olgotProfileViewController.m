@@ -151,7 +151,7 @@
     [super viewDidAppear:animated];
     
     if ([defaults objectForKey:@"userid"] == nil && didShowSignup == NO) {
-        didShowSignup = NO;    // revert to YES to show only once
+        didShowSignup = YES;
         olgotAppDelegate* appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
         [appDelegate showSignup];
     }
