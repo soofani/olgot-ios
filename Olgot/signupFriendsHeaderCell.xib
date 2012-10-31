@@ -38,17 +38,16 @@
 					<object class="IBUILabel" id="839378969">
 						<reference key="NSNextResponder" ref="603267325"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{7, 6}, {290, 45}}</string>
+						<string key="NSFrame">{{5, 7}, {290, 45}}</string>
 						<reference key="NSSuperview" ref="603267325"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">It's boring to go alone! Please follow at least 2 people to keep you company:</string>
+						<string key="IBUIText">It's more fun to discover things with others...Don't be shy, follow the crowd!</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4zMzMzMzMzMzMzIDAuMzMzMzMzMzMzMyAwLjMzMzMzMzMzMzMAA</bytes>

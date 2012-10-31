@@ -60,7 +60,7 @@
 						<string key="NSFrame">{{2, 2}, {141, 124}}</string>
 						<reference key="NSSuperview" ref="795513765"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="259165741"/>
+						<reference key="NSNextKeyView" ref="627202201"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -70,12 +70,29 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
+					<object class="IBUIImageView" id="627202201">
+						<reference key="NSNextResponder" ref="795513765"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{2, 2}, {141, 45}}</string>
+						<reference key="NSSuperview" ref="795513765"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="259165741"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<int key="IBUITag">4</int>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">bg-gradient-top.png</string>
+						</object>
+					</object>
 					<object class="IBUILabel" id="259165741">
 						<reference key="NSNextResponder" ref="795513765"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{7, 4}, {131, 21}}</string>
 						<reference key="NSSuperview" ref="795513765"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="1015763536"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -95,7 +112,7 @@
 						</object>
 						<string key="IBUIShadowOffset">{1, 1}</string>
 						<int key="IBUIBaselineAdjustment">0</int>
-						<float key="IBUIMinimumFontSize">10</float>
+						<float key="IBUIMinimumScaleFactor">0.5</float>
 						<int key="IBUILineBreakMode">0</int>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
 							<string key="name">HelveticaNeue-Bold</string>
@@ -108,7 +125,6 @@
 							<double key="NSSize">16</double>
 							<int key="NSfFlags">16</int>
 						</object>
-						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
 				</array>
 				<string key="NSFrameSize">{145, 128}</string>
@@ -163,6 +179,7 @@
 							<reference ref="259165741"/>
 							<reference ref="508000317"/>
 							<reference ref="1015763536"/>
+							<reference ref="627202201"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -179,6 +196,11 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">7</int>
 						<reference key="object" ref="1015763536"/>
+						<reference key="parent" ref="795513765"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">9</int>
+						<reference key="object" ref="627202201"/>
 						<reference key="parent" ref="795513765"/>
 					</object>
 				</array>
@@ -207,12 +229,13 @@
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">7</int>
+			<int key="maxID">9</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -260,6 +283,10 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="NS.key.0">bg-gradient-top.png</string>
+			<string key="NS.object.0">{1, 27}</string>
+		</object>
 		<string key="IBCocoaTouchPluginVersion">1929</string>
 	</data>
 </archive>

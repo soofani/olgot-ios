@@ -295,7 +295,7 @@
         
         [tileImage setImageWithURL:[NSURL URLWithString:feedImage]];
         
-        tileLabel.text = @"Feed";
+        tileLabel.text = @"Following";
         [tileSummaryLabel setText:feedSummary];
         
         //tileSummaryLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-gradient.png"]];
@@ -401,7 +401,7 @@
         if (_selectedRowIndexPath.section == 0) {
             boardViewController.categoryID = 0;
             
-            boardViewController.boardName = @"Feed";
+            boardViewController.boardName = @"Following";
             
         }else if (_selectedRowIndexPath.section == 1) {
             if (_selectedRowIndexPath.row == 0) {

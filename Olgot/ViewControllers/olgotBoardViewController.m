@@ -49,7 +49,7 @@
     
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    if(_boardName == @"Feed"){
+    if(_boardName == @"Following"){
         NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
                                   [defaults objectForKey:@"userid"], @"id",
                                   [NSNumber numberWithInt:_currentPage], @"page",

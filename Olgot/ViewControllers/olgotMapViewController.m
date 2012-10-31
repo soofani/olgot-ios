@@ -119,7 +119,7 @@
     // Load the object model via RestKit
     defaults = [NSUserDefaults standardUserDefaults];
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    if([_boardName isEqual:@"Feed"]){
+    if([_boardName isEqual:@"Following"]){
         NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
                                   [defaults objectForKey:@"userid"], @"id",
                                   nil];

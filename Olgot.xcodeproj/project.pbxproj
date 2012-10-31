@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E003268E1641DF7A001D5408 /* bg-gradient-top.png in Resources */ = {isa = PBXBuildFile; fileRef = E003268C1641DF7A001D5408 /* bg-gradient-top.png */; };
+		E003268F1641DF7A001D5408 /* bg-gradient-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E003268D1641DF7A001D5408 /* bg-gradient-top@2x.png */; };
 		E02028CA15DDB60C004759CF /* bubble-tip-up.png in Resources */ = {isa = PBXBuildFile; fileRef = E02028C815DDB60C004759CF /* bubble-tip-up.png */; };
 		E02028CB15DDB60C004759CF /* bubble-tip-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E02028C915DDB60C004759CF /* bubble-tip-up@2x.png */; };
 		E02028DC15DDBFAC004759CF /* icon-item-action-comment-active.png in Resources */ = {isa = PBXBuildFile; fileRef = E02028CC15DDBFA9004759CF /* icon-item-action-comment-active.png */; };
@@ -398,6 +400,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E003268C1641DF7A001D5408 /* bg-gradient-top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-gradient-top.png"; sourceTree = "<group>"; };
+		E003268D1641DF7A001D5408 /* bg-gradient-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-gradient-top@2x.png"; sourceTree = "<group>"; };
 		E02028C815DDB60C004759CF /* bubble-tip-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubble-tip-up.png"; sourceTree = "<group>"; };
 		E02028C915DDB60C004759CF /* bubble-tip-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubble-tip-up@2x.png"; sourceTree = "<group>"; };
 		E02028CC15DDBFA9004759CF /* icon-item-action-comment-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-item-action-comment-active.png"; sourceTree = "<group>"; };
@@ -839,6 +843,8 @@
 				FFDD76D5161DD22D0078DB6D /* btn-share-facebook@2x.png */,
 				FF879E42161AFD80009F49A7 /* filter-bright.png */,
 				FF879E43161AFD80009F49A7 /* filter-bright@2x.png */,
+				E003268C1641DF7A001D5408 /* bg-gradient-top.png */,
+				E003268D1641DF7A001D5408 /* bg-gradient-top@2x.png */,
 				FF879E44161AFD80009F49A7 /* filter-crisp.png */,
 				FF879E45161AFD80009F49A7 /* filter-crisp@2x.png */,
 				FF879E46161AFD80009F49A7 /* filter-normal.png */,
@@ -1717,6 +1723,8 @@
 				FFDD76D7161DD22D0078DB6D /* btn-share-facebook-on@2x.png in Resources */,
 				FFDD76D8161DD22D0078DB6D /* btn-share-facebook.png in Resources */,
 				FFDD76D9161DD22D0078DB6D /* btn-share-facebook@2x.png in Resources */,
+				E003268E1641DF7A001D5408 /* bg-gradient-top.png in Resources */,
+				E003268F1641DF7A001D5408 /* bg-gradient-top@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
