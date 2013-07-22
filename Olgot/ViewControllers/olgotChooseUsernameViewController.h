@@ -16,13 +16,18 @@
     NSString* _userID;
     
     NSDictionary<FBGraphUser> *fbUser;
+   
+    UIToolbar* numberToolbar;
+     UITextField *selectedTextField;
 }
 
 @property (strong, nonatomic) NSDictionary<FBGraphUser> *fbUser;
 @property (strong, nonatomic) NSData *twitterResponseData;
 @property (strong, nonatomic) IBOutlet UITextField *usernameTF;
 @property (strong, nonatomic) IBOutlet UITextField *userEmail;
+@property (strong, nonatomic) IBOutlet UITextField *userPhone;
 @property (strong, nonatomic) IBOutlet UIButton *createAccountBtn;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 - (IBAction)pressedNext:(id)sender;
 - (IBAction)pressedDone:(id)sender;
 

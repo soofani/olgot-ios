@@ -22,14 +22,17 @@
 @interface olgotItemViewController : SSCollectionViewController<RKObjectLoaderDelegate, UITextFieldDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate, olgotTwitterDelegate,olgotFacebookDelegate>{
     SSCollectionViewItem *commentsHeader;
     NSArray* _likes;
-    NSArray* _wants;
-    NSArray* _gots;
+//    NSArray* _wants;
+//    NSArray* _gots;
     NSArray* _comments;
     NSIndexPath* _selectedRowIndexPath;
     
     UIView* myCommentView;
     
     NSArray* accountsArray;
+    
+//    UIScrollView *slideShowImageViewScrollView;
+    UIImageView *itemImageView;
     
     id <olgotDeleteItemProtocol> delegate;
 }
@@ -47,15 +50,16 @@
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *commentsFooter;
 @property (strong, nonatomic) IBOutlet UIButton *likeButton;
 @property (strong, nonatomic) IBOutlet UIButton *wantButton;
-@property (strong, nonatomic) IBOutlet UIButton *gotButton;
+//@property (strong, nonatomic) IBOutlet UIButton *gotButton;
 
 @property (strong, nonatomic) IBOutlet UIImageView *mySmallImage;
 @property (strong, nonatomic) IBOutlet UITextField *myCommentTF;
 
+-(IBAction)previewItemImagePressed:(id)sender;
 - (IBAction)showVenue:(id)sender;
 - (IBAction)likeAction:(id)sender;
 - (IBAction)wantAction:(id)sender;
-- (IBAction)gotAction:(id)sender;
+//- (IBAction)gotAction:(id)sender;
 
 - (IBAction)touchedWriteComment:(id)sender;
 - (IBAction)finishedComment:(id)sender;

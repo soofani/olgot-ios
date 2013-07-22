@@ -9,9 +9,10 @@
 
 @interface olgotItem : NSObject
 
+@property (nonatomic, retain) NSString* itemName;
 @property (nonatomic, retain) NSNumber* itemID;
 @property (nonatomic, retain) NSString* itemDescription;
-@property (nonatomic, retain) NSNumber* itemPrice;
+@property (nonatomic, retain) NSString* itemPrice;
 @property (nonatomic, retain) NSNumber* itemDiscount;
 @property (nonatomic, retain) NSString* itemDate;
 @property (nonatomic, retain) NSString* itemDateNatural;

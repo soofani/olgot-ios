@@ -16,6 +16,8 @@
 
 #import "DejalActivityView.h"
 
+#import "olgotCameraOverlayViewController.h"
+
 #import "olgotProtocols.h"
 #import <FacebookSDK/FBRequest.h>
 
@@ -35,10 +37,11 @@
 @synthesize venueLocationLabel = _venueLocationLabel;
 @synthesize itemPriceTF = _itemPriceTF;
 @synthesize descriptionTF = _descriptionTF;
+@synthesize itemNameTF = _itemNameTF;
 @synthesize postButton = _postButton;
 @synthesize venue = _venue;
 @synthesize delegate;
-
+@synthesize cameraOverlayViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -97,6 +100,10 @@
                     _itemID = [_itemJsonResponse objectForKey:@"id"];
                     _itemKey = [_itemJsonResponse objectForKey:@"key"];
                     _itemUrl = [_itemJsonResponse objectForKey:@"itemUrl"];
+                    
+                    
+                    [loadingUi hide:YES];
+                    
 //                    [self performSelector:@selector(postPhoto)];
 //                    [self performSegueWithIdentifier:@"ShowAddItemConfirmation" sender:self];
                     [self showAddItemConfirmation];
@@ -145,7 +152,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, self.scrollView.frame.size.height+200)];
+    
+    self.itemPriceTF.textColor = [UIColor lightGrayColor];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     if ([[defaults objectForKey:@"autoTweetItems"] isEqual:@"yes"]) {
@@ -214,6 +224,7 @@
     [self setVenueLocationLabel:nil];
     [self setItemPriceTF:nil];
     [self setDescriptionTF:nil];
+    [self setItemNameTF:nil];
     [self setPostButton:nil];
     [self setScrollView:nil];
     [self setItemImage:nil];
@@ -232,6 +243,7 @@
     [self.scrollView setContentOffset:CGPointMake(0.0, 0.0) animated:YES];
     [self.itemPriceTF resignFirstResponder];
     [self.descriptionTF resignFirstResponder];
+     [self.itemNameTF resignFirstResponder];
 }
 
 -(void)tweetItem{
@@ -311,50 +323,236 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)addedPrice:(id)sender {
-    UITextField* priceTF = sender;
-    
-    if ([priceTF.text length] == 0) {
-        [priceTF setText:@"0.00"];
-    }
-    [self performSelector:@selector(dismissKeyboard)];
+-(IBAction)editImagePressed:(id)sender
+{
+               UIActionSheet *addImageAS = [[UIActionSheet alloc] initWithTitle:@"Take a photo for this item" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Photo", @"Choose From Library", nil];
+            
+            addImageAS.actionSheetStyle = UIActionSheetStyleDefault;
+            [addImageAS showInView:self.view];
+
 }
 
+-(void)showCamAnimated:(BOOL)animated source:(UIImagePickerControllerSourceType)sourceType
+{
+    self.cameraOverlayViewController = [[olgotCameraOverlayViewController alloc] initWithNibName:@"OverlayViewController" bundle:nil];
+    
+    self.cameraOverlayViewController.delegate = self;
+    
+    [self.cameraOverlayViewController setupImagePicker:sourceType];
+    [self presentModalViewController:self.cameraOverlayViewController.imagePickerController animated:animated];
+    
+}
+
+#pragma mark - UIActionSheet Delegate
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+	if (buttonIndex == 0) {
+       
+   [self showCamAnimated:YES source:UIImagePickerControllerSourceTypeCamera];
+	} else if (buttonIndex == 1) {
+        [self wantsLibrary];
+	}
+	 else if (buttonIndex == 3) {
+        //cancel
+    }
+    
+}
+#pragma mark - olgotCameraOverlayControllerDelegate
+
+-(void)tookPicture:(UIImage *)image
+{
+    //OPTIMIZE
+    //    image = [image fixOrientation];
+    //    image = [image rotateAndScaleFromCameraWithMaxSize:640.0];
+    
+    GPUImageLanczosResamplingFilter *resampler = [[GPUImageLanczosResamplingFilter alloc] init];
+    
+    [resampler forceProcessingAtSizeRespectingAspectRatio:CGSizeMake(900.0, 900.0)];
+    
+    UIImage *smallImage = [resampler imageByFilteringImage:image];
+    ImageCropper *cropper = [[ImageCropper alloc] initWithImage:[smallImage fixOrientation]];
+	[cropper setDelegate:self];
+    
+    [self dismissModalViewControllerAnimated:NO];
+    [self presentModalViewController:cropper animated:NO];
+}
+
+-(void)cancelled
+{
+    [self dismissModalViewControllerAnimated:NO];
+    NSLog(@"cancelled");
+}
+
+-(void)wantsLibrary
+{
+    [self showCamAnimated:NO source:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+#pragma mark - olgotTrimEffectsDelegate
+
+- (void)imageCropper:(ImageCropper *)cropper didFinishCroppingWithImage:(UIImage *)editedImage
+{
+//    olgotAddItemNearbyPlacesViewController* nearbyController = [[olgotAddItemNearbyPlacesViewController alloc] init];
+    
+//    nearbyController.capturedImage = editedImage;
+//    nearbyController.delegate = self;
+    
+//    UINavigationController *camNavController = [[UINavigationController alloc] initWithRootViewController:nearbyController];
+    [self.itemImageView setImage:editedImage];
+    [self dismissModalViewControllerAnimated:NO];
+//    [self presentModalViewController:camNavController animated:NO];
+}
+
+- (void)imageCropperDidCancel:(ImageCropper *)cropper {
+	[self dismissModalViewControllerAnimated:NO];
+	
+    [self showCamAnimated:NO source:UIImagePickerControllerSourceTypeCamera];
+}
+
+#pragma mark - addItemNearbyDelegate
+
+-(void)wantsBack
+{
+    [self dismissViewControllerAnimated:NO completion:^{
+        [self showCamAnimated:NO source:UIImagePickerControllerSourceTypeCamera];
+    }];
+    
+}
+
+-(void)exitAddItemFlow
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+
+    if([text isEqualToString:@"\n"]) {
+        UITextView* priceTF = textView;
+        if ([priceTF.text length] == 0 || [priceTF.text isEqualToString:@" "]) {
+            [priceTF setText:@"What do you want for it? (example: $5, a Coffeee, nothing)"];
+        }
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
+
+//- (IBAction)addedPrice:(id)sender {
+//    UITextField* priceTF = sender;
+//    
+//    if ([priceTF.text length] == 0) {
+//        [priceTF setText:@"0.00"];
+//    }
+//    [self performSelector:@selector(dismissKeyboard)];
+//}
+
+- (IBAction)addedName:(id)sender {
+    
+    [self performSelector:@selector(dismissKeyboard)];
+}
 - (IBAction)addedDescription:(id)sender {
     
     [self performSelector:@selector(dismissKeyboard)];
 }
 
 - (IBAction)postButtonPressed:(id)sender {
+    if(![self verifyFields])
+        return;
+    
     [self.postButton setEnabled:NO];
-    [self.itemPriceTF setEnabled:NO];
+//    [self.itemPriceTF setEnabled:NO];
+//    [self.itemPriceTF setEditable:NO];
     [self.descriptionTF setEnabled:NO];
+    [self.itemNameTF setEnabled:NO];
     [self performSelector:@selector(dismissKeyboard)];
     [self performSelector:@selector(postItem)];
 }
 
-- (IBAction)editPrice:(id)sender {
-    UITextField* priceTF = sender;
-    
-    if ([priceTF.text isEqualToString:@"0.00"]) {
-        [priceTF setText:@""];
-    }
-    [self.scrollView setContentOffset:CGPointMake(0.0, 100.0) animated:YES];
+////to make a placeholder with gray color
+- (BOOL) textViewShouldBeginEditing:(UITextView *)textView
+{
+    self.itemPriceTF.text = @"";
+    self.itemPriceTF.textColor = [UIColor blackColor];
+    return YES;
 }
 
-- (IBAction)editDescription:(id)sender {
-    [self.scrollView setContentOffset:CGPointMake(0.0, 100.0) animated:YES];
+-(void) textViewDidChange:(UITextView *)textView
+{
+    
+    if(self.itemPriceTF.text.length == 0){
+        self.itemPriceTF.textColor = [UIColor lightGrayColor];
+        self.itemPriceTF.text = @"What do you want for it? (example: $5, a Coffeee, nothing)";
+        [self.itemPriceTF resignFirstResponder];
+    }
 }
+/////
+
+
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    UITextView* priceTF = textView;
+    
+    if ([priceTF.text isEqualToString:@"What do you want for it? (example: $5, a Coffeee, nothing)"]) {
+        [priceTF setText:@""];
+    }
+    [self.scrollView setContentOffset:CGPointMake(0.0, 50.0) animated:YES];
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    if(textView == self.itemPriceTF)
+    {
+       if( [self.itemPriceTF.text isEqualToString:@"What do you want for it? (example: $5, a Coffeee, nothing)"])
+            self.itemPriceTF.textColor = [UIColor lightGrayColor];
+    }
+}
+//- (IBAction)editPrice:(id)sender {
+//    UITextField* priceTF = sender;
+//    
+//    if ([priceTF.text isEqualToString:@"0.00"]) {
+//        [priceTF setText:@""];
+//    }
+//    [self.scrollView setContentOffset:CGPointMake(0.0, 100.0) animated:YES];
+//}
+
+//- (IBAction)editItemName:(id)sender {
+//    [self.scrollView setContentOffset:CGPointMake(0.0, 100.0) animated:YES];
+//}
+
+- (IBAction)editDescription:(id)sender {
+    [self.scrollView setContentOffset:CGPointMake(0.0, 150.0) animated:YES];
+}
+
+-(BOOL)verifyFields{
+    if(self.itemNameTF.text.length == 0){
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil message:@"Please enter an item name." delegate:nil cancelButtonTitle:@"OK.." otherButtonTitles:nil, nil];
+        [alert show];
+        return NO;
+    }
+    
+    return YES;
+}
+
 
 -(void)postItem
 {
+
+loadingUi = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    loadingUi.mode = MBProgressHUDModeAnnularDeterminate;
+//    loadingUi.delegate = self;
+    loadingUi.labelText = @"posting your item.....";
+    
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if([self.itemPriceTF.text isEqualToString:@"What do you want for it? (example: $5, a Coffeee, nothing)"]);
+//    self.itemPriceTF.text = @"";
     
     NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
                             [defaults objectForKey:@"userid"], @"id",
                             [_venue venueId], @"venue",
                             self.itemPriceTF.text,@"price",
                             self.descriptionTF.text,@"description",
+                            self.itemNameTF.text,@"itemName",
                             nil];
     
     [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -371,7 +569,7 @@
     confirmationController.itemKey = _itemKey;
     confirmationController.itemUrl = _itemUrl;
     confirmationController.capturedImage = _itemImage;
-    confirmationController.itemPrice = [NSNumber numberWithFloat:[self.itemPriceTF.text floatValue]];
+    confirmationController.itemPrice = self.itemPriceTF.text;//[NSNumber numberWithFloat:[self.itemPriceTF.text floatValue]];
     confirmationController.venueID = [_venue venueId];
     confirmationController.venueName = [_venue name_En];
     confirmationController.venueItemCount = [_venue items];

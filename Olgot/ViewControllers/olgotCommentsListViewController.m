@@ -20,8 +20,8 @@
 
 @synthesize commentCell = _commentCell, commentsListHeader = _commentsListHeader;
 
-@synthesize itemID = _itemID, commentsNumber = _commentsNumber;
-
+@synthesize itemID = _itemID, commentsNumber = _commentsNumber, itemName = _itemName;
+ 
 @synthesize mySmallImage = _mySmallImage;
 @synthesize myCommentTF = _myCommentTF;
 
@@ -38,6 +38,7 @@
 
 -(void)setItemID:(NSNumber *)itemID
 {
+
     if (_itemID != itemID) {
         _itemID = itemID;
         
@@ -76,6 +77,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if(!self.itemName || [self.itemName isEqualToString:@""])
+        self.itemName = @"Comments";
+    
+    self.navigationItem.title = self.itemName;
     
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
     [tempImageView setFrame:self.collectionView.frame]; 

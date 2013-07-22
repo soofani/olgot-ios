@@ -17,7 +17,7 @@
 @end
 
 @implementation olgotAddItemConfirmationViewController
-@synthesize scrollView;
+//@synthesize scrollView;
 @synthesize progressView = _progressView;
 @synthesize itemImage;
 @synthesize venueNameBtn;
@@ -87,7 +87,7 @@
 -(void)configureView
 {
     [self.venueNameBtn setTitle:[_item venueName_En] forState:UIControlStateNormal];
-    [self.itemPriceLabel setText:[NSString stringWithFormat:@"%@ %@",[_item itemPrice],@"JOD"]];
+    [self.itemPriceLabel setText:[_item itemPrice]];//[NSString stringWithFormat:@"%@ %@",[_item itemPrice],@"JOD"]];
     [self.itemImage setImage:_capturedImage];
     
     if ([[_item iLike] isEqual:[NSNumber numberWithInt:1]]) {
@@ -132,7 +132,7 @@
     [self setLikeButton:nil];
     [self setPlaceBigLabel:nil];
     [self setPlaceItemCountLabel:nil];
-    [self setScrollView:nil];
+//    [self setScrollView:nil];
     [self setProgressView:nil];
     [self setCapturedImage:nil];
     [super viewDidUnload];
@@ -154,7 +154,9 @@
 }
 
 - (void)request:(RKRequest *)request didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
-     
+   
+
+    
     NSLog(@"user data: %@",[request userData]);
     NSNumber* uploaded = [NSNumber numberWithInteger:totalBytesWritten];
     NSNumber* total = [NSNumber numberWithInteger:totalBytesExpectedToWrite];
@@ -177,6 +179,7 @@
             [self shareOnFacebook];
         }
         self.navigationItem.rightBarButtonItem.enabled = YES;
+ 
     }
 }
 

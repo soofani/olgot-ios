@@ -14,15 +14,17 @@
 
 #import "olgotAddItemConfirmationViewController.h"
 #import "olgotAppDelegate.h"
+#import "MBProgressHUD.h"
 
 @protocol addItemDetailsProtocol;
 
-@interface olgotAddItemDetailsViewController : UIViewController<RKObjectLoaderDelegate, UITextFieldDelegate, addItemConfirmationProtocol, olgotTwitterDelegate,olgotFacebookDelegate>
+@interface olgotAddItemDetailsViewController : UIViewController<RKObjectLoaderDelegate, UITextFieldDelegate, addItemConfirmationProtocol, olgotTwitterDelegate,olgotFacebookDelegate, olgotCameraOverlayViewControllerDelegate, ImageCropperDelegate, UITextViewDelegate>
 {
     UIImageView *itemImageView;
     NSNumber* _itemID;
     NSString* _itemKey;
     NSString* _itemUrl;
+    MBProgressHUD *loadingUi;
     
     NSArray* accountsArray;
     
@@ -31,6 +33,7 @@
     
     id <addItemDetailsProtocol> delegate;
 }
+@property (nonatomic,retain) olgotCameraOverlayViewController *cameraOverlayViewController;
 
 @property (nonatomic, retain) id <addItemDetailsProtocol> delegate;
 
@@ -39,19 +42,25 @@
 @property (strong, nonatomic) IBOutlet UIImageView *venueImageIV;
 @property (strong, nonatomic) IBOutlet UILabel *venueNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *venueLocationLabel;
-@property (strong, nonatomic) IBOutlet UITextField *itemPriceTF;
+//@property (strong, nonatomic) IBOutlet UITextField *itemPriceTF;
+@property (strong, nonatomic) IBOutlet UITextView *itemPriceTF;
+@property (strong, nonatomic) IBOutlet UITextField *itemNameTF;
+
 @property (strong, nonatomic) IBOutlet UITextField *descriptionTF;
 @property (strong, nonatomic) IBOutlet UIButton *postButton;
 
 @property (nonatomic, retain) olgotVenue* venue;
 @property (nonatomic, strong) IBOutlet UIImageView *itemImageView;
 @property (nonatomic,strong) UIImage *itemImage;
-           
-- (IBAction)addedPrice:(id)sender;
+
+-(IBAction)editImagePressed:(id)sender;
+//- (IBAction)addedPrice:(id)sender;
+- (IBAction)addedName:(id)sender;
 - (IBAction)addedDescription:(id)sender;
 - (IBAction)postButtonPressed:(id)sender;
 
-- (IBAction)editPrice:(id)sender;
+//- (IBAction)editPrice:(id)sender;
+//- (IBAction)editItemName:(id)sender;
 - (IBAction)editDescription:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *twitterShareBtn;
 - (IBAction)twitterSharePressed:(id)sender;

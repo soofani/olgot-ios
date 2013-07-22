@@ -236,18 +236,20 @@
     [itemImage setImageWithURL:[NSURL URLWithString:[[_items objectAtIndex:indexPath.row] itemPhotoUrl]]];
     
     itemLabel = (UILabel *)[cell viewWithTag:3]; //venue
-    [itemLabel setText:[[_items objectAtIndex:indexPath.row] venueName_En]];
-    
-    itemLabel = (UILabel *)[cell viewWithTag:4]; //price
-    if ([[[_items objectAtIndex:indexPath.row] itemPrice] isEqualToNumber:[NSNumber numberWithInt:0]]) {
-        [itemLabel setHidden:YES];
-    }else{
-        [itemLabel setHidden:NO];
-        [itemLabel setText:[NSString stringWithFormat:@"%g %@",
-                            [[[_items objectAtIndex:indexPath.row] itemPrice] floatValue],
-                            [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]
-                            ]];
-    }
+//    [itemLabel setText:[[_items objectAtIndex:indexPath.row] venueName_En]];
+     [itemLabel setText:[[_items objectAtIndex:indexPath.row] itemName]];
+//removed
+//    itemLabel = (UILabel *)[cell viewWithTag:4]; //price
+////    if ([[[_items objectAtIndex:indexPath.row] itemPrice] isEqualToNumber:[NSNumber numberWithInt:0]]) {
+//    if ([[[_items objectAtIndex:indexPath.row] itemPrice] isEqualToString:@""] || [[[_items objectAtIndex:indexPath.row] itemPrice] isEqualToString:@"0"]) {
+//    [itemLabel setHidden:YES];
+//    }else{
+//        [itemLabel setHidden:NO];
+//        [itemLabel setText:[NSString stringWithFormat:@"%g %@",
+//                            [[[_items objectAtIndex:indexPath.row] itemPrice] floatValue],
+//                            [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]
+//                            ]];
+//    }
     
     
     itemImage = (UIImageView*)[cell viewWithTag:5];

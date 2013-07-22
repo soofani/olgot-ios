@@ -19,6 +19,7 @@
 @implementation olgotChooseUsernameViewController
 @synthesize usernameTF;
 @synthesize userEmail;
+@synthesize userPhone;
 @synthesize createAccountBtn;
 @synthesize twitterResponseData = _twitterResponseData;
 @synthesize fbUser;
@@ -31,6 +32,18 @@
     }
     return self;
 }
+
+//To show Done button on top of the keypad
+-(void)cancelNumberPad
+{
+    [self.userPhone resignFirstResponder];
+}
+
+-(void)TextAccessory
+{
+    self.userPhone.inputAccessoryView = numberToolbar;
+}
+//////////
 
 -(void)setTwitterResponseData:(NSData *)twitterResponseData
 {
@@ -46,6 +59,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+//To show Done button on top of the keypad
+
+    numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
+                           
+                           nil];
+    [numberToolbar sizeToFit];
+    [self TextAccessory];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+////////////////////
+    
+    
 	// Do any additional setup after loading the view.
     if(self.twitterResponseData){
         [self.usernameTF setText:[_twitterJson objectForKey:@"screen_name"]];
@@ -63,6 +92,7 @@
     
     [tap setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:tap];
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, self.scrollView.frame.size.height + 80)];
 
 }
 
@@ -84,6 +114,7 @@
 -(void)dismissKeyboard {
     [self.usernameTF resignFirstResponder];
     [self.userEmail resignFirstResponder];
+    [self.userPhone resignFirstResponder];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -92,6 +123,9 @@
 }
 
 - (IBAction)pressedNext:(id)sender {
+    if(sender == self.userEmail)
+        [self.userPhone becomeFirstResponder];
+    else
     [self.userEmail becomeFirstResponder];
 }
 
@@ -127,6 +161,7 @@
                                     self.usernameTF.text,@"username",
                                     @"nopass",@"password",
                                     self.userEmail.text, @"email",
+                                    self.userPhone.text, @"telNumber",
                                     [_twitterJson objectForKey:@"name"],@"fullname",
                                     [_twitterJson objectForKey:@"id"],@"twitterid",
                                     [_twitterJson objectForKey:@"screen_name"],@"twittername",
@@ -147,6 +182,7 @@
                                         self.usernameTF.text,@"username",
                                         @"nopass",@"password",
                                         self.userEmail.text, @"email",
+                                        self.userPhone.text, @"telNumber",
                                         self.fbUser.name,@"fullname",
                                         self.fbUser.id,@"facebookid",
                                         userProfileImageUrl, @"facebookimg",
@@ -195,6 +231,7 @@
                         [defaults setObject:_userID forKey:@"userid"];
                         [defaults setObject:self.usernameTF.text forKey:@"username"];
                         [defaults setObject:self.userEmail.text forKey:@"email"];
+                    [defaults setObject:self.userPhone.text forKey:@"telNumber"];
                         [defaults setObject:[resp objectForKey:@"profileImgUrl"] forKey:@"userProfileImageUrl"];
                         [defaults setObject:[self.fbUser name] forKey:@"fullname"];
                         [defaults setObject:0 forKey:@"twitterid"];
@@ -224,6 +261,7 @@
                     [defaults setObject:_userID forKey:@"userid"];
                     [defaults setObject:self.usernameTF.text forKey:@"username"];
                     [defaults setObject:self.userEmail.text forKey:@"email"];
+                     [defaults setObject:self.userPhone.text forKey:@"telNumber"];
                     [defaults setObject:userProfileImageUrl forKey:@"userProfileImageUrl"];
                     [defaults setObject:[_twitterJson objectForKey:@"name"] forKey:@"fullname"];
                     [defaults setObject:[_twitterJson objectForKey:@"id"] forKey:@"twitterid"];
@@ -272,6 +310,42 @@
     chooseFriendsVC.userID = _userID;
     chooseFriendsVC.delegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
     [self.navigationController pushViewController:chooseFriendsVC animated:YES];
+}
+
+//To show Done button on top of the keypad
+-(IBAction)textFieldDidBeginEditing:(id)sender
+{
+    if(sender == self.userPhone)
+        selectedTextField = sender;
+    else
+        selectedTextField = nil;
+    
+}
+- (void) keyboardWillShow: (NSNotification*) aNotification;
+{
+
+    if(selectedTextField && selectedTextField == self.userPhone )
+    {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.35f];
+        CGRect frame = self.view.frame;
+        frame.origin.y = -100;
+        [self.view setFrame:frame];
+        [UIView commitAnimations];
+    }
+    
+}
+
+- (void) keyboardWillHide: (NSNotification*) aNotification;
+{
+    if(selectedTextField && selectedTextField == self.userPhone)
+    {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.35f];
+        CGRect frame = self.view.frame;
+        frame.origin.y = 0;
+        [self.view setFrame:frame];
+        [UIView commitAnimations];    }
 }
 
 @end

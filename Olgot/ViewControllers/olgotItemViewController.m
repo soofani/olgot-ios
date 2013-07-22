@@ -18,6 +18,7 @@
 #import "olgotComment.h"
 #import "DejalActivityView.h"
 #import "olgotProtocols.h"
+#import "PreviewItemImageViewController.h"
 #import <FacebookSDK/FBRequest.h>
 
 
@@ -29,7 +30,7 @@
 @implementation olgotItemViewController
 @synthesize wantButton = _wantButton;
 @synthesize likeButton = _likeButton;
-@synthesize gotButton = _gotButton;
+//@synthesize gotButton = _gotButton;
 @synthesize mySmallImage = _mySmallImage;
 @synthesize myCommentTF = _myCommentTF;
 @synthesize delegate;
@@ -55,7 +56,7 @@
 //        _item = item;
 //        self.navigationItem.title = [_item itemDescription];
 //        NSLog(@"item ID = %d", [[_item itemID] intValue]);
-//        
+//
 //        [self loadItemData];
 //    }
 //}
@@ -63,10 +64,10 @@
 -(void)loadItemData
 {
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
-//    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: [_item itemID], @"item", [_item itemKey], @"key", nil];
+    //    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: [_item itemID], @"item", [_item itemKey], @"key", nil];
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: _itemID, @"item", _itemKey, @"key", [defaults objectForKey:@"userid"], @"id", nil];
-
+    
     //likes
     NSString* resourcePath = @"/item/";
     [objectManager loadObjectsAtResourcePath:[resourcePath stringByAppendingQueryParameters:myParams] delegate:self];
@@ -77,7 +78,7 @@
     [super viewDidLoad];
     
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
-    [tempImageView setFrame:self.collectionView.frame]; 
+    [tempImageView setFrame:self.collectionView.frame];
     
     self.collectionView.backgroundView = tempImageView;
     self.collectionView.rowSpacing = 0.0f;
@@ -86,7 +87,7 @@
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
     
-//    Share button
+    //    Share button
     UIImage *shareImage30 = [UIImage imageNamed:@"btn-share"];
     
     UIButton *shareBtn = [[UIButton alloc] init];
@@ -105,7 +106,7 @@
     [self.mySmallImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"userProfileImageUrl"]]];
     [self.view addSubview:myCommentView];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] 
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     
@@ -140,12 +141,12 @@
     // Initialize Tweet Compose View Controller
     TWTweetComposeViewController *vc = [[TWTweetComposeViewController alloc] init];
     // Settin The Initial Text
-//    [vc setInitialText:[NSString stringWithFormat:@"I just found this item at %@ using Olgot %@ %@", [_item venueName_En], [_item userTwitterName], [_item venueTwitterName]]];
+    //    [vc setInitialText:[NSString stringWithFormat:@"I just found this item at %@ using Olgot %@ %@", [_item venueName_En], [_item userTwitterName], [_item venueTwitterName]]];
     
     [vc setInitialText:[NSString stringWithFormat:@"Love this at %@ %@. Posted on #Olgot by %@", [_item venueName_En], [_item venueTwitterName], [_item userTwitterName] ]];
     
     // Adding an Image
-//    UIImage *image = [(UIImageView*)[self.itemCell viewWithTag:1] image];
+    //    UIImage *image = [(UIImageView*)[self.itemCell viewWithTag:1] image];
     NSURL *imageURL = [NSURL URLWithString:[_item itemPhotoUrl]];
     NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
     UIImage *image = [UIImage imageWithData:imageData];
@@ -175,7 +176,7 @@
 {
     [self setLikeButton:nil];
     [self setWantButton:nil];
-    [self setGotButton:nil];
+    //    [self setGotButton:nil];
     [self setMySmallImage:nil];
     [self setMyCommentTF:nil];
     [super viewDidUnload];
@@ -200,7 +201,7 @@
     
     id userData = [request userData];
     
-    if ([request isPOST]) {  
+    if ([request isPOST]) {
         
         if ([response isJSON]) {
             
@@ -225,7 +226,7 @@
             }else {
                 
             }
-        }  
+        }
         
     }else if ([request isDELETE]) {
         if ([response isJSON]) {
@@ -263,17 +264,18 @@
             }
         }
     }
-
+    
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
     NSLog(@"loaded item %@", objects);
     _item = [objects objectAtIndex:0];
+    //    _item.itemName = @"belalal";
     _comments = [_item comments];
     _likes = [_item likes];
-    _wants = [_item wants];
-    _gots = [_item gots];
-    NSLog(@"user actions: %@ %@ %@",[_item iLike],[_item iWant],[_item iGot]);
+    //    _wants = [_item wants];
+    //    _gots = [_item gots];
+    NSLog(@"user actions: %@",[_item iLike]);//,[_item iWant],[_item iGot]);
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([[_item userID] isEqual:[defaults objectForKey:@"userid"]]) {
@@ -284,12 +286,13 @@
         NSLog(@"Item Visitor");
     }
     
+    self.navigationItem.title = [_item itemName];
     [self.collectionView reloadData];
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
-//    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//    [alert show];
+    //    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //    [alert show];
     
     NSLog(@"Hit error: %@", error);
 }
@@ -301,6 +304,8 @@
     
     [errAlert show];
 }
+
+
 
 #pragma mark - SSCollectionViewDataSource
 
@@ -330,18 +335,18 @@
         }
     }
     else if (section == 3) {    //wants
-        if ([[_item itemStatsWants] intValue] > 0) {
-            return 1;
-        }else {
-            return 0;
-        }
+        //        if ([[_item itemStatsWants] intValue] > 0) {
+        //            return 1;
+        //        }else {
+        return 0;
+        //        }
     }
     else if (section == 4) {    //gots
-        if ([[_item itemStatsGots] intValue] > 0) {
-            return 1;
-        }else {
-            return 0;
-        }
+        //        if ([[_item itemStatsGots] intValue] > 0) {
+        //            return 1;
+        //        }else {
+        return 0;
+        //        }
     }
     else if (section == 5) {    //comments header
         if ([[_item itemStatsComments] intValue] > 0) {
@@ -374,7 +379,8 @@
     static NSString *myPeopleTileIdentifier = @"itemViewPeopleRowID";
     static NSString *myCommentTileIdentifier = @"itemViewCommentRowID";
     static NSString *myCommentsFooterIdentifier = @"commentsFooter";
-    
+    NSInteger ii = indexPath.section;
+    NSLog(@"dasdas %d",ii);
     if (indexPath.section == 1) {
         SSCollectionViewItem *cell = [aCollectionView dequeueReusableItemWithIdentifier:myItemTileIdentifier];
         
@@ -397,33 +403,76 @@
         }else {
             [self.wantButton setImage:[UIImage imageNamed:@"icon-item-action-want"] forState:UIControlStateNormal];
         }
+        //
+        //        if ([[_item iGot] isEqual:[NSNumber numberWithInt:1]]) {
+        //            NSLog(@"user got this");
+        //            [self.gotButton setImage:[UIImage imageNamed:@"icon-item-action-got-active"] forState:UIControlStateNormal];
+        //        }else {
+        //            [self.gotButton setImage:[UIImage imageNamed:@"icon-item-action-got"] forState:UIControlStateNormal];
+        //        }
         
-        if ([[_item iGot] isEqual:[NSNumber numberWithInt:1]]) {
-            NSLog(@"user got this");
-            [self.gotButton setImage:[UIImage imageNamed:@"icon-item-action-got-active"] forState:UIControlStateNormal];
-        }else {
-            [self.gotButton setImage:[UIImage imageNamed:@"icon-item-action-got"] forState:UIControlStateNormal];
-        }
-        
-        UIImageView* itemImage;
+        //        UIImageView* itemImage;
         UILabel* itemDescription;
         UILabel* itemPriceLabel;
         UILabel* itemDateLabel;
         
-        itemImage = (UIImageView*)[cell viewWithTag:1];
+        itemImageView = (UIImageView*)[cell viewWithTag:1];
         itemDescription = (UILabel*)[cell viewWithTag:2];
         itemDateLabel = (UILabel*)[cell viewWithTag:5];
         
-        [itemImage setImageWithURL:[NSURL URLWithString:[_item itemPhotoUrl]]];
+        [itemImageView setImageWithURL:[NSURL URLWithString:[_item itemPhotoUrl]]];
         [itemDescription setText:[_item itemDescription]];
+    
+        
+        
         
         itemPriceLabel = (UILabel*)[cell viewWithTag:3]; //price
-        if ([[_item itemPrice] isEqualToNumber:[NSNumber numberWithInt:0]]) {
+        NSString *priceStr = [_item itemPrice];//[[_item itemPrice] stringByAppendingString:@"hi man how are you babykjkn are you good or not"];
+        //        if ([[_item itemPrice] isEqualToNumber:[NSNumber numberWithInt:0]]) {
+        if (!priceStr || [priceStr isEqualToString:@""]) {
             [itemPriceLabel setHidden:YES];
-        }else{
-            [itemPriceLabel setHidden:NO];
-            [itemPriceLabel setText:[NSString stringWithFormat:@"%g %@",[[_item itemPrice] floatValue],[_item countryCurrencyShortName]]];
+            //            priceStr = @" Make me an offer! ";
         }
+        else{
+            priceStr = [NSString stringWithFormat:@"  %@  ",priceStr];//,[_item countryCurrencyShortName]];
+            [itemPriceLabel setHidden:NO];
+            [itemPriceLabel setText:priceStr ];
+        }
+        
+        
+        //            [itemPriceLabel setText:[NSString stringWithFormat:@"%g %@",[[_item itemPrice] floatValue],[_item countryCurrencyShortName]]];
+        
+          //Make the price label width daynamic with the string width
+        CGRect frame = itemPriceLabel.frame;
+        CGSize textSize = [[itemPriceLabel text] sizeWithFont:[itemPriceLabel font]];
+        CGFloat newLabelWidth = textSize.width;
+        frame.size.width = newLabelWidth;
+        frame.origin.x = frame.origin.x - (newLabelWidth - itemPriceLabel.frame.size.width);
+        
+        if(frame.size.width > itemImageView.frame.size.width-20)
+        {
+            frame.size.width = itemImageView.frame.size.width-20;
+            frame.origin.x = itemImageView.frame.origin.x + 10;
+            
+             [itemPriceLabel setFrame:frame];
+                  itemPriceLabel.numberOfLines = 0;
+                  [itemPriceLabel sizeToFit];
+
+
+        }else
+             [itemPriceLabel setFrame:frame];
+       
+      
+        frame = itemPriceLabel.frame;
+if(frame.origin.y+frame.size.height >= itemImageView.frame.origin.y+itemImageView.frame.size.height)
+{
+    frame.origin.y = (itemImageView.frame.origin.y+itemImageView.frame.size.height)-frame.size.height-10;
+    [itemPriceLabel setFrame:frame];
+}
+    
+        
+        
+        //        }
         
         [itemDateLabel setText:[_item itemDateNatural]];
         
@@ -454,8 +503,8 @@
         finderImage.layer.cornerRadius = 4;
         finderImage.clipsToBounds = YES;
         
-//        finderLabel = (UILabel*)[cell viewWithTag:4]; //price
-//        [finderLabel setText:[NSString stringWithFormat:@"%@ %g",[_item countryCurrencyShortName],[[_item itemPrice] floatValue]]];
+        //        finderLabel = (UILabel*)[cell viewWithTag:4]; //price
+        //        [finderLabel setText:[NSString stringWithFormat:@"%@ %g",[_item countryCurrencyShortName],[[_item itemPrice] floatValue]]];
         
         return cell;
     }
@@ -486,62 +535,62 @@
         
         return cell;
     }
-    else if (indexPath.section == 3) {  //wants
-        SSCollectionViewItem *cell = [aCollectionView dequeueReusableItemWithIdentifier:myPeopleTileIdentifier];
-        
-        if (cell == nil) {
-            [[NSBundle mainBundle] loadNibNamed:@"itemViewPeopleRow" owner:self options:nil];
-            cell = _peopleRowCell;
-            self.peopleRowCell = nil;
-        }
-        
-        UILabel* peopleLabel;
-        
-        peopleLabel = (UILabel*)[cell viewWithTag:1];
-        [peopleLabel setText:@"Want it"];
-        
-        peopleLabel = (UILabel*)[cell viewWithTag:2];
-        [peopleLabel setText:[NSString stringWithFormat:@"%@ people want this",[_item itemStatsWants]]];
-        
-        int x = 10;
-        for (olgotActionUser *actioner in _wants) {
-            UIImageView* actionerIV = [[UIImageView alloc] initWithFrame:CGRectMake(x, 25, 35, 35)];
-            [actionerIV setImageWithURL:[NSURL URLWithString:[actioner userProfileImgUrl]]];
-            [cell addSubview:actionerIV];
-            x = x + 35 + 5;
-        }
-        
-        return cell;
-    }
-    else if (indexPath.section == 4) {  //gots
-        SSCollectionViewItem *cell = [aCollectionView dequeueReusableItemWithIdentifier:myPeopleTileIdentifier];
-        
-        if (cell == nil) {
-            [[NSBundle mainBundle] loadNibNamed:@"itemViewPeopleRow" owner:self options:nil];
-            cell = _peopleRowCell;
-            self.peopleRowCell = nil;
-        }
-        
-        UILabel* peopleLabel;
-        
-        peopleLabel = (UILabel*)[cell viewWithTag:1];
-        [peopleLabel setText:@"Got it"];
-        
-        peopleLabel = (UILabel*)[cell viewWithTag:2];
-        [peopleLabel setText:[NSString stringWithFormat:@"%@ people got this",[_item itemStatsGots]]];
-        
-        int x = 10;
-        for (olgotActionUser *actioner in _gots) {
-            UIImageView* actionerIV = [[UIImageView alloc] initWithFrame:CGRectMake(x, 25, 35, 35)];
-            [actionerIV setImageWithURL:[NSURL URLWithString:[actioner userProfileImgUrl]]];
-            [cell addSubview:actionerIV];
-            x = x + 35 + 5;
-        }
-        
-        return cell;
-    }
+    //    else if (indexPath.section == 3) {  //wants
+    //        SSCollectionViewItem *cell = [aCollectionView dequeueReusableItemWithIdentifier:myPeopleTileIdentifier];
+    //
+    //        if (cell == nil) {
+    //            [[NSBundle mainBundle] loadNibNamed:@"itemViewPeopleRow" owner:self options:nil];
+    //            cell = _peopleRowCell;
+    //            self.peopleRowCell = nil;
+    //        }
+    //
+    //        UILabel* peopleLabel;
+    //
+    //        peopleLabel = (UILabel*)[cell viewWithTag:1];
+    //        [peopleLabel setText:@"Want it"];
+    //
+    //        peopleLabel = (UILabel*)[cell viewWithTag:2];
+    //        [peopleLabel setText:[NSString stringWithFormat:@"%@ people want this",[_item itemStatsWants]]];
+    //
+    //        int x = 10;
+    //        for (olgotActionUser *actioner in _wants) {
+    //            UIImageView* actionerIV = [[UIImageView alloc] initWithFrame:CGRectMake(x, 25, 35, 35)];
+    //            [actionerIV setImageWithURL:[NSURL URLWithString:[actioner userProfileImgUrl]]];
+    //            [cell addSubview:actionerIV];
+    //            x = x + 35 + 5;
+    //        }
+    //
+    //        return cell;
+    //    }
+    //    else if (indexPath.section == 4) {  //gots
+    //        SSCollectionViewItem *cell = [aCollectionView dequeueReusableItemWithIdentifier:myPeopleTileIdentifier];
+    //
+    //        if (cell == nil) {
+    //            [[NSBundle mainBundle] loadNibNamed:@"itemViewPeopleRow" owner:self options:nil];
+    //            cell = _peopleRowCell;
+    //            self.peopleRowCell = nil;
+    //        }
+    //
+    //        UILabel* peopleLabel;
+    //
+    //        peopleLabel = (UILabel*)[cell viewWithTag:1];
+    //        [peopleLabel setText:@"Got it"];
+    //
+    //        peopleLabel = (UILabel*)[cell viewWithTag:2];
+    //        [peopleLabel setText:[NSString stringWithFormat:@"%@ people got this",[_item itemStatsGots]]];
+    //
+    //        int x = 10;
+    //        for (olgotActionUser *actioner in _gots) {
+    //            UIImageView* actionerIV = [[UIImageView alloc] initWithFrame:CGRectMake(x, 25, 35, 35)];
+    //            [actionerIV setImageWithURL:[NSURL URLWithString:[actioner userProfileImgUrl]]];
+    //            [cell addSubview:actionerIV];
+    //            x = x + 35 + 5;
+    //        }
+    //
+    //        return cell;
+    //    }
     else if (indexPath.section == 5) {
-
+        
         [[NSBundle mainBundle] loadNibNamed:@"itemViewCommentsHeader" owner:self options:nil];
         
         return commentsHeader;
@@ -576,7 +625,7 @@
         commentLabel.text = [[_comments objectAtIndex:indexPath.row] body];
         
         return cell;
- 
+        
     }
     else if (indexPath.section == 7) { //comments footer
         NSLog(@"index path %d",indexPath.section);
@@ -626,10 +675,10 @@
         CGSize labelSize = [[_item itemDescription] sizeWithFont:[UIFont systemFontOfSize:15.0] constrainedToSize:CGSizeMake(280.0, 9000.0) lineBreakMode:UILineBreakModeWordWrap];
         
         CGSize itemSize = CGSizeMake(300.0, labelSize.height + 370.0);
-
-        return itemSize; 
         
-//        return CGSizeMake(300.0f, 370.0f);
+        return itemSize;
+        
+        //        return CGSizeMake(300.0f, 370.0f);
     }
     else if (section == 0) {
         return CGSizeMake(300.0f, 55.0f);
@@ -647,7 +696,7 @@
         return CGSizeMake(300.0f, 30.0f);
     }
     else if (section == 6){
-//        CGSize commentSize = [[_comments objectAtIndex:indexPath.row] body]
+        //        CGSize commentSize = [[_comments objectAtIndex:indexPath.row] body]
         
         return CGSizeMake(300.0f, 70.0f);
     }
@@ -664,12 +713,12 @@
     if (indexPath.section == 2) {
         [self performSegueWithIdentifier:@"showLikes" sender:self];
     }
-    else if (indexPath.section == 3) {
-        [self performSegueWithIdentifier:@"showWants" sender:self];
-    }
-    else if (indexPath.section == 4) {
-        [self performSegueWithIdentifier:@"showGots" sender:self];
-    }
+    //    else if (indexPath.section == 3) {
+    //        [self performSegueWithIdentifier:@"showWants" sender:self];
+    //    }
+    //    else if (indexPath.section == 4) {
+    //        [self performSegueWithIdentifier:@"showGots" sender:self];
+    //    }
     else if (indexPath.section == 7) {
         [self performSegueWithIdentifier:@"showAllComments" sender:self];
     }
@@ -699,7 +748,7 @@
         if ([[_item iWant] isEqual:[NSNumber numberWithInt:1]]) {
             return;
         }
-        actionPopup = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"msg-action-want"]];       
+        actionPopup = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"msg-action-want"]];
     } else if([sender isEqualToString:@"got"]){
         if ([[_item iGot] isEqual:[NSNumber numberWithInt:1]]) {
             return;
@@ -740,32 +789,35 @@
     
     if ([sender isEqualToString:@"like"]) {
         if ([[_item iLike] isEqual:[NSNumber numberWithInt:1]]) {
-             [_item setILike:[NSNumber numberWithInt:0]];
+            [_item setILike:[NSNumber numberWithInt:0]];
             [[[RKClient sharedClient] delete:[@"/likeitem/" stringByAppendingQueryParameters:params] delegate:nil] setUserData:@"unlike"];
         }else {
-             [_item setILike:[NSNumber numberWithInt:1]];
+            [_item setILike:[NSNumber numberWithInt:1]];
             [[RKClient sharedClient] post:@"/likeitem/" params:params delegate:nil];
         }
         [self.collectionView reloadData];
-    } else if([sender isEqualToString:@"want"]){
+    }
+    else if([sender isEqualToString:@"want"]){
         if ([[_item iWant] isEqual:[NSNumber numberWithInt:1]]) {
-             [_item setIWant:[NSNumber numberWithInt:0]];
+            [_item setIWant:[NSNumber numberWithInt:0]];
             [[[RKClient sharedClient] delete:[@"/wantitem/" stringByAppendingQueryParameters:params] delegate:nil]  setUserData:@"unwant"];
         }else {
             [_item setIWant:[NSNumber numberWithInt:1]];
             [[RKClient sharedClient] post:@"/wantitem/" params:params delegate:nil];
         }
         [self.collectionView reloadData];
-    } else if([sender isEqualToString:@"got"]){
-        if ([[_item iGot] isEqual:[NSNumber numberWithInt:1]]) {
-            [_item setIGot:[NSNumber numberWithInt:0]];
-            [[[RKClient sharedClient] delete:[@"/gotitem/" stringByAppendingQueryParameters:params] delegate:nil]  setUserData:@"ungot"];
-        }else {
-            [_item setIGot:[NSNumber numberWithInt:1]];
-            [[RKClient sharedClient] post:@"/gotitem/" params:params delegate:nil];
-        }
-        [self.collectionView reloadData];
-    }else {
+    }
+    //    else if([sender isEqualToString:@"got"]){
+    //        if ([[_item iGot] isEqual:[NSNumber numberWithInt:1]]) {
+    //            [_item setIGot:[NSNumber numberWithInt:0]];
+    //            [[[RKClient sharedClient] delete:[@"/gotitem/" stringByAppendingQueryParameters:params] delegate:nil]  setUserData:@"ungot"];
+    //        }else {
+    //            [_item setIGot:[NSNumber numberWithInt:1]];
+    //            [[RKClient sharedClient] post:@"/gotitem/" params:params delegate:nil];
+    //        }
+    //        [self.collectionView reloadData];
+    //    }
+    else {
         return;
     }
     
@@ -799,17 +851,17 @@
     }
     
 }
-
-- (IBAction)gotAction:(id)sender {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:@"userid"] == nil) {
-        olgotAppDelegate* appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
-        [appDelegate showSignup];
-    }else{
-        [self performSelector:@selector(showPopup:) withObject:@"got"];
-        [self performSelector:@selector(sendItemAction:) withObject:@"got"];
-    }
-}
+//
+//- (IBAction)gotAction:(id)sender {
+//    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+//    if ([defaults objectForKey:@"userid"] == nil) {
+//        olgotAppDelegate* appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
+//        [appDelegate showSignup];
+//    }else{
+//        [self performSelector:@selector(showPopup:) withObject:@"got"];
+//        [self performSelector:@selector(sendItemAction:) withObject:@"got"];
+//    }
+//}
 
 - (IBAction)touchedWriteComment:(id)sender {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -838,7 +890,7 @@
     
     NSString* commentBody = self.myCommentTF.text;
     NSString *trimmedBody = [commentBody stringByTrimmingCharactersInSet:
-                               [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                             [NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     if (![trimmedBody isEqualToString:@""]) {
         NSLog(@"sending comment");
@@ -866,7 +918,8 @@
         olgotCommentsListViewController *commentsViewController = [segue destinationViewController];
         
         commentsViewController.commentsNumber = [_item itemStatsComments];
-        commentsViewController.itemID = [_item itemID];        
+        commentsViewController.itemID = [_item itemID];
+        commentsViewController.itemName = [_item itemName];
         
     }else if ([[segue identifier] isEqualToString:@"showLikes"]) {
         olgotPeopleListViewController *peopleViewController = [segue destinationViewController];
@@ -874,22 +927,23 @@
         peopleViewController.actionStats = [_item itemStatsLikes];
         peopleViewController.actionName = @"Likes";
         peopleViewController.itemID = [_item itemID];
+        peopleViewController.itemName = [_item itemName];
     }
-    else if ([[segue identifier] isEqualToString:@"showWants"]) {
-       olgotPeopleListViewController *peopleViewController = [segue destinationViewController];
-        
-        peopleViewController.actionStats = [_item itemStatsWants];
-        peopleViewController.actionName = @"Wants";
-        peopleViewController.itemID = [_item itemID];
-        
-    }
-    else if ([[segue identifier] isEqualToString:@"showGots"]) {
-        olgotPeopleListViewController *peopleViewController = [segue destinationViewController];
-        
-        peopleViewController.actionStats = [_item itemStatsGots];
-        peopleViewController.actionName = @"Gots";
-        peopleViewController.itemID = [_item itemID];
-    }
+    //    else if ([[segue identifier] isEqualToString:@"showWants"]) {
+    //       olgotPeopleListViewController *peopleViewController = [segue destinationViewController];
+    //
+    //        peopleViewController.actionStats = [_item itemStatsWants];
+    //        peopleViewController.actionName = @"Wants";
+    //        peopleViewController.itemID = [_item itemID];
+    //
+    //    }
+    //    else if ([[segue identifier] isEqualToString:@"showGots"]) {
+    //        olgotPeopleListViewController *peopleViewController = [segue destinationViewController];
+    //
+    //        peopleViewController.actionStats = [_item itemStatsGots];
+    //        peopleViewController.actionName = @"Gots";
+    //        peopleViewController.itemID = [_item itemID];
+    //    }
     else if ([[segue identifier] isEqualToString:@"showProfile"]) {
         olgotProfileViewController *profileViewController = [segue destinationViewController];
         
@@ -901,6 +955,17 @@
         venueViewController.venueId = [_item venueId];
         venueViewController.navigationItem.title = [_item venueName_En];
     }
+}
+
+-(IBAction)previewItemImagePressed:(id)sender
+{
+    PreviewItemImageViewController *previewScreen = [[PreviewItemImageViewController alloc] initWithNibName:@"PreviewItemImageViewController" bundle:nil];
+    
+    [previewScreen setItemImage:itemImageView.image];
+    [previewScreen setItemTitle:[_item itemName]];
+    
+    [self.navigationController pushViewController:previewScreen animated:YES];
+    
 }
 
 - (IBAction)showProfile:(id)sender {
@@ -922,7 +987,7 @@
 }
 
 -(void)shareOnFacebook{
-//    id<olgotOgItem> itemObject = [self itemObjectForItem];
+    //    id<olgotOgItem> itemObject = [self itemObjectForItem];
     id<olgotOgItem> itemObject = [self itemObjectForItem:@"dummy"];
     
     id<olgotOgFindItem> action = (id<olgotOgFindItem>)[FBGraphObject graphObject];
@@ -947,19 +1012,19 @@
                                          alertText = [NSString stringWithFormat:@"Posted Open Graph action, id: %@",
                                                       [result objectForKey:@"id"]];
                                          
-
+                                         
                                      } else {
                                          alertText = [NSString stringWithFormat:@"error: domain = %@, code = %d",
                                                       error.domain, error.code];
                                      }
                                      
                                      NSLog(@"Facebook: %@",alertText);
-//                                     [[[UIAlertView alloc] initWithTitle:@"Result"
-//                                                                 message:alertText
-//                                                                delegate:nil
-//                                                       cancelButtonTitle:@"Thanks!"
-//                                                       otherButtonTitles:nil]
-//                                      show];
+                                     //                                     [[[UIAlertView alloc] initWithTitle:@"Result"
+                                     //                                                                 message:alertText
+                                     //                                                                delegate:nil
+                                     //                                                       cancelButtonTitle:@"Thanks!"
+                                     //                                                       otherButtonTitles:nil]
+                                     //                                      show];
                                  }];
 }
 
@@ -968,31 +1033,31 @@
     id<olgotOgItem> result = (id<olgotOgItem>)[FBGraphObject graphObject];
     
     result.url = self.item.itemUrl;
-//    result.url = @"http://naf-lab.com/olgottesting/dummyitem.php";
+    //    result.url = @"http://naf-lab.com/olgottesting/dummyitem.php";
     
     return result;
     
-//    // This URL is specific to this sample, and can be used to
-//    // create arbitrary OG objects for this app; your OG objects
-//    // will have URLs hosted by your server.
-//    NSString *format =
-//    @"http://naf-lab.com/olgottesting/repeater.php?"
-//    @"fb:app_id=474720479212670&og:type=%@&"
-//    @"og:title=%@&og:description=%%22%@%%22&"
-//    @"og:image=https://s-static.ak.fbcdn.net/images/devsite/attachment_blank.png&"
-//    @"body=%@";
-//    
-//    // We create an FBGraphObject object, but we can treat it as
-//    // an SCOGMeal with typed properties, etc. See <FacebookSDK/FBGraphObject.h>
-//    // for more details.
-//    id<olgotOgItem> result = (id<olgotOgItem>)[FBGraphObject graphObject];
-//    
-//    // Give it a URL that will echo back the name of the meal as its title,
-//    // description, and body.
-//    result.url = [NSString stringWithFormat:format,
-//                  @"olgotapp:item", mItem, mItem, mItem];
+    //    // This URL is specific to this sample, and can be used to
+    //    // create arbitrary OG objects for this app; your OG objects
+    //    // will have URLs hosted by your server.
+    //    NSString *format =
+    //    @"http://naf-lab.com/olgottesting/repeater.php?"
+    //    @"fb:app_id=474720479212670&og:type=%@&"
+    //    @"og:title=%@&og:description=%%22%@%%22&"
+    //    @"og:image=https://s-static.ak.fbcdn.net/images/devsite/attachment_blank.png&"
+    //    @"body=%@";
+    //
+    //    // We create an FBGraphObject object, but we can treat it as
+    //    // an SCOGMeal with typed properties, etc. See <FacebookSDK/FBGraphObject.h>
+    //    // for more details.
+    //    id<olgotOgItem> result = (id<olgotOgItem>)[FBGraphObject graphObject];
+    //
+    //    // Give it a URL that will echo back the name of the meal as its title,
+    //    // description, and body.
+    //    result.url = [NSString stringWithFormat:format,
+    //                  @"olgotapp:item", mItem, mItem, mItem];
     
-//    return result;                                
+    //    return result;
 }
 
 -(void)showMailComposer
@@ -1022,8 +1087,8 @@
             appDelegate.facebookDelegate = self;
             [appDelegate openFBSession];
         }
-    
-
+        
+        
 	} else if (buttonIndex == 1) {
         //twitter
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -1037,7 +1102,7 @@
             appDelegate.twitterDelegate = self;
             [appDelegate twitterConnect];
         }
-    
+        
 	} else if (buttonIndex == 2) {
         //email
         if ([MFMailComposeViewController canSendMail])

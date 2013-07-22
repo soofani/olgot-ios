@@ -10,7 +10,8 @@
 
 @implementation olgotItem
 
-@synthesize itemID,
+@synthesize itemName,
+itemID,
 itemDescription,
 itemPrice,
 itemDiscount,

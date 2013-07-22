@@ -30,14 +30,14 @@
 
 @property (nonatomic, assign) BOOL facebookShare;
 
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+//@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIProgressView *progressView;
 
 @property (strong, nonatomic) UIImage *capturedImage;
 
 @property (strong, nonatomic) NSNumber *itemID;
 @property (strong, nonatomic) NSString *itemKey;
-@property (strong, nonatomic) NSNumber *itemPrice;
+@property (strong, nonatomic) NSString *itemPrice;
 @property (strong, nonatomic) NSString *itemUrl;
 @property (strong, nonatomic) NSNumber *venueID;
 @property (strong, nonatomic) NSString *venueName;
@@ -53,6 +53,9 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *placeBigLabel;
 @property (strong, nonatomic) IBOutlet UILabel *placeItemCountLabel;
+
+//@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *waitingIndicator;
+//@property (strong, nonatomic) IBOutlet UILabel *waitingUploadLabel;
 
 - (IBAction)gotPressed:(id)sender;
 - (IBAction)wantPressed:(id)sender;

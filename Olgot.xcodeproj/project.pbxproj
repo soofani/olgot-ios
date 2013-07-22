@@ -33,6 +33,9 @@
 		E027CE6815CAC2A4007220F2 /* icon-map-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */; };
 		E08A8BCE15E467C800F3A6C9 /* bg-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = E08A8BCC15E467C800F3A6C9 /* bg-gradient.png */; };
 		E08A8BCF15E467C800F3A6C9 /* bg-gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E08A8BCD15E467C800F3A6C9 /* bg-gradient@2x.png */; };
+		EF5A9C74179D7B5E004D5FF0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5A9C73179D7B5E004D5FF0 /* MBProgressHUD.m */; };
+		EF5A9C78179D7BB4004D5FF0 /* PreviewItemImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5A9C76179D7BB4004D5FF0 /* PreviewItemImageViewController.m */; };
+		EF5A9C79179D7BB4004D5FF0 /* PreviewItemImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF5A9C77179D7BB4004D5FF0 /* PreviewItemImageViewController.xib */; };
 		FF00106815FA192200118192 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF00106715FA192200118192 /* FacebookSDK.framework */; };
 		FF02BD5815F3928E00333E32 /* addItemDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF02BD5715F3928E00333E32 /* addItemDetailsView.xib */; };
 		FF02BD5A15F39CE000333E32 /* addItemConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF02BD5915F39CE000333E32 /* addItemConfirmationView.xib */; };
@@ -426,6 +429,11 @@
 		E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-map-marker@2x.png"; sourceTree = "<group>"; };
 		E08A8BCC15E467C800F3A6C9 /* bg-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-gradient.png"; sourceTree = "<group>"; };
 		E08A8BCD15E467C800F3A6C9 /* bg-gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-gradient@2x.png"; sourceTree = "<group>"; };
+		EF5A9C72179D7B5E004D5FF0 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		EF5A9C73179D7B5E004D5FF0 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		EF5A9C75179D7BB4004D5FF0 /* PreviewItemImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewItemImageViewController.h; sourceTree = "<group>"; };
+		EF5A9C76179D7BB4004D5FF0 /* PreviewItemImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewItemImageViewController.m; sourceTree = "<group>"; };
+		EF5A9C77179D7BB4004D5FF0 /* PreviewItemImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewItemImageViewController.xib; sourceTree = "<group>"; };
 		FF00106715FA192200118192 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		FF02BD5715F3928E00333E32 /* addItemDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addItemDetailsView.xib; sourceTree = "<group>"; };
 		FF02BD5915F39CE000333E32 /* addItemConfirmationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addItemConfirmationView.xib; sourceTree = "<group>"; };
@@ -805,6 +813,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF5A9C69179D7AC0004D5FF0 /* Loading UI */ = {
+			isa = PBXGroup;
+			children = (
+				EF5A9C72179D7B5E004D5FF0 /* MBProgressHUD.h */,
+				EF5A9C73179D7B5E004D5FF0 /* MBProgressHUD.m */,
+			);
+			name = "Loading UI";
+			sourceTree = "<group>";
+		};
 		FF10F2A8155D16DA00F4EC2E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -830,6 +847,9 @@
 				FF8BB1BC15C186F9003E27E2 /* olgotNotificationsViewController.m */,
 				FF25124A15C56F2F0047C87B /* olgotHelpViewController.h */,
 				FF25124B15C56F2F0047C87B /* olgotHelpViewController.m */,
+				EF5A9C75179D7BB4004D5FF0 /* PreviewItemImageViewController.h */,
+				EF5A9C76179D7BB4004D5FF0 /* PreviewItemImageViewController.m */,
+				EF5A9C77179D7BB4004D5FF0 /* PreviewItemImageViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1245,6 +1265,7 @@
 		FFA4ED98155D12D8008CB4CA /* Olgot */ = {
 			isa = PBXGroup;
 			children = (
+				EF5A9C69179D7AC0004D5FF0 /* Loading UI */,
 				FF774FD515F7930A0044A153 /* Protocols */,
 				FFA4EDA1155D12D8008CB4CA /* olgotAppDelegate.h */,
 				FFA4EDA2155D12D8008CB4CA /* olgotAppDelegate.m */,
@@ -1725,6 +1746,7 @@
 				FFDD76D9161DD22D0078DB6D /* btn-share-facebook@2x.png in Resources */,
 				E003268E1641DF7A001D5408 /* bg-gradient-top.png in Resources */,
 				E003268F1641DF7A001D5408 /* bg-gradient-top@2x.png in Resources */,
+				EF5A9C79179D7BB4004D5FF0 /* PreviewItemImageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1798,6 +1820,8 @@
 				FF26A594160B4BC600153E0C /* UIImage+WBImage.m in Sources */,
 				FFF17EBD160F1D070024FB77 /* olgotTwitterInvitesViewController.m in Sources */,
 				FFF17EC2160F218B0024FB77 /* olgotTwitterInviteCell.m in Sources */,
+				EF5A9C74179D7B5E004D5FF0 /* MBProgressHUD.m in Sources */,
+				EF5A9C78179D7BB4004D5FF0 /* PreviewItemImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

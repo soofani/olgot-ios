@@ -64,7 +64,7 @@
 -(void)loadVenue
 {
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys:
                               _venueId, @"venue", nil];
     NSString* resourcePath = [@"/venue/" appendQueryParams:myParams];
     [objectManager loadObjectsAtResourcePath:resourcePath delegate:self];
@@ -75,8 +75,8 @@
     
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys: 
-                              _venueId, @"venue", 
+    NSDictionary* myParams = [NSDictionary dictionaryWithObjectsAndKeys:
+                              _venueId, @"venue",
                               [NSNumber numberWithInt:_currentPage], @"page",
                               [NSNumber numberWithInt:_pageSize], @"pagesize",
                               nil];
@@ -111,15 +111,14 @@
         if (self.pullToRefreshView.isExpanded) {
             _items = [[NSMutableArray alloc] initWithArray:objects];
         } else {
-            [_items addObjectsFromArray:objects];    
+            [_items addObjectsFromArray:objects];
         }
         [self.pullToRefreshView finishLoading];
         [self.collectionView reloadData];
-
+        
     }
     
 }
-
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
 //    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 //    [alert show];
@@ -226,6 +225,7 @@
         
         venueLabel = (UILabel*)[cell1 viewWithTag:3];
         [venueLabel setHidden:!hasTopUser];
+    
         
         userImage = (UIImageView*)[cell1 viewWithTag:4];
         [userImage setImageWithURL:[NSURL URLWithString:[_venue topUserProfileImgUrl]]];
@@ -256,18 +256,20 @@
         itemImage = (UIImageView *)[cell2 viewWithTag:1];
         [itemImage setImageWithURL:[NSURL URLWithString:[[_items objectAtIndex:indexPath.row] itemPhotoUrl]]];
         
-        itemLabel = (UILabel *)[cell2 viewWithTag:2]; //description
-        [itemLabel setText:[[_items objectAtIndex:indexPath.row] itemDescription]];
-        
-        itemLabel = (UILabel *)[cell2 viewWithTag:3]; //venue
-        [itemLabel setText:[[_items objectAtIndex:indexPath.row] venueName_En]];
-        
-        itemLabel = (UILabel *)[cell2 viewWithTag:4]; //price
-        [itemLabel setText:[NSString stringWithFormat:@"%g %@",
-                            [[[_items objectAtIndex:indexPath.row] itemPrice] floatValue],
-                            [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]                  
-                            ]];
-        
+//        itemLabel = (UILabel *)[cell2 viewWithTag:2]; //description
+//        [itemLabel setText:[[_items objectAtIndex:indexPath.row] itemDescription]];
+//        
+//        itemLabel = (UILabel *)[cell2 viewWithTag:3]; //venue
+//        [itemLabel setText:[[_items objectAtIndex:indexPath.row] venueName_En]];
+//        
+//        itemLabel = (UILabel *)[cell2 viewWithTag:4]; //price
+//        [itemLabel setText:[NSString stringWithFormat:@"%g %@",
+//                            [[[_items objectAtIndex:indexPath.row] itemPrice] floatValue],
+//                            [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]                  
+//                            ]];
+        itemLabel = (UILabel *)[cell2 viewWithTag:7]; //itemName
+        [itemLabel setText:[[_items objectAtIndex:indexPath.row] itemName]];
+
         
         return cell2;
     }

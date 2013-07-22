@@ -24,6 +24,7 @@
 }
 
 @property (strong, nonatomic) NSNumber *itemID;
+@property (strong, nonatomic) NSString *itemName;
 @property (strong, nonatomic) NSNumber *commentsNumber;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *commentsListHeader;
 @property (nonatomic, strong) IBOutlet SSCollectionViewItem *commentCell;

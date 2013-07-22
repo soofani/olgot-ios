@@ -19,7 +19,7 @@
 
 @synthesize personListHeader = _personListHeader ,personCell = _personCell;
 
-@synthesize itemID = _itemID, actionName = _actionName, actionStats = _actionStats;
+@synthesize itemID = _itemID, actionName = _actionName, actionStats = _actionStats, itemName = _itemName;
 
 @synthesize userID = _userID;
 
@@ -141,6 +141,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if(!self.itemName || [self.itemName isEqualToString:@""])
+        self.itemName = @"Likes";
+    
+    self.navigationItem.title = self.itemName;
     
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
     [tempImageView setFrame:self.collectionView.frame]; 

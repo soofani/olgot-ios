@@ -182,6 +182,7 @@
     RKObjectMapping* itemMapping = [RKObjectMapping mappingForClass:[olgotItem class]];
     
     [itemMapping mapKeyPathsToAttributes:
+     @"itemName",@"itemName",
      @"itemId",@"itemID",
      @"itemDescription",@"itemDescription",
      @"itemPrice",@"itemPrice",

@@ -281,17 +281,20 @@
         itemImage = (UIImageView *)[cell2 viewWithTag:1];
         [itemImage setImageWithURL:[NSURL URLWithString:[[_items objectAtIndex:indexPath.row] itemPhotoUrl]]];
         
-        itemLabel = (UILabel *)[cell2 viewWithTag:2]; //description
-        [itemLabel setText:[[_items objectAtIndex:indexPath.row] itemDescription]];
+        itemLabel = (UILabel *)[cell2 viewWithTag:5]; //itemName
+        [itemLabel setText:[[_items objectAtIndex:indexPath.row] itemName]];
         
-        itemLabel = (UILabel *)[cell2 viewWithTag:3]; //venue
-        [itemLabel setText:[[_items objectAtIndex:indexPath.row] venueName_En]];
-        
-        itemLabel = (UILabel *)[cell2 viewWithTag:4]; //price
-        [itemLabel setText:[NSString stringWithFormat:@"%g %@",
-                            [[[_items objectAtIndex:indexPath.row] itemPrice] floatValue],
-                            [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]                  
-                            ]];
+//        itemLabel = (UILabel *)[cell2 viewWithTag:2]; //description
+//        [itemLabel setText:[[_items objectAtIndex:indexPath.row] itemDescription]];
+//        
+//        itemLabel = (UILabel *)[cell2 viewWithTag:3]; //venue
+//        [itemLabel setText:[[_items objectAtIndex:indexPath.row] venueName_En]];
+//        
+//        itemLabel = (UILabel *)[cell2 viewWithTag:4]; //price
+//        [itemLabel setText:[NSString stringWithFormat:@"%g %@",
+//                            [[[_items objectAtIndex:indexPath.row] itemPrice] floatValue],
+//                            [[_items objectAtIndex:indexPath.row] countryCurrencyShortName]                  
+//                            ]];
         
         return cell2;
     }else{
