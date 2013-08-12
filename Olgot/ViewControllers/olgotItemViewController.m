@@ -101,7 +101,8 @@
     
     myCommentView = [[[NSBundle mainBundle] loadNibNamed:@"itemViewWriteCommentView" owner:self options:nil] objectAtIndex:0];
     
-    myCommentView.frame = CGRectMake(0, 378, 320, 40);
+    myCommentView.frame = CGRectMake(0, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-40, self.view.frame.size.width, 40);
+    
     
     [self.mySmallImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"userProfileImageUrl"]]];
     [self.view addSubview:myCommentView];
@@ -168,7 +169,8 @@
     [self.myCommentTF resignFirstResponder];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    myCommentView.frame = CGRectMake(0, 378, 320, 40);
+//    myCommentView.frame = CGRectMake(0, 378, 320, 40);
+     myCommentView.frame = CGRectMake(0, self.view.frame.size.height-40, self.view.frame.size.width, 40);
     [UIView commitAnimations];
 }
 
@@ -872,7 +874,8 @@ if(frame.origin.y+frame.size.height >= itemImageView.frame.origin.y+itemImageVie
     }else{
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-        myCommentView.frame = CGRectMake(0, 160, 320, 40);
+//        myCommentView.frame = CGRectMake(0, 160, 320, 40);
+         myCommentView.frame = CGRectMake(0, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-40-172, self.view.frame.size.width, 40);
         [UIView commitAnimations];
     }
     
