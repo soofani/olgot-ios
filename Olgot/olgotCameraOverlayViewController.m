@@ -57,8 +57,11 @@
 
 - (void)setupImagePicker:(UIImagePickerControllerSourceType)sourceType
 {
-    self.imagePickerController.sourceType = sourceType;
     
+    @try {
+        self.imagePickerController.sourceType = sourceType;
+  
+
     if (sourceType == UIImagePickerControllerSourceTypeCamera)
     {
 
@@ -73,6 +76,14 @@
         
         [self configureFlashButton];
     }
+    
+        }
+    @catch (NSException *exception) {
+        NSLog(@"Open Cam ERROR %@", exception.reason);
+    }
+    //    @finally {
+    //
+    //    }
 }
 
 - (UIImage *)squareImageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {

@@ -109,7 +109,8 @@
     self.collectionView.rowSpacing = 0.0f;
     
 //    self.collectionView.scrollView.bounds = CGRectMake(0, 70.0, 320.0, 410.0);
-    [self.collectionView.scrollView setFrame:CGRectMake(0.0, 44.0, 320.0, 430.0)];
+//    [self.collectionView.scrollView setFrame:CGRectMake(0.0, 44.0, 320.0, 430.0)];
+      [self.collectionView.scrollView setFrame:CGRectMake(0.0, 44.0, 320.0, self.view.frame.size.height-50.0)];
     self.collectionView.scrollView.contentInset = UIEdgeInsetsMake(10.0,0.0,0.0,0.0);
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;

@@ -21,8 +21,13 @@
 //        rawImage = [image scaleWithMaxSize:426.0 quality:kCGInterpolationDefault];
         rawImage = image;
         image = nil;
+//      scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, -20.0, 320.0, 426.0)];
+        if(self.view.frame.size.height >= 540)
+            scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, 40.0, 320.0, self.view.frame.size.height-182.0)];
+        else
+       scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, -20.0, 320.0, 426.0)];
         
-        scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, -20.0, 320.0, 426.0)];
+
         [scrollView setBackgroundColor:[UIColor blackColor]];
         [scrollView setDelegate:self];
         [scrollView setShowsHorizontalScrollIndicator:NO];
@@ -40,8 +45,13 @@
         [scrollView setContentSize:[imageView frame].size];
         if (rawImage.size.width > rawImage.size.height) {
             NSLog(@"Landscape image");
+if(self.view.frame.size.height >= 540)
+ [scrollView setMinimumZoomScale:0.67];
+    else
+{
             [scrollView setContentInset:UIEdgeInsetsMake(53.0, 0.0, 0.0, 0.0)];
             [scrollView setMinimumZoomScale:[scrollView frame].size.height / [imageView frame].size.width];
+}
         }else{
             NSLog(@"portrait image");
             [scrollView setMinimumZoomScale:[scrollView frame].size.width / [imageView frame].size.width];
@@ -54,13 +64,20 @@
         
         UIImage *trimSquare = [UIImage imageNamed:@"trim-square"];
         UIImageView *trimSquareIV = [[UIImageView alloc] initWithImage:trimSquare];
-        [trimSquareIV setFrame:CGRectMake(0.0, -20.0, 320.0, 480)];
+//      [trimSquareIV setFrame:CGRectMake(0.0, -20.0, 320.0, 480.0)];
+        [trimSquareIV setFrame:CGRectMake(0.0, -20.0, 320.0, self.view.frame.size.height)];
+        
         [self.view addSubview:trimSquareIV];
         
         [self addFilterButtons];
         
         //add toolbar
-        UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, 406.0, 320.0, 52.0)];
+        UIToolbar *toolBar;
+        if(self.view.frame.size.height >= 540)
+        toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, self.view.frame.size.height-52.0, 320.0, 52.0)];
+        else
+            toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, 406.0, 320.0, 52.0)];
+
         UIBarButtonItem *retakeBtn = [[UIBarButtonItem alloc] initWithTitle:@"Retake" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelCropping)];
         UIBarButtonItem *spacing = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
         UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(finishCropping)];
@@ -112,6 +129,9 @@
     float initialX = 20.0;
     float labelYSpacing = 4.0;
     float labelHeight = 14.0;
+    
+    if(self.view.frame.size.height >= 540)
+        yVal = 330.0+60.0;
     
     //generate buttons
     UIButton *normalBtn = [[UIButton alloc] initWithFrame:CGRectMake(initialX, yVal, btnWidth, btnHeight)];
