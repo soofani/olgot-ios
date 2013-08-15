@@ -36,6 +36,8 @@
 		EF5A9C74179D7B5E004D5FF0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5A9C73179D7B5E004D5FF0 /* MBProgressHUD.m */; };
 		EF5A9C78179D7BB4004D5FF0 /* PreviewItemImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5A9C76179D7BB4004D5FF0 /* PreviewItemImageViewController.m */; };
 		EF5A9C79179D7BB4004D5FF0 /* PreviewItemImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF5A9C77179D7BB4004D5FF0 /* PreviewItemImageViewController.xib */; };
+		EF8300CC17BC220F00FF037A /* post.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF8300CB17BC220F00FF037A /* post.jpg */; };
+		EF8300CE17BC2DC700FF037A /* Price_Tag_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF8300CD17BC2DC700FF037A /* Price_Tag_Icon.png */; };
 		EF91955117B4469600ACA5C5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EF91955017B4469600ACA5C5 /* Default.png */; };
 		EF91955B17B446B900ACA5C5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF91955A17B446B900ACA5C5 /* Default@2x.png */; };
 		EF91955D17B446CA00ACA5C5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF91955C17B446CA00ACA5C5 /* Default-568h@2x.png */; };
@@ -438,6 +440,8 @@
 		EF5A9C75179D7BB4004D5FF0 /* PreviewItemImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewItemImageViewController.h; sourceTree = "<group>"; };
 		EF5A9C76179D7BB4004D5FF0 /* PreviewItemImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewItemImageViewController.m; sourceTree = "<group>"; };
 		EF5A9C77179D7BB4004D5FF0 /* PreviewItemImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewItemImageViewController.xib; sourceTree = "<group>"; };
+		EF8300CB17BC220F00FF037A /* post.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = post.jpg; sourceTree = "<group>"; };
+		EF8300CD17BC2DC700FF037A /* Price_Tag_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Price_Tag_Icon.png; sourceTree = "<group>"; };
 		EF91955017B4469600ACA5C5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		EF91955A17B446B900ACA5C5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		EF91955C17B446CA00ACA5C5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -829,6 +833,15 @@
 			name = "Loading UI";
 			sourceTree = "<group>";
 		};
+		EF8300C217BC21FA00FF037A /* phase2 icons */ = {
+			isa = PBXGroup;
+			children = (
+				EF8300CD17BC2DC700FF037A /* Price_Tag_Icon.png */,
+				EF8300CB17BC220F00FF037A /* post.jpg */,
+			);
+			name = "phase2 icons";
+			sourceTree = "<group>";
+		};
 		FF10F2A8155D16DA00F4EC2E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -864,6 +877,7 @@
 		FF10F2A9155D16F500F4EC2E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				EF8300C217BC21FA00FF037A /* phase2 icons */,
 				FFDD76D2161DD22D0078DB6D /* btn-share-facebook-on.png */,
 				FFDD76D3161DD22D0078DB6D /* btn-share-facebook-on@2x.png */,
 				FFDD76D4161DD22D0078DB6D /* btn-share-facebook.png */,
@@ -1761,6 +1775,8 @@
 				EF91955117B4469600ACA5C5 /* Default.png in Resources */,
 				EF91955B17B446B900ACA5C5 /* Default@2x.png in Resources */,
 				EF91955D17B446CA00ACA5C5 /* Default-568h@2x.png in Resources */,
+				EF8300CC17BC220F00FF037A /* post.jpg in Resources */,
+				EF8300CE17BC2DC700FF037A /* Price_Tag_Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1929,7 +1945,6 @@
 		FFA4EDB8155D12D8008CB4CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Olgot/Olgot.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobile Channels Company";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobile Channels Company";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1961,7 +1976,6 @@
 		FFA4EDB9155D12D8008CB4CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Olgot/Olgot.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobile Channels Company";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobile Channels Company";
 				FRAMEWORK_SEARCH_PATHS = (

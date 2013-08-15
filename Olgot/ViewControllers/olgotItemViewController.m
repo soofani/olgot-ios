@@ -32,7 +32,10 @@
 @synthesize likeButton = _likeButton;
 //@synthesize gotButton = _gotButton;
 @synthesize mySmallImage = _mySmallImage;
-@synthesize myCommentTF = _myCommentTF;
+//@synthesize myCommentTF = _myCommentTF;
+@synthesize myCommentTA = _myCommentTA;
+@synthesize postButton = _postButton;
+
 @synthesize delegate;
 
 @synthesize itemCell = _itemCell, finderCell = _finderCell, peopleRowCell = _peopleRowCell,  commentsHeader, commentCell = _commentCell, commentsFooter = _commentsFooter;
@@ -73,6 +76,31 @@
     [objectManager loadObjectsAtResourcePath:[resourcePath stringByAppendingQueryParameters:myParams] delegate:self];
 }
 
+-(void)gestureTapped
+{
+//    if(self.myCommentTA.text.length > 0)
+//    {
+//        [self postPressed:nil];
+//    }else
+        [self dismissKeyboard];
+}
+-(void)dismissKeyboard {
+    //    [self.myCommentTF resignFirstResponder];
+    [self.myCommentTA setText:@"comment..."];
+    [self.myCommentTA setTextColor:[UIColor lightGrayColor]];
+    [self.postButton setEnabled:NO];
+    
+    [self.myCommentTA resignFirstResponder];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    //    myCommentView.frame = CGRectMake(0, 378, 320, 40);
+    myCommentView.frame = CGRectMake(0, self.view.frame.size.height-50, 320, 50);
+    self.myCommentTA.frame = CGRectMake(self.myCommentTA.frame.origin.x, 8.0f, self.myCommentTA.frame.size.width, 34.0f);
+
+    [UIView commitAnimations];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -83,7 +111,7 @@
     self.collectionView.backgroundView = tempImageView;
     self.collectionView.rowSpacing = 0.0f;
     
-    self.collectionView.scrollView.contentInset = UIEdgeInsetsMake(10.0,0.0,40.0,0.0);
+    self.collectionView.scrollView.contentInset = UIEdgeInsetsMake(10.0,0.0,50.0,0.0);
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
     
@@ -101,15 +129,25 @@
     
     myCommentView = [[[NSBundle mainBundle] loadNibNamed:@"itemViewWriteCommentView" owner:self options:nil] objectAtIndex:0];
     
-    myCommentView.frame = CGRectMake(0, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-40, self.view.frame.size.width, 40);
+    myCommentView.frame = CGRectMake(0, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-50, self.view.frame.size.width, 50);
+    
+
+    self.myCommentTA.clipsToBounds = YES;
+    self.myCommentTA.layer.cornerRadius = 5.0f;
+    [self.myCommentTA.layer setBorderColor:[[[UIColor darkGrayColor] colorWithAlphaComponent:0.5] CGColor]];
+    [self.myCommentTA.layer setBorderWidth:1.0];
     
     
     [self.mySmallImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"userProfileImageUrl"]]];
     [self.view addSubview:myCommentView];
     
+    [self.postButton addTarget:self action:@selector(postPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.postButton setEnabled:NO];
+    
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
+                                   action:@selector(gestureTapped)];
     
     [tap setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:tap];
@@ -118,6 +156,11 @@
     
     
     [self loadItemData];
+}
+
+-(IBAction)postPressed:(id)sender
+{
+    [self finishedComment:nil];
 }
 
 -(void)addDeleteItemButton
@@ -165,14 +208,14 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
--(void)dismissKeyboard {
-    [self.myCommentTF resignFirstResponder];
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-//    myCommentView.frame = CGRectMake(0, 378, 320, 40);
-     myCommentView.frame = CGRectMake(0, self.view.frame.size.height-40, self.view.frame.size.width, 40);
-    [UIView commitAnimations];
-}
+//-(void)dismissKeyboard {
+//    [self.myCommentTF resignFirstResponder];
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+////    myCommentView.frame = CGRectMake(0, 378, 320, 40);
+//     myCommentView.frame = CGRectMake(0, self.view.frame.size.height-50, self.view.frame.size.width, 50);
+//    [UIView commitAnimations];
+//}
 
 - (void)viewDidUnload
 {
@@ -180,7 +223,9 @@
     [self setWantButton:nil];
     //    [self setGotButton:nil];
     [self setMySmallImage:nil];
-    [self setMyCommentTF:nil];
+//    [self setMyCommentTF:nil];
+    [self setMyCommentTA:nil];
+    [self setPostButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -413,68 +458,84 @@
         //            [self.gotButton setImage:[UIImage imageNamed:@"icon-item-action-got"] forState:UIControlStateNormal];
         //        }
         
-        //        UIImageView* itemImage;
+
+        
+        UILabel* itemDateLabel;
         UILabel* itemDescription;
         UILabel* itemPriceLabel;
-        UILabel* itemDateLabel;
+        UIView *priceView;
+        UIImageView *priceTagImage;
         
         itemImageView = (UIImageView*)[cell viewWithTag:1];
         itemDescription = (UILabel*)[cell viewWithTag:2];
         itemDateLabel = (UILabel*)[cell viewWithTag:5];
+        priceView = (UIView*)[cell viewWithTag:77];
+        priceTagImage = (UIImageView*)[priceView viewWithTag:66];
         
         [itemImageView setImageWithURL:[NSURL URLWithString:[_item itemPhotoUrl]]];
         [itemDescription setText:[_item itemDescription]];
     
         
-        
-        
-        itemPriceLabel = (UILabel*)[cell viewWithTag:3]; //price
+        itemPriceLabel = (UILabel*)[priceView viewWithTag:33]; //price
         NSString *priceStr = [_item itemPrice];//[[_item itemPrice] stringByAppendingString:@"hi man how are you babykjkn are you good or not"];
         //        if ([[_item itemPrice] isEqualToNumber:[NSNumber numberWithInt:0]]) {
         if (!priceStr || [priceStr isEqualToString:@""]) {
-            [itemPriceLabel setHidden:YES];
+            [priceView setHidden:YES];
             //            priceStr = @" Make me an offer! ";
         }
         else{
             priceStr = [NSString stringWithFormat:@"  %@  ",priceStr];//,[_item countryCurrencyShortName]];
-            [itemPriceLabel setHidden:NO];
+            [priceView setHidden:NO];
             [itemPriceLabel setText:priceStr ];
         }
         
-        
-        //            [itemPriceLabel setText:[NSString stringWithFormat:@"%g %@",[[_item itemPrice] floatValue],[_item countryCurrencyShortName]]];
-        
-          //Make the price label width daynamic with the string width
-        CGRect frame = itemPriceLabel.frame;
-        CGSize textSize = [[itemPriceLabel text] sizeWithFont:[itemPriceLabel font]];
-        CGFloat newLabelWidth = textSize.width;
-        frame.size.width = newLabelWidth;
-        frame.origin.x = frame.origin.x - (newLabelWidth - itemPriceLabel.frame.size.width);
-        
-        if(frame.size.width > itemImageView.frame.size.width-20)
-        {
-            frame.size.width = itemImageView.frame.size.width-20;
-            frame.origin.x = itemImageView.frame.origin.x + 10;
-            
-             [itemPriceLabel setFrame:frame];
-                  itemPriceLabel.numberOfLines = 0;
-                  [itemPriceLabel sizeToFit];
-
-
-        }else
-             [itemPriceLabel setFrame:frame];
+        CGRect priceLabelFrame = itemPriceLabel.frame;
+        CGRect priceViewFrame = priceView.frame;
        
-      
-        frame = itemPriceLabel.frame;
-if(frame.origin.y+frame.size.height >= itemImageView.frame.origin.y+itemImageView.frame.size.height)
+        CGSize textSize = [[itemPriceLabel text] sizeWithFont:[itemPriceLabel font]];
+        CGFloat newWidth = textSize.width;
+        
+        priceViewFrame.size.width = newWidth + 6 + priceTagImage.frame.size.width;
+        priceViewFrame.origin.x = itemImageView.frame.origin.x+itemImageView.frame.size.width - 10 - priceViewFrame.size.width;
+        [priceView setFrame:priceViewFrame];
+        
+        priceLabelFrame.size.width = newWidth;
+        [itemPriceLabel setFrame:priceLabelFrame];
+        
+if(priceViewFrame.size.width > itemImageView.frame.size.width-20)
 {
-    frame.origin.y = (itemImageView.frame.origin.y+itemImageView.frame.size.height)-frame.size.height-10;
-    [itemPriceLabel setFrame:frame];
+    priceViewFrame.size.width = itemImageView.frame.size.width - 20;
+    priceViewFrame.origin.x = itemImageView.frame.origin.x + 10;
+    [priceView setFrame:priceViewFrame];
+    
+   
+    priceLabelFrame.size.width = priceViewFrame.size.width - priceTagImage.frame.size.width - 6;
+    [itemPriceLabel setFrame:priceLabelFrame];
+     [itemPriceLabel sizeToFit];
+    
+    priceLabelFrame = itemPriceLabel.frame;
+    if(priceViewFrame.size.height > priceViewFrame.size.height-10)
+    {
+        priceViewFrame.size.height = priceLabelFrame.size.height + 10;
+        priceViewFrame.origin.y = (itemImageView.frame.origin.y+itemImageView.frame.size.height)- 10 - priceViewFrame.size.height;
+        [priceView setFrame:priceViewFrame];
+        
+        //re-centering the price tag image vertically
+        priceTagImage.frame = CGRectMake(3, (priceViewFrame.size.height-priceTagImage.frame.size.height)/2, priceTagImage.frame.size.width, priceTagImage.frame.size.height);
+        
+        
+        //recalculating the priceview width;
+        priceViewFrame = priceView.frame;
+        priceViewFrame.size.width = priceLabelFrame.size.width + priceTagImage.frame.size.width + 6;
+        priceViewFrame.origin.x = itemImageView.frame.origin.x+itemImageView.frame.size.width - 10 - priceViewFrame.size.width;
+        [priceView setFrame:priceViewFrame];
+        
+    }
+    
+   
+    
 }
     
-        
-        
-        //        }
         
         [itemDateLabel setText:[_item itemDateNatural]];
         
@@ -865,21 +926,95 @@ if(frame.origin.y+frame.size.height >= itemImageView.frame.origin.y+itemImageVie
 //    }
 //}
 
-- (IBAction)touchedWriteComment:(id)sender {
+
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    self.myCommentTA.text = @"";
+    self.myCommentTA.textColor = [UIColor blackColor];
+
+    
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"userid"] == nil) {
-        [self.myCommentTF resignFirstResponder];
+        [self.myCommentTA resignFirstResponder];
         olgotAppDelegate* appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
         [appDelegate showSignup];
     }else{
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-//        myCommentView.frame = CGRectMake(0, 160, 320, 40);
-         myCommentView.frame = CGRectMake(0, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-40-172, self.view.frame.size.width, 40);
+        //        myCommentView.frame = CGRectMake(0, 160, 320, 40);
+        myCommentView.frame = CGRectMake(0, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-50-172, self.view.frame.size.width, 50);
         [UIView commitAnimations];
     }
-    
+
+    return YES;
 }
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    
+    if((textView.text.length == 0 || textView.text.length == 1) && [text isEqualToString:@""])
+    {
+        [self.postButton setEnabled:NO];
+        
+        CGRect myCommentViewFrame = myCommentView.frame;
+        CGRect textViewFrame = textView.frame;
+
+        myCommentViewFrame.size.height = 50;
+        myCommentViewFrame.origin.y = self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-myCommentViewFrame.size.height-172;
+        [myCommentView setFrame:myCommentViewFrame];
+        
+        textViewFrame.origin.y = 8.0f;
+        textViewFrame.size.height = 34;
+        textView.frame = textViewFrame;
+
+    }
+    else
+    {
+        [self.postButton setEnabled:YES];
+        
+        
+        CGRect myCommentViewFrame = myCommentView.frame;
+        CGRect textViewFrame = textView.frame;
+        NSInteger oldH = textViewFrame.size.height;
+        NSInteger newH = [textView contentSize].height;
+        
+        if(newH != oldH && newH <=142)//this equal to the height of 7 lines 
+        {
+            textViewFrame.size.height = newH;
+        textView.frame = textViewFrame;
+
+//       //reset to default size
+            
+
+            myCommentViewFrame.size.height = textView.frame.size.height + 16;
+            myCommentViewFrame.origin.y = self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-myCommentViewFrame.size.height-172;
+            [myCommentView setFrame:myCommentViewFrame];
+            
+            textViewFrame.origin.y = 8.0f;
+            textView.frame = textViewFrame;
+ 
+        }
+        
+           
+    }
+    return YES;
+}
+
+//- (IBAction)touchedWriteComment:(id)sender {
+//    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+//    if ([defaults objectForKey:@"userid"] == nil) {
+//        [self.myCommentTF resignFirstResponder];
+//        olgotAppDelegate* appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
+//        [appDelegate showSignup];
+//    }else{
+//        [UIView beginAnimations:nil context:nil];
+//        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+////        myCommentView.frame = CGRectMake(0, 160, 320, 40);
+//         myCommentView.frame = CGRectMake(0, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-50-172, self.view.frame.size.width, 50);
+//        [UIView commitAnimations];
+//    }
+//    
+//}
 
 - (IBAction)finishedComment:(id)sender {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -888,10 +1023,12 @@ if(frame.origin.y+frame.size.height >= itemImageView.frame.origin.y+itemImageVie
         [appDelegate showSignup];
         return;
     }
+    NSString *commentText = self.myCommentTA.text;
     [self performSelector:@selector(dismissKeyboard)];
-    NSLog(@"user finished commenting: %@", self.myCommentTF.text);
+    NSLog(@"user finished commenting: %@", commentText);
     
-    NSString* commentBody = self.myCommentTF.text;
+//    NSString* commentBody = self.myCommentTF.text;
+    NSString* commentBody = commentText;
     NSString *trimmedBody = [commentBody stringByTrimmingCharactersInSet:
                              [NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
@@ -912,7 +1049,9 @@ if(frame.origin.y+frame.size.height >= itemImageView.frame.origin.y+itemImageVie
         NSLog(@"empty comment, not sending");
     }
     
-    self.myCommentTF.text = nil;
+//    self.myCommentTF.text = nil;
+//    self.myCommentTA.text = nil;
+    [self.postButton setEnabled:NO];
     
 }
 

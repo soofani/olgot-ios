@@ -23,7 +23,9 @@
 @synthesize itemID = _itemID, commentsNumber = _commentsNumber, itemName = _itemName;
  
 @synthesize mySmallImage = _mySmallImage;
-@synthesize myCommentTF = _myCommentTF;
+//@synthesize myCommentTF = _myCommentTF;
+@synthesize myCommentTA = _myCommentTA;
+@synthesize postButton = _postButton;
 
 @synthesize pullToRefreshView = _pullToRefreshView;
 
@@ -65,13 +67,29 @@
     NSString* resourcePath = @"/comments/";
     [objectManager loadObjectsAtResourcePath:[resourcePath stringByAppendingQueryParameters:myParams] delegate:self];
 }
-
+-(void)gestureTapped
+{
+//    if(self.myCommentTA.text.length > 0)
+//    {
+//        [self postPressed:nil];
+//    }else
+        [self dismissKeyboard];
+}
 -(void)dismissKeyboard {
-    [self.myCommentTF resignFirstResponder];
+
+    [self.myCommentTA setText:@"comment..."];
+    [self.myCommentTA setTextColor:[UIColor lightGrayColor]];
+    [self.postButton setEnabled:NO];
+    
+    [self.myCommentTA resignFirstResponder];
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    myCommentView.frame = CGRectMake(0, 378, 320, 40);
+    //    myCommentView.frame = CGRectMake(0, 378, 320, 40);
+    myCommentView.frame = CGRectMake(0, self.view.frame.size.height-50, 320, 50);
+    self.myCommentTA.frame = CGRectMake(self.myCommentTA.frame.origin.x, 8.0f, self.myCommentTA.frame.size.width, 34.0f);
+    
     [UIView commitAnimations];
+
 }
 
 - (void)viewDidLoad
@@ -89,7 +107,8 @@
     self.collectionView.backgroundView = tempImageView;
     self.collectionView.rowSpacing = 0.0f;
     
-    self.collectionView.scrollView.contentInset = UIEdgeInsetsMake(10.0,0.0,0.0,0.0);
+    self.collectionView.scrollView.contentInset = UIEdgeInsetsMake(10.0,0.0,50.0,0.0);
+
     
     self.collectionView.extremitiesStyle = SSCollectionViewExtremitiesStyleScrolling;
     
@@ -99,20 +118,37 @@
     
     myCommentView = [[[NSBundle mainBundle] loadNibNamed:@"commentsViewWriteCommentView" owner:self options:nil] objectAtIndex:0];
     
-    myCommentView.frame = CGRectMake(0, 378, 320, 40);
+//    myCommentView.frame = CGRectMake(0, 378, 320, 40);
+    myCommentView.frame = CGRectMake(0, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-50, 320, 50);
+    
+    self.myCommentTA.clipsToBounds = YES;
+    self.myCommentTA.layer.cornerRadius = 5.0f;
+    [self.myCommentTA.layer setBorderColor:[[[UIColor darkGrayColor] colorWithAlphaComponent:0.5] CGColor]];
+    [self.myCommentTA.layer setBorderWidth:1.0];
+    
     
     [self.mySmallImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"userProfileImageUrl"]]];
     [self.view addSubview:myCommentView];
     
+    [self.postButton addTarget:self action:@selector(postPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.postButton setEnabled:NO];
+    
+//    self.myCommentTF.delegate = self;
+    self.myCommentTA.delegate = self;
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] 
                                    initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
+                                   action:@selector(gestureTapped)];
     
     [tap setCancelsTouchesInView:NO];
     [self.view addGestureRecognizer:tap];
     
     addedComment = NO;
     
+}
+-(IBAction)postPressed:(id)sender
+{
+    [self finishedComment:nil];
 }
 
 - (void)viewDidUnload
@@ -121,7 +157,9 @@
     // Release any retained subviews of the main view.
     self.pullToRefreshView = nil;
     [self setMySmallImage:nil];
-    [self setMyCommentTF:nil];
+//    [self setMyCommentTF:nil];
+    [self setMyCommentTA:nil];
+    [self setPostButton:nil];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -323,19 +361,93 @@
     
 }
 
-- (IBAction)touchedWriteComment:(id)sender {
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    self.myCommentTA.text = @"";
+    self.myCommentTA.textColor = [UIColor blackColor];
+
+    
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     //    [UIView setAnimationDelay:0.1];
-    myCommentView.frame = CGRectMake(0, 160, 320, 40);
+    //    myCommentView.frame = CGRectMake(0, 160, 320, 40);
+    myCommentView.frame = CGRectMake(0, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-50-172, 320, 50);
+    
     [UIView commitAnimations];
+    return YES;
+    
 }
 
-- (IBAction)finishedComment:(id)sender {
-    [self performSelector:@selector(dismissKeyboard)];
-    NSLog(@"user finished commenting: %@", self.myCommentTF.text);
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if((textView.text.length == 0 || textView.text.length == 1) && [text isEqualToString:@""])
+    {
+        [self.postButton setEnabled:NO];
+        
+        CGRect myCommentViewFrame = myCommentView.frame;
+        CGRect textViewFrame = textView.frame;
+        
+        myCommentViewFrame.size.height = 50;
+        myCommentViewFrame.origin.y = self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-myCommentViewFrame.size.height-172;
+        [myCommentView setFrame:myCommentViewFrame];
+        
+        textViewFrame.origin.y = 8.0f;
+        textViewFrame.size.height = 34;
+        textView.frame = textViewFrame;
+        
+    }
+    else
+    {
+        [self.postButton setEnabled:YES];
+        
+        
+        CGRect myCommentViewFrame = myCommentView.frame;
+        CGRect textViewFrame = textView.frame;
+        NSInteger oldH = textViewFrame.size.height;
+        NSInteger newH = [textView contentSize].height;
+        
+        if(newH != oldH && newH <=142)//this equal to the height of 7 lines
+        {
+            textViewFrame.size.height = newH;
+            textView.frame = textViewFrame;
+            
+            //       //reset to default size
+            
+            
+            myCommentViewFrame.size.height = textView.frame.size.height + 16;
+            myCommentViewFrame.origin.y = self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-myCommentViewFrame.size.height-172;
+            [myCommentView setFrame:myCommentViewFrame];
+            
+            textViewFrame.origin.y = 8.0f;
+            textView.frame = textViewFrame;
+            
+        }
+        
+        
+    }
     
-    NSString* commentBody = self.myCommentTF.text;
+    return YES;
+}
+
+
+//- (IBAction)touchedWriteComment:(id)sender {
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+//    //    [UIView setAnimationDelay:0.1];
+////    myCommentView.frame = CGRectMake(0, 160, 320, 40);
+//    myCommentView.frame = CGRectMake(0, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-50-172, 320, 50);
+//    
+//    [UIView commitAnimations];
+//}
+
+- (IBAction)finishedComment:(id)sender {
+    NSString *commentText = self.myCommentTA.text;
+    [self performSelector:@selector(dismissKeyboard)];
+    NSLog(@"user finished commenting: %@", commentText);
+    
+//    NSString* commentBody = self.myCommentTF.text;
+    NSString* commentBody = commentText;
+    
     NSString *trimmedBody = [commentBody stringByTrimmingCharactersInSet:
                              [NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
@@ -356,7 +468,9 @@
         NSLog(@"empty comment, not sending");
     }
     
-    self.myCommentTF.text = nil;
+//    self.myCommentTF.text = nil;
+//    self.myCommentTA.text = nil;
+    [self.postButton setEnabled:NO];
     
 }
 

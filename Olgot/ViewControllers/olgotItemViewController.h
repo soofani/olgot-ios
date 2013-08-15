@@ -53,7 +53,10 @@
 //@property (strong, nonatomic) IBOutlet UIButton *gotButton;
 
 @property (strong, nonatomic) IBOutlet UIImageView *mySmallImage;
-@property (strong, nonatomic) IBOutlet UITextField *myCommentTF;
+//@property (strong, nonatomic) IBOutlet UITextField *myCommentTF;
+@property (strong, nonatomic) IBOutlet UITextView *myCommentTA;
+@property (strong, nonatomic) IBOutlet UIButton *postButton;
+
 
 -(IBAction)previewItemImagePressed:(id)sender;
 - (IBAction)showVenue:(id)sender;

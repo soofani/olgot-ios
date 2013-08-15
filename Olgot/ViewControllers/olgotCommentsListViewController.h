@@ -11,7 +11,7 @@
 #import <RestKit/RestKit.h>
 #import "SSPullToRefresh.h"
 
-@interface olgotCommentsListViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate>{
+@interface olgotCommentsListViewController : SSCollectionViewController<RKObjectLoaderDelegate, SSPullToRefreshViewDelegate, UITextViewDelegate>{
     NSMutableArray* _comments;
     NSIndexPath* _selectedRowIndexPath;
     
@@ -31,7 +31,9 @@
 @property (nonatomic, strong) SSPullToRefreshView *pullToRefreshView;
 
 @property (strong, nonatomic) IBOutlet UIImageView *mySmallImage;
-@property (strong, nonatomic) IBOutlet UITextField *myCommentTF;
+//@property (strong, nonatomic) IBOutlet UITextField *myCommentTF;
+@property (strong, nonatomic) IBOutlet UITextView *myCommentTA;
+@property (strong, nonatomic) IBOutlet UIButton *postButton;
 
 - (IBAction)touchedWriteComment:(id)sender;
 - (IBAction)finishedComment:(id)sender;
