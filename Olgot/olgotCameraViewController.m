@@ -40,10 +40,14 @@
             // setup our custom overlay view for the camera
             //
             // ensure that our custom view's frame fits within the parent frame
+//            CGRect newFrame = CGRectMake(0.0f,
+//                                         0.0f,
+//                                         320.0f,
+//                                         480.0f);
             CGRect newFrame = CGRectMake(0.0f,
                                          0.0f,
-                                         320.0f,
-                                         480.0f);
+                                         self.view.frame.size.width,
+                                         self.view.frame.size.height);
             self.view.frame = newFrame;
             
             [self.cameraOverlayView addSubview:mOverlay.view];

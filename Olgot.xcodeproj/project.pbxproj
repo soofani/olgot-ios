@@ -434,12 +434,12 @@
 		E027CE6615CAC2A4007220F2 /* icon-map-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-map-marker@2x.png"; sourceTree = "<group>"; };
 		E08A8BCC15E467C800F3A6C9 /* bg-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-gradient.png"; sourceTree = "<group>"; };
 		E08A8BCD15E467C800F3A6C9 /* bg-gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-gradient@2x.png"; sourceTree = "<group>"; };
-		EF26524417B96686006626F4 /* Olgot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Olgot.entitlements; sourceTree = "<group>"; };
 		EF5A9C72179D7B5E004D5FF0 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		EF5A9C73179D7B5E004D5FF0 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		EF5A9C75179D7BB4004D5FF0 /* PreviewItemImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewItemImageViewController.h; sourceTree = "<group>"; };
 		EF5A9C76179D7BB4004D5FF0 /* PreviewItemImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewItemImageViewController.m; sourceTree = "<group>"; };
 		EF5A9C77179D7BB4004D5FF0 /* PreviewItemImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewItemImageViewController.xib; sourceTree = "<group>"; };
+		EF5AF3FD17C0332D00676F3F /* Olgot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Olgot.entitlements; sourceTree = "<group>"; };
 		EF8300CB17BC220F00FF037A /* post.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = post.jpg; sourceTree = "<group>"; };
 		EF8300CD17BC2DC700FF037A /* Price_Tag_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Price_Tag_Icon.png; sourceTree = "<group>"; };
 		EF91955017B4469600ACA5C5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -1289,7 +1289,7 @@
 		FFA4ED98155D12D8008CB4CA /* Olgot */ = {
 			isa = PBXGroup;
 			children = (
-				EF26524417B96686006626F4 /* Olgot.entitlements */,
+				EF5AF3FD17C0332D00676F3F /* Olgot.entitlements */,
 				EF5A9C69179D7AC0004D5FF0 /* Loading UI */,
 				FF774FD515F7930A0044A153 /* Protocols */,
 				FFA4EDA1155D12D8008CB4CA /* olgotAppDelegate.h */,
@@ -1945,8 +1945,8 @@
 		FFA4EDB8155D12D8008CB4CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobile Channels Company";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobile Channels Company";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bilal Jaradat (JVFP866EDA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bilal Jaradat (JVFP866EDA)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1966,8 +1966,8 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4FD9EECC-0BEA-47F2-9A79-747EF549383D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4FD9EECC-0BEA-47F2-9A79-747EF549383D";
+				PROVISIONING_PROFILE = "790568F6-1C4F-4F13-924F-CC73C46D1B11";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "790568F6-1C4F-4F13-924F-CC73C46D1B11";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1976,8 +1976,8 @@
 		FFA4EDB9155D12D8008CB4CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobile Channels Company";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobile Channels Company";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bilal Jaradat (JVFP866EDA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bilal Jaradat (JVFP866EDA)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1997,8 +1997,8 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4FD9EECC-0BEA-47F2-9A79-747EF549383D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4FD9EECC-0BEA-47F2-9A79-747EF549383D";
+				PROVISIONING_PROFILE = "790568F6-1C4F-4F13-924F-CC73C46D1B11";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "790568F6-1C4F-4F13-924F-CC73C46D1B11";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};

@@ -39,7 +39,7 @@
 					<object class="IBUIImageView" id="655708116">
 						<reference key="NSNextResponder" ref="677870532"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{0, 426}, {320, 54}}</string>
+						<string key="NSFrame">{{0, 514}, {320, 54}}</string>
 						<reference key="NSSuperview" ref="677870532"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="113088651"/>
@@ -116,7 +116,7 @@
 					<object class="IBUIButton" id="113088651">
 						<reference key="NSNextResponder" ref="677870532"/>
 						<int key="NSvFlags">264</int>
-						<string key="NSFrame">{{114, 435}, {93, 36}}</string>
+						<string key="NSFrame">{{114, 523}, {93, 36}}</string>
 						<reference key="NSSuperview" ref="677870532"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="628066489"/>
@@ -141,7 +141,7 @@
 					<object class="IBUIButton" id="628066489">
 						<reference key="NSNextResponder" ref="677870532"/>
 						<int key="NSvFlags">265</int>
-						<string key="NSFrame">{{281, 436}, {34, 34}}</string>
+						<string key="NSFrame">{{281, 524}, {34, 34}}</string>
 						<reference key="NSSuperview" ref="677870532"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -163,13 +163,17 @@
 						<reference key="IBUIFont" ref="464672042"/>
 					</object>
 				</array>
-				<string key="NSFrameSize">{320, 480}</string>
+				<string key="NSFrameSize">{320, 568}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MCAwAA</bytes>
+				</object>
+				<object class="IBUISimulatedSizeMetrics" key="IBUISimulatedDestinationMetrics">
+					<string key="IBUISimulatedSizeMetricsClass">IBUISimulatedFreeformSizeMetricsSentinel</string>
+					<string key="IBUIDisplayName">Freeform</string>
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>

@@ -78,11 +78,12 @@
 
 -(void)gestureTapped
 {
-//    if(self.myCommentTA.text.length > 0)
-//    {
-//        [self postPressed:nil];
-//    }else
-        [self dismissKeyboard];
+    if(self.myCommentTA.text.length > 0)
+    {
+        [self postPressed:nil];
+    }
+//    else
+//        [self dismissKeyboard];
 }
 -(void)dismissKeyboard {
     //    [self.myCommentTF resignFirstResponder];
