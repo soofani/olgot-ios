@@ -39,7 +39,7 @@
 					<object class="IBUIImageView" id="655708116">
 						<reference key="NSNextResponder" ref="677870532"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{0, 514}, {320, 54}}</string>
+						<string key="NSFrame">{{0, 426}, {320, 54}}</string>
 						<reference key="NSSuperview" ref="677870532"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="113088651"/>
@@ -95,6 +95,7 @@
 						<string key="NSFrame">{{281, 5}, {34, 34}}</string>
 						<reference key="NSSuperview" ref="677870532"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="655708116"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -115,8 +116,8 @@
 					</object>
 					<object class="IBUIButton" id="113088651">
 						<reference key="NSNextResponder" ref="677870532"/>
-						<int key="NSvFlags">264</int>
-						<string key="NSFrame">{{114, 523}, {93, 36}}</string>
+						<int key="NSvFlags">296</int>
+						<string key="NSFrame">{{114, 435}, {93, 36}}</string>
 						<reference key="NSSuperview" ref="677870532"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="628066489"/>
@@ -140,8 +141,8 @@
 					</object>
 					<object class="IBUIButton" id="628066489">
 						<reference key="NSNextResponder" ref="677870532"/>
-						<int key="NSvFlags">265</int>
-						<string key="NSFrame">{{281, 524}, {34, 34}}</string>
+						<int key="NSvFlags">298</int>
+						<string key="NSFrame">{{281, 436}, {34, 34}}</string>
 						<reference key="NSSuperview" ref="677870532"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -163,9 +164,10 @@
 						<reference key="IBUIFont" ref="464672042"/>
 					</object>
 				</array>
-				<string key="NSFrameSize">{320, 568}</string>
+				<string key="NSFrameSize">{320, 480}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView" ref="884690214"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -219,6 +221,14 @@
 						<reference key="destination" ref="884690214"/>
 					</object>
 					<int key="connectionID">86</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">bottomImageView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="655708116"/>
+					</object>
+					<int key="connectionID">110</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -311,6 +321,7 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">93</int>
 						<reference key="object" ref="655708116"/>
+						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="677870532"/>
 					</object>
 				</array>
@@ -331,7 +342,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">96</int>
+			<int key="maxID">110</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -363,12 +374,17 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="bottomImageView">UIImageView</string>
 						<string key="closeBtn">UIButton</string>
 						<string key="flashBtn">UIButton</string>
 						<string key="libraryBtn">UIButton</string>
 						<string key="shootBtn">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="bottomImageView">
+							<string key="name">bottomImageView</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="closeBtn">
 							<string key="name">closeBtn</string>
 							<string key="candidateClassName">UIButton</string>

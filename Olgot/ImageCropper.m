@@ -74,10 +74,12 @@ if(self.view.frame.size.height >= 540)
         //add toolbar
         UIToolbar *toolBar;
         if(self.view.frame.size.height >= 540)
-        toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, self.view.frame.size.height-52.0, 320.0, 52.0)];
-        else
+        {
+        toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, 496.0, 320.0, 52.0)];
+        }
+            else
             toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, 406.0, 320.0, 52.0)];
-
+        CGRect toolBarFrame = toolBar.frame;
         UIBarButtonItem *retakeBtn = [[UIBarButtonItem alloc] initWithTitle:@"Retake" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelCropping)];
         UIBarButtonItem *spacing = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
         UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleBordered target:self action:@selector(finishCropping)];

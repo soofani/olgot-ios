@@ -84,7 +84,7 @@
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
     NSLog(@"resource path: %@",[request resourcePath]);
     NSLog(@"Loaded payload: %@", [response bodyAsString]);
-    if ([request isPOST]) {  
+    if ([request isPOST]) {
         
         if ([response isJSON]) {
             
@@ -94,8 +94,8 @@
                     NSError *jsonError = nil;
                     
                     id _itemJsonResponse = [NSJSONSerialization JSONObjectWithData:[response body]
-                                                                   options:0
-                                                                     error:&jsonError];
+                                                                           options:0
+                                                                             error:&jsonError];
                     
                     _itemID = [_itemJsonResponse objectForKey:@"id"];
                     _itemKey = [_itemJsonResponse objectForKey:@"key"];
@@ -104,8 +104,8 @@
                     
                     [loadingUi hide:YES];
                     
-//                    [self performSelector:@selector(postPhoto)];
-//                    [self performSegueWithIdentifier:@"ShowAddItemConfirmation" sender:self];
+                    //                    [self performSelector:@selector(postPhoto)];
+                    //                    [self performSegueWithIdentifier:@"ShowAddItemConfirmation" sender:self];
                     [self showAddItemConfirmation];
                 }else if ([[request userData] isEqual:@"uploadPhoto"]) {
                     NSLog(@"posted photo");
@@ -114,22 +114,22 @@
             }else {
                 
             }
-        }  
+        }
         
     }
     
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-
+    
 }
 
 - (void)requestDidStartLoad:(RKRequest *)request {
-//    NSLog(@"request started with user data %@",[request userData]);
-//    if ([[request userData] isEqual:@"uploadPhoto"]) {
-//        _progressView.hidden = NO;
-//        NSLog(@"started uploading photo");
-//    }
+    //    NSLog(@"request started with user data %@",[request userData]);
+    //    if ([[request userData] isEqual:@"uploadPhoto"]) {
+    //        _progressView.hidden = NO;
+    //        NSLog(@"started uploading photo");
+    //    }
 }
 
 //- (void)request:(RKRequest *)request didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
@@ -143,8 +143,8 @@
 //}
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
-//    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//    [alert show];
+    //    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //    [alert show];
     NSLog(@"Hit error: %@", error);
 }
 
@@ -243,7 +243,7 @@
     [self.scrollView setContentOffset:CGPointMake(0.0, 0.0) animated:YES];
     [self.itemPriceTF resignFirstResponder];
     [self.descriptionTF resignFirstResponder];
-     [self.itemNameTF resignFirstResponder];
+    [self.itemNameTF resignFirstResponder];
 }
 
 -(void)tweetItem{
@@ -325,11 +325,11 @@
 
 -(IBAction)editImagePressed:(id)sender
 {
-               UIActionSheet *addImageAS = [[UIActionSheet alloc] initWithTitle:@"Take a photo for this item" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Photo", @"Choose From Library", nil];
-            
-            addImageAS.actionSheetStyle = UIActionSheetStyleDefault;
-            [addImageAS showInView:self.view];
-
+    UIActionSheet *addImageAS = [[UIActionSheet alloc] initWithTitle:@"Take a photo for this item" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Photo", @"Choose From Library", nil];
+    
+    addImageAS.actionSheetStyle = UIActionSheetStyleDefault;
+    [addImageAS showInView:self.view];
+    
 }
 
 -(void)showCamAnimated:(BOOL)animated source:(UIImagePickerControllerSourceType)sourceType
@@ -347,12 +347,12 @@
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 0) {
-       
-   [self showCamAnimated:YES source:UIImagePickerControllerSourceTypeCamera];
+        
+        [self showCamAnimated:YES source:UIImagePickerControllerSourceTypeCamera];
 	} else if (buttonIndex == 1) {
         [self wantsLibrary];
 	}
-	 else if (buttonIndex == 3) {
+    else if (buttonIndex == 3) {
         //cancel
     }
     
@@ -392,15 +392,15 @@
 
 - (void)imageCropper:(ImageCropper *)cropper didFinishCroppingWithImage:(UIImage *)editedImage
 {
-//    olgotAddItemNearbyPlacesViewController* nearbyController = [[olgotAddItemNearbyPlacesViewController alloc] init];
+    //    olgotAddItemNearbyPlacesViewController* nearbyController = [[olgotAddItemNearbyPlacesViewController alloc] init];
     
-//    nearbyController.capturedImage = editedImage;
-//    nearbyController.delegate = self;
+    //    nearbyController.capturedImage = editedImage;
+    //    nearbyController.delegate = self;
     
-//    UINavigationController *camNavController = [[UINavigationController alloc] initWithRootViewController:nearbyController];
+    //    UINavigationController *camNavController = [[UINavigationController alloc] initWithRootViewController:nearbyController];
     [self.itemImageView setImage:editedImage];
     [self dismissModalViewControllerAnimated:NO];
-//    [self presentModalViewController:camNavController animated:NO];
+    //    [self presentModalViewController:camNavController animated:NO];
 }
 
 - (void)imageCropperDidCancel:(ImageCropper *)cropper {
@@ -425,7 +425,7 @@
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-
+    
     if([text isEqualToString:@"\n"]) {
         UITextView* priceTF = textView;
         if ([priceTF.text length] == 0 || [priceTF.text isEqualToString:@" "]) {
@@ -440,7 +440,7 @@
 
 //- (IBAction)addedPrice:(id)sender {
 //    UITextField* priceTF = sender;
-//    
+//
 //    if ([priceTF.text length] == 0) {
 //        [priceTF setText:@"0.00"];
 //    }
@@ -461,8 +461,8 @@
         return;
     
     [self.postButton setEnabled:NO];
-//    [self.itemPriceTF setEnabled:NO];
-//    [self.itemPriceTF setEditable:NO];
+    //    [self.itemPriceTF setEnabled:NO];
+    //    [self.itemPriceTF setEditable:NO];
     [self.descriptionTF setEnabled:NO];
     [self.itemNameTF setEnabled:NO];
     [self performSelector:@selector(dismissKeyboard)];
@@ -472,7 +472,8 @@
 ////to make a placeholder with gray color
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
-    self.itemPriceTF.text = @"";
+    if([self.itemPriceTF.text isEqualToString:@"What do you want for it? (example: $5, a Coffeee, nothing)"])
+        self.itemPriceTF.text = @"";
     self.itemPriceTF.textColor = [UIColor blackColor];
     return YES;
 }
@@ -503,13 +504,13 @@
 {
     if(textView == self.itemPriceTF)
     {
-       if( [self.itemPriceTF.text isEqualToString:@"What do you want for it? (example: $5, a Coffeee, nothing)"])
+        if( [self.itemPriceTF.text isEqualToString:@"What do you want for it? (example: $5, a Coffeee, nothing)"])
             self.itemPriceTF.textColor = [UIColor lightGrayColor];
     }
 }
 //- (IBAction)editPrice:(id)sender {
 //    UITextField* priceTF = sender;
-//    
+//
 //    if ([priceTF.text isEqualToString:@"0.00"]) {
 //        [priceTF setText:@""];
 //    }
@@ -537,15 +538,15 @@
 
 -(void)postItem
 {
-
-loadingUi = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    loadingUi.mode = MBProgressHUDModeAnnularDeterminate;
-//    loadingUi.delegate = self;
+    
+    loadingUi = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //    loadingUi.mode = MBProgressHUDModeAnnularDeterminate;
+    //    loadingUi.delegate = self;
     loadingUi.labelText = @"posting your item.....";
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     if([self.itemPriceTF.text isEqualToString:@"What do you want for it? (example: $5, a Coffeee, nothing)"]);
-//    self.itemPriceTF.text = @"";
+    //    self.itemPriceTF.text = @"";
     
     NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
                             [defaults objectForKey:@"userid"], @"id",
@@ -558,7 +559,7 @@ loadingUi = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[RKClient sharedClient] setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
     [[[RKClient sharedClient] post:@"/item/" params:params delegate:self] setUserData:@"postItem"];
-
+    
 }
 
 -(void)showAddItemConfirmation
@@ -606,7 +607,7 @@ loadingUi = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     confirmationController.delegate = [self.navigationController.viewControllers objectAtIndex:0];
     
     [self.navigationController pushViewController:confirmationController animated:YES];
-
+    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -622,7 +623,7 @@ loadingUi = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         confirmationController.venueName = [_venue name_En];
         confirmationController.venueItemCount = [_venue items];
         
-//        fire photo uploading
+        //        fire photo uploading
         NSLog(@"Got image: %@", [_itemImageView image]);
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -669,7 +670,7 @@ loadingUi = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             [appDelegate twitterConnect];
         }
     }
-
+    
     [self configureSharingBtns];
 }
 

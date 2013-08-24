@@ -138,6 +138,12 @@
     [self.myCommentTA.layer setBorderColor:[[[UIColor darkGrayColor] colorWithAlphaComponent:0.5] CGColor]];
     [self.myCommentTA.layer setBorderWidth:1.0];
     
+    self.postButton.clipsToBounds = YES;
+    self.postButton.layer.cornerRadius = 10.0f;
+//    [self.postButton.layer setBorderColor:[[[UIColor whiteColor] colorWithAlphaComponent:0.5] CGColor]];
+//    [self.postButton.layer setBorderWidth:1.0];
+
+    
     
     [self.mySmallImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"userProfileImageUrl"]]];
     [self.view addSubview:myCommentView];

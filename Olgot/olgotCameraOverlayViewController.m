@@ -16,6 +16,7 @@
 @synthesize flashBtn;
 @synthesize imagePickerController;                                                       
 @synthesize delegate;
+@synthesize bottomImageView;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -71,6 +72,24 @@
         
         if ([[self.imagePickerController.cameraOverlayView subviews] count] == 0)
         {
+            
+            CGRect frame = self.view.frame;
+            CGRect frame2 = self.imagePickerController.cameraOverlayView.frame;
+            frame.size.height = frame2.size.height;
+            frame.origin.y = 0;
+            [self.view setFrame:frame];
+            
+            if(self.view.frame.size.height >= 500)
+            {
+                [self.bottomImageView setFrame:CGRectMake(0, self.bottomImageView.frame.origin.y-42, self.bottomImageView.frame.size.width, self.bottomImageView.frame.size.height + 42.0)];
+                [self.shootBtn setCenter:self.bottomImageView.center];
+                [self.libraryBtn setFrame:CGRectMake(self.libraryBtn.frame.origin.x, self.bottomImageView.center.y-self.libraryBtn.frame.size.height/2, self.libraryBtn.frame.size.width, self.libraryBtn.frame.size.height)];
+                
+            }
+//            frame2.size.height = 600;
+//            [self.imagePickerController.cameraOverlayView setFrame:frame2];
+//            self.imagePickerController.navigationBarHidden = YES;
+//            self.imagePickerController.wantsFullScreenLayout = YES;
             [self.imagePickerController.cameraOverlayView addSubview:self.view];
         }
         

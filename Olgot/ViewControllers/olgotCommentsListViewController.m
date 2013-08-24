@@ -69,11 +69,12 @@
 }
 -(void)gestureTapped
 {
-//    if(self.myCommentTA.text.length > 0)
-//    {
-//        [self postPressed:nil];
-//    }else
-        [self dismissKeyboard];
+    if(self.myCommentTA.text.length > 0)
+    {
+        [self postPressed:nil];
+    }
+//    else
+//        [self dismissKeyboard];
 }
 -(void)dismissKeyboard {
 
@@ -126,6 +127,8 @@
     [self.myCommentTA.layer setBorderColor:[[[UIColor darkGrayColor] colorWithAlphaComponent:0.5] CGColor]];
     [self.myCommentTA.layer setBorderWidth:1.0];
     
+    self.postButton.clipsToBounds = YES;
+    self.postButton.layer.cornerRadius = 10.0f;
     
     [self.mySmallImage setImageWithURL:[NSURL URLWithString:[defaults objectForKey:@"userProfileImageUrl"]]];
     [self.view addSubview:myCommentView];

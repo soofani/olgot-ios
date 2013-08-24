@@ -24,6 +24,7 @@
 
 - (void)setupImagePicker:(UIImagePickerControllerSourceType)sourceType;
 
+@property (strong, nonatomic) IBOutlet UIImageView *bottomImageView;
 @property (strong, nonatomic) IBOutlet UIButton *shootBtn;
 @property (strong, nonatomic) IBOutlet UIButton *libraryBtn;
 @property (strong, nonatomic) IBOutlet UIButton *closeBtn;
