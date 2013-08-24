@@ -78,7 +78,8 @@
 
 -(void)gestureTapped
 {
-    if(self.myCommentTA.text.length > 0)
+//    NSLog(@"self.myCommentTA.text.length = %f", self.myCommentTA.text.length);
+    if(self.myCommentTA.text && ![self.myCommentTA.text isEqualToString:@"comment..."] && self.myCommentTA.text.length > 0.0)
     {
         [self postPressed:nil];
     }
@@ -433,8 +434,8 @@
     static NSString *myPeopleTileIdentifier = @"itemViewPeopleRowID";
     static NSString *myCommentTileIdentifier = @"itemViewCommentRowID";
     static NSString *myCommentsFooterIdentifier = @"commentsFooter";
-    NSInteger ii = indexPath.section;
-    NSLog(@"dasdas %d",ii);
+//    NSInteger ii = indexPath.section;
+//    NSLog(@"dasdas %d",ii);
     if (indexPath.section == 1) {
         SSCollectionViewItem *cell = [aCollectionView dequeueReusableItemWithIdentifier:myItemTileIdentifier];
         
@@ -467,7 +468,7 @@
         
 
         
-        UILabel* itemDateLabel;
+//        UILabel* itemDateLabel;
         UILabel* itemDescription;
         UILabel* itemPriceLabel;
         UIView *priceView;
@@ -475,7 +476,7 @@
         
         itemImageView = (UIImageView*)[cell viewWithTag:1];
         itemDescription = (UILabel*)[cell viewWithTag:2];
-        itemDateLabel = (UILabel*)[cell viewWithTag:5];
+//        itemDateLabel = (UILabel*)[cell viewWithTag:5];
         priceView = (UIView*)[cell viewWithTag:77];
         priceTagImage = (UIImageView*)[priceView viewWithTag:66];
         
@@ -544,7 +545,7 @@ if(priceViewFrame.size.width > itemImageView.frame.size.width-20)
 }
     
         
-        [itemDateLabel setText:[_item itemDateNatural]];
+//        [itemDateLabel setText:[_item itemDateNatural]];
         
         return cell;
     }
@@ -558,7 +559,7 @@ if(priceViewFrame.size.width > itemImageView.frame.size.width-20)
         }
         
         UIImageView* finderImage;
-        //UILabel* finderLabel;
+        UILabel *finderPublishDateLabel;
         UIButton* finderButton;
         
         finderImage = (UIImageView*)[cell viewWithTag:1];
@@ -572,6 +573,9 @@ if(priceViewFrame.size.width > itemImageView.frame.size.width-20)
         
         finderImage.layer.cornerRadius = 4;
         finderImage.clipsToBounds = YES;
+        
+        finderPublishDateLabel = (UILabel*)[cell viewWithTag:5];
+        [finderPublishDateLabel setText:[_item itemDateNatural]];
         
         //        finderLabel = (UILabel*)[cell viewWithTag:4]; //price
         //        [finderLabel setText:[NSString stringWithFormat:@"%@ %g",[_item countryCurrencyShortName],[[_item itemPrice] floatValue]]];

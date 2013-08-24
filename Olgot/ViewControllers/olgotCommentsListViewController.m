@@ -69,7 +69,7 @@
 }
 -(void)gestureTapped
 {
-    if(self.myCommentTA.text.length > 0)
+    if(self.myCommentTA.text && ![self.myCommentTA.text isEqualToString:@"comment..."] && self.myCommentTA.text.length > 0.0)
     {
         [self postPressed:nil];
     }

@@ -28,7 +28,7 @@
     int _pageSize;
     int _currentPage;
     BOOL loadingNew;
-    BOOL hasTopUser;
+//    BOOL hasTopUser;
 }
 
 @property (nonatomic,retain) olgotCameraOverlayViewController *cameraOverlayViewController;
@@ -41,10 +41,11 @@
 @property (strong, nonatomic) IBOutlet UIButton *venueMapButton;
 @property (strong, nonatomic) IBOutlet UILabel *venueAddressLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *venueIconImageView;
-@property (strong, nonatomic) IBOutlet UIImageView *topUserImage;
-@property (strong, nonatomic) IBOutlet UIButton *topUserName;
-@property (strong, nonatomic) IBOutlet UILabel *topUserItems;
-@property (strong, nonatomic) IBOutlet UILabel *topUserLabel;
+//@property (strong, nonatomic) IBOutlet UIImageView *venueUserProfileImageView;
+//@property (strong, nonatomic) IBOutlet UIImageView *topUserImage;
+//@property (strong, nonatomic) IBOutlet UIButton *topUserName;
+//@property (strong, nonatomic) IBOutlet UILabel *topUserItems;
+//@property (strong, nonatomic) IBOutlet UILabel *topUserLabel;
 
 
 - (IBAction)showVenueMap:(id)sender;

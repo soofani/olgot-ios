@@ -201,7 +201,7 @@
             <objects>
                 <viewController id="XiP-jZ-yvg" customClass="olgotPeopleListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7f1-hg-2ux">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -219,7 +219,7 @@
             <objects>
                 <viewController id="gYY-SF-9fN" customClass="olgotVenueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dV0-qV-LCI">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -680,7 +680,7 @@
             <objects>
                 <viewController id="qgL-I9-Ymt" customClass="olgotCommentsListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uUV-e7-4t0">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -701,7 +701,7 @@
             <objects>
                 <viewController id="HAn-Se-f9H" customClass="olgotProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fbN-fm-WR5">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1780,10 +1780,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kFC-1d-6jx"/>
         <segue reference="Lo1-V5-Une"/>
-        <segue reference="O6E-bc-QPS"/>
         <segue reference="nXf-sN-KN0"/>
+        <segue reference="O6E-bc-QPS"/>
+        <segue reference="ZAZ-Wu-M0M"/>
         <segue reference="tAB-hG-qL1"/>
     </inferredMetricsTieBreakers>
 </document>

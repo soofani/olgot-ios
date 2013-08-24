@@ -32,10 +32,11 @@
 @synthesize venueMapButton = _venueMapButton;
 @synthesize venueAddressLabel = _venueAddressLabel;
 @synthesize venueIconImageView = _venueIconImageView;
-@synthesize topUserImage = _topUserImage;
-@synthesize topUserName = _topUserName;
-@synthesize topUserItems = _topUserItems;
-@synthesize topUserLabel = _topUserLabel;
+//@synthesize venueUserProfileImageView = _venueUserProfileImageView;
+//@synthesize topUserImage = _topUserImage;
+//@synthesize topUserName = _topUserName;
+//@synthesize topUserItems = _topUserItems;
+//@synthesize topUserLabel = _topUserLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -97,11 +98,11 @@
     if ([[objects objectAtIndex:0] isKindOfClass:[olgotVenue class]]) {
         _venue = [objects objectAtIndex:0];
         
-        if ([_venue topUserId] == NULL || [_venue topUserId] == 0) {
-            hasTopUser = NO;
-        }else {
-            hasTopUser = YES;
-        }
+//        if ([_venue topUserId] == NULL || [_venue topUserId] == 0) {
+//            hasTopUser = NO;
+//        }else {
+//            hasTopUser = YES;
+//        }
         
         
         [self.collectionView reloadData];
@@ -168,10 +169,11 @@
     [self setVenueMapButton:nil];
     [self setVenueAddressLabel:nil];
     [self setVenueIconImageView:nil];
-    [self setTopUserImage:nil];
-    [self setTopUserName:nil];
-    [self setTopUserItems:nil];
-    [self setTopUserLabel:nil];
+//     [self setVenueUserProfileImageView:nil];
+//    [self setTopUserImage:nil];
+//    [self setTopUserName:nil];
+//    [self setTopUserItems:nil];
+//    [self setTopUserLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     self.pullToRefreshView = nil;
@@ -216,28 +218,28 @@
             self.venueCardTile = nil;
         }
         
-        UILabel *venueLabel;
-        UIImageView *userImage;
-        UIButton *userBtn;
-        
-        venueLabel = (UILabel *)[cell1 viewWithTag:2];
-        [venueLabel setText:[_venue foursquareAddress]];
-        
-        venueLabel = (UILabel*)[cell1 viewWithTag:3];
-        [venueLabel setHidden:!hasTopUser];
-    
-        
-        userImage = (UIImageView*)[cell1 viewWithTag:4];
-        [userImage setImageWithURL:[NSURL URLWithString:[_venue topUserProfileImgUrl]]];
-        [userImage setHidden:!hasTopUser];
-        
-        userBtn = (UIButton*)[cell1 viewWithTag:5];
-        [userBtn setTitle:[NSString stringWithFormat:@"%@ %@",[_venue topUserFirstName],[_venue topUserLastName]] forState:UIControlStateNormal];
-        [userBtn setHidden:!hasTopUser];
-        
-        venueLabel = (UILabel*)[cell1 viewWithTag:6];
-        [venueLabel setText:[NSString stringWithFormat:@"Posted %@ items", [_venue topUserItems]]];
-        [venueLabel setHidden:!hasTopUser];
+//        UILabel *venueLabel;
+//        UIImageView *userImage;
+//        UIButton *userBtn;
+//        
+//        venueLabel = (UILabel *)[cell1 viewWithTag:2];
+//        [venueLabel setText:[_venue foursquareAddress]];
+//        
+//        venueLabel = (UILabel*)[cell1 viewWithTag:3];
+//        [venueLabel setHidden:!hasTopUser];
+//    
+//        
+//        userImage = (UIImageView*)[cell1 viewWithTag:4];
+//        [userImage setImageWithURL:[NSURL URLWithString:[_venue topUserProfileImgUrl]]];
+//        [userImage setHidden:!hasTopUser];
+//        
+//        userBtn = (UIButton*)[cell1 viewWithTag:5];
+//        [userBtn setTitle:[NSString stringWithFormat:@"%@ %@",[_venue topUserFirstName],[_venue topUserLastName]] forState:UIControlStateNormal];
+//        [userBtn setHidden:!hasTopUser];
+//        
+//        venueLabel = (UILabel*)[cell1 viewWithTag:6];
+//        [venueLabel setText:[NSString stringWithFormat:@"Posted %@ items", [_venue topUserItems]]];
+//        [venueLabel setHidden:!hasTopUser];
 
         return cell1;
     }
@@ -252,9 +254,15 @@
         
         UIImageView *itemImage;
         UILabel *itemLabel;
+        UIImageView *userProfileImage;
         
         itemImage = (UIImageView *)[cell2 viewWithTag:1];
         [itemImage setImageWithURL:[NSURL URLWithString:[[_items objectAtIndex:indexPath.row] itemPhotoUrl]]];
+        
+        userProfileImage = (UIImageView *)[cell2 viewWithTag:2];
+        [userProfileImage setHidden:NO];
+        [userProfileImage setImageWithURL:[NSURL URLWithString:[[_items objectAtIndex:indexPath.row] userProfileImgUrl]]];
+        
         
 //        itemLabel = (UILabel *)[cell2 viewWithTag:2]; //description
 //        [itemLabel setText:[[_items objectAtIndex:indexPath.row] itemDescription]];
@@ -293,9 +301,10 @@
 
 - (CGSize)collectionView:(SSCollectionView *)aCollectionView itemSizeForSection:(NSUInteger)section {
     if (section == 0) {
-        if(hasTopUser){
-            return CGSizeMake(300.0f, 150.0f);    
-        }else {
+//        if(hasTopUser){
+//            return CGSizeMake(300.0f, 150.0f);    
+//        }else
+        {
             return CGSizeMake(300.0f, 90.0f);
         }
         

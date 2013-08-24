@@ -189,7 +189,7 @@
     } else if([self.imagePickerController cameraFlashMode] == UIImagePickerControllerCameraFlashModeOn) {
         [self.imagePickerController setCameraFlashMode:UIImagePickerControllerCameraFlashModeOff];
     } else if([self.imagePickerController cameraFlashMode] == UIImagePickerControllerCameraFlashModeOff) {
-        [self.imagePickerController setCameraFlashMode:UIImagePickerControllerCameraFlashModeAuto];
+        [self.imagePickerController setCameraFlashMode:UIImagePickerControllerCameraFlashModeOn];
     }
     
     [self configureFlashButton];
@@ -199,10 +199,13 @@
 -(void)configureFlashButton{
     if ([self.imagePickerController cameraFlashMode] == UIImagePickerControllerCameraFlashModeAuto) {
             [self.flashBtn setImage:[UIImage imageNamed:@"btn-cam-flash-off"] forState:UIControlStateNormal];
+        [self.imagePickerController setCameraFlashMode:UIImagePickerControllerCameraFlashModeOff];
     } else if([self.imagePickerController cameraFlashMode] == UIImagePickerControllerCameraFlashModeOn) {
         [self.flashBtn setImage:[UIImage imageNamed:@"btn-cam-flash-on"] forState:UIControlStateNormal];
+           [self.imagePickerController setCameraFlashMode:UIImagePickerControllerCameraFlashModeOn];
     } else if([self.imagePickerController cameraFlashMode] == UIImagePickerControllerCameraFlashModeOff) {
         [self.flashBtn setImage:[UIImage imageNamed:@"btn-cam-flash-off"] forState:UIControlStateNormal];
+           [self.imagePickerController setCameraFlashMode:UIImagePickerControllerCameraFlashModeOff];
     }
     NSLog(@"flash: %d",[self.imagePickerController cameraFlashMode]);
 }
