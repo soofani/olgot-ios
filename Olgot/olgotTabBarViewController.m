@@ -11,6 +11,8 @@
 #import "olgotCameraViewController.h"
 #import "GPUImage.h"
 
+#import "olgotAddItemDetailsViewController.h"
+
 @interface olgotTabBarViewController ()
 
 @end
@@ -154,15 +156,36 @@
 
 - (void)imageCropper:(ImageCropper *)cropper didFinishCroppingWithImage:(UIImage *)editedImage
 {
-    olgotAddItemNearbyPlacesViewController* nearbyController = [[olgotAddItemNearbyPlacesViewController alloc] init];
+//    olgotAddItemNearbyPlacesViewController* nearbyController = [[olgotAddItemNearbyPlacesViewController alloc] init];
+//    
+//    nearbyController.capturedImage = editedImage;
+//    nearbyController.delegate = self;
+//
+//    UINavigationController *camNavController = [[UINavigationController alloc] initWithRootViewController:nearbyController];
+//    
+//    [self dismissModalViewControllerAnimated:NO];
+//    [self presentModalViewController:camNavController animated:NO];
     
-    nearbyController.capturedImage = editedImage;
-    nearbyController.delegate = self;
-
-    UINavigationController *camNavController = [[UINavigationController alloc] initWithRootViewController:nearbyController];
+    
+    
+    
+    
+    olgotAddItemDetailsViewController* itemDetailsController = [[olgotAddItemDetailsViewController alloc] initWithNibName:@"addItemDetailsView" bundle:[NSBundle mainBundle]];
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    [[self navigationItem] setBackBarButtonItem:backButton];
+    
+    
+    //    itemDetailsController.venue = [_places objectAtIndex:_selectedRowIndexPath.row];
+    itemDetailsController.itemImage = editedImage;
+    
+    UINavigationController *camNavController = [[UINavigationController alloc] initWithRootViewController:itemDetailsController];
     
     [self dismissModalViewControllerAnimated:NO];
     [self presentModalViewController:camNavController animated:NO];
+
+//    [self.navigationController pushViewController:itemDetailsController animated:YES];
+
 }
 
 - (void)imageCropperDidCancel:(ImageCropper *)cropper {

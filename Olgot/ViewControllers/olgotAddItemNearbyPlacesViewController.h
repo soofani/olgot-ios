@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Not Another Fruit. All rights reserved.
 //
 
+#import "olgotVenue.h"
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <SSToolkit/SSToolkit.h>
@@ -40,5 +41,7 @@
 
 -(void)wantsBack;
 -(void)exitAddItemFlow;
+-(void)venueSelectedWithLocationObject:(olgotVenue*)venue;
+
 
 @end

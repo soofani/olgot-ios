@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5841B48416013CDE000C05BD /* NSMutableArray+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5841B48216013CDE000C05BD /* NSMutableArray+SSToolkitAdditions.h */; };
+		5841B48516013CDE000C05BD /* NSMutableArray+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5841B48316013CDE000C05BD /* NSMutableArray+SSToolkitAdditions.m */; };
+		962F5F5E156CCD1200408648 /* NSNumber+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 962F5F5B156CCD1200408648 /* NSNumber+SSToolkitAdditions.h */; };
+		962F5F5F156CCD1200408648 /* NSNumber+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 962F5F5C156CCD1200408648 /* NSNumber+SSToolkitAdditions.m */; };
 		9EB278B114BBC4360077194C /* SSConcurrentOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E11121DC29A0085F81E /* SSConcurrentOperation.m */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		B2136B3C13ABCC0C00FEBCFD /* SSBorderedView.h in Headers */ = {isa = PBXBuildFile; fileRef = B2136B3A13ABCC0C00FEBCFD /* SSBorderedView.h */; };
@@ -38,9 +42,6 @@
 		B23F160B1547C73D00638372 /* SSAddressBarTextFieldReload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C50800151BA6C000E94614 /* SSAddressBarTextFieldReload@2x.png */; };
 		B23F160C1547C73D00638372 /* SSAddressBarTextFieldStop.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C50801151BA6C000E94614 /* SSAddressBarTextFieldStop.png */; };
 		B23F160D1547C73D00638372 /* SSAddressBarTextFieldStop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C50802151BA6C000E94614 /* SSAddressBarTextFieldStop@2x.png */; };
-		B23F160E1547C73D00638372 /* SSVignetteiPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C50804151BA6C000E94614 /* SSVignetteiPad.png */; };
-		B23F160F1547C73D00638372 /* SSVignetteiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C50805151BA6C000E94614 /* SSVignetteiPhone.png */; };
-		B23F16101547C73D00638372 /* SSVignetteiPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C50806151BA6C000E94614 /* SSVignetteiPhone@2x.png */; };
 		B23F16111547C73D00638372 /* UISegmentBarButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C50807151BA6C000E94614 /* UISegmentBarButton.png */; };
 		B23F16121547C73D00638372 /* UISegmentBarButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C50808151BA6C000E94614 /* UISegmentBarButton@2x.png */; };
 		B23F16131547C73D00638372 /* UISegmentBarButtonHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C50809151BA6C000E94614 /* UISegmentBarButtonHighlighted.png */; };
@@ -167,6 +168,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5841B48216013CDE000C05BD /* NSMutableArray+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		5841B48316013CDE000C05BD /* NSMutableArray+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		962F5F5B156CCD1200408648 /* NSNumber+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		962F5F5C156CCD1200408648 /* NSNumber+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		962F5F5D156CCD1200408648 /* UIColor+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SSToolkitAdditions.m"; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B2136B3A13ABCC0C00FEBCFD /* SSBorderedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBorderedView.h; sourceTree = "<group>"; };
 		B2136B3B13ABCC0C00FEBCFD /* SSBorderedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBorderedView.m; sourceTree = "<group>"; };
@@ -294,9 +300,6 @@
 		B2C50800151BA6C000E94614 /* SSAddressBarTextFieldReload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSAddressBarTextFieldReload@2x.png"; sourceTree = "<group>"; };
 		B2C50801151BA6C000E94614 /* SSAddressBarTextFieldStop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSAddressBarTextFieldStop.png; sourceTree = "<group>"; };
 		B2C50802151BA6C000E94614 /* SSAddressBarTextFieldStop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSAddressBarTextFieldStop@2x.png"; sourceTree = "<group>"; };
-		B2C50804151BA6C000E94614 /* SSVignetteiPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSVignetteiPad.png; sourceTree = "<group>"; };
-		B2C50805151BA6C000E94614 /* SSVignetteiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSVignetteiPhone.png; sourceTree = "<group>"; };
-		B2C50806151BA6C000E94614 /* SSVignetteiPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SSVignetteiPhone@2x.png"; sourceTree = "<group>"; };
 		B2C50807151BA6C000E94614 /* UISegmentBarButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UISegmentBarButton.png; sourceTree = "<group>"; };
 		B2C50808151BA6C000E94614 /* UISegmentBarButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UISegmentBarButton@2x.png"; sourceTree = "<group>"; };
 		B2C50809151BA6C000E94614 /* UISegmentBarButtonHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UISegmentBarButtonHighlighted.png; sourceTree = "<group>"; };
@@ -483,6 +486,11 @@
 		B2601A711223079A005506D5 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				5841B48216013CDE000C05BD /* NSMutableArray+SSToolkitAdditions.h */,
+				5841B48316013CDE000C05BD /* NSMutableArray+SSToolkitAdditions.m */,
+				962F5F5B156CCD1200408648 /* NSNumber+SSToolkitAdditions.h */,
+				962F5F5C156CCD1200408648 /* NSNumber+SSToolkitAdditions.m */,
+				962F5F5D156CCD1200408648 /* UIColor+SSToolkitAdditions.m */,
 				B24E9E05121DC29A0085F81E /* NSArray+SSToolkitAdditions.h */,
 				B24E9E06121DC29A0085F81E /* NSArray+SSToolkitAdditions.m */,
 				B24E9E07121DC29A0085F81E /* NSData+SSToolkitAdditions.h */,
@@ -642,9 +650,6 @@
 				B2C50800151BA6C000E94614 /* SSAddressBarTextFieldReload@2x.png */,
 				B2C50801151BA6C000E94614 /* SSAddressBarTextFieldStop.png */,
 				B2C50802151BA6C000E94614 /* SSAddressBarTextFieldStop@2x.png */,
-				B2C50804151BA6C000E94614 /* SSVignetteiPad.png */,
-				B2C50805151BA6C000E94614 /* SSVignetteiPhone.png */,
-				B2C50806151BA6C000E94614 /* SSVignetteiPhone@2x.png */,
 				B2C50807151BA6C000E94614 /* UISegmentBarButton.png */,
 				B2C50808151BA6C000E94614 /* UISegmentBarButton@2x.png */,
 				B2C50809151BA6C000E94614 /* UISegmentBarButtonHighlighted.png */,
@@ -726,6 +731,8 @@
 				B2C50814151BAB4000E94614 /* NSBundle+SSToolkitAdditions.h in Headers */,
 				B2F72A131534D54C00556B66 /* SSRateLimit.h in Headers */,
 				B2C7ED6C153A5624006ABE73 /* SSButton.h in Headers */,
+				962F5F5E156CCD1200408648 /* NSNumber+SSToolkitAdditions.h in Headers */,
+				5841B48416013CDE000C05BD /* NSMutableArray+SSToolkitAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,7 +798,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SS;
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Sam Soffes";
 			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SSToolkit" */;
@@ -859,9 +866,6 @@
 				B23F160B1547C73D00638372 /* SSAddressBarTextFieldReload@2x.png in Resources */,
 				B23F160C1547C73D00638372 /* SSAddressBarTextFieldStop.png in Resources */,
 				B23F160D1547C73D00638372 /* SSAddressBarTextFieldStop@2x.png in Resources */,
-				B23F160E1547C73D00638372 /* SSVignetteiPad.png in Resources */,
-				B23F160F1547C73D00638372 /* SSVignetteiPhone.png in Resources */,
-				B23F16101547C73D00638372 /* SSVignetteiPhone@2x.png in Resources */,
 				B23F16111547C73D00638372 /* UISegmentBarButton.png in Resources */,
 				B23F16121547C73D00638372 /* UISegmentBarButton@2x.png in Resources */,
 				B23F16131547C73D00638372 /* UISegmentBarButtonHighlighted.png in Resources */,
@@ -952,6 +956,8 @@
 				B2C50815151BAB4000E94614 /* NSBundle+SSToolkitAdditions.m in Sources */,
 				B2F72A141534D54C00556B66 /* SSRateLimit.m in Sources */,
 				B2C7ED6D153A5624006ABE73 /* SSButton.m in Sources */,
+				962F5F5F156CCD1200408648 /* NSNumber+SSToolkitAdditions.m in Sources */,
+				5841B48516013CDE000C05BD /* NSMutableArray+SSToolkitAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,10 +1002,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					armv7,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/SSToolkit.dst;
@@ -1036,7 +1039,6 @@
 				PRODUCT_NAME = SSToolkit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -1044,10 +1046,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					armv7,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/SSToolkit.dst;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
@@ -1082,7 +1081,6 @@
 				PRODUCT_NAME = SSToolkit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};

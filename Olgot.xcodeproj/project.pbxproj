@@ -1945,8 +1945,9 @@
 		FFA4EDB8155D12D8008CB4CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Bilal Jaradat (JVFP866EDA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bilal Jaradat (JVFP866EDA)";
+				CODE_SIGN_ENTITLEMENTS = Olgot/Olgot.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobile Channels Company (RYF674EVDV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobile Channels Company (RYF674EVDV)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1966,8 +1967,8 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "DF886A48-BD6E-4694-923E-BF44C2637567";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DF886A48-BD6E-4694-923E-BF44C2637567";
+				PROVISIONING_PROFILE = "10E29B56-4AAC-4483-81E6-008B478EF00A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "10E29B56-4AAC-4483-81E6-008B478EF00A";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1976,8 +1977,9 @@
 		FFA4EDB9155D12D8008CB4CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Bilal Jaradat (JVFP866EDA)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bilal Jaradat (JVFP866EDA)";
+				CODE_SIGN_ENTITLEMENTS = Olgot/Olgot.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobile Channels Company (RYF674EVDV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobile Channels Company (RYF674EVDV)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1997,8 +1999,8 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "DF886A48-BD6E-4694-923E-BF44C2637567";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DF886A48-BD6E-4694-923E-BF44C2637567";
+				PROVISIONING_PROFILE = "10E29B56-4AAC-4483-81E6-008B478EF00A";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "10E29B56-4AAC-4483-81E6-008B478EF00A";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};

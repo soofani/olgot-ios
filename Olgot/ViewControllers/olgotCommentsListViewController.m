@@ -69,12 +69,12 @@
 }
 -(void)gestureTapped
 {
-    if(self.myCommentTA.text && ![self.myCommentTA.text isEqualToString:@"comment..."] && self.myCommentTA.text.length > 0.0)
-    {
-        [self postPressed:nil];
-    }
+//    if(self.myCommentTA.text && ![self.myCommentTA.text isEqualToString:@"comment..."] && self.myCommentTA.text.length > 0.0)
+//    {
+//        [self postPressed:nil];
+//    }
 //    else
-//        [self dismissKeyboard];
+        [self dismissKeyboard];
 }
 -(void)dismissKeyboard {
 
@@ -135,6 +135,14 @@
     
     [self.postButton addTarget:self action:@selector(postPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.postButton setEnabled:NO];
+    
+    UITapGestureRecognizer *postButtonGestures = [[UITapGestureRecognizer alloc]
+                                                  initWithTarget:self
+                                                  action:@selector(postPressed:)];
+    
+    [postButtonGestures setCancelsTouchesInView:NO];
+    [self.postButton addGestureRecognizer:postButtonGestures];
+
     
 //    self.myCommentTF.delegate = self;
     self.myCommentTA.delegate = self;

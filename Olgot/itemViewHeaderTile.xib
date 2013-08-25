@@ -44,7 +44,7 @@
 						<string key="NSFrame">{{140, 140}, {20, 20}}</string>
 						<reference key="NSSuperview" ref="928796783"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="477678917"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -63,6 +63,7 @@
 						<string key="NSFrame">{{10, 345}, {280, 23}}</string>
 						<reference key="NSSuperview" ref="928796783"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -115,7 +116,7 @@
 						<string key="NSFrame">{{0, 300}, {300, 1}}</string>
 						<reference key="NSSuperview" ref="928796783"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="393008429"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -502,7 +503,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">42</int>
+			<int key="maxID">43</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -536,7 +537,6 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="finishedComment:">id</string>
 						<string key="likeAction:">id</string>
-						<string key="postPressed:">id</string>
 						<string key="previewItemImagePressed:">id</string>
 						<string key="showProfile:">id</string>
 						<string key="showVenue:">id</string>
@@ -550,10 +550,6 @@
 						</object>
 						<object class="IBActionInfo" key="likeAction:">
 							<string key="name">likeAction:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="postPressed:">
-							<string key="name">postPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="previewItemImagePressed:">

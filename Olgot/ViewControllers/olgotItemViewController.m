@@ -79,12 +79,12 @@
 -(void)gestureTapped
 {
 //    NSLog(@"self.myCommentTA.text.length = %f", self.myCommentTA.text.length);
-    if(self.myCommentTA.text && ![self.myCommentTA.text isEqualToString:@"comment..."] && self.myCommentTA.text.length > 0.0)
-    {
-        [self postPressed:nil];
-    }
+//    if(self.myCommentTA.text && ![self.myCommentTA.text isEqualToString:@"comment..."] && self.myCommentTA.text.length > 0.0)
+//    {
+//        [self postPressed:nil];
+//    }
 //    else
-//        [self dismissKeyboard];
+        [self dismissKeyboard];
 }
 -(void)dismissKeyboard {
     //    [self.myCommentTF resignFirstResponder];
@@ -152,6 +152,13 @@
     [self.postButton addTarget:self action:@selector(postPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.postButton setEnabled:NO];
     
+    UITapGestureRecognizer *postButtonGestures = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(postPressed:)];
+    
+    [postButtonGestures setCancelsTouchesInView:NO];
+    [self.postButton addGestureRecognizer:postButtonGestures];
+
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -534,8 +541,8 @@ if(priceViewFrame.size.width > itemImageView.frame.size.width-20)
         
         //recalculating the priceview width;
         priceViewFrame = priceView.frame;
-        priceViewFrame.size.width = priceLabelFrame.size.width + priceTagImage.frame.size.width + 6;
-        priceViewFrame.origin.x = itemImageView.frame.origin.x+itemImageView.frame.size.width - 10 - priceViewFrame.size.width;
+        priceViewFrame.size.width = itemImageView.frame.size.width-20;//priceLabelFrame.size.width + priceTagImage.frame.size.width + 6;
+        priceViewFrame.origin.x = 20;//itemImageView.frame.origin.x+itemImageView.frame.size.width - 10 - priceViewFrame.size.width;
         [priceView setFrame:priceViewFrame];
         
     }

@@ -29,15 +29,18 @@
 @synthesize twitterShareBtn = _twitterShareBtn;
 @synthesize facebookShareBtn = _facebookShareBtn;
 
+@synthesize itemsBgImageView = _itemsBgImageView;
+@synthesize expandableView = _expandableView;
 @synthesize itemImageView = _itemImageView;
 @synthesize itemImage = _itemImage;
 @synthesize scrollView = _scrollView;
-@synthesize venueImageIV = _venueImageIV;
-@synthesize venueNameLabel = _venueNameLabel;
-@synthesize venueLocationLabel = _venueLocationLabel;
+//@synthesize venueImageIV = _venueImageIV;
+//@synthesize venueNameLabel = _venueNameLabel;
+//@synthesize venueLocationLabel = _venueLocationLabel;
 @synthesize itemPriceTF = _itemPriceTF;
 @synthesize descriptionTF = _descriptionTF;
 @synthesize itemNameTF = _itemNameTF;
+@synthesize whereTxtField = _whereTxtField;
 @synthesize postButton = _postButton;
 @synthesize venue = _venue;
 @synthesize delegate;
@@ -152,7 +155,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, self.scrollView.frame.size.height+200)];
+
     
     self.itemPriceTF.textColor = [UIColor lightGrayColor];
     
@@ -168,13 +171,49 @@
     
     [self.itemImageView setImage:_itemImage];
     [self configureView];
+    
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.view.frame.size.height+320)];
+    [self.scrollView scrollRectToVisible:CGRectMake(0, 100, self.scrollView.frame.size.width, self.scrollView.frame.size.height) animated:YES];
+    
+    //description text area
+    self.descriptionTF.clipsToBounds = YES;
+    self.descriptionTF.layer.cornerRadius = 5.0f;
+    [self.descriptionTF.layer setBorderColor:[[[UIColor darkGrayColor] colorWithAlphaComponent:0.5] CGColor]];
+    [self.descriptionTF.layer setBorderWidth:1.0];
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UIBarStyleBlackTranslucent;
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                           nil];
+    [numberToolbar sizeToFit];
+    self.descriptionTF.inputAccessoryView = numberToolbar;
+
+}
+
+-(void)doneWithNumberPad
+{
+    if ([self.descriptionTF.text isEqualToString:@""])
+    {
+        self.descriptionTF.text = @"Provide some details             Optional";
+        [self.descriptionTF setTextColor:[UIColor lightGrayColor]];
+    }
+      [self.descriptionTF resignFirstResponder];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+        [self.scrollView scrollRectToVisible:CGRectMake(0, 100, self.scrollView.frame.size.width, self.scrollView.frame.size.height) animated:YES];
+//    [self.scrollView setContentOffset:CGPointMake(0.0, 0.0) animated:YES];
+    [UIView commitAnimations];
+    
 }
 
 -(void)configureView
 {
-    [self.venueImageIV setImageWithURL:[NSURL URLWithString:[_venue venueIcon]]];
-    [self.venueNameLabel setText:[_venue name_En]];
-    [self.venueLocationLabel setText:[_venue name_En]];
+//    [self.venueImageIV setImageWithURL:[NSURL URLWithString:[_venue venueIcon]]];
+//    [self.venueNameLabel setText:[_venue name_En]];
+//    [self.venueLocationLabel setText:[_venue name_En]];
     [self configureSharingBtns];
     
     
@@ -197,9 +236,33 @@
     }
 }
 
+-(void)venueSelectedWithLocationObject:(olgotVenue*)venue
+{
+//    [self.venueNameLabel setText:[_venue name_En]];
+//    [self.venueLocationLabel setText:[_venue name_En]];
+    self.venue = venue;
+    self.whereTxtField.text = [venue name_En];
+//    NSLog(@"self.whereTxtField.text = %@ ", self.whereTxtField.text);
+//    if(self.whereTxtField.text.length == 0)
+//        self.whereTxtField.text = @"Where?                                  Optional";
+}
+-(IBAction)openLocationViewPressed:(id)sender
+{
+    olgotAddItemNearbyPlacesViewController* nearbyController = [[olgotAddItemNearbyPlacesViewController alloc] init];
+    
+//    nearbyController.capturedImage = editedImage;
+    nearbyController.delegate = self;
+    
+    [self.navigationController pushViewController:nearbyController animated:YES];
+    
+
+}
+
 -(void)backSim
 {
-    [self.delegate wantsBack];
+//    [self.delegate wantsBack];
+    
+    [self wantsBack];
 }
 
 -(void)configureSharingBtns
@@ -219,9 +282,10 @@
 
 - (void)viewDidUnload
 {
-    [self setVenueImageIV:nil];
-    [self setVenueNameLabel:nil];
-    [self setVenueLocationLabel:nil];
+//    [self setVenueImageIV:nil];
+//    [self setVenueNameLabel:nil];
+//    [self setVenueLocationLabel:nil];
+    [self setWhereTxtField:nil];
     [self setItemPriceTF:nil];
     [self setDescriptionTF:nil];
     [self setItemNameTF:nil];
@@ -230,6 +294,8 @@
     [self setItemImage:nil];
     [self setTwitterShareBtn:nil];
     [self setFacebookShareBtn:nil];
+    [self setItemsBgImageView:nil];
+    [self setExpandableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -240,7 +306,7 @@
 }
 
 -(void)dismissKeyboard {
-    [self.scrollView setContentOffset:CGPointMake(0.0, 0.0) animated:YES];
+//    [self.scrollView setContentOffset:CGPointMake(0.0, 0.0) animated:YES];
     [self.itemPriceTF resignFirstResponder];
     [self.descriptionTF resignFirstResponder];
     [self.itemNameTF resignFirstResponder];
@@ -413,19 +479,29 @@
 
 -(void)wantsBack
 {
-    [self dismissViewControllerAnimated:NO completion:^{
-        [self showCamAnimated:NO source:UIImagePickerControllerSourceTypeCamera];
-    }];
+//    [self dismissViewControllerAnimated:NO completion:^{
+//        [self showCamAnimated:NO source:UIImagePickerControllerSourceTypeCamera];
+//    }];
+
+//    [self.navigationController popViewControllerAnimated:YES];
+//                                              completion:^{
+//        [self showCamAnimated:NO source:UIImagePickerControllerSourceTypeCamera];
+//    }];
     
+    [self exitAddItemFlow];
 }
 
 -(void)exitAddItemFlow
 {
+    [self.navigationController popViewControllerAnimated:NO];
     [self dismissModalViewControllerAnimated:YES];
 }
 
+
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     
+    if(textView == self.itemPriceTF)
+    {
     if([text isEqualToString:@"\n"]) {
         UITextView* priceTF = textView;
         if ([priceTF.text length] == 0 || [priceTF.text isEqualToString:@" "]) {
@@ -434,6 +510,92 @@
         [textView resignFirstResponder];
         return NO;
     }
+    }else if(textView == self.descriptionTF)
+    {
+        if((textView.text.length == 0 || textView.text.length == 1) && [text isEqualToString:@""])
+        {
+            //            [self.postButton setEnabled:NO];
+            
+            //            CGRect myCommentViewFrame = self.descriptionTF.frame;
+            //            CGRect textViewFrame = textView.frame;
+            //
+            //            myCommentViewFrame.size.height = 50;
+            //            myCommentViewFrame.origin.y = self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-myCommentViewFrame.size.height-172;
+            //            [self.descriptionTF setFrame:myCommentViewFrame];
+            //
+            //            textViewFrame.origin.y = 8.0f;
+            //            textViewFrame.size.height = 34;
+            //            textView.frame = textViewFrame;
+            
+        }
+        else
+        {
+            //            [self.postButton setEnabled:YES];
+            
+            
+            CGRect descTfFrame = self.descriptionTF.frame;
+            CGRect expandableViewFrame = self.expandableView.frame;
+            CGRect textViewFrame = textView.frame;
+            NSInteger oldH = textViewFrame.size.height;
+            NSInteger newH = [textView contentSize].height;
+            
+            if(newH != oldH && newH <=142)//this equal to the height of 7 lines
+            {
+                //                textViewFrame.size.height = newH;
+                //                textView.frame = textViewFrame;
+                
+                //       //reset to default size
+//                CGRect ff = self.allItemsView.frame;
+//                ff.size.height += (newH - oldH);
+//                //                    ff.origin.y -= (newH - oldH);
+//                [self.allItemsView setFrame:ff];
+                
+                descTfFrame.size.height = newH;//textView.frame.size.height + 16;
+                descTfFrame.origin.y -= (newH - oldH) ;//self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-myCommentViewFrame.size.height-172;
+                [self.descriptionTF setFrame:descTfFrame];
+                
+//                CGRect variableViewFrame = self.variableView.frame;
+                expandableViewFrame.origin.y -= (newH - oldH);
+                [self.expandableView setFrame:expandableViewFrame];
+                
+                //                CGRect scrollViewframe = self.scrollView.frame;
+//                CGSize scrollViewSize = self.scrollView.contentSize;
+//                scrollViewSize.height += (newH - oldH);
+//                ////                scrollViewframe.origin.y += (newH - oldH);
+//                ////                scrollViewframe.size.height += (newH - oldH);
+//                [self.scrollView setContentSize:scrollViewSize];
+                
+                
+                //                [self.scrollView setFrame:scrollViewframe];
+                //                 scrollViewframe.origin.y += (newH - oldH);
+                //                [self.scrollView setFrame:scrollViewframe];
+                //                CGRect stretchableArea = self.scrollView.contentStretch;
+                //                stretchableArea.origin.y += (newH - oldH);
+                //                stretchableArea.size.height += (newH - oldH);
+                //                 [self.scrollView setContentStretch:stretchableArea];
+                
+                //                CGPoint point = self.scrollView.contentOffset;
+                //                point.y -= (newH - oldH)*2;
+                //                [self.scrollView setContentOffset:point animated:YES];
+                
+                
+                
+                CGRect bgImageFrame = self.itemsBgImageView.frame;
+                bgImageFrame.size.height += (newH - oldH);
+                bgImageFrame.origin.y -= (newH - oldH);
+                [self.itemsBgImageView setFrame:bgImageFrame];
+                
+                //                
+                //                textViewFrame.origin.y = 8.0f;
+                //                textView.frame = textViewFrame;
+                
+            }
+            
+            
+        }
+        
+    }
+
     
     return YES;
 }
@@ -463,7 +625,7 @@
     [self.postButton setEnabled:NO];
     //    [self.itemPriceTF setEnabled:NO];
     //    [self.itemPriceTF setEditable:NO];
-    [self.descriptionTF setEnabled:NO];
+    [self.descriptionTF setEditable:NO];
     [self.itemNameTF setEnabled:NO];
     [self performSelector:@selector(dismissKeyboard)];
     [self performSelector:@selector(postItem)];
@@ -472,33 +634,71 @@
 ////to make a placeholder with gray color
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
+    if(textView == self.itemPriceTF)
+    {
     if([self.itemPriceTF.text isEqualToString:@"What do you want for it? (example: $5, a Coffeee, nothing)"])
         self.itemPriceTF.text = @"";
     self.itemPriceTF.textColor = [UIColor blackColor];
+    }else if (textView == self.descriptionTF)
+    {
+        if ([self.descriptionTF.text isEqualToString:@"Provide some details             Optional"])
+        {
+            self.descriptionTF.text = @"";
+        }
+        self.descriptionTF.textColor = [UIColor blackColor];
+                                                            //216 is the keyboard height
+         [self.scrollView scrollRectToVisible:CGRectMake(0, 40+216, self.scrollView.frame.size.width, self.scrollView.frame.size.height) animated:YES];
+//        //        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+//        //        if ([defaults objectForKey:@"userid"] == nil) {
+//        //            [self.descriptionTF resignFirstResponder];
+//        //            olgotAppDelegate* appDelegate = (olgotAppDelegate*)[UIApplication sharedApplication].delegate;
+//        //            [appDelegate showSignup];
+//        //        }else
+//        {
+//            [self performSelector:@selector(reset)];
+//            CGPoint pp = self.scrollView.contentOffset;
+//            [UIView beginAnimations:nil context:nil];
+//            [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+//            
+//            //            self.descriptionTF.frame = CGRectMake(0, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-50-172, self.view.frame.size.width, 50);
+//            
+//            if(self.view.frame.size.height>=500)
+//                [self.scrollView setContentOffset:CGPointMake(0.0, (100.0 + self.descriptionTF.frame.size.height-34.0)) animated:YES];
+//            else
+//                [self.scrollView setContentOffset:CGPointMake(0.0, (180.0 + self.descriptionTF.frame.size.height-34.0)) animated:YES];
+//            [UIView commitAnimations];
+//            
+//            
+//        }
+        
+    }
+
     return YES;
 }
 
 -(void) textViewDidChange:(UITextView *)textView
 {
-    
+    if(textView == self.itemPriceTF)
+    {
     if(self.itemPriceTF.text.length == 0){
         self.itemPriceTF.textColor = [UIColor lightGrayColor];
         self.itemPriceTF.text = @"What do you want for it? (example: $5, a Coffeee, nothing)";
         [self.itemPriceTF resignFirstResponder];
     }
+    }
 }
 /////
 
 
--(void)textViewDidBeginEditing:(UITextView *)textView
-{
-    UITextView* priceTF = textView;
-    
-    if ([priceTF.text isEqualToString:@"What do you want for it? (example: $5, a Coffeee, nothing)"]) {
-        [priceTF setText:@""];
-    }
-    [self.scrollView setContentOffset:CGPointMake(0.0, 50.0) animated:YES];
-}
+//-(void)textViewDidBeginEditing:(UITextView *)textView
+//{
+//    UITextView* priceTF = textView;
+//    
+//    if ([priceTF.text isEqualToString:@"What do you want for it? (example: $5, a Coffeee, nothing)"]) {
+//        [priceTF setText:@""];
+//    }
+//    [self.scrollView setContentOffset:CGPointMake(0.0, 50.0) animated:YES];
+//}
 
 -(void)textViewDidEndEditing:(UITextView *)textView
 {
@@ -545,8 +745,8 @@
     loadingUi.labelText = @"posting your item.....";
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    if([self.itemPriceTF.text isEqualToString:@"What do you want for it? (example: $5, a Coffeee, nothing)"]);
-    //    self.itemPriceTF.text = @"";
+//    if([self.itemPriceTF.text isEqualToString:@"What do you want for it? (example: $5, a Coffeee, nothing)"]);
+//       self.itemPriceTF.text = @"";
     
     NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
                             [defaults objectForKey:@"userid"], @"id",
@@ -696,7 +896,9 @@
 
 -(void)finishedAddItem
 {
-    [self.delegate exitAddItemFlow];
+//    [self.delegate exitAddItemFlow];
+    [self.navigationController popViewControllerAnimated:NO];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark olgotTwitterDelegate;

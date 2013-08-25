@@ -100,7 +100,7 @@
 	self.opaque = NO;
 	self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	
-	self.lineColor = [UIColor colorWithRed:221.0/255.0 green:221.0/255.0 blue:221.0/255.0 alpha:1.0];
+	self.lineColor = [UIColor grayColor];
 	self.insetColor = [UIColor colorWithWhite:1.0f alpha:0.5f];
 }
 

@@ -37,25 +37,39 @@
 @property (nonatomic, assign) CGFloat pieBorderWidth;
 
 /**
- The border color.
+ The outer border color.
  
  @see defaultPieColor
  */
-@property (nonatomic, retain) UIColor *pieBorderColor;
+@property (nonatomic, strong) UIColor *pieBorderColor;
+
+/**
+ The inner border width.
+
+ The default is `2.0`.
+ */
+@property (nonatomic, assign) CGFloat pieInnerBorderWidth;
+
+/**
+ The inner border color.
+
+ @see defaultPieColor
+ */
+@property (nonatomic, strong) UIColor *pieInnerBorderColor;
 
 /**
  The fill color.
  
  @see defaultPieColor
  */
-@property (nonatomic, retain) UIColor *pieFillColor;
+@property (nonatomic, strong) UIColor *pieFillColor;
 
 /**
  The background color.
  
  The default is white.
  */
-@property (nonatomic, retain) UIColor *pieBackgroundColor;
+@property (nonatomic, strong) UIColor *pieBackgroundColor;
 
 
 ///---------------

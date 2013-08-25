@@ -117,21 +117,21 @@ typedef enum {
 /**
  The background view of the collection view.
  */
-@property (nonatomic, retain) UIView *backgroundView;
+@property (nonatomic, strong) UIView *backgroundView;
 
 /**
  Returns an accessory view that is displayed above the collection.
  
  The default value is `nil`. The collection header view is different from a section header.
  */
-@property (nonatomic, retain) UIView *collectionHeaderView;
+@property (nonatomic, strong) UIView *collectionHeaderView;
 
 /**
  Returns an accessory view that is displayed below the collection.
  
  The default value is `nil`. The collection footer view is different from a section footer.
  */
-@property (nonatomic, retain) UIView *collectionFooterView;
+@property (nonatomic, strong) UIView *collectionFooterView;
 
 /**
  The style of the receiving collection view's headers and footers.
@@ -163,7 +163,7 @@ typedef enum {
  
  This will be the background of the collection view if `nil` is provided. The default is `nil`.
  */
-@property (nonatomic, retain) UIColor *rowBackgroundColor;
+@property (nonatomic, strong) UIColor *rowBackgroundColor;
 
 
 ///-----------------------------------
@@ -188,8 +188,6 @@ typedef enum {
  @param item An item object of the collection view.
  
  @return An index path representing the row and section of the item or `nil` if the index path is invalid.
- 
- @see itemPathForIndex:
  */
 - (NSIndexPath *)indexPathForItem:(SSCollectionViewItem *)item;
 
@@ -231,7 +229,7 @@ typedef enum {
  The internal scroll view of the collection view. This should only be used to inspect its state or scrolling. Changing
  the value of its attributes is undefined.
  */
-@property (nonatomic, retain, readonly) UIScrollView *scrollView;
+@property (nonatomic, strong, readonly) UIScrollView *scrollView;
 
 
 ///--------------------------
@@ -442,12 +440,12 @@ typedef enum {
 /**
  The object that acts as the data source of the receiving collection view.
  */
-@property (nonatomic, assign) id<SSCollectionViewDataSource> dataSource;
+@property (nonatomic, unsafe_unretained) id<SSCollectionViewDataSource> dataSource;
 
 /**
  The object that acts as the delegate of the receiving collection view.
  */
-@property (nonatomic, assign) id<SSCollectionViewDelegate> delegate;
+@property (nonatomic, unsafe_unretained) id<SSCollectionViewDelegate> delegate;
 
 @end
 
@@ -537,7 +535,7 @@ typedef enum {
  
  @param aCollectionView The collection view object requesting this information.
  
- @param An index path that locates a item in `aCollectionView`.
+ @param section The section to size items.
  
  @return A value that specifies the size (in points) that item should be.
  
@@ -561,9 +559,6 @@ typedef enum {
  @param item A collection view item object that `aCollectionView` is going to use when drawing the item.
  
  @param indexPath An index path locating the item in `aCollectionView`.
- 
- @see collectionView:itemForIndexPath:
- @see prepareForReuse
  */ 
 - (void)collectionView:(SSCollectionView *)aCollectionView willDisplayItem:(SSCollectionViewItem *)item atIndexPath:(NSIndexPath *)indexPath;
 

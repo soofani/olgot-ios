@@ -18,7 +18,7 @@
 
 @protocol addItemDetailsProtocol;
 
-@interface olgotAddItemDetailsViewController : UIViewController<RKObjectLoaderDelegate, UITextFieldDelegate, addItemConfirmationProtocol, olgotTwitterDelegate,olgotFacebookDelegate, olgotCameraOverlayViewControllerDelegate, ImageCropperDelegate, UITextViewDelegate>
+@interface olgotAddItemDetailsViewController : UIViewController<RKObjectLoaderDelegate, UITextFieldDelegate, addItemNearbyProtocol, addItemConfirmationProtocol, olgotTwitterDelegate,olgotFacebookDelegate, olgotCameraOverlayViewControllerDelegate, ImageCropperDelegate, UITextViewDelegate>
 {
     UIImageView *itemImageView;
     NSNumber* _itemID;
@@ -38,21 +38,25 @@
 @property (nonatomic, retain) id <addItemDetailsProtocol> delegate;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UITextField *whereTxtField;
 
-@property (strong, nonatomic) IBOutlet UIImageView *venueImageIV;
-@property (strong, nonatomic) IBOutlet UILabel *venueNameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *venueLocationLabel;
+//@property (strong, nonatomic) IBOutlet UIImageView *venueImageIV;
+//@property (strong, nonatomic) IBOutlet UILabel *venueNameLabel;
+//@property (strong, nonatomic) IBOutlet UILabel *venueLocationLabel;
 //@property (strong, nonatomic) IBOutlet UITextField *itemPriceTF;
+@property (nonatomic, strong) IBOutlet UIImageView *itemsBgImageView;
+@property (nonatomic, strong) IBOutlet UIView *expandableView;
 @property (strong, nonatomic) IBOutlet UITextView *itemPriceTF;
 @property (strong, nonatomic) IBOutlet UITextField *itemNameTF;
 
-@property (strong, nonatomic) IBOutlet UITextField *descriptionTF;
+@property (strong, nonatomic) IBOutlet UITextView *descriptionTF;
 @property (strong, nonatomic) IBOutlet UIButton *postButton;
 
 @property (nonatomic, retain) olgotVenue* venue;
 @property (nonatomic, strong) IBOutlet UIImageView *itemImageView;
 @property (nonatomic,strong) UIImage *itemImage;
 
+-(IBAction)openLocationViewPressed:(id)sender;
 -(IBAction)editImagePressed:(id)sender;
 //- (IBAction)addedPrice:(id)sender;
 - (IBAction)addedName:(id)sender;
@@ -73,5 +77,6 @@
 
 -(void)wantsBack;
 -(void)exitAddItemFlow;
+-(void)venueSelectedWithLocationObject:(olgotVenue*)venue;
 
 @end

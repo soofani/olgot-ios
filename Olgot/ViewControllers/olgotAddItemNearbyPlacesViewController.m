@@ -58,7 +58,8 @@
 
 -(void)backSim
 {
-    [self.delegate wantsBack];
+//    [self.delegate wantsBack];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)loadVenues:(NSString*)query {
@@ -197,19 +198,19 @@
     }
 }
 
--(void)showAddItemDetails
-{
-    olgotAddItemDetailsViewController* itemDetailsController = [[olgotAddItemDetailsViewController alloc] initWithNibName:@"addItemDetailsView" bundle:[NSBundle mainBundle]];
-    
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
-    [[self navigationItem] setBackBarButtonItem:backButton];
-    
-    
-    itemDetailsController.venue = [_places objectAtIndex:_selectedRowIndexPath.row];
-    itemDetailsController.itemImage = _capturedImage;
-    
-    [self.navigationController pushViewController:itemDetailsController animated:YES];
-}
+//-(void)showAddItemDetails
+//{
+//    olgotAddItemDetailsViewController* itemDetailsController = [[olgotAddItemDetailsViewController alloc] initWithNibName:@"addItemDetailsView" bundle:[NSBundle mainBundle]];
+//    
+//    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+//    [[self navigationItem] setBackBarButtonItem:backButton];
+//    
+//    
+//    itemDetailsController.venue = [_places objectAtIndex:_selectedRowIndexPath.row];
+//    itemDetailsController.itemImage = _capturedImage;
+//    
+//    [self.navigationController pushViewController:itemDetailsController animated:YES];
+//}
 
 #pragma mark - SSCollectionViewDataSource
 
@@ -281,7 +282,14 @@
     if (indexPath.section == 0) {
         _selectedRowIndexPath = indexPath;
 //        [self performSegueWithIdentifier:@"ShowAddItemDetails" sender:self];
-        [self showAddItemDetails];
+//        [self showAddItemDetails];
+//                itemDetailsController.venue = [_places objectAtIndex:_selectedRowIndexPath.row];
+        
+        
+        [self.delegate venueSelectedWithLocationObject:[_places objectAtIndex:_selectedRowIndexPath.row]];
+        [self.navigationController popViewControllerAnimated:YES];
+        
+//        XXXXXX
     }
     
 }
