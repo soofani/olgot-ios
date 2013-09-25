@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1296</int>
-		<string key="IBDocument.SystemVersion">11E53</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
-		<string key="IBDocument.AppKitVersion">1138.47</string>
-		<string key="IBDocument.HIToolboxVersion">569.00</string>
+		<int key="IBDocument.SystemTarget">1552</int>
+		<string key="IBDocument.SystemVersion">12F37</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
+		<string key="IBDocument.AppKitVersion">1187.39</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">1181</string>
+			<string key="NS.object.0">2083</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
-			<string>IBUIImageView</string>
-			<string>IBUIView</string>
-			<string>IBUILabel</string>
 			<string>IBProxyObject</string>
+			<string>IBUIImageView</string>
+			<string>IBUILabel</string>
+			<string>IBUIView</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -137,6 +137,7 @@
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwIDAAA</bytes>
+							<string key="IBUIColorCocoaTouchKeyPath">darkTextColor</string>
 						</object>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
@@ -145,6 +146,7 @@
 						<reference key="IBUIFontDescription" ref="883534988"/>
 						<reference key="IBUIFont" ref="170918783"/>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+						<double key="preferredMaxLayoutWidth">240</double>
 					</object>
 				</array>
 				<string key="NSFrameSize">{300, 42}</string>
@@ -286,8 +288,8 @@
 					<string key="superclassName">SSCollectionViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="finishedComment:">id</string>
-						<string key="gotAction:">id</string>
 						<string key="likeAction:">id</string>
+						<string key="previewItemImagePressed:">id</string>
 						<string key="showProfile:">id</string>
 						<string key="showVenue:">id</string>
 						<string key="touchedWriteComment:">id</string>
@@ -298,12 +300,12 @@
 							<string key="name">finishedComment:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="gotAction:">
-							<string key="name">gotAction:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="likeAction:">
 							<string key="name">likeAction:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="previewItemImagePressed:">
+							<string key="name">previewItemImagePressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="showProfile:">
@@ -328,12 +330,12 @@
 						<string key="commentsFooter">SSCollectionViewItem</string>
 						<string key="commentsHeader">SSCollectionViewItem</string>
 						<string key="finderCell">SSCollectionViewItem</string>
-						<string key="gotButton">UIButton</string>
 						<string key="itemCell">SSCollectionViewItem</string>
 						<string key="likeButton">UIButton</string>
-						<string key="myCommentTF">UITextField</string>
+						<string key="myCommentTA">UITextView</string>
 						<string key="mySmallImage">UIImageView</string>
 						<string key="peopleRowCell">SSCollectionViewItem</string>
+						<string key="postButton">UIButton</string>
 						<string key="wantButton">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -353,10 +355,6 @@
 							<string key="name">finderCell</string>
 							<string key="candidateClassName">SSCollectionViewItem</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="gotButton">
-							<string key="name">gotButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="itemCell">
 							<string key="name">itemCell</string>
 							<string key="candidateClassName">SSCollectionViewItem</string>
@@ -365,9 +363,9 @@
 							<string key="name">likeButton</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="myCommentTF">
-							<string key="name">myCommentTF</string>
-							<string key="candidateClassName">UITextField</string>
+						<object class="IBToOneOutletInfo" key="myCommentTA">
+							<string key="name">myCommentTA</string>
+							<string key="candidateClassName">UITextView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="mySmallImage">
 							<string key="name">mySmallImage</string>
@@ -376,6 +374,10 @@
 						<object class="IBToOneOutletInfo" key="peopleRowCell">
 							<string key="name">peopleRowCell</string>
 							<string key="candidateClassName">SSCollectionViewItem</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="postButton">
+							<string key="name">postButton</string>
+							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="wantButton">
 							<string key="name">wantButton</string>
@@ -393,10 +395,10 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1296" key="NS.object.0"/>
+			<real value="1552" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<string key="IBCocoaTouchPluginVersion">1181</string>
+		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
 </archive>

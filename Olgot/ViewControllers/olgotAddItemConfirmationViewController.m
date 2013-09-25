@@ -22,9 +22,9 @@
 @synthesize itemImage;
 @synthesize venueNameBtn;
 @synthesize itemPriceLabel;
-@synthesize gotButton;
-@synthesize wantButton;
-@synthesize likeButton;
+//@synthesize gotButton;
+//@synthesize wantButton;
+//@synthesize likeButton;
 @synthesize placeBigLabel;
 @synthesize placeItemCountLabel;
 @synthesize capturedImage = _capturedImage;
@@ -90,26 +90,26 @@
     [self.itemPriceLabel setText:[_item itemPrice]];//[NSString stringWithFormat:@"%@ %@",[_item itemPrice],@"JOD"]];
     [self.itemImage setImage:_capturedImage];
     
-    if ([[_item iLike] isEqual:[NSNumber numberWithInt:1]]) {
-        NSLog(@"user likes this");
-        [self.likeButton setImage:[UIImage imageNamed:@"icon-item-action-like-active"] forState:UIControlStateNormal];
-    }else {
-        [self.likeButton setImage:[UIImage imageNamed:@"icon-item-action-like"] forState:UIControlStateNormal];
-    }
-    
-    if ([[_item iWant] isEqual:[NSNumber numberWithInt:1]]) {
-        NSLog(@"user wants this");
-        [self.wantButton setImage:[UIImage imageNamed:@"icon-item-action-want-active"] forState:UIControlStateNormal];
-    }else {
-        [self.wantButton setImage:[UIImage imageNamed:@"icon-item-action-want"] forState:UIControlStateNormal];
-    }
-    
-    if ([[_item iGot] isEqual:[NSNumber numberWithInt:1]]) {
-        NSLog(@"user got this");
-        [self.gotButton setImage:[UIImage imageNamed:@"icon-item-action-got-active"] forState:UIControlStateNormal];
-    }else {
-        [self.gotButton setImage:[UIImage imageNamed:@"icon-item-action-got"] forState:UIControlStateNormal];
-    }
+//    if ([[_item iLike] isEqual:[NSNumber numberWithInt:1]]) {
+//        NSLog(@"user likes this");
+//        [self.likeButton setImage:[UIImage imageNamed:@"icon-item-action-like-active"] forState:UIControlStateNormal];
+//    }else {
+//        [self.likeButton setImage:[UIImage imageNamed:@"icon-item-action-like"] forState:UIControlStateNormal];
+//    }
+//    
+//    if ([[_item iWant] isEqual:[NSNumber numberWithInt:1]]) {
+//        NSLog(@"user wants this");
+//        [self.wantButton setImage:[UIImage imageNamed:@"icon-item-action-want-active"] forState:UIControlStateNormal];
+//    }else {
+//        [self.wantButton setImage:[UIImage imageNamed:@"icon-item-action-want"] forState:UIControlStateNormal];
+//    }
+//    
+//    if ([[_item iGot] isEqual:[NSNumber numberWithInt:1]]) {
+//        NSLog(@"user got this");
+//        [self.gotButton setImage:[UIImage imageNamed:@"icon-item-action-got-active"] forState:UIControlStateNormal];
+//    }else {
+//        [self.gotButton setImage:[UIImage imageNamed:@"icon-item-action-got"] forState:UIControlStateNormal];
+//    }
     
     [self.placeBigLabel setText:[_item venueName_En]];
     [self.placeItemCountLabel setText:[NSString stringWithFormat:@"See more items here (%@ items)",_venueItemCount]];
@@ -127,9 +127,9 @@
     [self setItemImage:nil];
     [self setVenueNameBtn:nil];
     [self setItemPriceLabel:nil];
-    [self setGotButton:nil];
-    [self setWantButton:nil];
-    [self setLikeButton:nil];
+//    [self setGotButton:nil];
+//    [self setWantButton:nil];
+//    [self setLikeButton:nil];
     [self setPlaceBigLabel:nil];
     [self setPlaceItemCountLabel:nil];
 //    [self setScrollView:nil];
@@ -269,20 +269,20 @@
 }
 
 
-- (IBAction)gotPressed:(id)sender {
-    [self performSelector:@selector(showPopup:) withObject:@"got"];
-    [self performSelector:@selector(sendItemAction:) withObject:@"got"];
-}
-
-- (IBAction)wantPressed:(id)sender {
-    [self performSelector:@selector(showPopup:) withObject:@"want"];
-    [self performSelector:@selector(sendItemAction:) withObject:@"want"];
-}
-
-- (IBAction)likePressed:(id)sender {
-    [self performSelector:@selector(showPopup:) withObject:@"like"];
-    [self performSelector:@selector(sendItemAction:) withObject:@"like"];
-}
+//- (IBAction)gotPressed:(id)sender {
+//    [self performSelector:@selector(showPopup:) withObject:@"got"];
+//    [self performSelector:@selector(sendItemAction:) withObject:@"got"];
+//}
+//
+//- (IBAction)wantPressed:(id)sender {
+//    [self performSelector:@selector(showPopup:) withObject:@"want"];
+//    [self performSelector:@selector(sendItemAction:) withObject:@"want"];
+//}
+//
+//- (IBAction)likePressed:(id)sender {
+//    [self performSelector:@selector(showPopup:) withObject:@"like"];
+//    [self performSelector:@selector(sendItemAction:) withObject:@"like"];
+//}
 
 - (IBAction)venueNamePressed:(id)sender {
     

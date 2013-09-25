@@ -47,9 +47,9 @@
 @property (strong, nonatomic) IBOutlet UIImageView *itemImage;
 @property (strong, nonatomic) IBOutlet UIButton *venueNameBtn;
 @property (strong, nonatomic) IBOutlet UILabel *itemPriceLabel;
-@property (strong, nonatomic) IBOutlet UIButton *gotButton;
-@property (strong, nonatomic) IBOutlet UIButton *wantButton;
-@property (strong, nonatomic) IBOutlet UIButton *likeButton;
+//@property (strong, nonatomic) IBOutlet UIButton *gotButton;
+//@property (strong, nonatomic) IBOutlet UIButton *wantButton;
+//@property (strong, nonatomic) IBOutlet UIButton *likeButton;
 
 @property (strong, nonatomic) IBOutlet UILabel *placeBigLabel;
 @property (strong, nonatomic) IBOutlet UILabel *placeItemCountLabel;
@@ -57,9 +57,9 @@
 //@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *waitingIndicator;
 //@property (strong, nonatomic) IBOutlet UILabel *waitingUploadLabel;
 
-- (IBAction)gotPressed:(id)sender;
-- (IBAction)wantPressed:(id)sender;
-- (IBAction)likePressed:(id)sender;
+//- (IBAction)gotPressed:(id)sender;
+//- (IBAction)wantPressed:(id)sender;
+//- (IBAction)likePressed:(id)sender;
 - (IBAction)venueNamePressed:(id)sender;
 
 @end

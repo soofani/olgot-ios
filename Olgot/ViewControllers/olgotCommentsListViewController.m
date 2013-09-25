@@ -296,7 +296,8 @@
         commentLabel = (UILabel*)[cell viewWithTag:3]; //comment time
         [commentLabel setText:[[_comments objectAtIndex:indexPath.row] commentDate]];
         
-        commentLabel = (UILabel*)[cell viewWithTag:4]; //comment text
+//        commentLabel = (UILabel*)[cell viewWithTag:4]; //comment text
+        commentLabel = (UITextView*)[cell viewWithTag:4]; //comment text
         [commentLabel setText:[[_comments objectAtIndex:indexPath.row] body]];
         
         return cell;
