@@ -18,8 +18,9 @@
 @class olgotItem;
 
 @protocol olgotDeleteItemProtocol;
+@protocol olgotEditItemProtocol;
 
-@interface olgotItemViewController : SSCollectionViewController<RKObjectLoaderDelegate, UITextFieldDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate, olgotTwitterDelegate,olgotFacebookDelegate>{
+@interface olgotItemViewController : SSCollectionViewController<RKObjectLoaderDelegate, UITextFieldDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate, UIAlertViewDelegate, olgotTwitterDelegate,olgotFacebookDelegate, olgotEditItemProtocol>{
     SSCollectionViewItem *commentsHeader;
     NSArray* _likes;
 //    NSArray* _wants;
@@ -35,10 +36,13 @@
     UIImageView *itemImageView;
     
     id <olgotDeleteItemProtocol> delegate;
+//     id <olgotEditItemProtocol> editDelegate;
 }
 - (IBAction)showProfile:(id)sender;
 
+@property (nonatomic, strong)UIView *footerView;
 @property (nonatomic, retain) id <olgotDeleteItemProtocol> delegate;
+//@property (nonatomic, retain) id <olgotEditItemProtocol> editDelegate;
 @property (strong, nonatomic) NSNumber *itemID;
 @property (strong, nonatomic) NSNumber *itemKey;
 @property (nonatomic, strong) olgotItem *item;
@@ -69,6 +73,12 @@
 
 
 @end
+
+//@protocol olgotEditItemProtocol
+//
+//-(void)finishedEditItem;
+//
+//@end
 
 @protocol olgotDeleteItemProtocol
 

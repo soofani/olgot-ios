@@ -15,6 +15,8 @@
 @class olgotItem;
 
 @protocol addItemConfirmationProtocol;
+@protocol olgotEditItemProtocol;
+
 
 @interface olgotAddItemConfirmationViewController : UIViewController<RKObjectLoaderDelegate>
 {
@@ -24,9 +26,11 @@
     olgotItem* _item;
     
     id<addItemConfirmationProtocol> delegate;
+          id <olgotEditItemProtocol> editDelegate;
 }
 
 @property (nonatomic,retain) id <addItemConfirmationProtocol> delegate;
+@property (nonatomic,retain) id <olgotEditItemProtocol> editDelegate;
 
 @property (nonatomic, assign) BOOL facebookShare;
 
@@ -61,6 +65,12 @@
 //- (IBAction)wantPressed:(id)sender;
 //- (IBAction)likePressed:(id)sender;
 - (IBAction)venueNamePressed:(id)sender;
+
+@end
+
+@protocol olgotEditItemProtocol
+
+-(void)finishedEditItem;
 
 @end
 

@@ -119,6 +119,10 @@
 {
 //    self.tabBarController.selectedIndex = 0;
 //   [self.navigationController popToRootViewControllerAnimated:YES];
+    if(self.editDelegate)
+    {
+        [self.editDelegate finishedEditItem];
+    }else
     [self.delegate finishedAddItem];
 }
 

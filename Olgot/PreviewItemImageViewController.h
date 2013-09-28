@@ -1,5 +1,5 @@
 //
-//  PreviewItemImageViewController.h
+//  PreviewItemImageViewController.m
 //  Olgot
 //
 //  Created by Belal Jaradat on 7/8/13.

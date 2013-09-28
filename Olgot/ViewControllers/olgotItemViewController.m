@@ -19,6 +19,7 @@
 #import "DejalActivityView.h"
 #import "olgotProtocols.h"
 #import "PreviewItemImageViewController.h"
+#import "olgotEditItemViewController.h"
 #import <FacebookSDK/FBRequest.h>
 
 
@@ -35,8 +36,10 @@
 //@synthesize myCommentTF = _myCommentTF;
 @synthesize myCommentTA = _myCommentTA;
 @synthesize postButton = _postButton;
+@synthesize footerView = _footerView;
 
 @synthesize delegate;
+//@synthesize editDelegate;
 
 @synthesize itemCell = _itemCell, finderCell = _finderCell, peopleRowCell = _peopleRowCell,  commentsHeader, commentCell = _commentCell, commentsFooter = _commentsFooter;
 
@@ -64,6 +67,15 @@
 //    }
 //}
 
+-(void)finishedEditItem
+{
+    NSLog(@"OlgotItemViewController ->  finishedEditItem");
+    [self.navigationController popViewControllerAnimated:NO];
+    [self dismissModalViewControllerAnimated:NO];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    [self loadItemData];
+}
 -(void)loadItemData
 {
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
@@ -75,6 +87,11 @@
     NSString* resourcePath = @"/item/";
     [objectManager loadObjectsAtResourcePath:[resourcePath stringByAppendingQueryParameters:myParams] delegate:self];
 }
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [self loadItemData];
+//    [super viewWillAppear:animated];
+//}
 
 -(void)gestureTapped
 {
@@ -178,11 +195,29 @@
     [self finishedComment:nil];
 }
 
+-(void)addEditItemButton
+{
+    if(!self.footerView)
+    self.footerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 108.0f)];
+    
+    UIButton* editButton = [[UIButton alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 300.0f, 44.0f)];
+    
+    [editButton setTitle:@"Edit item" forState:UIControlStateNormal];
+    
+    [editButton setBackgroundImage:[UIImage imageNamed:@"btn-select-username"] forState:UIControlStateNormal];
+    
+    [editButton addTarget:self action:@selector(editItemPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.footerView addSubview:editButton];
+    
+    [self.collectionView setCollectionFooterView:self.footerView];
+}
+
 -(void)addDeleteItemButton
 {
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 54.0f)];
+//    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 54.0f)];
     
-    UIButton* deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 300.0f, 44.0f)];
+    UIButton* deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(10.0f, 62.0f, 300.0f, 44.0f)];
     
     [deleteButton setTitle:@"Delete" forState:UIControlStateNormal];
     
@@ -190,9 +225,9 @@
     
     [deleteButton addTarget:self action:@selector(confirmDeleteItem) forControlEvents:UIControlEventTouchUpInside];
     
-    [footerView addSubview:deleteButton];
+    [self.footerView addSubview:deleteButton];
     
-    [self.collectionView setCollectionFooterView:footerView];
+    [self.collectionView setCollectionFooterView:self.footerView];
 }
 
 -(void)tweetItem
@@ -342,6 +377,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([[_item userID] isEqual:[defaults objectForKey:@"userid"]]) {
         NSLog(@"Item Owner");
+        [self addEditItemButton];
         [self addDeleteItemButton];
         
     } else {
@@ -1074,6 +1110,14 @@ if(priceViewFrame.size.width > itemImageView.frame.size.width-20)
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"showEditItem"]) {
+        olgotEditItemViewController *editItemViewController = [segue destinationViewController];
+        
+                editItemViewController.navigationItem.title = @"Edit Item";
+        editItemViewController.itemToView = _item;
+        editItemViewController.editDelegate = self;
+    }
     if ([[segue identifier] isEqualToString:@"showAllComments"]) {
         olgotCommentsListViewController *commentsViewController = [segue destinationViewController];
         
@@ -1305,6 +1349,13 @@ if(priceViewFrame.size.width > itemImageView.frame.size.width-20)
                                             otherButtonTitles:@"Delete", nil];
     [message show];
 }
+
+
+-(IBAction)editItemPressed:(id)sender
+{
+  [self performSegueWithIdentifier:@"showEditItem" sender:self];
+}
+
 
 -(void)deleteItem
 {
