@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1280" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Olgot Tab Bar View Controller-->
@@ -51,7 +52,7 @@
             <objects>
                 <viewController modalTransitionStyle="flipHorizontal" hidesBottomBarWhenPushed="YES" id="onH-ec-kNX" customClass="olgotBoardViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Rt-6A-JXc">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -72,7 +73,7 @@
             <objects>
                 <viewController id="2d6-B9-oGp" customClass="olgotFriendsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PCT-mO-2a1">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -86,11 +87,11 @@
             <objects>
                 <viewController id="dbc-jH-RBX" customClass="olgotHelpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0X8-em-8on">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" id="xDy-X1-Xqa">
-                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="436"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
@@ -131,11 +132,11 @@
             <objects>
                 <viewController id="lYn-Ft-tZA" customClass="olgotMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="48m-jf-MAV">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="qjX-z9-RYF">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.30000000000000016" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="B8s-QX-UTu">
@@ -154,7 +155,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pan or zoom out to see more items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="yHe-Ti-Hda">
-                                <rect key="frame" x="0.0" y="395" width="320" height="21"/>
+                                <rect key="frame" x="0.0" y="459" width="320" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.87843143940000001" green="0.8980392814" blue="0.90588241820000004" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
@@ -202,7 +203,7 @@
             <objects>
                 <viewController id="XiP-jZ-yvg" customClass="olgotPeopleListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7f1-hg-2ux">
-                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -220,7 +221,7 @@
             <objects>
                 <viewController id="gYY-SF-9fN" customClass="olgotVenueViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dV0-qV-LCI">
-                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -243,11 +244,11 @@
             <objects>
                 <viewController id="87U-8D-FOE" customClass="olgotVenueMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AxW-Ju-4Wz">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="Pz3-17-uJm">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                         </subviews>
@@ -267,7 +268,7 @@
             <objects>
                 <viewController id="a8M-z2-hPg" customClass="olgotLovelyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7AF-cw-8fx">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -288,7 +289,7 @@
             <objects>
                 <viewController id="fsi-nE-oPn" customClass="olgotShareViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yvX-Mo-9yC">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -325,15 +326,15 @@
             <objects>
                 <viewController id="Hte-Zn-Pmt" customClass="olgotAddItemDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v6c-Cb-I40">
-                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="wNy-dX-QSg">
-                                <rect key="frame" x="0.0" y="-22" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="-22" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="Cj3-Wu-qDk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="GEw-0L-3nP">
@@ -392,9 +393,6 @@
                                         <state key="normal" title="Post It" backgroundImage="btn-select-username.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="postButtonPressed:" destination="Hte-Zn-Pmt" eventType="touchUpInside" id="64M-ld-uj6"/>
@@ -487,15 +485,15 @@
             <objects>
                 <viewController title="Edit Item" id="ZPC-PG-bdV" customClass="olgotEditItemViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fHE-4c-vgr">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="byA-kg-i6H">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="HUt-tL-yiR">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="560"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="580"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="GNv-hG-eLc">
@@ -526,9 +524,6 @@
                                         <state key="normal" title="Save Changes" backgroundImage="btn-select-username.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="postButtonPressed:" destination="ZPC-PG-bdV" eventType="touchUpInside" id="g0O-YV-eiw"/>
@@ -690,15 +685,15 @@
             <objects>
                 <viewController id="AmF-Fo-vjg" customClass="olgotAddItemConfirmationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sR6-nh-WIA">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="yzm-QS-IkH">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="Wct-9k-aY7">
-                                <rect key="frame" x="0.0" y="20" width="322" height="395"/>
+                                <rect key="frame" x="0.0" y="84" width="322" height="395"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="kod-nd-urD">
@@ -773,7 +768,7 @@
                                 </subviews>
                             </scrollView>
                             <progressView opaque="NO" contentMode="scaleToFill" id="wAe-o0-J28">
-                                <rect key="frame" x="11" y="5" width="300" height="9"/>
+                                <rect key="frame" x="11" y="5" width="300" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="progressTintColor" red="0.90980392160000001" green="0.30588235289999999" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
@@ -802,7 +797,7 @@
             <objects>
                 <viewController id="qgL-I9-Ymt" customClass="olgotCommentsListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uUV-e7-4t0">
-                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -823,7 +818,7 @@
             <objects>
                 <viewController id="HAn-Se-f9H" customClass="olgotProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fbN-fm-WR5">
-                        <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -880,18 +875,18 @@
             <objects>
                 <viewController id="bHT-Pn-EkF" customClass="olgotNotificationsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gcX-eC-n5v">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" id="aEr-df-ZgU">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" id="aEr-df-ZgU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noteCommentCell" rowHeight="61" id="zma-B1-SBd">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="61"/>
+                                        <rect key="frame" x="0.0" y="86" width="320" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zma-B1-SBd" id="ic1-Oq-duE">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -919,16 +914,15 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <connections>
                                             <segue destination="Fmr-fE-SC3" kind="push" identifier="ShowItem" id="7BR-Ub-gCU"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noteUserCell" rowHeight="61" id="Kbr-5k-eAG">
-                                        <rect key="frame" x="0.0" y="83" width="320" height="61"/>
+                                        <rect key="frame" x="0.0" y="147" width="320" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kbr-5k-eAG" id="LTi-8N-knz">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -952,8 +946,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <connections>
                                             <segue destination="HAn-Se-f9H" kind="push" identifier="ShowUserProfile" id="hww-46-m0V"/>
                                         </connections>
@@ -1270,18 +1263,18 @@
         <scene sceneID="bUQ-8B-Jz4">
             <objects>
                 <tableViewController id="CVZ-O8-kBz" customClass="olgotMoreViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="F0B-1Q-DrB">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="F0B-1Q-DrB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection id="Dvn-LH-hoX">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ucv-qn-CbC">
-                                        <rect key="frame" x="0.0" y="10" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ucv-qn-CbC" id="LX7-M0-9zE">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Save Photos To Device" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="BzS-S7-rkE">
@@ -1292,7 +1285,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="DxL-5K-12j">
-                                                    <rect key="frame" x="215" y="8" width="79" height="27"/>
+                                                    <rect key="frame" x="215" y="8" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="onTintColor" red="0.90980392160000001" green="0.30588235289999999" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
@@ -1300,14 +1293,13 @@
                                                     </connections>
                                                 </switch>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="NzU-Bg-4ML">
-                                        <rect key="frame" x="0.0" y="55" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="143" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NzU-Bg-4ML" id="MFs-Ln-fsa">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Auto Tweet New Items" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="aBR-F9-D2y">
@@ -1318,7 +1310,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="8O1-Kw-ivE">
-                                                    <rect key="frame" x="214" y="11" width="79" height="27"/>
+                                                    <rect key="frame" x="214" y="11" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="onTintColor" red="0.90980392160000001" green="0.30588235289999999" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
@@ -1326,14 +1318,13 @@
                                                     </connections>
                                                 </switch>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="scd-pa-6yz">
-                                        <rect key="frame" x="0.0" y="99" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="187" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="scd-pa-6yz" id="Guw-8f-p5D">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Facebook Connect" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Kxz-yL-iUi">
@@ -1344,7 +1335,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="dqN-uM-qUc">
-                                                    <rect key="frame" x="214" y="11" width="79" height="27"/>
+                                                    <rect key="frame" x="214" y="11" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="onTintColor" red="0.90980392160000001" green="0.30588235289999999" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
@@ -1352,14 +1343,13 @@
                                                     </connections>
                                                 </switch>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="x0b-v2-a3e">
-                                        <rect key="frame" x="0.0" y="143" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="231" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x0b-v2-a3e" id="Xzh-as-dLt">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Rate Us on the App Store" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="U6Y-WG-E7o">
@@ -1370,14 +1360,13 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="6Pd-ft-3C0">
-                                        <rect key="frame" x="0.0" y="187" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="275" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Pd-ft-3C0" id="Y8P-sx-Hl9">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="About Olgot" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Ssw-sn-gc5">
@@ -1388,17 +1377,16 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <connections>
                                             <segue destination="0F3-Qv-T1G" kind="push" id="qKu-ye-BGq"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="usY-CV-tep">
-                                        <rect key="frame" x="0.0" y="231" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="319" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="usY-CV-tep" id="9TN-m9-zLF">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Send Us Feedback" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="c7t-rs-G2Z">
@@ -1409,8 +1397,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <connections>
                                             <segue destination="coE-aD-TYw" kind="push" identifier="ShowFeedbackView" id="UZH-fN-YPB"/>
                                         </connections>
@@ -1423,10 +1410,10 @@
                             <tableViewSection id="r3q-Ju-HqU">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HeJ-Ns-fYY">
-                                        <rect key="frame" x="0.0" y="316" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="403" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HeJ-Ns-fYY" id="K2g-yS-gf5">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Logout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="at1-cx-het">
@@ -1437,8 +1424,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1466,18 +1452,18 @@
         <scene sceneID="aky-az-Qzf">
             <objects>
                 <tableViewController id="vWb-eS-9ZB" customClass="olgotAccountSettingsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Sgk-y2-G67">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Sgk-y2-G67">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection id="0XB-QD-ddS">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fdf-25-bJl">
-                                        <rect key="frame" x="0.0" y="10" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="35" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fdf-25-bJl" id="9ts-wv-ac0">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="oOF-52-Bnq">
@@ -1488,17 +1474,16 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <connections>
                                             <segue destination="gLI-qR-hkn" kind="push" id="cmd-jx-3uS"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xWq-bf-UG6">
-                                        <rect key="frame" x="0.0" y="55" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="79" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xWq-bf-UG6" id="8zx-Kb-BAR">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Change Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="0w6-3k-sdc">
@@ -1509,8 +1494,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <connections>
                                             <segue destination="1SI-Rl-XeF" kind="push" id="Qgq-1J-t1U"/>
                                         </connections>
@@ -1534,45 +1518,45 @@
             <objects>
                 <viewController id="0F3-Qv-T1G" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FDU-5o-Ve7">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="kXK-LH-afG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="xqQ-n8-wnD">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="nKa-n0-oE0">
-                                        <rect key="frame" x="10" y="8" width="300" height="280"/>
+                                        <rect key="frame" x="10" y="10" width="300" height="366"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="We're a group of passionate geeks out to change the world... and... wait! That's not it." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="0lr-c9-eyf">
-                                        <rect key="frame" x="20" y="20" width="280" height="69"/>
+                                        <rect key="frame" x="20" y="20" width="280" height="91"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="We just want to change the way you discover, share, and get the things worth getting." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="MCm-cH-Lrg">
-                                        <rect key="frame" x="20" y="97" width="280" height="113"/>
+                                        <rect key="frame" x="20" y="97" width="280" height="160"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="A product of Ooo! Garage, Just Around The Corner." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Xo4-8i-5wF">
-                                        <rect key="frame" x="20" y="231" width="280" height="45"/>
+                                        <rect key="frame" x="20" y="302" width="280" height="59"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="We don't believe in copyrighting ideas" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="mjo-rG-ZIV">
-                                        <rect key="frame" x="21" y="258" width="280" height="23"/>
+                                        <rect key="frame" x="21" y="337" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -1594,15 +1578,15 @@
             <objects>
                 <viewController id="1SI-Rl-XeF" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jN1-nv-5Yg">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="5a7-Qx-0Nk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="cxb-CI-AXs">
-                                <rect key="frame" x="0.0" y="93" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="113" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="tbP-VF-DjH">
@@ -1645,13 +1629,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bJI-ha-KGE">
                                         <rect key="frame" x="10" y="214" width="300" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Save It!" backgroundImage="btn-select-username.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
                                 </subviews>
@@ -1670,15 +1650,15 @@
             <objects>
                 <viewController id="gLI-qR-hkn" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LLh-ZG-wqs">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="Klr-w8-kgw">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="I0I-L7-uFQ">
-                                <rect key="frame" x="0.0" y="93" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="113" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Rd4-px-gcl">
@@ -1739,13 +1719,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VcI-cd-fPd">
                                         <rect key="frame" x="10" y="262" width="300" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Save Changes" backgroundImage="btn-select-username.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
                                 </subviews>
@@ -1764,31 +1740,31 @@
             <objects>
                 <viewController id="coE-aD-TYw" customClass="olgotFeedbackViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PG0-IA-AYC">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="Vvl-2C-3dW">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" id="LM2-ID-qmr">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3B0-y6-cQT">
-                                        <rect key="frame" x="10" y="10" width="300" height="183"/>
+                                        <rect key="frame" x="10" y="10" width="300" height="296"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="We expect criticism!" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="bUK-dA-37A">
-                                        <rect key="frame" x="20" y="20" width="280" height="24"/>
+                                        <rect key="frame" x="20" y="20" width="280" height="32"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ZYO-3M-1Qg">
-                                        <rect key="frame" x="20" y="52" width="280" height="128"/>
+                                        <rect key="frame" x="20" y="52" width="280" height="174"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.87843143940000001" green="0.8980392814" blue="0.90588241820000004" alpha="1" colorSpace="deviceRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1798,15 +1774,11 @@
                                         </connections>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="meL-Kc-N8f">
-                                        <rect key="frame" x="10" y="201" width="300" height="36"/>
+                                        <rect key="frame" x="10" y="314" width="300" height="36"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Throw it at us" backgroundImage="btn-select-username.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="postFeedbackButtonPressed:" destination="coE-aD-TYw" eventType="touchUpInside" id="uDH-87-tur"/>
@@ -1894,283 +1866,6 @@
         <image name="logo-210x155.png" width="210" height="155"/>
         <image name="slogan-390x50.png" width="195" height="25"/>
     </resources>
-    <classes>
-        <class className="SSCollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSCollectionViewController.h"/>
-        </class>
-        <class className="SSCollectionViewItem" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSCollectionViewItem.h"/>
-        </class>
-        <class className="SSLineView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSLineView.h"/>
-        </class>
-        <class className="olgotAccountSettingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotAccountSettingsViewController.h"/>
-        </class>
-        <class className="olgotAddItemConfirmationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotAddItemConfirmationViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="venueNamePressed:"/>
-                <relationship kind="outlet" name="itemImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="itemPriceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="line1" candidateClass="SSLineView"/>
-                <relationship kind="outlet" name="line2" candidateClass="SSLineView"/>
-                <relationship kind="outlet" name="placeBigLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="placeItemCountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="progressView" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="venueNameBtn" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="olgotAddItemDetailsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotAddItemDetailsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addedDescription:"/>
-                <relationship kind="action" name="addedName:"/>
-                <relationship kind="action" name="editDescription:"/>
-                <relationship kind="action" name="editImagePressed:"/>
-                <relationship kind="action" name="facebookSharePressed:"/>
-                <relationship kind="action" name="openLocationViewPressed:"/>
-                <relationship kind="action" name="postButtonPressed:"/>
-                <relationship kind="action" name="twitterSharePressed:"/>
-                <relationship kind="outlet" name="descriptionTF" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="expandableView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="facebookShareBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="itemImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="itemNameTF" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="itemPriceTF" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="itemsBgImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="postButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="twitterShareBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="whereTxtField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="olgotAddItemNearbyPlacesViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotAddItemNearbyPlacesViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="placeCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-        <class className="olgotBoardViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotBoardViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemCell" candidateClass="SSCollectionViewItem"/>
-            </relationships>
-        </class>
-        <class className="olgotChooseFriends" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotChooseFriends.h"/>
-            <relationships>
-                <relationship kind="outlet" name="footerCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="headerCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="personCell" candidateClass="SSCollectionViewItem"/>
-            </relationships>
-        </class>
-        <class className="olgotChooseUsernameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotChooseUsernameViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="createAccount:"/>
-                <relationship kind="action" name="pressedDone:"/>
-                <relationship kind="action" name="pressedNext:"/>
-                <relationship kind="outlet" name="createAccountBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="userEmail" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="userPhone" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="usernameTF" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="olgotCommentsListViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotCommentsListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="finishedComment:"/>
-                <relationship kind="action" name="touchedWriteComment:"/>
-                <relationship kind="outlet" name="commentCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="commentsListHeader" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="myCommentTA" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="mySmallImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="postButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="olgotEditItemViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotEditItemViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addedDescription:"/>
-                <relationship kind="action" name="addedName:"/>
-                <relationship kind="action" name="editDescription:"/>
-                <relationship kind="action" name="editImagePressed:"/>
-                <relationship kind="action" name="facebookSharePressed:"/>
-                <relationship kind="action" name="openLocationViewPressed:"/>
-                <relationship kind="action" name="postButtonPressed:"/>
-                <relationship kind="action" name="twitterSharePressed:"/>
-                <relationship kind="outlet" name="descriptionTF" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="expandableView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="facebookShareBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="itemImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="itemNameTF" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="itemPriceTF" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="itemsBgImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="postButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="twitterShareBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="whereTxtField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="olgotExploreViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotExploreViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="boardBigTile" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="boardNormalTile" candidateClass="SSCollectionViewItem"/>
-            </relationships>
-        </class>
-        <class className="olgotFeedbackViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotFeedbackViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="postFeedbackButtonPressed:"/>
-                <relationship kind="outlet" name="feedbackTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="postFeedbackButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="olgotFriendsViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotFriendsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="footerCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="headerCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="personCell" candidateClass="SSCollectionViewItem"/>
-            </relationships>
-        </class>
-        <class className="olgotHelpViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotHelpViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="donePressed:"/>
-                <relationship kind="outlet" name="activityView" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="navigationBar" candidateClass="UINavigationBar"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="olgotItemViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotItemViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="finishedComment:"/>
-                <relationship kind="action" name="likeAction:"/>
-                <relationship kind="action" name="previewItemImagePressed:"/>
-                <relationship kind="action" name="showProfile:"/>
-                <relationship kind="action" name="showVenue:"/>
-                <relationship kind="action" name="touchedWriteComment:"/>
-                <relationship kind="action" name="wantAction:"/>
-                <relationship kind="outlet" name="commentCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="commentsFooter" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="commentsHeader" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="finderCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="itemCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="likeButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="myCommentTA" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="mySmallImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="peopleRowCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="postButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="wantButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="olgotLovelyViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotLovelyViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemTile" candidateClass="SSCollectionViewItem"/>
-            </relationships>
-        </class>
-        <class className="olgotMapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotMapViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="dismissMap:"/>
-                <relationship kind="outlet" name="itemCountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="olgotMoreViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotMoreViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeAutoTweet:"/>
-                <relationship kind="action" name="changeFacebookConnect:"/>
-                <relationship kind="action" name="changeSavePhotos:"/>
-                <relationship kind="outlet" name="autoTweetSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="facebookConnectSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="savePhotosSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="sessionStatusLbl" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="olgotNotificationsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotNotificationsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="doneBtnPressed:"/>
-                <relationship kind="outlet" name="activityView" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="doneBtn" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="olgotPeopleListViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotPeopleListViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="personCell" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="personListHeader" candidateClass="SSCollectionViewItem"/>
-            </relationships>
-        </class>
-        <class className="olgotProfileViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotProfileViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="followButtonPressed:"/>
-                <relationship kind="action" name="showFollowersAction:"/>
-                <relationship kind="action" name="showFollowingAction:"/>
-                <relationship kind="outlet" name="followButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="noItemsTile" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="profileCardTile" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="profileItemTile" candidateClass="SSCollectionViewItem"/>
-            </relationships>
-        </class>
-        <class className="olgotShareViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotShareViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="takePicture:"/>
-            </relationships>
-        </class>
-        <class className="olgotSignupRootViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotSignupRootViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="facebookSignin:"/>
-                <relationship kind="action" name="hideSignup:"/>
-                <relationship kind="action" name="swipeUp:" candidateClass="UISwipeGestureRecognizer"/>
-                <relationship kind="action" name="twitterSignin:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="bgImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="dummyBgImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="facebookSigninButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="logoImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="sloganImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="swipeRecogniser" candidateClass="UISwipeGestureRecognizer"/>
-                <relationship kind="outlet" name="twitterSigninButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="olgotTabBarViewController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotTabBarViewController.h"/>
-        </class>
-        <class className="olgotVenueMapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotVenueMapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="olgotVenueViewController" superclassName="SSCollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/olgotVenueViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showVenueMap:"/>
-                <relationship kind="action" name="userPressed:"/>
-                <relationship kind="outlet" name="venueAddressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="venueCardTile" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="venueIconImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="venueItemTile" candidateClass="SSCollectionViewItem"/>
-                <relationship kind="outlet" name="venueLocationBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="venueMapButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

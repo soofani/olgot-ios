@@ -1456,6 +1456,11 @@
 				CLASSPREFIX = olgot;
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Not Another Fruit";
+				TargetAttributes = {
+					FFA4ED8D155D12D8008CB4CA = {
+						DevelopmentTeam = YG6G762DR4;
+					};
+				};
 			};
 			buildConfigurationList = FFA4ED88155D12D8008CB4CA /* Build configuration list for PBXProject "Olgot" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1948,8 +1953,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Olgot/Olgot.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobile Channels Company (RYF674EVDV)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobile Channels Company (RYF674EVDV)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Belal Jaradat (YG6G762DR4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Belal Jaradat (YG6G762DR4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1969,8 +1974,8 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6CC58F7B-06B1-4520-B8EF-8AF701261335";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6CC58F7B-06B1-4520-B8EF-8AF701261335";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "39857E8D-C938-445A-B827-B9E1D213FF76";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1980,8 +1985,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Olgot/Olgot.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobile Channels Company (RYF674EVDV)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobile Channels Company (RYF674EVDV)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Belal Jaradat (YG6G762DR4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Belal Jaradat (YG6G762DR4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2001,8 +2006,8 @@
 					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6CC58F7B-06B1-4520-B8EF-8AF701261335";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6CC58F7B-06B1-4520-B8EF-8AF701261335";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "39857E8D-C938-445A-B827-B9E1D213FF76";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
